@@ -2,6 +2,8 @@
 
 # 🎨 Papa Yar Theme Gallery
 
+![Papa Yar Theme Gallery — 42 themes](assets/theme-wall.png)
+
 **گالری تعاملی ۴۲ تم کامل برای اکستنشن پاپا یار — هر تم با استایل‌شیت، سیستم افکت اختصاصی و ست کامل آیکون**
 *An interactive gallery of 42 complete themes for the Papa Yar Chrome extension — each with its own stylesheet, dedicated effects file, and full icon set.*
 
