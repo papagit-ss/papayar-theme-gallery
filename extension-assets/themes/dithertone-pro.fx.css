@@ -1,0 +1,93 @@
+/* ==========================================================================
+   Theme 24 FX: dithertone-pro.fx.css — Blue Halftone Dither Matrix Effects
+   1. Ambient: Pulsing Bayer halftone matrix scan & perspective grid glow
+   2. Hover: Ordered Bayer 4x4 halftone spotlight following cursor
+   3. Click: Algorithm quantization flash & square corner node shockwave
+   4. Transition: Halftone threshold matrix wipe
+   ========================================================================== */
+
+[data-theme="dithertone-pro"] .fx-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 25;
+  overflow: hidden;
+}
+
+/* 1. AMBIENT: Oscillating Blue Phosphor Scan Beam */
+html[data-theme="dithertone-pro"][data-fx="full"] .fx-ambient-a {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 28px;
+  background: radial-gradient(rgba(140, 232, 255, 0.45) 1px, transparent 1px) 0 0 / 3px 3px;
+  filter: drop-shadow(0 0 8px #5CE1FF);
+  opacity: 0.45;
+  animation: dither-scan-beam 7s linear infinite;
+}
+
+@keyframes dither-scan-beam {
+  0% { top: -5%; }
+  100% { top: 105%; }
+}
+
+/* 2. HOVER: Ordered Bayer Halftone Cursor Lens */
+html[data-theme="dithertone-pro"]:not([data-fx="off"]) .fx-cursor-follower {
+  position: fixed;
+  left: var(--fx-mx, 175px);
+  top: var(--fx-my, 220px);
+  width: 64px;
+  height: 64px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(rgba(140, 232, 255, 0.45) 1px, transparent 1px) 0 0 / 4px 4px;
+  mask-image: radial-gradient(circle, #000 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(circle, #000 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* 3. CLICK: Algorithm Quantization Flash & Square Node Shockwave */
+html[data-theme="dithertone-pro"]:not([data-fx="off"]) .is-fx-clicked {
+  animation: dither-quantize-click 0.32s steps(4, end) !important;
+}
+
+@keyframes dither-quantize-click {
+  0% { filter: brightness(1); }
+  30% {
+    background-color: #E6F9FF !important;
+    color: #04070D !important;
+    box-shadow: 0 0 24px #5CE1FF !important;
+  }
+  65% {
+    filter: contrast(1.6) brightness(1.3);
+  }
+  100% { filter: brightness(1); }
+}
+
+html[data-theme="dithertone-pro"]:not([data-fx="off"]) .fx-click-burst.is-bursting {
+  position: fixed;
+  left: var(--burst-x, 175px);
+  top: var(--burst-y, 220px);
+  width: 12px;
+  height: 12px;
+  transform: translate(-50%, -50%);
+  border: 1.5px solid #E6F9FF;
+  box-shadow: 0 0 14px #5CE1FF, inset 0 0 8px #5CE1FF;
+  pointer-events: none;
+  z-index: 999;
+  animation: dither-node-burst 0.42s steps(6, end) forwards;
+}
+
+@keyframes dither-node-burst {
+  0% { width: 10px; height: 10px; opacity: 1; }
+  100% { width: 96px; height: 96px; opacity: 0; }
+}
+
+/* 4. TRANSITION: Bayer Matrix Threshold Tab Reveal */
+html[data-theme="dithertone-pro"]:not([data-fx="off"]) .tab-page.active {
+  animation: dither-tab-reveal 0.28s steps(5, end) both !important;
+}
+
+@keyframes dither-tab-reveal {
+  0% { opacity: 0; filter: brightness(2) contrast(2); transform: scale(0.98); }
+  100% { opacity: 1; filter: none; transform: scale(1); }
+}

@@ -1,0 +1,259 @@
+/* ==========================================================================
+   Theme: iridescent-holo-foil — فویل هولوگرافیک (Iridescent Chrome Holo Foil)
+   - Matte Obsidian Base (#07080D) Contrasted with Prismatic Rainbow-Chrome
+     Holographic Foil Cards (#E0C3FC -> #8EC5FC -> #B5FFFC -> #FBC2EB)
+   - Deep Midnight-Obsidian Viewport (.phone-display) with Prismatic Foil Rim
+   - 16:1 Contrast Dark Ink (#090B12) on Holographic Foil Surfaces
+   ========================================================================== */
+
+[data-theme="iridescent-holo-foil"] {
+  --bg-deep: #07080D;
+  --bg-card: #E8F0FE;
+  --bg-card-hover: #FFFFFF;
+  --bg-input: #090B12;
+  --bg-modal: #E8F0FE;
+  --bg-overlay: rgba(5, 6, 10, 0.86);
+  --bg-page-gradient:
+    radial-gradient(220px 160px at 85% 15%, rgba(142, 197, 252, 0.22) 0%, transparent 70%),
+    radial-gradient(220px 160px at 15% 75%, rgba(251, 194, 235, 0.20) 0%, transparent 70%),
+    #07080D;
+  --backdrop-blur: none;
+  --tabs-bar-bg: #0D101A;
+  --subchip-bg: #FFFFFF;
+
+  --text-primary: #090B12;
+  --text-secondary: #1E2436;
+  --text-muted: #333C54;
+  --text-input: #FFFFFF;
+  --text-on-accent: #FFFFFF;
+  --text-brand: #090B12;
+  --text-brand-accent: #6D28D9;
+  --text-phone: #090B12;
+
+  --primary-neon: #090B12;
+  --primary-light: #8EC5FC;
+  --accent-cyan: #0284C7;
+  --accent-purple: #7C3AED;
+  --accent-emerald: #059669;
+  --accent-crimson: #E11D48;
+  --accent-yellow: #D97706;
+  --semantic-danger: #E11D48;
+  --semantic-success: #059669;
+  --semantic-warning: #D97706;
+
+  --border-subtle: #FFFFFF;
+  --border-glow: #8EC5FC;
+  --border-card-top: #FFFFFF;
+  --border-width: 2px;
+  --border-color: #FFFFFF;
+  --border-input: 2px solid #8EC5FC;
+  --border-modal: 2px solid #FFFFFF;
+  --border-chip: 1.5px solid #090B12;
+  --border-subchip: 1.5px solid #7C3AED;
+
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 22px;
+  --radius-pill: 999px;
+
+  --card-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.72),
+    inset 0 2px 2px #FFFFFF;
+  --card-shadow-hover:
+    0 16px 34px rgba(142, 197, 252, 0.35),
+    inset 0 2px 3px #FFFFFF;
+  --active-card-shadow: var(--card-shadow);
+  --btn-shadow: 0 3px 0 #090B12;
+  --btn-shadow-hover: 0 4px 0 #090B12;
+  --modal-shadow: 0 24px 48px rgba(0, 0, 0, 0.9);
+  --glow-pill: none;
+  --glow-dot: 0 0 8px #8EC5FC;
+
+  --btn-transform-hover: translateY(-1px);
+  --btn-transform-active: translateY(1px);
+
+  --btn-inject-bg: #090B12;
+  --btn-inject-color: #FFFFFF;
+  --btn-inject-border: 2px solid #FFFFFF;
+  --btn-scan-mass-bg: #090B12;
+  --btn-scan-mass-color: #FFFFFF;
+  --btn-scan-mass-border: 2px solid #FFFFFF;
+  --btn-gofullpage-bg: #1E2436;
+  --btn-gofullpage-color: #FFFFFF;
+  --btn-gofullpage-border: 2px solid #FFFFFF;
+  --btn-ai-scan-bg: #FFFFFF;
+  --btn-ai-scan-color: #090B12;
+  --btn-ai-scan-border: 1.5px solid #090B12;
+  --btn-upload-bg: #FFFFFF;
+  --btn-upload-color: #090B12;
+  --btn-upload-border: 1.5px solid #090B12;
+  --btn-excel-bg: #090B12;
+  --btn-excel-color: #FFFFFF;
+  --btn-excel-border: 2px solid #FFFFFF;
+  --excel-banner-bg: #FFFFFF;
+  --excel-banner-color: #090B12;
+  --excel-banner-border: 2px solid #090B12;
+
+  --v-code-box-bg: #090B12;
+  --v-code-box-border: 2px solid #FFFFFF;
+  --v-code-color: #B5FFFC;
+  --v-pill-meta-bg: #FFFFFF;
+  --v-pill-meta-color: #090B12;
+
+  --switcher-bg: #FFFFFF;
+  --switcher-border: 1.5px solid #090B12;
+  --scrollbar-thumb: #8EC5FC;
+  --scrollbar-thumb-hover: #FBC2EB;
+  --scrollbar-track: #07080D;
+  --scrollbar-width: 5px;
+  --scrollbar-radius: 999px;
+  --scrollbar-border: none;
+
+  --flare-display: none;
+  --active-card-topline-display: none;
+  --font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "SF Mono", ui-monospace, monospace;
+}
+
+[data-theme="iridescent-holo-foil"] body {
+  background-color: #07080D !important;
+  color: #090B12;
+}
+
+[data-theme="iridescent-holo-foil"] .popup-wrapper {
+  position: relative;
+  padding-top: 28px !important;
+}
+
+[data-theme="iridescent-holo-foil"] .popup-wrapper::before {
+  content: "✦  AUTHENTIC HOLOGRAM FOIL  //  EDITION 01  ✦";
+  position: absolute;
+  top: 5px;
+  inset-inline: 12px;
+  height: 19px;
+  background: linear-gradient(90deg, #E0C3FC 0%, #8EC5FC 35%, #B5FFFC 70%, #FBC2EB 100%);
+  color: #090B12;
+  border: 1.5px solid #FFFFFF;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  font-weight: 900;
+  letter-spacing: 0.9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  direction: ltr;
+}
+
+/* Prismatic Rainbow-Chrome Holographic Foil Cards */
+[data-theme="iridescent-holo-foil"] .app-header,
+[data-theme="iridescent-holo-foil"] .active-account-card,
+[data-theme="iridescent-holo-foil"] .section-container,
+[data-theme="iridescent-holo-foil"] .app-footer {
+  background: linear-gradient(
+    135deg,
+    #F3E7FF 0%,
+    #D6EAFF 28%,
+    #D8FFF8 55%,
+    #FFE2F5 82%,
+    #E2EBFF 100%
+  ) !important;
+  border: 2px solid #FFFFFF !important;
+  border-radius: 20px !important;
+  box-shadow: var(--card-shadow) !important;
+}
+
+[data-theme="iridescent-holo-foil"] .section-container {
+  padding: 12px !important;
+}
+
+[data-theme="iridescent-holo-foil"] .active-account-card::before {
+  display: none !important;
+}
+
+/* Deep Obsidian Viewport inside Holographic Card */
+[data-theme="iridescent-holo-foil"] .phone-display {
+  background: #090B12 !important;
+  color: #FFFFFF !important;
+  border: 2px solid #FFFFFF !important;
+  outline: 2px solid #090B12 !important;
+  border-radius: 14px !important;
+  padding: 10px 14px !important;
+  margin-block: 8px !important;
+  font-family: var(--font-mono) !important;
+  font-size: 22px !important;
+  font-weight: 900 !important;
+  letter-spacing: 2px !important;
+  text-shadow: -1.5px 0 #FBC2EB, 1.5px 0 #8EC5FC !important;
+}
+
+[data-theme="iridescent-holo-foil"] .quick-profile-card,
+[data-theme="iridescent-holo-foil"] .saved-account-card {
+  background: rgba(255, 255, 255, 0.92) !important;
+  border: 2px solid #090B12 !important;
+  border-radius: 16px !important;
+  box-shadow: 0 3px 0 #090B12 !important;
+}
+
+[data-theme="iridescent-holo-foil"] .avatar-glow {
+  background: #090B12 !important;
+  color: #B5FFFC !important;
+  border: 2px solid #FFFFFF !important;
+}
+
+[data-theme="iridescent-holo-foil"] .nav-tabs-bar {
+  background: #0D101A !important;
+  border: 2px solid #FFFFFF !important;
+  border-radius: 999px !important;
+  padding: 4px !important;
+}
+
+[data-theme="iridescent-holo-foil"] .nav-tab-item {
+  border-radius: 999px !important;
+  color: #E2EBFF !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="iridescent-holo-foil"] .nav-tab-item.active {
+  background: linear-gradient(90deg, #E0C3FC 0%, #8EC5FC 50%, #B5FFFC 100%) !important;
+  color: #090B12 !important;
+  border: 1.5px solid #FFFFFF !important;
+  font-weight: 900 !important;
+}
+
+[data-theme="iridescent-holo-foil"] .nav-tab-item.active::after {
+  display: none !important;
+}
+
+[data-theme="iridescent-holo-foil"] .btn-cyan,
+[data-theme="iridescent-holo-foil"] .btn-inject-neon,
+[data-theme="iridescent-holo-foil"] .btn-activate,
+[data-theme="iridescent-holo-foil"] .btn-v-copy {
+  background: #090B12 !important;
+  color: #FFFFFF !important;
+  border: 1.5px solid #FFFFFF !important;
+  border-radius: 999px !important;
+  font-weight: 900 !important;
+}
+
+[data-theme="iridescent-holo-foil"] .btn-crimson,
+[data-theme="iridescent-holo-foil"] .btn-delete-acc {
+  background: #FFE4E6 !important;
+  color: #9F1239 !important;
+  border: 2px solid #090B12 !important;
+  border-radius: 999px !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="iridescent-holo-foil"] .btn-neon-green,
+[data-theme="iridescent-holo-foil"] .btn-launch-power,
+[data-theme="iridescent-holo-foil"] .status-indicator-box,
+[data-theme="iridescent-holo-foil"] .service-tag {
+  background: #FFFFFF !important;
+  color: #090B12 !important;
+  border: 1.5px solid #090B12 !important;
+  border-radius: 999px !important;
+  padding: 3px 10px !important;
+  font-weight: 800 !important;
+}

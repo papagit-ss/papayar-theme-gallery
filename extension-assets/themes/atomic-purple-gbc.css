@@ -1,0 +1,266 @@
+/* ==========================================================================
+   Theme: atomic-purple-gbc — گیم‌بوی بنفش شفاف (Atomic Purple GameBoy Color)
+   - Translucent Smoked-Purple Polycarbonate Shell (rgba(88, 44, 142, 0.78))
+     Revealing Underlying Gold PCB Circuit Traces (#FACC15) & IC Chips!
+   - Dark Charcoal "DOT MATRIX WITH STEREO SOUND" Screen Bezel around a
+     Backlit Olive-Green GameBoy LCD Screen (.phone-display)
+   - Tactile Magenta (A) & Cyan (B) Round GameBoy Push-Buttons
+   ========================================================================== */
+
+[data-theme="atomic-purple-gbc"] {
+  --bg-deep: #2B144D;
+  --bg-card: rgba(74, 36, 124, 0.84);
+  --bg-card-hover: rgba(90, 46, 148, 0.90);
+  --bg-input: rgba(45, 20, 78, 0.92);
+  --bg-modal: #3F1E6D;
+  --bg-overlay: rgba(18, 8, 34, 0.86);
+  --bg-page-gradient:
+    radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.28) 0%, transparent 60%),
+    linear-gradient(160deg, #3B1C66 0%, #241040 100%);
+  --backdrop-blur: blur(8px);
+  --tabs-bar-bg: rgba(54, 24, 94, 0.90);
+  --subchip-bg: rgba(88, 44, 142, 0.85);
+
+  --text-primary: #F5EEFF;
+  --text-secondary: #D8B4FE;
+  --text-muted: #C084FC;
+  --text-input: #F5EEFF;
+  --text-on-accent: #FFFFFF;
+  --text-brand: #FFFFFF;
+  --text-brand-accent: #FACC15;
+  --text-phone: #F5EEFF;
+
+  --primary-neon: #E11D74;
+  --primary-light: #06B6D4;
+  --accent-cyan: #06B6D4;
+  --accent-purple: #A855F7;
+  --accent-emerald: #10B981;
+  --accent-crimson: #E11D74;
+  --accent-yellow: #FACC15;
+  --semantic-danger: #F43F5E;
+  --semantic-success: #34D399;
+  --semantic-warning: #FACC15;
+
+  --border-subtle: rgba(216, 180, 254, 0.45);
+  --border-glow: #FACC15;
+  --border-card-top: rgba(255, 255, 255, 0.55);
+  --border-width: 2px;
+  --border-color: rgba(216, 180, 254, 0.52);
+  --border-input: 2px solid #A855F7;
+  --border-modal: 2px solid #D8B4FE;
+  --border-chip: 1.5px solid #A855F7;
+  --border-subchip: 1.5px dashed #FACC15;
+
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  --card-shadow:
+    0 10px 24px rgba(15, 6, 30, 0.65),
+    inset 0 2px 1px rgba(255, 255, 255, 0.38),
+    inset 0 -3px 6px rgba(30, 10, 55, 0.65);
+  --card-shadow-hover:
+    0 12px 28px rgba(15, 6, 30, 0.78),
+    inset 0 2px 2px rgba(255, 255, 255, 0.55);
+  --active-card-shadow: var(--card-shadow);
+  --btn-shadow: 0 4px 0 #1E0D36, inset 0 1.5px 0 rgba(255, 255, 255, 0.45);
+  --btn-shadow-hover: 0 5px 0 #1E0D36, inset 0 1.5px 0 rgba(255, 255, 255, 0.65);
+  --modal-shadow: 0 22px 48px rgba(0, 0, 0, 0.88);
+  --glow-pill: 0 0 12px rgba(225, 29, 116, 0.55);
+  --glow-dot: 0 0 8px #F43F5E;
+
+  --btn-transform-hover: translateY(-1px);
+  --btn-transform-active: translateY(2px);
+
+  --btn-inject-bg: linear-gradient(180deg, #F43F5E 0%, #BE123C 100%);
+  --btn-inject-color: #FFFFFF;
+  --btn-inject-border: 2px solid #27272A;
+  --btn-scan-mass-bg: linear-gradient(180deg, #F43F5E 0%, #BE123C 100%);
+  --btn-scan-mass-color: #FFFFFF;
+  --btn-scan-mass-border: 2px solid #27272A;
+  --btn-gofullpage-bg: linear-gradient(180deg, #22D3EE 0%, #0284C7 100%);
+  --btn-gofullpage-color: #FFFFFF;
+  --btn-gofullpage-border: 2px solid #27272A;
+  --btn-ai-scan-bg: rgba(54, 24, 94, 0.9);
+  --btn-ai-scan-color: #F5EEFF;
+  --btn-ai-scan-border: 2px solid #A855F7;
+  --btn-upload-bg: rgba(54, 24, 94, 0.9);
+  --btn-upload-color: #F5EEFF;
+  --btn-upload-border: 2px solid #A855F7;
+  --btn-excel-bg: #10B981;
+  --btn-excel-color: #FFFFFF;
+  --btn-excel-border: 2px solid #27272A;
+  --excel-banner-bg: #36185E;
+  --excel-banner-color: #FACC15;
+  --excel-banner-border: 2px solid #FACC15;
+
+  --v-code-box-bg: #9BBC0F;
+  --v-code-box-border: 3px solid #27272A;
+  --v-code-color: #0F1F08;
+  --v-pill-meta-bg: rgba(250, 204, 21, 0.16);
+  --v-pill-meta-color: #FDE047;
+
+  --switcher-bg: #36185E;
+  --switcher-border: 1.5px solid #C084FC;
+  --scrollbar-thumb: #A855F7;
+  --scrollbar-thumb-hover: #FACC15;
+  --scrollbar-track: #241040;
+  --scrollbar-width: 5px;
+  --scrollbar-radius: 999px;
+  --scrollbar-border: none;
+
+  --flare-display: none;
+  --active-card-topline-display: none;
+  --font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "Courier New", ui-monospace, monospace;
+
+  /* Underlying Gold PCB Circuit Board Traces Visible Through Translucent Purple Plastic */
+  --pcb-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg stroke='%23FACC15' stroke-width='1.4' stroke-opacity='0.18' fill='none'%3E%3Cpath d='M10 20 H60 L80 40 H150'/%3E%3Cpath d='M10 30 H55 L75 50 H130 V90'/%3E%3Cpath d='M30 160 V110 L55 85 H110'/%3E%3Cpath d='M160 150 H110 L90 130 H40'/%3E%3Crect x='65' y='65' width='36' height='24' fill='%2318181B' fill-opacity='0.35' stroke='%23FACC15'/%3E%3C/g%3E%3Cg fill='%23FACC15' fill-opacity='0.28'%3E%3Ccircle cx='10' cy='20' r='3'/%3E%3Ccircle cx='150' cy='40' r='3'/%3E%3Ccircle cx='30' cy='160' r='3'/%3E%3Ccircle cx='160' cy='150' r='3'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+[data-theme="atomic-purple-gbc"] body {
+  background-color: #2B144D !important;
+  background-image:
+    var(--pcb-svg),
+    radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.32) 0%, transparent 60%),
+    linear-gradient(160deg, #3D1D6B 0%, #220E3D 100%) !important;
+  color: #F5EEFF;
+}
+
+[data-theme="atomic-purple-gbc"] .popup-wrapper {
+  position: relative;
+  padding-top: 28px !important;
+}
+
+[data-theme="atomic-purple-gbc"] .popup-wrapper::before {
+  content: "● BATTERY   //   GAME BOY COLOR — ATOMIC PURPLE 1998";
+  position: absolute;
+  top: 5px;
+  inset-inline: 12px;
+  height: 19px;
+  background: #27272A;
+  color: #E4E4E7;
+  border: 1.5px solid #A855F7;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  direction: ltr;
+}
+
+[data-theme="atomic-purple-gbc"] .app-header,
+[data-theme="atomic-purple-gbc"] .active-account-card,
+[data-theme="atomic-purple-gbc"] .section-container,
+[data-theme="atomic-purple-gbc"] .app-footer {
+  background-color: rgba(76, 36, 128, 0.82) !important;
+  background-image:
+    var(--pcb-svg),
+    linear-gradient(155deg, rgba(147, 51, 234, 0.35) 0%, rgba(59, 24, 102, 0.85) 100%) !important;
+  border: 2px solid rgba(216, 180, 254, 0.52) !important;
+  border-radius: 20px !important;
+  box-shadow: var(--card-shadow) !important;
+}
+
+[data-theme="atomic-purple-gbc"] .section-container {
+  padding: 12px !important;
+}
+
+[data-theme="atomic-purple-gbc"] .active-account-card::before {
+  display: none !important;
+}
+
+/* GameBoy Color Olive-Lime LCD Screen Framed by Dark Charcoal Bezel */
+[data-theme="atomic-purple-gbc"] .phone-display {
+  background:
+    repeating-linear-gradient(0deg, rgba(15, 31, 8, 0.06) 0px, rgba(15, 31, 8, 0.06) 1px, transparent 1px, transparent 3px),
+    linear-gradient(180deg, #9BBC0F 0%, #8BAC0F 100%) !important;
+  color: #0F1F08 !important;
+  border: 6px solid #27272A !important;
+  outline: 2px solid #FACC15 !important;
+  border-radius: 12px 12px 22px 12px !important;
+  padding: 10px 14px !important;
+  margin-block: 8px !important;
+  font-family: var(--font-mono) !important;
+  font-size: 22px !important;
+  font-weight: 900 !important;
+  letter-spacing: 2px !important;
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.35), 0 4px 0 #18181B !important;
+}
+
+[data-theme="atomic-purple-gbc"] .quick-profile-card,
+[data-theme="atomic-purple-gbc"] .saved-account-card {
+  background: rgba(58, 26, 100, 0.90) !important;
+  border: 1.5px solid rgba(216, 180, 254, 0.55) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 4px 0 #1E0D36, inset 0 1px 0 rgba(255, 255, 255, 0.28) !important;
+}
+
+[data-theme="atomic-purple-gbc"] .avatar-glow {
+  background: #27272A !important;
+  color: #FACC15 !important;
+  border: 2px solid #FACC15 !important;
+}
+
+[data-theme="atomic-purple-gbc"] .nav-tabs-bar {
+  background: #27272A !important;
+  border: 2px solid #A855F7 !important;
+  border-radius: 999px !important;
+  padding: 4px !important;
+  box-shadow: 0 4px 0 #140826 !important;
+}
+
+[data-theme="atomic-purple-gbc"] .nav-tab-item {
+  border-radius: 999px !important;
+  color: #D8B4FE !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="atomic-purple-gbc"] .nav-tab-item.active {
+  background: linear-gradient(180deg, #F43F5E 0%, #BE123C 100%) !important;
+  color: #FFFFFF !important;
+  font-weight: 900 !important;
+  box-shadow: inset 0 1.5px 0 rgba(255, 255, 255, 0.5) !important;
+}
+
+[data-theme="atomic-purple-gbc"] .nav-tab-item.active::after {
+  display: none !important;
+}
+
+[data-theme="atomic-purple-gbc"] .btn-cyan,
+[data-theme="atomic-purple-gbc"] .btn-inject-neon,
+[data-theme="atomic-purple-gbc"] .btn-activate,
+[data-theme="atomic-purple-gbc"] .btn-v-copy {
+  background: linear-gradient(180deg, #F43F5E 0%, #BE123C 100%) !important;
+  color: #FFFFFF !important;
+  border: 2px solid #18181B !important;
+  border-radius: 999px !important;
+  font-weight: 900 !important;
+  box-shadow: var(--btn-shadow) !important;
+}
+
+[data-theme="atomic-purple-gbc"] .btn-crimson,
+[data-theme="atomic-purple-gbc"] .btn-delete-acc {
+  background: linear-gradient(180deg, #22D3EE 0%, #0284C7 100%) !important;
+  color: #FFFFFF !important;
+  border: 2px solid #18181B !important;
+  border-radius: 999px !important;
+  box-shadow: var(--btn-shadow) !important;
+  font-weight: 900 !important;
+}
+
+[data-theme="atomic-purple-gbc"] .btn-neon-green,
+[data-theme="atomic-purple-gbc"] .btn-launch-power,
+[data-theme="atomic-purple-gbc"] .status-indicator-box,
+[data-theme="atomic-purple-gbc"] .service-tag {
+  background: #27272A !important;
+  color: #FACC15 !important;
+  border: 1.5px solid #A855F7 !important;
+  border-radius: 999px !important;
+  padding: 3px 10px !important;
+  font-weight: 800 !important;
+}

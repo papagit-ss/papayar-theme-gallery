@@ -1,0 +1,277 @@
+/* ==========================================================================
+   Theme 27: classified-cortex — Cyber-Medical X-Ray & Magenta Glitch Lab
+   Complete Ground-Up Sculpted Redesign (Reference: image_5c6ac2.jpg):
+   - Top Lab Pill (.popup-wrapper::before): "who am i? // CLASSIFIED CORTEX // SS22"
+   - Crisp Clinical White Lab Cards (#FFFFFF) with Dual Magenta/Cobalt Offset
+     Shadows (4px 4px 0 #FF1E90, -3px -3px 0 #1D4ED8)
+   - Dedicated Dark X-Ray Iris Scanner Viewport (.phone-display): Deep X-Ray
+     Slate-Black (#0B1120 -> #1E293B) with Dashed Magenta Iris Ring & Crisp
+     White Chromatic Numbers (zero collision with surrounding UI!)
+   - Circled Number Badges (① ② ③ ④) on Navigation Tabs
+   ========================================================================== */
+
+[data-theme="classified-cortex"] {
+  --bg-deep: #F3F5FA;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #FFFFFF;
+  --bg-input: #F8FAFC;
+  --bg-modal: #FFFFFF;
+  --bg-overlay: rgba(15, 23, 42, 0.68);
+  --bg-page-gradient: #F3F5FA;
+  --backdrop-blur: none;
+  --tabs-bar-bg: #FFFFFF;
+  --subchip-bg: #EEF2FF;
+
+  --text-primary: #0F172A;
+  --text-secondary: #1E293B;
+  --text-muted: #334155;
+  --text-input: #0F172A;
+  --text-on-accent: #FFFFFF;
+  --text-brand: #0F172A;
+  --text-brand-accent: #FF1E90;
+  --text-phone: #0F172A;
+
+  --primary-neon: #1D4ED8;
+  --primary-light: #FF1E90;
+  --accent-cyan: #1D4ED8;
+  --accent-purple: #FF1E90;
+  --accent-emerald: #047857;
+  --accent-crimson: #E11D48;
+  --accent-yellow: #1D4ED8;
+  --semantic-danger: #E11D48;
+  --semantic-success: #047857;
+  --semantic-warning: #D97706;
+
+  --border-subtle: #0F172A;
+  --border-glow: #FF1E90;
+  --border-card-top: #0F172A;
+  --border-width: 2px;
+  --border-color: #0F172A;
+  --border-input: 2px solid #1D4ED8;
+  --border-modal: 2px solid #FF1E90;
+  --border-chip: 1.5px solid #0F172A;
+  --border-subchip: 1.5px dashed #FF1E90;
+
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-pill: 4px;
+
+  --card-shadow: 4px 4px 0 #FF1E90, -2px -2px 0 #1D4ED8;
+  --card-shadow-hover: 5px 5px 0 #1D4ED8, -3px -3px 0 #FF1E90;
+  --active-card-shadow: 4px 4px 0 #FF1E90, -3px -3px 0 #1D4ED8;
+  --btn-shadow: 3px 3px 0 #0F172A;
+  --btn-shadow-hover: 3px 3px 0 #FF1E90;
+  --modal-shadow: 6px 6px 0 #FF1E90;
+  --glow-pill: none;
+  --glow-dot: 0 0 6px #FF1E90;
+
+  --btn-transform-hover: translate(-1px, -1px);
+  --btn-transform-active: translate(1px, 1px);
+
+  --btn-inject-bg: #1D4ED8;
+  --btn-inject-color: #FFFFFF;
+  --btn-inject-border: 2px solid #0F172A;
+  --btn-scan-mass-bg: #1D4ED8;
+  --btn-scan-mass-color: #FFFFFF;
+  --btn-scan-mass-border: 2px solid #0F172A;
+  --btn-gofullpage-bg: #FF1E90;
+  --btn-gofullpage-color: #FFFFFF;
+  --btn-gofullpage-border: 2px solid #0F172A;
+  --btn-ai-scan-bg: #FFFFFF;
+  --btn-ai-scan-color: #0F172A;
+  --btn-ai-scan-border: 2px solid #1D4ED8;
+  --btn-upload-bg: #FFFFFF;
+  --btn-upload-color: #0F172A;
+  --btn-upload-border: 2px solid #0F172A;
+  --btn-excel-bg: #1D4ED8;
+  --btn-excel-color: #FFFFFF;
+  --btn-excel-border: 2px solid #0F172A;
+  --excel-banner-bg: #EFF6FF;
+  --excel-banner-color: #1E3A8A;
+  --excel-banner-border: 2px solid #1D4ED8;
+
+  --v-code-box-bg: #0F172A;
+  --v-code-box-border: 2px solid #FF1E90;
+  --v-code-color: #FFFFFF;
+  --v-pill-meta-bg: #FDF2F8;
+  --v-pill-meta-color: #9D174D;
+
+  --switcher-bg: #FFFFFF;
+  --switcher-border: 1.5px solid #0F172A;
+  --scrollbar-thumb: #FF1E90;
+  --scrollbar-thumb-hover: #1D4ED8;
+  --scrollbar-track: #E2E8F0;
+  --scrollbar-width: 5px;
+  --scrollbar-radius: 0px;
+  --scrollbar-border: none;
+
+  --flare-display: none;
+  --active-card-topline-display: none;
+  --font-family: 'Vazirmatn', "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Courier New", ui-monospace, monospace;
+}
+
+[data-theme="classified-cortex"] body {
+  background-color: #F3F5FA !important;
+  background-image:
+    linear-gradient(90deg, rgba(255, 30, 144, 0.14) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(29, 78, 216, 0.12) 1px, transparent 1px) !important;
+  background-size: 24px 24px !important;
+  color: #0F172A;
+}
+
+/* Top Lab Stamp: who am i? // CLASSIFIED CORTEX // SS22 */
+[data-theme="classified-cortex"] .popup-wrapper {
+  position: relative;
+  padding-top: 28px !important;
+}
+
+[data-theme="classified-cortex"] .popup-wrapper::before {
+  content: "who am i?  //  CLASSIFIED CORTEX  //  SS22 .LAB";
+  position: absolute;
+  top: 5px;
+  inset-inline: 12px;
+  height: 19px;
+  background: #0F172A;
+  color: #FFFFFF;
+  border: 1.5px solid #FF1E90;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  direction: ltr;
+  box-shadow: 3px 3px 0 #FF1E90;
+}
+
+[data-theme="classified-cortex"] .app-header,
+[data-theme="classified-cortex"] .active-account-card,
+[data-theme="classified-cortex"] .section-container,
+[data-theme="classified-cortex"] .app-footer {
+  background: #FFFFFF !important;
+  border: 2px solid #0F172A !important;
+  box-shadow: 4px 4px 0 #FF1E90, -2px -2px 0 #1D4ED8 !important;
+}
+
+[data-theme="classified-cortex"] .section-container {
+  padding: 12px !important;
+}
+
+[data-theme="classified-cortex"] .active-account-card::before {
+  display: none !important;
+}
+
+/* Dedicated Dark X-Ray Iris Scanner Viewport for the Phone Number */
+[data-theme="classified-cortex"] .phone-display {
+  position: relative;
+  background-color: #0B1120 !important;
+  background-image:
+    radial-gradient(circle at 50% 50%, rgba(255, 30, 144, 0.25) 0%, rgba(29, 78, 216, 0.22) 42%, transparent 70%),
+    repeating-conic-gradient(from 0deg at 92% 20%, rgba(255, 30, 144, 0.28) 0% 25%, transparent 0% 50%) !important;
+  background-size: 100% 100%, 8px 8px !important;
+  color: #FFFFFF !important;
+  border: 2px solid #FF1E90 !important;
+  outline: 2px solid #0F172A !important;
+  padding: 10px 14px !important;
+  margin-block: 8px !important;
+  font-family: var(--font-mono) !important;
+  font-size: 22px !important;
+  font-weight: 900 !important;
+  letter-spacing: 2px !important;
+  text-shadow: -2px 0 #FF1E90, 2px 0 #38BDF8 !important;
+  box-shadow: 3px 3px 0 #1D4ED8 !important;
+}
+
+[data-theme="classified-cortex"] .active-pill {
+  background: #FF1E90 !important;
+  color: #FFFFFF !important;
+  border: 1.5px solid #0F172A !important;
+  font-weight: 900 !important;
+  box-shadow: 2px 2px 0 #0F172A !important;
+}
+
+[data-theme="classified-cortex"] .status-indicator-box,
+[data-theme="classified-cortex"] .service-tag {
+  background: #EEF2FF !important;
+  color: #0F172A !important;
+  border: 1.5px solid #1D4ED8 !important;
+  font-weight: 800 !important;
+}
+
+/* Sub-Cards with Cobalt & Magenta Glitch Borders */
+[data-theme="classified-cortex"] .quick-profile-card,
+[data-theme="classified-cortex"] .saved-account-card {
+  background: #F8FAFC !important;
+  border: 2px solid #0F172A !important;
+  box-shadow: 3px 3px 0 #1D4ED8 !important;
+}
+
+[data-theme="classified-cortex"] .avatar-glow {
+  background: #0F172A !important;
+  color: #FF1E90 !important;
+  border: 2px solid #FF1E90 !important;
+  box-shadow: 2px 2px 0 #1D4ED8 !important;
+}
+
+/* Circled Numbers ① ② ③ ④ on Navigation Tabs */
+[data-theme="classified-cortex"] .nav-tabs-bar {
+  background: #FFFFFF !important;
+  border: 2px solid #0F172A !important;
+  padding: 3px !important;
+  box-shadow: 4px 4px 0 #1D4ED8 !important;
+}
+
+[data-theme="classified-cortex"] .nav-tab-item {
+  color: #0F172A !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="classified-cortex"] .nav-tab-item:nth-of-type(1) .tab-label::before { content: "① "; }
+[data-theme="classified-cortex"] .nav-tab-item:nth-of-type(2) .tab-label::before { content: "② "; }
+[data-theme="classified-cortex"] .nav-tab-item:nth-of-type(3) .tab-label::before { content: "③ "; }
+[data-theme="classified-cortex"] .nav-tab-item:nth-of-type(4) .tab-label::before { content: "④ "; }
+
+[data-theme="classified-cortex"] .nav-tab-item.active {
+  background: #0F172A !important;
+  color: #FFFFFF !important;
+  box-shadow: 2px 2px 0 #FF1E90 !important;
+}
+
+[data-theme="classified-cortex"] .nav-tab-item.active::after {
+  display: none !important;
+}
+
+[data-theme="classified-cortex"] .btn-cyan,
+[data-theme="classified-cortex"] .btn-inject-neon,
+[data-theme="classified-cortex"] .btn-activate,
+[data-theme="classified-cortex"] .btn-v-copy {
+  background: #1D4ED8 !important;
+  color: #FFFFFF !important;
+  border: 2px solid #0F172A !important;
+  box-shadow: 3px 3px 0 #FF1E90 !important;
+  font-weight: 900 !important;
+}
+
+[data-theme="classified-cortex"] .btn-crimson,
+[data-theme="classified-cortex"] .btn-delete-acc {
+  background: #FFF1F2 !important;
+  color: #BE123C !important;
+  border: 2px solid #0F172A !important;
+  box-shadow: 3px 3px 0 #BE123C !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="classified-cortex"] .btn-neon-green,
+[data-theme="classified-cortex"] .btn-launch-power {
+  background: #FDF2F8 !important;
+  color: #0F172A !important;
+  border: 2px solid #0F172A !important;
+  box-shadow: 2px 2px 0 #FF1E90 !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="classified-cortex"] .status-indicator-box, [data-theme="classified-cortex"] .service-tag { padding: 3px 10px !important; }

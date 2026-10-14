@@ -1,0 +1,79 @@
+/* ==========================================================================
+   Theme 32 FX: esperanza-econ.fx.css — Equilibrium Crosshair & Torn-Paper Press
+   ========================================================================== */
+
+[data-theme="esperanza-econ"] .fx-layer {
+  position: fixed;
+  inset: 0;
+  max-width: 350px;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  contain: strict;
+}
+
+html[data-theme="esperanza-econ"][data-fx="full"] .fx-ambient-a {
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  top: 10%;
+  left: 10%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 232, 178, 0.25) 0%, transparent 70%);
+  animation: econ-warm-drift 12s ease-in-out infinite alternate;
+}
+
+@keyframes econ-warm-drift {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(28px, 24px, 0); }
+}
+
+html[data-theme="esperanza-econ"]:not([data-fx="off"]) .fx-cursor-follower {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 150px;
+  height: 150px;
+  transform: translate3d(calc(var(--fx-mx, 175px) - 75px), calc(var(--fx-my, 220px) - 75px), 0);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 238, 190, 0.22) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+html[data-theme="esperanza-econ"]:not([data-fx="off"]) .is-fx-clicked {
+  animation: econ-press 180ms ease-out !important;
+}
+
+@keyframes econ-press {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(2px, 2px); }
+  100% { transform: translate(0, 0); }
+}
+
+html[data-theme="esperanza-econ"]:not([data-fx="off"]) .fx-click-burst.is-bursting {
+  position: fixed;
+  left: var(--burst-x, 175px);
+  top: var(--burst-y, 220px);
+  width: 72px;
+  height: 72px;
+  border: 2px solid #141008;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999;
+  animation: econ-ring-burst 340ms ease-out forwards;
+}
+
+@keyframes econ-ring-burst {
+  0% { transform: translate3d(-50%, -50%, 0) scale(0.2); opacity: 0.9; }
+  100% { transform: translate3d(-50%, -50%, 0) scale(1); opacity: 0; }
+}
+
+html[data-theme="esperanza-econ"]:not([data-fx="off"]) .tab-page.active {
+  animation: econ-tab-unfold 190ms ease-out both !important;
+}
+
+@keyframes econ-tab-unfold {
+  0% { opacity: 0; transform: translate3d(0, 5px, 0); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0); }
+}

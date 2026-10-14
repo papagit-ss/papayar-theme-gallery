@@ -1,0 +1,63 @@
+/* ==========================================================================
+   FX Stylesheet: cyber-kawaii-safety.fx.css — Non-Reflowing 60fps GPU Effects
+   ========================================================================== */
+
+[data-theme="cyber-kawaii-safety"] .fx-layer {
+  position: fixed;
+  inset: 0;
+  max-width: 350px;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  contain: strict;
+}
+
+html[data-theme="cyber-kawaii-safety"]:not([data-fx="off"]) .fx-cursor-follower {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 140px;
+  height: 140px;
+  transform: translate3d(calc(var(--fx-mx, 175px) - 70px), calc(var(--fx-my, 220px) - 70px), 0);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 132, 244, 0.14) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+html[data-theme="cyber-kawaii-safety"]:not([data-fx="off"]) .is-fx-clicked {
+  animation: cyber-kawaii-safety-click 160ms ease-out !important;
+}
+
+@keyframes cyber-kawaii-safety-click {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(2px); }
+  100% { transform: translateY(0); }
+}
+
+html[data-theme="cyber-kawaii-safety"]:not([data-fx="off"]) .fx-click-burst.is-bursting {
+  position: fixed;
+  left: var(--burst-x, 175px);
+  top: var(--burst-y, 220px);
+  width: 72px;
+  height: 72px;
+  border: 2px solid #0084F4;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999;
+  animation: cyber-kawaii-safety-burst 320ms ease-out forwards;
+}
+
+@keyframes cyber-kawaii-safety-burst {
+  0% { transform: translate3d(-50%, -50%, 0) scale(0.2); opacity: 0.95; }
+  100% { transform: translate3d(-50%, -50%, 0) scale(1); opacity: 0; }
+}
+
+html[data-theme="cyber-kawaii-safety"]:not([data-fx="off"]) .tab-page.active {
+  animation: cyber-kawaii-safety-tab 170ms ease-out both !important;
+}
+
+@keyframes cyber-kawaii-safety-tab {
+  0% { opacity: 0; transform: translate3d(0, 4px, 0); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0); }
+}

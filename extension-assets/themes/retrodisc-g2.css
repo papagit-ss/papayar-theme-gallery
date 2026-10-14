@@ -1,0 +1,315 @@
+/* ==========================================================================
+   Theme 32: retrodisc-g2 — G2 RetroDisc Industrial CD Player & CAD Blueprint
+   Complete Ground-Up Sculpted Redesign (Reference: image_67b125.jpg):
+   - Outer Background: Matte Slate-Charcoal (#222528) with Technical White CAD
+     Wireframe Grid
+   - Top Spec Pill (.popup-wrapper::before): "Format: CD/CD-R // 3.5mm DC 5V // ●● G2 RETRODISC"
+   - Active Account Card: Sculpted as the Physical Walkman Ochre-Gold & Silver
+     Discman Unit (#E5A62E -> #C88714) with a Backlit Olive-Amber Digital Track
+     LCD Screen (.phone-display) & Anodized Red Hardware Buttons (#C83E37)!
+   - Section Containers & Sub-Cards: Warm Sand-Cream (#EFE2D8) & Charcoal
+     Industrial Modules with 100% Crisp Readability
+   ========================================================================== */
+
+[data-theme="retrodisc-g2"] {
+  --bg-deep: #222528;
+  --bg-card: #EFE2D8;
+  --bg-card-hover: #F7ECE4;
+  --bg-input: #FFFFFF;
+  --bg-modal: #EFE2D8;
+  --bg-overlay: rgba(20, 22, 24, 0.86);
+  --bg-page-gradient:
+    linear-gradient(rgba(239, 226, 216, 0.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(239, 226, 216, 0.10) 1px, transparent 1px),
+    #222528;
+  --backdrop-blur: none;
+  --tabs-bar-bg: #222528;
+  --subchip-bg: #E2D1C3;
+
+  --text-primary: #181A1C;
+  --text-secondary: #2E3236;
+  --text-muted: #454B50;
+  --text-input: #181A1C;
+  --text-on-accent: #FFFFFF;
+  --text-brand: #EFE2D8;
+  --text-brand-accent: #E5A62E;
+  --text-phone: #181A1C;
+
+  --primary-neon: #C83E37;
+  --primary-light: #E5A62E;
+  --accent-cyan: #C83E37;
+  --accent-purple: #E5A62E;
+  --accent-emerald: #1F5E3B;
+  --accent-crimson: #C83E37;
+  --accent-yellow: #E5A62E;
+  --semantic-danger: #C83E37;
+  --semantic-success: #1F5E3B;
+  --semantic-warning: #B87300;
+
+  --border-subtle: #181A1C;
+  --border-glow: #E5A62E;
+  --border-card-top: #181A1C;
+  --border-width: 2px;
+  --border-color: #181A1C;
+  --border-input: 2px solid #181A1C;
+  --border-modal: 2.5px solid #181A1C;
+  --border-chip: 1.5px solid #181A1C;
+  --border-subchip: 1.5px solid #C83E37;
+
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-pill: 999px;
+
+  --card-shadow: 0 5px 0 #141618, 0 10px 20px rgba(0, 0, 0, 0.45);
+  --card-shadow-hover: 0 6px 0 #141618, 0 12px 24px rgba(0, 0, 0, 0.55);
+  --active-card-shadow: 0 6px 0 #141618, 0 12px 24px rgba(0, 0, 0, 0.5);
+  --btn-shadow: 0 3px 0 #141618;
+  --btn-shadow-hover: 0 4px 0 #141618;
+  --modal-shadow: 0 20px 44px rgba(0, 0, 0, 0.85);
+  --glow-pill: none;
+  --glow-dot: none;
+
+  --btn-transform-hover: translateY(-1px);
+  --btn-transform-active: translateY(2px);
+
+  --btn-inject-bg: #C83E37;
+  --btn-inject-color: #FFFFFF;
+  --btn-inject-border: 2px solid #181A1C;
+  --btn-scan-mass-bg: #C83E37;
+  --btn-scan-mass-color: #FFFFFF;
+  --btn-scan-mass-border: 2px solid #181A1C;
+  --btn-gofullpage-bg: #E5A62E;
+  --btn-gofullpage-color: #181A1C;
+  --btn-gofullpage-border: 2px solid #181A1C;
+  --btn-ai-scan-bg: #FFFFFF;
+  --btn-ai-scan-color: #181A1C;
+  --btn-ai-scan-border: 2px solid #181A1C;
+  --btn-upload-bg: #FFFFFF;
+  --btn-upload-color: #181A1C;
+  --btn-upload-border: 2px solid #181A1C;
+  --btn-excel-bg: #1F5E3B;
+  --btn-excel-color: #FFFFFF;
+  --btn-excel-border: 2px solid #181A1C;
+  --excel-banner-bg: #FFFFFF;
+  --excel-banner-color: #181A1C;
+  --excel-banner-border: 2px solid #C83E37;
+
+  --v-code-box-bg: #1D2214;
+  --v-code-box-border: 2px solid #181A1C;
+  --v-code-color: #E8F886;
+  --v-pill-meta-bg: #FFFFFF;
+  --v-pill-meta-color: #181A1C;
+
+  --switcher-bg: #2E3236;
+  --switcher-border: 1.5px solid #EFE2D8;
+  --scrollbar-thumb: #E5A62E;
+  --scrollbar-thumb-hover: #C83E37;
+  --scrollbar-track: #222528;
+  --scrollbar-width: 5px;
+  --scrollbar-radius: 999px;
+  --scrollbar-border: none;
+
+  --flare-display: none;
+  --active-card-topline-display: none;
+  --font-family: 'Vazirmatn', "Arial Narrow", Helvetica, sans-serif;
+  --font-mono: "Courier New", ui-monospace, monospace;
+}
+
+[data-theme="retrodisc-g2"] body {
+  background-color: #222528 !important;
+  background-image:
+    linear-gradient(rgba(239, 226, 216, 0.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(239, 226, 216, 0.10) 1px, transparent 1px) !important;
+  background-size: 20px 20px !important;
+  color: #181A1C;
+}
+
+/* Top Spec Bar: Format: CD/CD-R // 3.5mm DC 5V // ●● G2 RETRODISC */
+[data-theme="retrodisc-g2"] .popup-wrapper {
+  position: relative;
+  padding-top: 28px !important;
+}
+
+[data-theme="retrodisc-g2"] .popup-wrapper::before {
+  content: "Format: CD/CD-R  //  3.5mm DC 5V  //  ●● G2 RETRODISC";
+  position: absolute;
+  top: 5px;
+  inset-inline: 12px;
+  height: 19px;
+  background: #16181A;
+  color: #EFE2D8;
+  border: 1.5px solid #E5A62E;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  direction: ltr;
+}
+
+[data-theme="retrodisc-g2"] .app-header,
+[data-theme="retrodisc-g2"] .app-footer {
+  background: #2B2F33 !important;
+  border: 2px solid #EFE2D8 !important;
+  border-radius: 16px !important;
+  box-shadow: var(--card-shadow) !important;
+}
+
+[data-theme="retrodisc-g2"] .brand-title,
+[data-theme="retrodisc-g2"] .brand-subtitle,
+[data-theme="retrodisc-g2"] .theme-picker-toggle-btn,
+[data-theme="retrodisc-g2"] .fx-mode-btn,
+[data-theme="retrodisc-g2"] .footer-status-text,
+[data-theme="retrodisc-g2"] .footer-status-text span {
+  color: #EFE2D8 !important;
+}
+
+/* Active Account Card: Sculpted as the Walkman Ochre-Gold & Silver G2 Discman Player */
+[data-theme="retrodisc-g2"] .active-account-card {
+  position: relative;
+  padding: 14px !important;
+  background:
+    linear-gradient(155deg, #F0B43E 0%, #DF9B22 55%, #C48110 100%) !important;
+  border: 2.5px solid #181A1C !important;
+  border-radius: 20px !important;
+  box-shadow:
+    0 6px 0 #141618,
+    0 12px 24px rgba(0, 0, 0, 0.5),
+    inset 0 2px 0 rgba(255, 240, 200, 0.85) !important;
+}
+
+[data-theme="retrodisc-g2"] .active-account-card::before {
+  display: none !important;
+}
+
+/* Backlit Olive-Amber Digital Track LCD Window on the Discman */
+[data-theme="retrodisc-g2"] .phone-display {
+  background:
+    repeating-linear-gradient(0deg, rgba(232, 248, 134, 0.06) 0px, rgba(232, 248, 134, 0.06) 1px, transparent 1px, transparent 3px),
+    linear-gradient(180deg, #1B2012 0%, #272E1B 100%) !important;
+  color: #E8F886 !important;
+  border: 3px solid #C83E37 !important;
+  outline: 2px solid #181A1C !important;
+  border-radius: 10px !important;
+  padding: 10px 14px !important;
+  margin-block: 8px !important;
+  font-family: var(--font-mono) !important;
+  font-size: 22px !important;
+  font-weight: 900 !important;
+  letter-spacing: 2px !important;
+  text-shadow: 0 0 8px rgba(232, 248, 134, 0.45) !important;
+  box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.85), 0 3px 0 #181A1C !important;
+}
+
+[data-theme="retrodisc-g2"] .active-pill {
+  background: #C83E37 !important;
+  color: #FFFFFF !important;
+  border: 2px solid #181A1C !important;
+  border-radius: 999px !important;
+  font-weight: 900 !important;
+  box-shadow: 0 2px 0 #181A1C !important;
+}
+
+[data-theme="retrodisc-g2"] .status-indicator-box,
+[data-theme="retrodisc-g2"] .status-indicator-box .status-text,
+[data-theme="retrodisc-g2"] .service-tag {
+  background: #EFE2D8 !important;
+  color: #181A1C !important;
+  border: 2px solid #181A1C !important;
+  border-radius: 999px !important;
+  font-weight: 800 !important;
+}
+
+/* Warm Sand-Cream Section Containers & Sub-Cards (Matches Right Panel of Image 2) */
+[data-theme="retrodisc-g2"] .section-container {
+  background: #EFE2D8 !important;
+  border: 2.5px solid #181A1C !important;
+  border-radius: 18px !important;
+  padding: 12px !important;
+  box-shadow: var(--card-shadow) !important;
+}
+
+[data-theme="retrodisc-g2"] .section-title,
+[data-theme="retrodisc-g2"] .tab-desc,
+[data-theme="retrodisc-g2"] .control-label {
+  color: #181A1C !important;
+  font-weight: 900 !important;
+}
+
+[data-theme="retrodisc-g2"] .quick-profile-card,
+[data-theme="retrodisc-g2"] .saved-account-card {
+  background: #FFFFFF !important;
+  border: 2px solid #181A1C !important;
+  border-radius: 14px !important;
+  box-shadow: 0 4px 0 #181A1C !important;
+}
+
+[data-theme="retrodisc-g2"] .avatar-glow {
+  background: #222528 !important;
+  color: #E5A62E !important;
+  border: 2px solid #C83E37 !important;
+  box-shadow: 0 2px 0 #181A1C !important;
+}
+
+[data-theme="retrodisc-g2"] .nav-tabs-bar {
+  background: #2B2F33 !important;
+  border: 2px solid #EFE2D8 !important;
+  border-radius: 999px !important;
+  padding: 4px !important;
+  box-shadow: var(--card-shadow) !important;
+}
+
+[data-theme="retrodisc-g2"] .nav-tab-item {
+  border-radius: 999px !important;
+  color: #EFE2D8 !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="retrodisc-g2"] .nav-tab-item.active {
+  background: #E5A62E !important;
+  color: #181A1C !important;
+  border: 1.5px solid #181A1C !important;
+  font-weight: 900 !important;
+}
+
+[data-theme="retrodisc-g2"] .nav-tab-item.active::after {
+  display: none !important;
+}
+
+[data-theme="retrodisc-g2"] .btn-cyan,
+[data-theme="retrodisc-g2"] .btn-inject-neon,
+[data-theme="retrodisc-g2"] .btn-activate,
+[data-theme="retrodisc-g2"] .btn-v-copy {
+  background: #C83E37 !important;
+  color: #FFFFFF !important;
+  border: 2px solid #181A1C !important;
+  border-radius: 999px !important;
+  font-weight: 900 !important;
+  box-shadow: 0 3px 0 #181A1C, inset 0 1.5px 0 rgba(255, 255, 255, 0.45) !important;
+}
+
+[data-theme="retrodisc-g2"] .btn-crimson,
+[data-theme="retrodisc-g2"] .btn-delete-acc {
+  background: #222528 !important;
+  color: #EFE2D8 !important;
+  border: 2px solid #181A1C !important;
+  border-radius: 999px !important;
+  box-shadow: 0 3px 0 #181A1C !important;
+}
+
+[data-theme="retrodisc-g2"] .btn-neon-green,
+[data-theme="retrodisc-g2"] .btn-launch-power {
+  background: #E5A62E !important;
+  color: #181A1C !important;
+  border: 2px solid #181A1C !important;
+  border-radius: 999px !important;
+  box-shadow: 0 3px 0 #181A1C !important;
+  font-weight: 900 !important;
+}
+
+[data-theme="retrodisc-g2"] .status-indicator-box, [data-theme="retrodisc-g2"] .service-tag { padding: 3px 10px !important; }

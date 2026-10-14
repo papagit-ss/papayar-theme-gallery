@@ -1,0 +1,79 @@
+/* ==========================================================================
+   Theme 27 FX: paradise-botanical.fx.css — Botanical Clover & Copper Stamp FX
+   ========================================================================== */
+
+[data-theme="paradise-botanical"] .fx-layer {
+  position: fixed;
+  inset: 0;
+  max-width: 350px;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  contain: strict;
+}
+
+html[data-theme="paradise-botanical"][data-fx="full"] .fx-ambient-a {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  top: 8%;
+  right: -12%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 122, 44, 0.16) 0%, transparent 70%);
+  animation: bot-sun-drift 12s ease-in-out infinite alternate;
+}
+
+@keyframes bot-sun-drift {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(-28px, 32px, 0) scale(1.1); }
+}
+
+html[data-theme="paradise-botanical"]:not([data-fx="off"]) .fx-cursor-follower {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 150px;
+  height: 150px;
+  transform: translate3d(calc(var(--fx-mx, 175px) - 75px), calc(var(--fx-my, 220px) - 75px), 0);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 122, 44, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+html[data-theme="paradise-botanical"]:not([data-fx="off"]) .is-fx-clicked {
+  animation: bot-stamp-press 180ms ease-out !important;
+}
+
+@keyframes bot-stamp-press {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(2px, 2px); }
+  100% { transform: translate(0, 0); }
+}
+
+html[data-theme="paradise-botanical"]:not([data-fx="off"]) .fx-click-burst.is-bursting {
+  position: fixed;
+  left: var(--burst-x, 175px);
+  top: var(--burst-y, 220px);
+  width: 72px;
+  height: 72px;
+  border: 2px solid #0D0D0D;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999;
+  animation: bot-ring-burst 360ms ease-out forwards;
+}
+
+@keyframes bot-ring-burst {
+  0% { transform: translate3d(-50%, -50%, 0) scale(0.2); opacity: 0.9; }
+  100% { transform: translate3d(-50%, -50%, 0) scale(1); opacity: 0; }
+}
+
+html[data-theme="paradise-botanical"]:not([data-fx="off"]) .tab-page.active {
+  animation: bot-page-flip 200ms ease-out both !important;
+}
+
+@keyframes bot-page-flip {
+  0% { opacity: 0; transform: translate3d(0, 6px, 0); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0); }
+}

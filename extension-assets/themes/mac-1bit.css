@@ -1,0 +1,610 @@
+/* ==========================================================================
+   Theme 18: mac-1bit — «مک ۱-بیت» (Classic Mac OS System 7 & MacPaint 1-Bit UI)
+   Pure 1-bit monochrome (#000000 & #FFFFFF):
+   - 50% 1-bit checkerboard desktop dither & 1-bit halftone patterns
+   - Classic Mac top menu bar ( File Edit View Label Special)
+   - 6-line horizontal pinstriped window bars & inverted black ERROR/PAINT headers
+   - MacPaint bounding-box corner handles (□) around active phone readout
+   - Double-framed Mac Alert Dialogs & instant 1-bit black/white button inversion
+   ========================================================================== */
+
+html[data-theme="mac-1bit"],
+[data-theme="mac-1bit"] {
+  /* Complete 90-Token Semantic Contract (Pure 1-Bit Black & White) */
+  --bg-deep: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #ffffff;
+  --bg-input: #ffffff;
+  --bg-modal: #ffffff;
+  --bg-overlay: rgba(0, 0, 0, 0.75);
+  --bg-page-gradient:
+    /* Authentic 50% 1-bit Macintosh desktop checkerboard dither */
+    repeating-conic-gradient(#000000 0% 25%, #ffffff 0% 50%);
+  --backdrop-blur: none;
+  --tabs-bar-bg: #ffffff;
+  --subchip-bg: #ffffff;
+
+  --text-primary: #000000;
+  --text-secondary: #000000;
+  --text-muted: #000000;
+  --text-input: #000000;
+  --text-on-accent: #ffffff;
+  --text-brand: #000000;
+  --text-brand-accent: #ffffff;
+  --text-phone: #000000;
+
+  --primary-neon: #000000;
+  --primary-light: #000000;
+  --accent-cyan: #000000;
+  --accent-purple: #000000;
+  --accent-emerald: #000000;
+  --accent-crimson: #000000;
+  --accent-yellow: #000000;
+
+  --semantic-danger: #000000;
+  --semantic-success: #000000;
+  --semantic-warning: #000000;
+
+  --border-subtle: #000000;
+  --border-glow: #000000;
+  --border-card-top: #000000;
+  --border-width: 2px;
+  --border-color: #000000;
+  --border-input: 2px solid #000000;
+  --border-modal: 2px solid #000000;
+  --border-chip: 2px solid #000000;
+  --border-subchip: 1.5px dashed #000000;
+
+  /* Crisp 0px 1-Bit Geometry */
+  --radius-xs: 0px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-pill: 0px;
+
+  /* Hard 1-Bit Black Offset Drop Shadows */
+  --card-shadow: 4px 4px 0 #000000;
+  --card-shadow-hover: 5px 5px 0 #000000;
+  --active-card-shadow: 5px 5px 0 #000000;
+  --btn-shadow: 2px 2px 0 #000000;
+  --btn-shadow-hover: 3px 3px 0 #000000;
+  --glow-pill: none;
+  --glow-dot: none;
+  --modal-shadow: inset 0 0 0 2px #ffffff, inset 0 0 0 4px #000000, 6px 6px 0 #000000;
+
+  --btn-transform-hover: translate(-1px, -1px);
+  --btn-transform-active: translate(2px, 2px);
+
+  --btn-inject-bg: #000000;
+  --btn-inject-color: #ffffff;
+  --btn-inject-border: 2px solid #000000;
+
+  --btn-scan-mass-bg: #000000;
+  --btn-scan-mass-color: #ffffff;
+  --btn-scan-mass-border: 2px solid #000000;
+
+  --btn-gofullpage-bg: #ffffff;
+  --btn-gofullpage-color: #000000;
+  --btn-gofullpage-border: 2px solid #000000;
+
+  --btn-ai-scan-bg: #ffffff;
+  --btn-ai-scan-color: #000000;
+  --btn-ai-scan-border: 2px solid #000000;
+
+  --btn-upload-bg: #ffffff;
+  --btn-upload-color: #000000;
+  --btn-upload-border: 2px solid #000000;
+
+  --btn-excel-bg: #000000;
+  --btn-excel-color: #ffffff;
+  --btn-excel-border: 2px solid #000000;
+
+  --excel-banner-bg: #ffffff;
+  --excel-banner-color: #000000;
+  --excel-banner-border: 2px solid #000000;
+
+  --v-code-box-bg: #ffffff;
+  --v-code-box-border: 2px dashed #000000;
+  --v-code-color: #000000;
+  --v-pill-meta-bg: #ffffff;
+  --v-pill-meta-color: #000000;
+
+  --switcher-bg: #ffffff;
+  --switcher-border: 2px solid #000000;
+  --scrollbar-thumb: #000000;
+  --scrollbar-thumb-hover: #000000;
+  --scrollbar-track: #ffffff;
+  --scrollbar-width: 8px;
+  --scrollbar-radius: 0px;
+  --scrollbar-border: 1.5px solid #000000;
+
+  --flare-display: none;
+  --active-card-topline-display: none;
+  --font-family: 'Vazirmatn', ui-monospace, 'Chicago', 'Monaco', 'Courier New', monospace;
+  --font-mono: ui-monospace, 'Monaco', 'Cascadia Mono', 'Courier New', monospace;
+}
+
+/* 1. 1-Bit Checkerboard Desktop Body & Strict Monochrome Filter on Icons */
+[data-theme="mac-1bit"] body {
+  width: 100%;
+  max-width: 350px;
+  background-color: #ffffff;
+  background-image: var(--bg-page-gradient);
+  background-size: 4px 4px;
+  color: #000000;
+  overflow-x: hidden;
+}
+
+[data-theme="mac-1bit"] .popup-wrapper {
+  padding: 8px 11px 10px;
+  gap: 10px;
+}
+
+/* Force all emojis/avatars into crisp 1-bit monochrome */
+[data-theme="mac-1bit"] .avatar-glow {
+  background: #ffffff;
+  border: 2px solid #000000;
+  box-shadow: 2px 2px 0 #000000;
+  border-radius: 0;
+  filter: grayscale(1) contrast(1.8);
+}
+
+[data-theme="mac-1bit"] .tab-icon,
+[data-theme="mac-1bit"] .ai-sparkle {
+  filter: grayscale(1) brightness(0.2) contrast(3);
+}
+
+/* 2. Classic Mac OS System 7 Top Menu Bar + App Header Window */
+[data-theme="mac-1bit"] .app-header {
+  background: #ffffff;
+  border: 2px solid #000000;
+  box-shadow: 4px 4px 0 #000000;
+  padding: 24px 8px 8px 8px;
+  position: relative;
+}
+
+/* Top Macintosh Menu Bar with 1-Bit Pixel Apple Icon (File Edit View Label Special) */
+[data-theme="mac-1bit"] .app-header::before {
+  content: "PapaYar    File   Edit   View   Label   Special";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 19px;
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='14' viewBox='0 0 18 14'%3E%3Cpath d='M9 1h2v2H9zM6 3h3v1H6zm4 0h3v1h-3zM5 4h9v3H5zM4 5h9v4H4zM5 9h9v2H5zM6 11h3v2H6zm4 0h3v2h-3zM1 7h16v1H1zm14-2l2 2-2 2z' fill='%23000000'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 7px center;
+  background-size: 16px 12px;
+  color: #000000;
+  border-bottom: 2px solid #000000;
+  font: 900 9.5px var(--font-mono);
+  display: flex;
+  align-items: center;
+  padding: 0 8px 0 28px;
+  direction: ltr;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+[data-theme="mac-1bit"] .brand-title {
+  color: #000000;
+  font-weight: 900;
+  letter-spacing: 0.4px;
+}
+
+[data-theme="mac-1bit"] .brand-title .accent-text {
+  background: #000000;
+  color: #ffffff;
+  padding: 0 5px;
+  margin-right: 2px;
+}
+
+[data-theme="mac-1bit"] .brand-subtitle {
+  color: #000000;
+  font-weight: 700;
+}
+
+[data-theme="mac-1bit"] .brand-icon-box {
+  background: #ffffff;
+  border: 2px solid #000000;
+  box-shadow: 2px 2px 0 #000000;
+}
+
+[data-theme="mac-1bit"] .theme-picker-toggle-btn {
+  background: #ffffff;
+  color: #000000;
+  border: 2px solid #000000;
+  box-shadow: 2px 2px 0 #000000;
+  font-weight: 800;
+  font-size: 10px;
+  padding: 3px 6px;
+  max-width: 122px;
+}
+
+[data-theme="mac-1bit"] .fx-mode-switch {
+  background: #ffffff;
+  border: 2px solid #000000;
+  box-shadow: 2px 2px 0 #000000;
+  padding: 1px;
+}
+
+[data-theme="mac-1bit"] .fx-mode-btn {
+  color: #000000;
+  font-weight: 800;
+}
+
+[data-theme="mac-1bit"] .fx-mode-btn.active {
+  background: #000000;
+  color: #ffffff;
+}
+
+/* 3. Active Account Card: Inverted Black Titlebar («UNTITLED PAINT / ProTunez») + MacPaint Menu Strip */
+[data-theme="mac-1bit"] .active-account-card {
+  padding-top: 42px;
+  background-color: #ffffff;
+  background-image:
+    /* MacPaint sub-menubar right under the 21px black titlebar */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='17' viewBox='0 0 320 17'%3E%3Crect width='320' height='16' fill='%23ffffff'/%3E%3Cline x1='0' y1='16.2' x2='320' y2='16.2' stroke='%23000000' stroke-width='1.6'/%3E%3Ctext x='8' y='11.5' font-family='monospace' font-weight='bold' font-size='9.5' fill='%23000000'%3EFILE   EDIT   VIEW   OPTIONS   HELP%3C/text%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 0 21px;
+  background-size: 100% 17px;
+  border: 2px solid #000000;
+  box-shadow: 5px 5px 0 #000000;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Solid Black Inverted Window Titlebar (like - ProTunez - & UNTITLED PAINT / ERROR [X]) */
+[data-theme="mac-1bit"] .active-account-card::before {
+  content: "■     — UNTITLED // SESSION.EXE —     ✕";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 21px;
+  background: #000000;
+  color: #ffffff;
+  border-bottom: 2px solid #000000;
+  font: 900 9.5px var(--font-mono);
+  letter-spacing: 0.6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+  direction: ltr;
+}
+
+[data-theme="mac-1bit"] .active-pill {
+  background: #000000;
+  color: #ffffff;
+  border: 2px solid #000000;
+  font-family: var(--font-mono);
+  font-weight: 900;
+  padding: 1px 8px;
+}
+
+[data-theme="mac-1bit"] .status-dot.online {
+  background: #000000;
+  border: 1.5px solid #ffffff;
+  outline: 1.5px solid #000000;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+[data-theme="mac-1bit"] .status-text {
+  color: #000000;
+  font-weight: 800;
+}
+
+/* MacPaint Selection Bounding-Box with Square Corner Handles (□) around Phone Display */
+[data-theme="mac-1bit"] .phone-display {
+  font-family: var(--font-mono);
+  font-weight: 900;
+  color: #000000;
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='44' viewBox='0 0 200 44' preserveAspectRatio='none'%3E%3Crect x='4' y='4' width='192' height='36' fill='none' stroke='%23000000' stroke-width='1.5' stroke-dasharray='4 3'/%3E%3Crect x='1' y='1' width='6' height='6' fill='%23ffffff' stroke='%23000000' stroke-width='1.5'/%3E%3Crect x='193' y='1' width='6' height='6' fill='%23ffffff' stroke='%23000000' stroke-width='1.5'/%3E%3Crect x='1' y='37' width='6' height='6' fill='%23ffffff' stroke='%23000000' stroke-width='1.5'/%3E%3Crect x='193' y='37' width='6' height='6' fill='%23ffffff' stroke='%23000000' stroke-width='1.5'/%3E%3Crect x='97' y='1' width='6' height='6' fill='%23ffffff' stroke='%23000000' stroke-width='1.5'/%3E%3Crect x='97' y='37' width='6' height='6' fill='%23ffffff' stroke='%23000000' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  border: none;
+  box-shadow: none;
+  padding: 6px 18px;
+  display: block;
+  width: fit-content;
+  margin: 4px auto 2px;
+  text-align: center;
+  position: relative;
+  letter-spacing: 1px;
+}
+
+[data-theme="mac-1bit"] .service-tag {
+  color: #000000;
+  font-weight: 800;
+}
+
+/* 4. Standard Cards with Classic Macintosh 6-Line Horizontal Pinstriped Titlebars */
+[data-theme="mac-1bit"] .quick-profile-card,
+[data-theme="mac-1bit"] .saved-account-card,
+[data-theme="mac-1bit"] .voucher-card,
+[data-theme="mac-1bit"] .voucher-control-card,
+[data-theme="mac-1bit"] .export-box-preview {
+  background-color: #ffffff;
+  background-image:
+    /* White close box on left of pinstriped bar */
+    linear-gradient(90deg, transparent 0 6px, #ffffff 6px 16px, transparent 16px),
+    /* 6-line horizontal black/white pinstripes in top 12px titlebar */
+    repeating-linear-gradient(180deg, #ffffff 0px, #ffffff 1.5px, #000000 1.5px, #000000 2.5px),
+    /* Solid black bottom rule under the 12px titlebar */
+    linear-gradient(180deg, #000000 0%, #000000 100%);
+  background-size: 100% 11px, 100% 10px, 100% 2px;
+  background-position: 0 1px, 0 1px, 0 11px;
+  background-repeat: no-repeat;
+  padding-top: 18px !important;
+  border: 2px solid #000000;
+  box-shadow: 4px 4px 0 #000000;
+  position: relative;
+}
+
+[data-theme="mac-1bit"] .saved-account-card {
+  padding: 17px 10px 8px 10px !important;
+}
+
+[data-theme="mac-1bit"] .quick-profile-card {
+  padding: 17px 8px 8px 8px !important;
+}
+
+/* 5. Double-Bordered Mac Alert Dialogs (Gemini Config, Export Desc, Modals) */
+[data-theme="mac-1bit"] .gemini-config-card,
+[data-theme="mac-1bit"] .excel-search-banner,
+[data-theme="mac-1bit"] #tab-export .tab-desc,
+[data-theme="mac-1bit"] .modal-box {
+  background: #ffffff;
+  color: #000000;
+  border: 2px solid #000000;
+  box-shadow: inset 0 0 0 2px #ffffff, inset 0 0 0 4px #000000, 4px 4px 0 #000000;
+  padding: 8px 12px;
+  font-weight: 800;
+}
+
+[data-theme="mac-1bit"] .gemini-status-pill {
+  background: #000000;
+  color: #ffffff !important;
+  border: 1.5px solid #000000;
+  font-weight: 800;
+}
+
+/* 6. Classic Mac Double-Ring & Inverted Black Buttons (1-Bit Instant Invert on Hover) */
+[data-theme="mac-1bit"] .btn-pill,
+[data-theme="mac-1bit"] .btn-activate,
+[data-theme="mac-1bit"] .btn-launch-power,
+[data-theme="mac-1bit"] .btn-v-copy {
+  background: #ffffff;
+  color: #000000;
+  border: 2px solid #000000;
+  box-shadow: 2px 2px 0 #000000;
+  font-weight: 800;
+  border-radius: 0;
+  transition: none;
+}
+
+/* Default Action Buttons with Classic Macintosh Double-Ring Border ([ OK ] style) */
+[data-theme="mac-1bit"] .btn-cyan,
+[data-theme="mac-1bit"] .btn-launch-power,
+[data-theme="mac-1bit"] .btn-v-copy {
+  background: #ffffff;
+  color: #000000;
+  box-shadow: inset 0 0 0 1.5px #ffffff, inset 0 0 0 3px #000000, 2px 2px 0 #000000;
+}
+
+/* Inverted Black Error-Modal Buttons (like [ RETRY ] / [ CANCEL ] in reference 2) */
+[data-theme="mac-1bit"] .btn-crimson,
+[data-theme="mac-1bit"] .btn-inject-neon,
+[data-theme="mac-1bit"] .btn-scan-all-mass {
+  background: #000000;
+  color: #ffffff;
+  border: 2px solid #000000;
+  box-shadow: inset 0 0 0 1.5px #000000, inset 0 0 0 3px #ffffff, 3px 3px 0 #000000;
+  font-weight: 900;
+}
+
+/* Instant 1-Bit Inversion on Hover */
+[data-theme="mac-1bit"] .btn-pill:hover,
+[data-theme="mac-1bit"] .btn-activate:hover,
+[data-theme="mac-1bit"] .btn-launch-power:hover,
+[data-theme="mac-1bit"] .btn-v-copy:hover {
+  background: #000000;
+  color: #ffffff;
+  box-shadow: inset 0 0 0 1.5px #000000, inset 0 0 0 3px #ffffff, 3px 3px 0 #000000;
+}
+
+[data-theme="mac-1bit"] .btn-crimson:hover,
+[data-theme="mac-1bit"] .btn-inject-neon:hover,
+[data-theme="mac-1bit"] .btn-scan-all-mass:hover {
+  background: #ffffff;
+  color: #000000;
+  box-shadow: inset 0 0 0 1.5px #ffffff, inset 0 0 0 3px #000000, 3px 3px 0 #000000;
+}
+
+[data-theme="mac-1bit"] .control-buttons-row-sub .btn-pill {
+  padding: 5px 4px;
+  font-size: 10.5px;
+  white-space: nowrap;
+}
+
+/* 7. Navigation Tabs Bar (1-Bit Tool Palette Strip) */
+[data-theme="mac-1bit"] .nav-tabs-bar {
+  background: #ffffff;
+  border: 2px solid #000000;
+  box-shadow: 4px 4px 0 #000000;
+  padding: 3px;
+  gap: 3px;
+}
+
+[data-theme="mac-1bit"] .nav-tab-item {
+  background: #ffffff;
+  color: #000000;
+  border: 1.5px solid #000000;
+  font-weight: 800;
+}
+
+[data-theme="mac-1bit"] .nav-tab-item:hover {
+  background: repeating-conic-gradient(#000000 0% 25%, #ffffff 0% 50%) 0 0 / 4px 4px;
+  color: #000000;
+  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+}
+
+[data-theme="mac-1bit"] .nav-tab-item.active {
+  background: #000000;
+  color: #ffffff;
+  border: 1.5px solid #000000;
+  box-shadow: inset 0 0 0 1.5px #000000, inset 0 0 0 2.5px #ffffff;
+}
+
+[data-theme="mac-1bit"] .nav-tab-item.active .tab-icon {
+  filter: grayscale(1) brightness(0) invert(1);
+}
+
+[data-theme="mac-1bit"] .nav-tab-item.active::after {
+  display: none;
+}
+
+/* 8. Section Headers & Action Tags on Dithered Desktop */
+[data-theme="mac-1bit"] .section-title {
+  background: #ffffff;
+  color: #000000;
+  border: 2px solid #000000;
+  box-shadow: 3px 3px 0 #000000;
+  padding: 1px 9px;
+  font-weight: 900;
+  font-size: 12px;
+}
+
+[data-theme="mac-1bit"] .file-import-link {
+  background: #ffffff;
+  color: #000000 !important;
+  border: 2px solid #000000;
+  box-shadow: 2px 2px 0 #000000;
+  padding: 1px 7px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+[data-theme="mac-1bit"] .btn-text-danger {
+  background: #000000;
+  color: #ffffff !important;
+  border: 2px solid #000000;
+  box-shadow: 2px 2px 0 #000000;
+  padding: 2px 7px;
+  font-weight: 800;
+}
+
+[data-theme="mac-1bit"] .btn-delete-acc {
+  background: #000000;
+  color: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 0;
+  width: 24px;
+  height: 24px;
+  font-weight: 900;
+}
+
+[data-theme="mac-1bit"] .btn-delete-acc:hover {
+  background: #ffffff;
+  color: #000000;
+}
+
+/* 9. Inputs, Vouchers, Chips & Dithered Scrollbars */
+[data-theme="mac-1bit"] input,
+[data-theme="mac-1bit"] textarea,
+[data-theme="mac-1bit"] select {
+  background: #ffffff;
+  color: #000000;
+  border: 2px solid #000000;
+  box-shadow: 3px 3px 0 #000000;
+  font-weight: 700;
+}
+
+[data-theme="mac-1bit"] input::placeholder,
+[data-theme="mac-1bit"] textarea::placeholder {
+  color: #000000;
+  opacity: 0.65;
+}
+
+[data-theme="mac-1bit"] .v-chip {
+  background: #ffffff;
+  color: #000000;
+  border: 2px solid #000000;
+  box-shadow: 2px 2px 0 #000000;
+  font-weight: 800;
+}
+
+[data-theme="mac-1bit"] .v-chip.active {
+  background: #000000;
+  color: #ffffff;
+}
+
+[data-theme="mac-1bit"] .v-results-bar {
+  background: #ffffff;
+  border: 2px solid #000000;
+  box-shadow: 3px 3px 0 #000000;
+  padding: 3px 8px;
+  color: #000000;
+  font-weight: 800;
+}
+
+[data-theme="mac-1bit"] .v-results-bar span,
+[data-theme="mac-1bit"] .btn-text-copy-all {
+  color: #000000 !important;
+  font-weight: 800;
+}
+
+[data-theme="mac-1bit"] .v-badge {
+  background: #000000;
+  color: #ffffff;
+  border: 1.5px solid #000000;
+  font-weight: 800;
+}
+
+[data-theme="mac-1bit"] .v-pill-amount {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border: 1.5px solid #000000;
+  font-weight: 800;
+}
+
+[data-theme="mac-1bit"] .accent-val {
+  color: #000000 !important;
+  font-family: var(--font-mono);
+  font-weight: 900;
+  border-bottom: 2px solid #000000;
+}
+
+/* 10. Footer («COPYING... [▮▮▮▮▮▮░░░░]» 1-Bit Progress Strip from Reference 2) */
+[data-theme="mac-1bit"] .app-footer {
+  background: #ffffff;
+  border: 2px solid #000000;
+  box-shadow: 4px 4px 0 #000000;
+  padding: 6px 10px;
+  color: #000000;
+  font-weight: 800;
+}
+
+[data-theme="mac-1bit"] .footer-status-text {
+  color: #000000;
+}
+
+[data-theme="mac-1bit"] .footer-dot {
+  background: #000000;
+  border-radius: 0;
+}
+
+[data-theme="mac-1bit"] .eq-bar,
+[data-theme="mac-1bit"] .eq-mini-bar {
+  background: #000000;
+  border-radius: 0;
+}
+
+[data-theme="mac-1bit"] .swatch-dot {
+  border: 1.5px solid #000000 !important;
+  border-radius: 0 !important;
+}

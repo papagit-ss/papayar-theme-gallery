@@ -1,0 +1,401 @@
+/* =============================================================
+   themes/bauhaus.css - Bauhaus & Swiss International Style
+   ============================================================= */
+
+[data-theme="bauhaus"] {
+  /* Surfaces - Heavy Warm Parchment & Primary Blocks */
+  --bg-deep: #F4EFE6;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #FDFBF7;
+  --bg-input: #FFFFFF;
+  --bg-modal: #F4EFE6;
+  --bg-overlay: rgba(17, 17, 17, 0.75);
+  
+  /* Background: Architectural Swiss Grid */
+  --bg-page-gradient: 
+    linear-gradient(rgba(17, 17, 17, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 17, 17, 0.08) 1px, transparent 1px),
+    linear-gradient(180deg, #F6F1E8 0%, #EFE9DD 100%);
+
+  --backdrop-blur: none;
+  --tabs-bar-bg: #EAE3D5;
+  --subchip-bg: #EAE3D5;
+
+  /* Strict Razor-Sharp Architectural Lines (0px Radius) */
+  --border-subtle: #D0C8B8;
+  --border-glow: #0A25C9;
+  --border-card-top: #111111;
+  --border-width: 2px;
+  --border-color: #111111;
+  --border-modal: 3px solid #111111;
+  --border-input: 2px solid #111111;
+  --border-chip: 2px solid #111111;
+  --border-subchip: 1.5px dashed #111111;
+
+  /* Primary Bauhaus Color Accents */
+  --primary-neon: #E63946;
+  --primary-light: #FF5A67;
+  --accent-cyan: #0A25C9;
+  --accent-crimson: #E63946;
+  --accent-yellow: #FFB703;
+  --accent-purple: #111111;
+  --accent-emerald: #1B998B;
+  --semantic-danger: #E63946;
+  --semantic-success: #1B998B;
+  --semantic-warning: #FFB703;
+
+  /* Voucher Category Colors */
+  --cat-food: #E63946;
+  --cat-ride: #0A25C9;
+  --cat-super: #1B998B;
+  --cat-box: #FFB703;
+  --cat-doctor: #FB8500;
+  --cat-general: #111111;
+
+  /* Typography - Heavy Jet Black Ink */
+  --text-primary: #111111;
+  --text-secondary: #333333;
+  --text-muted: #666666;
+  --text-on-accent: #FFFFFF;
+  --text-brand: #111111;
+  --text-brand-accent: #E63946;
+  --text-phone: #111111;
+  --text-input: #111111;
+
+  /* Strict 0px Geometry */
+  --radius-xs: 0px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-pill: 0px;
+
+  /* Hard Swiss Offset Shadows */
+  --card-shadow: 4px 4px 0 #111111;
+  --card-shadow-hover: 6px 6px 0 #111111;
+  --active-card-shadow: 4px 4px 0 #0A25C9;
+  --btn-shadow: 2px 2px 0 #111111;
+  --btn-shadow-hover: 3px 3px 0 #111111;
+  --btn-transform-hover: translate(-1px, -1px);
+  --btn-transform-active: translate(2px, 2px);
+  --modal-shadow: 8px 8px 0 #111111;
+  --glow-pill: none;
+  --glow-dot: none;
+
+  /* Architectural Scrollbar */
+  --scrollbar-width: 8px;
+  --scrollbar-track: #EAE3D5;
+  --scrollbar-thumb: #111111;
+  --scrollbar-thumb-hover: #E63946;
+  --scrollbar-radius: 0px;
+  --scrollbar-border: 1px solid #111111;
+
+  /* Component Presets */
+  --btn-inject-bg: #E63946;
+  --btn-inject-color: #FFFFFF;
+  --btn-inject-border: 2px solid #111111;
+
+  --btn-scan-mass-bg: #FFFFFF;
+  --btn-scan-mass-color: #111111;
+  --btn-scan-mass-border: 2px solid #111111;
+
+  --btn-gofullpage-bg: #FFFFFF;
+  --btn-gofullpage-color: #111111;
+  --btn-gofullpage-border: 2px solid #111111;
+
+  --btn-ai-scan-bg: #FFB703;
+  --btn-ai-scan-color: #111111;
+  --btn-ai-scan-border: 2px solid #111111;
+
+  --btn-upload-bg: #FFFFFF;
+  --btn-upload-color: #111111;
+  --btn-upload-border: 2px solid #111111;
+
+  --btn-excel-bg: #0A25C9;
+  --btn-excel-color: #FFFFFF;
+  --btn-excel-border: 2px solid #111111;
+
+  --excel-banner-bg: #FFFFFF;
+  --excel-banner-border: 2px solid #111111;
+  --excel-banner-color: #111111;
+
+  --v-code-box-bg: #F4EFE6;
+  --v-code-box-border: 2px dashed #111111;
+  --v-code-color: #111111;
+  --v-pill-meta-bg: #EAE3D5;
+  --v-pill-meta-color: #111111;
+
+  --flare-display: none;
+  --active-card-topline-display: none;
+
+  --switcher-bg: #FFFFFF;
+  --switcher-border: 2px solid #111111;
+
+  --font-family: 'Space Grotesk', 'Inter', 'Vazirmatn', -apple-system, sans-serif;
+}
+
+/* Strict 350px Viewport Containment */
+[data-theme="bauhaus"] body {
+  width: 350px !important;
+  max-width: 350px !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  box-sizing: border-box !important;
+  background-color: var(--bg-deep) !important;
+  background-image: var(--bg-page-gradient) !important;
+  background-size: 20px 20px, 20px 20px, 100% 100% !important;
+}
+
+[data-theme="bauhaus"] .popup-wrapper {
+  width: 350px !important;
+  max-width: 350px !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  padding: 14px 14px 10px 14px !important;
+  margin: 0 !important;
+  background: transparent !important;
+}
+
+/* Strict 0px Sharp Cards */
+[data-theme="bauhaus"] .card {
+  background: #FFFFFF;
+  border: 2px solid #111111;
+  border-radius: 0px;
+  box-shadow: 4px 4px 0 #111111;
+  position: relative;
+}
+
+/* Active Account Card: Blue Cobalt Frame with Red Block */
+[data-theme="bauhaus"] .active-account-card {
+  border: 2.5px solid #111111;
+  border-radius: 0px;
+  box-shadow: 5px 5px 0 #0A25C9;
+}
+
+[data-theme="bauhaus"] .active-pill {
+  background: #E63946;
+  color: #FFFFFF;
+  border-radius: 0px;
+  font-weight: 800;
+  font-size: 10px;
+  padding: 2px 8px;
+  letter-spacing: 1px;
+}
+
+[data-theme="bauhaus"] .active-account-card.standby .active-pill {
+  background: #EAE3D5;
+  color: #555555;
+  border: 1px solid #111111;
+}
+
+[data-theme="bauhaus"] .status-dot {
+  border-radius: 0px;
+  border: 1px solid #111111;
+}
+
+[data-theme="bauhaus"] .status-dot.online {
+  background: #0A25C9;
+}
+
+/* Bauhaus Block Buttons */
+[data-theme="bauhaus"] .btn-pill {
+  border: 2px solid #111111;
+  border-radius: 0px;
+  font-weight: 800;
+  box-shadow: var(--btn-shadow);
+  text-transform: uppercase;
+  transition: all 0.1s ease;
+}
+
+[data-theme="bauhaus"] .btn-cyan {
+  background: #0A25C9;
+  color: #FFFFFF;
+}
+
+[data-theme="bauhaus"] .btn-cyan:hover {
+  background: #1A35D9;
+}
+
+[data-theme="bauhaus"] .btn-crimson {
+  background: #FFFFFF;
+  color: #E63946;
+  border-color: #111111;
+}
+
+[data-theme="bauhaus"] .btn-crimson:hover {
+  background: #E63946;
+  color: #FFFFFF;
+}
+
+[data-theme="bauhaus"] .btn-neon-green {
+  background: #FFB703;
+  color: #111111;
+}
+
+/* Navigation Tabs Bar */
+[data-theme="bauhaus"] .nav-tabs-bar {
+  background: #EAE3D5;
+  border: 2px solid #111111;
+  border-radius: 0px;
+  box-shadow: 3px 3px 0 #111111;
+  padding: 3px;
+  gap: 3px;
+}
+
+[data-theme="bauhaus"] .nav-tab-item {
+  border-radius: 0px;
+  border: 1px solid transparent;
+  color: #333333;
+  font-weight: 800;
+}
+
+[data-theme="bauhaus"] .nav-tab-item:hover {
+  background: #FFFFFF;
+  color: #111111;
+  border-color: #111111;
+}
+
+[data-theme="bauhaus"] .nav-tab-item.active {
+  background: #E63946;
+  color: #FFFFFF;
+  border: 1px solid #111111;
+  box-shadow: 1px 1px 0 #111111;
+}
+
+/* Chips & Inputs */
+[data-theme="bauhaus"] .category-chip {
+  background: #FFFFFF;
+  border: 1.5px solid #111111;
+  border-radius: 0px;
+  color: #111111;
+  box-shadow: 2px 2px 0 #111111;
+  font-weight: 700;
+}
+
+[data-theme="bauhaus"] .category-chip.active {
+  background: #0A25C9;
+  color: #FFFFFF;
+}
+
+[data-theme="bauhaus"] .sub-chip {
+  background: #EAE3D5;
+  border: 1px dashed #111111;
+  border-radius: 0px;
+  color: #333333;
+}
+
+[data-theme="bauhaus"] .sub-chip.active {
+  background: #111111;
+  color: #FFB703;
+  border-style: solid;
+}
+
+[data-theme="bauhaus"] input,
+[data-theme="bauhaus"] textarea,
+[data-theme="bauhaus"] .search-input,
+[data-theme="bauhaus"] .voucher-select,
+[data-theme="bauhaus"] .session-input-box {
+  background: #FFFFFF;
+  border: 2px solid #111111;
+  border-radius: 0px;
+  color: #111111;
+}
+
+[data-theme="bauhaus"] input:focus,
+[data-theme="bauhaus"] textarea:focus,
+[data-theme="bauhaus"] .search-input:focus,
+[data-theme="bauhaus"] .voucher-select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #0A25C9;
+}
+
+/* Saved Account Cards (61+ Rows: Butter Smooth) */
+[data-theme="bauhaus"] .saved-account-card {
+  background: #FFFFFF;
+  border: 1.5px solid #111111;
+  border-radius: 0px;
+  box-shadow: 3px 3px 0 #111111;
+  backdrop-filter: none !important;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+[data-theme="bauhaus"] .saved-account-card:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 #0A25C9;
+}
+
+[data-theme="bauhaus"] .acc-btn-run {
+  background: #0A25C9;
+  color: #FFFFFF;
+  border-radius: 0px;
+  font-weight: 800;
+}
+
+[data-theme="bauhaus"] .acc-btn-delete {
+  color: #666666;
+}
+
+[data-theme="bauhaus"] .acc-btn-delete:hover {
+  color: #E63946;
+}
+
+/* Voucher Cards */
+[data-theme="bauhaus"] .voucher-card {
+  background: #FFFFFF;
+  border: 1.5px solid #111111;
+  border-radius: 0px;
+  box-shadow: 3px 3px 0 #111111;
+  backdrop-filter: none !important;
+}
+
+/* Theme Picker Dropdown */
+[data-theme="bauhaus"] .theme-picker-dropdown {
+  background: #F4EFE6;
+  border: 3px solid #111111;
+  border-radius: 0px;
+  box-shadow: 6px 6px 0 #111111;
+}
+
+[data-theme="bauhaus"] .theme-option-btn {
+  background: #FFFFFF;
+  border: 1.5px solid #111111;
+  border-radius: 0px;
+  color: #111111;
+}
+
+[data-theme="bauhaus"] .theme-option-btn:hover {
+  background: #EAE3D5;
+}
+
+[data-theme="bauhaus"] .theme-option-btn.active {
+  background: #E63946;
+  color: #FFFFFF;
+}
+
+/* Modal */
+[data-theme="bauhaus"] .modal-overlay {
+  background: rgba(17, 17, 17, 0.75);
+  backdrop-filter: none;
+}
+
+[data-theme="bauhaus"] .modal-box {
+  background: #F4EFE6;
+  border: 3px solid #111111;
+  border-radius: 0px;
+  box-shadow: 10px 10px 0 #111111;
+  color: #111111;
+}
+
+/* Toast */
+[data-theme="bauhaus"] .toast-notification {
+  background: #111111;
+  color: #FFFFFF;
+  border: 2px solid #E63946;
+  border-radius: 0px;
+  box-shadow: 4px 4px 0 #0A25C9;
+}
+
+/* Equalizer Bars */
+[data-theme="bauhaus"] .eq-bar {
+  background: #E63946;
+  border-radius: 0px;
+}

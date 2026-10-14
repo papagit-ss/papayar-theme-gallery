@@ -1,0 +1,494 @@
+/* ==========================================================================
+   Theme 24: dithertone-pro — Blue Halftone Dither Matrix (ماتریس دیترتون پرو)
+   Reference: `image_4e44d6.jpg` ("DITHERING ALGORITHMS — DITHERTONE PRO")
+   - Deep cosmic black void (#04070D) with glowing electric phosphor cyan-blue
+     (#5CE1FF / #2B95FF / #E6F9FF).
+   - Wireframe CAD boxes with glowing solid white-cyan square corner nodes (■).
+   - 3D perspective wireframe grid room & Bayer halftone dither nebula inside
+     the Active Account Card.
+   - Sub-cards & buttons framed like [ MODULATION ], [ ATKINSON ], [ BAYER ], [ SIERRA ].
+   - Oscilloscope intertwined sine-wave graph & numeric telemetry in footer.
+   ========================================================================== */
+
+[data-theme="dithertone-pro"] {
+  --bg-deep: #04070D;
+  --bg-card: rgba(6, 13, 24, 0.94);
+  --bg-card-hover: rgba(10, 22, 40, 0.96);
+  --bg-input: #050B16;
+  --bg-modal: #060D1A;
+  --bg-overlay: rgba(3, 6, 12, 0.88);
+  --bg-page-gradient: radial-gradient(circle at 50% 28%, rgba(43, 149, 255, 0.16) 0%, transparent 60%), linear-gradient(180deg, #04070E 0%, #060C18 100%);
+  --backdrop-blur: none;
+  --tabs-bar-bg: #050A14;
+  --subchip-bg: #081528;
+
+  --text-primary: #E6F9FF;
+  --text-secondary: #7AD8FF;
+  --text-muted: #4692C8;
+  --text-input: #B8F0FF;
+  --text-on-accent: #040810;
+  --text-brand: #E6F9FF;
+  --text-brand-accent: #5CE1FF;
+  --text-phone: #E6F9FF;
+
+  --primary-neon: #5CE1FF;
+  --primary-light: #B8F0FF;
+  --accent-cyan: #5CE1FF;
+  --accent-purple: #2B95FF;
+  --accent-emerald: #5CE1FF;
+  --accent-crimson: #3898FF;
+  --accent-yellow: #8CE8FF;
+  --semantic-danger: #66D4FF;
+  --semantic-success: #5CE1FF;
+  --semantic-warning: #8CE8FF;
+
+  --border-subtle: rgba(92, 225, 255, 0.45);
+  --border-glow: rgba(92, 225, 255, 0.85);
+  --border-card-top: #7AD8FF;
+  --border-width: 1.5px;
+  --border-color: #5CE1FF;
+  --border-input: 1.5px solid #4692C8;
+  --border-modal: 1.5px solid #5CE1FF;
+  --border-chip: 1px solid #4692C8;
+  --border-subchip: 1px solid #2B95FF;
+
+  --radius-xs: 0px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-pill: 0px;
+
+  --card-shadow: 0 0 18px rgba(43, 149, 255, 0.22), inset 0 0 20px rgba(43, 149, 255, 0.10);
+  --card-shadow-hover: 0 0 24px rgba(92, 225, 255, 0.38), inset 0 0 24px rgba(92, 225, 255, 0.16);
+  --active-card-shadow: 0 0 26px rgba(43, 149, 255, 0.32), inset 0 0 28px rgba(43, 149, 255, 0.15);
+  --btn-shadow: 0 0 10px rgba(43, 149, 255, 0.25);
+  --btn-shadow-hover: 0 0 16px rgba(92, 225, 255, 0.55);
+  --glow-pill: 0 0 12px rgba(92, 225, 255, 0.6);
+  --glow-dot: 0 0 10px #5CE1FF;
+  --modal-shadow: 0 0 40px rgba(43, 149, 255, 0.45);
+
+  --btn-transform-hover: translateY(-1px);
+  --btn-transform-active: translateY(1px);
+
+  --btn-inject-bg: #5CE1FF;
+  --btn-inject-color: #040810;
+  --btn-inject-border: 1.5px solid #E6F9FF;
+  --btn-scan-mass-bg: #5CE1FF;
+  --btn-scan-mass-color: #040810;
+  --btn-scan-mass-border: 1.5px solid #E6F9FF;
+  --btn-gofullpage-bg: #071324;
+  --btn-gofullpage-color: #B8F0FF;
+  --btn-gofullpage-border: 1.5px solid #5CE1FF;
+  --btn-ai-scan-bg: #071324;
+  --btn-ai-scan-color: #B8F0FF;
+  --btn-ai-scan-border: 1.5px solid #5CE1FF;
+  --btn-upload-bg: #071324;
+  --btn-upload-color: #B8F0FF;
+  --btn-upload-border: 1.5px solid #5CE1FF;
+  --btn-excel-bg: #071324;
+  --btn-excel-color: #B8F0FF;
+  --btn-excel-border: 1.5px solid #5CE1FF;
+  --excel-banner-bg: #071324;
+  --excel-banner-color: #B8F0FF;
+  --excel-banner-border: 1.5px solid #5CE1FF;
+
+  --v-code-box-bg: #040912;
+  --v-code-box-border: 1.5px solid #5CE1FF;
+  --v-code-color: #E6F9FF;
+  --v-pill-meta-bg: rgba(43, 149, 255, 0.16);
+  --v-pill-meta-color: #8CE8FF;
+
+  --switcher-bg: #06101E;
+  --switcher-border: 1.5px solid #5CE1FF;
+  --scrollbar-thumb: #5CE1FF;
+  --scrollbar-thumb-hover: #E6F9FF;
+  --scrollbar-track: #04070D;
+  --scrollbar-width: 5px;
+  --scrollbar-radius: 0px;
+  --scrollbar-border: none;
+
+  --flare-display: none;
+  --active-card-topline-display: none;
+  --font-family: 'Vazirmatn', ui-monospace, 'Courier New', monospace;
+  --font-mono: 'Courier New', ui-monospace, Menlo, monospace;
+}
+
+/* ==========================================================================
+   BAYER HALFTONE DITHER BACKGROUND & TOP "DITHERING ALGORITHMS" FRAME
+   ========================================================================== */
+[data-theme="dithertone-pro"] body {
+  background-color: #04070D !important;
+  background-image:
+    /* Ordered Bayer Halftone Dot Matrix across background */
+    radial-gradient(rgba(92, 225, 255, 0.12) 1px, transparent 1px),
+    radial-gradient(rgba(43, 149, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(180deg, #04070D 0%, #071020 50%, #04070D 100%) !important;
+  background-size: 6px 6px, 12px 12px, 100% 100% !important;
+  background-position: 0 0, 3px 3px, 0 0 !important;
+  color: #E6F9FF;
+}
+
+[data-theme="dithertone-pro"] .popup-wrapper {
+  position: relative;
+  padding-top: 26px !important;
+}
+
+/* Top Frame Bar: ■ DITHERING ALGORITHMS          DITHERTONE PRO ■ */
+[data-theme="dithertone-pro"] .popup-wrapper::before {
+  content: "■  DITHERING ALGORITHMS                  DITHERTONE PRO  ■";
+  position: absolute;
+  top: 4px;
+  left: 10px;
+  right: 10px;
+  height: 19px;
+  padding: 0 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  direction: ltr;
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  font-weight: 900;
+  letter-spacing: 0.9px;
+  color: #E6F9FF;
+  text-shadow: 0 0 8px #5CE1FF;
+  background: rgba(8, 20, 38, 0.85);
+  border: 1.5px solid #5CE1FF;
+  box-shadow: 0 0 12px rgba(92, 225, 255, 0.35);
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   GLOWING SQUARE CORNER NODE WIREFRAME CONTAINERS (■ at all 4 corners)
+   ========================================================================== */
+[data-theme="dithertone-pro"] .app-header,
+[data-theme="dithertone-pro"] .section-container,
+[data-theme="dithertone-pro"] .voucher-card,
+[data-theme="dithertone-pro"] .gemini-config-card,
+[data-theme="dithertone-pro"] .voucher-control-card,
+[data-theme="dithertone-pro"] .voucher-filter-toolbar,
+[data-theme="dithertone-pro"] .export-box-preview {
+  position: relative;
+  background:
+    /* 4 Glowing White-Cyan Square Corner Nodes (6x6px) */
+    linear-gradient(#E6F9FF, #E6F9FF) no-repeat top 0 left 0 / 5px 5px,
+    linear-gradient(#E6F9FF, #E6F9FF) no-repeat top 0 right 0 / 5px 5px,
+    linear-gradient(#E6F9FF, #E6F9FF) no-repeat bottom 0 left 0 / 5px 5px,
+    linear-gradient(#E6F9FF, #E6F9FF) no-repeat bottom 0 right 0 / 5px 5px,
+    /* Subtle halftone dither gradient fill */
+    radial-gradient(rgba(92, 225, 255, 0.14) 1px, transparent 1px) 0 0 / 4px 4px,
+    linear-gradient(180deg, rgba(6, 15, 30, 0.94) 0%, rgba(4, 9, 18, 0.96) 100%) !important;
+  border: 1.5px solid #5CE1FF !important;
+  border-radius: 0px !important;
+  box-shadow:
+    0 0 16px rgba(43, 149, 255, 0.28),
+    inset 0 0 18px rgba(43, 149, 255, 0.12) !important;
+}
+
+[data-theme="dithertone-pro"] .section-container {
+  padding: 14px 12px !important;
+  margin-bottom: 14px !important;
+}
+
+[data-theme="dithertone-pro"] .brand-title,
+[data-theme="dithertone-pro"] .section-title {
+  color: #E6F9FF !important;
+  text-shadow: 0 0 10px rgba(92, 225, 255, 0.75) !important;
+  letter-spacing: 0.6px;
+}
+
+[data-theme="dithertone-pro"] .brand-title .accent-text {
+  color: #5CE1FF !important;
+}
+
+/* ==========================================================================
+   ACTIVE ACCOUNT CARD: 3D PERSPECTIVE WIREFRAME ROOM & BAYER NEBULA
+   ========================================================================== */
+[data-theme="dithertone-pro"] .active-account-card {
+  position: relative;
+  padding: 16px 14px 18px 14px !important;
+  background-color: #040812 !important;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180' preserveAspectRatio='none'%3E%3Crect x='2' y='2' width='316' height='176' fill='none' stroke='%235CE1FF' stroke-width='1.2' stroke-opacity='0.65'/%3E%3Crect x='36' y='22' width='248' height='136' fill='none' stroke='%233898FF' stroke-width='0.9' stroke-opacity='0.45'/%3E%3Crect x='68' y='40' width='184' height='100' fill='none' stroke='%233898FF' stroke-width='0.9' stroke-opacity='0.45'/%3E%3Crect x='96' y='56' width='128' height='68' fill='none' stroke='%235CE1FF' stroke-width='1' stroke-opacity='0.55'/%3E%3Cline x1='2' y1='2' x2='96' y2='56' stroke='%233898FF' stroke-width='0.9' stroke-opacity='0.5'/%3E%3Cline x1='318' y1='2' x2='224' y2='56' stroke='%233898FF' stroke-width='0.9' stroke-opacity='0.5'/%3E%3Cline x1='2' y1='178' x2='96' y2='124' stroke='%233898FF' stroke-width='0.9' stroke-opacity='0.5'/%3E%3Cline x1='318' y1='178' x2='224' y2='124' stroke='%233898FF' stroke-width='0.9' stroke-opacity='0.5'/%3E%3Cline x1='160' y1='2' x2='160' y2='56' stroke='%233898FF' stroke-width='0.7' stroke-opacity='0.35'/%3E%3Cline x1='160' y1='178' x2='160' y2='124' stroke='%233898FF' stroke-width='0.7' stroke-opacity='0.35'/%3E%3Cline x1='2' y1='90' x2='96' y2='90' stroke='%233898FF' stroke-width='0.7' stroke-opacity='0.35'/%3E%3Cline x1='318' y1='90' x2='224' y2='90' stroke='%233898FF' stroke-width='0.7' stroke-opacity='0.35'/%3E%3Crect x='0' y='0' width='6' height='6' fill='%23E6F9FF'/%3E%3Crect x='314' y='0' width='6' height='6' fill='%23E6F9FF'/%3E%3Crect x='0' y='174' width='6' height='6' fill='%23E6F9FF'/%3E%3Crect x='314' y='174' width='6' height='6' fill='%23E6F9FF'/%3E%3C/svg%3E"),
+    radial-gradient(ellipse at 50% 42%, rgba(140, 232, 255, 0.35) 0%, rgba(43, 149, 255, 0.16) 45%, transparent 72%),
+    radial-gradient(rgba(140, 232, 255, 0.24) 1px, transparent 1px) !important;
+  background-size: 100% 100%, 100% 100%, 3px 3px !important;
+  border: 1.5px solid #7AD8FF !important;
+  border-radius: 0px !important;
+  box-shadow:
+    0 0 24px rgba(92, 225, 255, 0.38),
+    inset 0 0 28px rgba(43, 149, 255, 0.22) !important;
+}
+
+[data-theme="dithertone-pro"] .phone-display {
+  font-family: var(--font-mono) !important;
+  font-size: 22px !important;
+  font-weight: 900 !important;
+  letter-spacing: 2px !important;
+  color: #FFFFFF !important;
+  text-shadow: 0 0 12px #5CE1FF, 0 0 24px #2B95FF !important;
+  background:
+    radial-gradient(rgba(92, 225, 255, 0.22) 1px, transparent 1px) 0 0 / 3px 3px,
+    rgba(5, 16, 32, 0.86) !important;
+  border: 1.5px solid #7AD8FF !important;
+  padding: 8px 14px !important;
+  margin: 8px 0 !important;
+  box-shadow: 0 0 16px rgba(92, 225, 255, 0.35), inset 0 0 14px rgba(92, 225, 255, 0.2) !important;
+  direction: ltr;
+}
+
+[data-theme="dithertone-pro"] .active-pill,
+[data-theme="dithertone-pro"] .status-indicator-box,
+[data-theme="dithertone-pro"] .service-tag {
+  background: rgba(6, 18, 36, 0.92) !important;
+  color: #B8F0FF !important;
+  border: 1px solid #5CE1FF !important;
+  border-radius: 0px !important;
+  padding: 3px 10px !important;
+  text-shadow: 0 0 6px rgba(92, 225, 255, 0.55) !important;
+}
+
+/* ==========================================================================
+   SUB-CARDS & ALGORITHM PORTRAIT BOXES ([ MODULATION ], [ ATKINSON ], [ BAYER ])
+   ========================================================================== */
+[data-theme="dithertone-pro"] .quick-profile-card,
+[data-theme="dithertone-pro"] .saved-account-card {
+  position: relative;
+  background:
+    linear-gradient(#E6F9FF, #E6F9FF) no-repeat top 0 left 0 / 4px 4px,
+    linear-gradient(#E6F9FF, #E6F9FF) no-repeat top 0 right 0 / 4px 4px,
+    linear-gradient(#E6F9FF, #E6F9FF) no-repeat bottom 0 left 0 / 4px 4px,
+    linear-gradient(#E6F9FF, #E6F9FF) no-repeat bottom 0 right 0 / 4px 4px,
+    radial-gradient(rgba(92, 225, 255, 0.25) 1px, transparent 1px) 0 0 / 3px 3px,
+    linear-gradient(180deg, rgba(16, 48, 88, 0.55) 0%, rgba(5, 12, 24, 0.95) 100%) !important;
+  border: 1.5px solid #5CE1FF !important;
+  border-radius: 0px !important;
+  box-shadow: 0 0 12px rgba(43, 149, 255, 0.25) !important;
+}
+
+[data-theme="dithertone-pro"] .avatar-glow {
+  background: radial-gradient(circle, #8CE8FF 0%, #1D64B8 70%, #050C18 100%) !important;
+  border: 1.5px solid #E6F9FF !important;
+  border-radius: 0px !important;
+  box-shadow: 0 0 12px rgba(92, 225, 255, 0.6) !important;
+}
+
+/* Buttons Framed Like [ MODULATION ] / [ ATKINSON ] / [ BAYER ] / [ SIERRA ] Labels */
+[data-theme="dithertone-pro"] .btn-pill,
+[data-theme="dithertone-pro"] .btn-activate,
+[data-theme="dithertone-pro"] .btn-launch-power,
+[data-theme="dithertone-pro"] .btn-v-copy,
+[data-theme="dithertone-pro"] .v-chip,
+[data-theme="dithertone-pro"] .theme-picker-toggle-btn,
+[data-theme="dithertone-pro"] .file-import-link {
+  background:
+    linear-gradient(#E6F9FF, #E6F9FF) no-repeat top 0 left 0 / 3px 3px,
+    linear-gradient(#E6F9FF, #E6F9FF) no-repeat bottom 0 right 0 / 3px 3px,
+    rgba(7, 19, 36, 0.95) !important;
+  color: #E6F9FF !important;
+  border: 1px solid #5CE1FF !important;
+  border-radius: 0px !important;
+  font-weight: 800 !important;
+  text-shadow: 0 0 6px rgba(92, 225, 255, 0.65) !important;
+  box-shadow: 0 0 10px rgba(43, 149, 255, 0.22), inset 0 0 8px rgba(92, 225, 255, 0.12) !important;
+}
+
+[data-theme="dithertone-pro"] .btn-inject-neon,
+[data-theme="dithertone-pro"] .v-chip.active {
+  background:
+    radial-gradient(rgba(4, 8, 16, 0.25) 1px, transparent 1px) 0 0 / 3px 3px,
+    linear-gradient(90deg, #5CE1FF 0%, #8CE8FF 50%, #5CE1FF 100%) !important;
+  color: #040810 !important;
+  border: 1.5px solid #FFFFFF !important;
+  border-radius: 0px !important;
+  font-weight: 900 !important;
+  text-shadow: none !important;
+  box-shadow: 0 0 18px rgba(92, 225, 255, 0.65) !important;
+}
+
+/* Navigation Tabs Bar: 4 Algorithm Modules (MODULATION | ATKINSON | BAYER | SIERRA) */
+[data-theme="dithertone-pro"] .nav-tabs-bar {
+  background: #040914 !important;
+  border: 1.5px solid #5CE1FF !important;
+  border-radius: 0px !important;
+  padding: 4px !important;
+  gap: 4px !important;
+  box-shadow: 0 0 16px rgba(43, 149, 255, 0.28) !important;
+}
+
+[data-theme="dithertone-pro"] .nav-tab-item {
+  border: 1px solid rgba(92, 225, 255, 0.35) !important;
+  border-radius: 0px !important;
+  color: #7AD8FF !important;
+}
+
+[data-theme="dithertone-pro"] .nav-tab-item.active {
+  background:
+    radial-gradient(rgba(92, 225, 255, 0.28) 1px, transparent 1px) 0 0 / 3px 3px,
+    rgba(22, 72, 132, 0.65) !important;
+  color: #FFFFFF !important;
+  border: 1.5px solid #E6F9FF !important;
+  box-shadow: 0 0 14px rgba(92, 225, 255, 0.5) !important;
+}
+
+/* Inputs & Code Boxes */
+[data-theme="dithertone-pro"] .inject-textarea,
+[data-theme="dithertone-pro"] .voucher-search,
+[data-theme="dithertone-pro"] .voucher-select,
+[data-theme="dithertone-pro"] .v-code-box {
+  background: #03070E !important;
+  border: 1.5px solid #5CE1FF !important;
+  border-radius: 0px !important;
+  color: #E6F9FF !important;
+  font-family: var(--font-mono) !important;
+  box-shadow: inset 0 0 12px rgba(43, 149, 255, 0.2) !important;
+}
+
+/* Footer: Dual Sine-Wave Oscilloscope Grid + Numeric Matrix Telemetry */
+[data-theme="dithertone-pro"] .app-footer {
+  position: relative;
+  padding-top: 46px !important;
+  padding-bottom: 20px !important;
+  background-color: #040812 !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 44' preserveAspectRatio='none'%3E%3Cpath d='M0 22 H320 M0 11 H320 M0 33 H320 M40 0 V44 M80 0 V44 M120 0 V44 M160 0 V44 M200 0 V44 M240 0 V44 M280 0 V44' stroke='%232563A8' stroke-width='0.6' stroke-opacity='0.45'/%3E%3Cpath d='M 0 22 Q 20 2, 40 22 T 80 22 T 120 22 T 160 22 T 200 22 T 240 22 T 280 22 T 320 22' fill='none' stroke='%238CE8FF' stroke-width='2'/%3E%3Cpath d='M 0 22 Q 20 40, 40 22 T 80 22 T 120 22 T 160 22 T 200 22 T 240 22 T 280 22 T 320 22' fill='none' stroke='%232B95FF' stroke-width='1.3' stroke-opacity='0.8'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: center 4px !important;
+  background-size: calc(100% - 16px) 38px !important;
+  border: 1.5px solid #5CE1FF !important;
+  border-radius: 0px !important;
+  box-shadow: 0 0 18px rgba(43, 149, 255, 0.3) !important;
+}
+
+[data-theme="dithertone-pro"] .app-footer::after {
+  content: "48 82 20024 75 93977 99  98  34480 43 48331 08  65";
+  position: absolute;
+  bottom: 3px;
+  left: 8px;
+  right: 8px;
+  text-align: center;
+  direction: ltr;
+  font-family: var(--font-mono);
+  font-size: 7.5px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+  color: #8CE8FF;
+  text-shadow: 0 0 6px #5CE1FF;
+  pointer-events: none;
+}
+
+[data-theme="dithertone-pro"] .app-header {
+  padding: 10px 14px !important;
+}
+[data-theme="dithertone-pro"] #quickProfile1::before,
+[data-theme="dithertone-pro"] #quickProfile2::before {
+  position: absolute;
+  top: 3px;
+  left: 6px;
+  right: 6px;
+  font-family: var(--font-mono);
+  font-size: 7.5px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: #8CE8FF;
+  text-align: center;
+  border-bottom: 1px solid rgba(92, 225, 255, 0.35);
+  padding-bottom: 2px;
+  pointer-events: none;
+}
+[data-theme="dithertone-pro"] #quickProfile1 {
+  padding-top: 20px !important;
+}
+[data-theme="dithertone-pro"] #quickProfile2 {
+  padding-top: 20px !important;
+}
+[data-theme="dithertone-pro"] #quickProfile1::before {
+  content: "ATKINSON // MATRIX";
+}
+[data-theme="dithertone-pro"] #quickProfile2::before {
+  content: "BAYER 4x4 // SIERRA";
+}
+
+
+/* ==========================================================================
+   Merged Biometric ECG & Molecular HUD Layer (from Theme 26 biometric-hud)
+   - Diagonal Cyan-White Hazard Stripes Bar (////////) in .app-header::after
+   - HEART BEAT [♥] 75 BPM Live PQRST ECG Waveform + Bottom Ruler Ticks
+   - Hexagonal Molecular Bond Graph (C - N - O Benzene Rings) on Sections
+   ========================================================================== */
+[data-theme="dithertone-pro"] {
+  --dither-ecg-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='90' viewBox='0 0 320 90'%3E%3Cpath d='M0 48 H55 L63 40 L70 52 L78 12 L86 78 L94 30 L102 54 L110 48 H185 L193 40 L200 52 L208 12 L216 78 L224 30 L232 54 L240 48 H320' fill='none' stroke='%235CE1FF' stroke-width='2.2' stroke-opacity='0.48'/%3E%3C/svg%3E");
+  --dither-molecule-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='140' viewBox='0 0 220 140'%3E%3Cg stroke='%235CE1FF' stroke-width='1.3' stroke-opacity='0.26' fill='none'%3E%3Cpolygon points='60,40 85,25 110,40 110,70 85,85 60,70'/%3E%3Cpolygon points='110,40 135,25 160,40 160,70 135,85 110,70'/%3E%3Cpolygon points='135,85 160,70 185,85 185,115 160,130 135,115'/%3E%3Cline x1='60' y1='40' x2='40' y2='28'/%3E%3Cline x1='85' y1='85' x2='85' y2='108'/%3E%3C/g%3E%3Cg fill='%23E6F9FF' fill-opacity='0.45'%3E%3Ccircle cx='60' cy='40' r='3'/%3E%3Ccircle cx='85' cy='25' r='3'/%3E%3Ccircle cx='110' cy='40' r='3'/%3E%3Ccircle cx='110' cy='70' r='3'/%3E%3Ccircle cx='85' cy='85' r='3'/%3E%3Ccircle cx='60' cy='70' r='3'/%3E%3Ccircle cx='135' cy='25' r='3'/%3E%3Ccircle cx='160' cy='40' r='3'/%3E%3Ccircle cx='160' cy='70' r='3'/%3E%3Ccircle cx='135' cy='85' r='3'/%3E%3Ccircle cx='185' cy='85' r='3'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+[data-theme="dithertone-pro"] .app-header {
+  padding-bottom: 18px !important;
+}
+
+[data-theme="dithertone-pro"] .app-header::after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  inset-inline: 8px;
+  height: 6px;
+  border: 1px solid #5CE1FF;
+  background: repeating-linear-gradient(
+    -60deg,
+    #5CE1FF 0px,
+    #5CE1FF 6px,
+    #04070D 6px,
+    #04070D 12px
+  );
+  box-shadow: 0 0 8px rgba(92, 225, 255, 0.45);
+  pointer-events: none;
+}
+
+[data-theme="dithertone-pro"] .active-account-card {
+  background-image:
+    var(--dither-ecg-svg),
+    radial-gradient(rgba(92, 225, 255, 0.28) 1px, transparent 1px),
+    radial-gradient(ellipse at 50% 50%, rgba(43, 149, 255, 0.22) 0%, transparent 70%) !important;
+  background-repeat: no-repeat, repeat, no-repeat !important;
+  background-position: center 52%, 0 0, center center !important;
+  background-size: 100% 76px, 8px 8px, 100% 100% !important;
+}
+
+[data-theme="dithertone-pro"] .active-account-card::before {
+  content: "HEART BEAT [♥] 75 BPM  //  BAYER 4x4 MATRIX" !important;
+}
+
+[data-theme="dithertone-pro"] .section-container {
+  background-image: var(--dither-molecule-svg) !important;
+  background-repeat: no-repeat !important;
+  background-position: left 8px bottom 8px !important;
+}
+
+
+[data-theme="dithertone-pro"] .active-account-card {
+  padding-top: 26px !important;
+}
+[data-theme="dithertone-pro"] .active-account-card::before {
+  content: "HEART BEAT [♥] 75 BPM       BAYER 4x4 [DITHER]" !important;
+  display: flex !important;
+  align-items: center !important;
+  position: absolute !important;
+  top: 0 !important;
+  inset-inline: 0 !important;
+  height: 19px !important;
+  padding-inline: 10px !important;
+  background: rgba(8, 22, 42, 0.95) !important;
+  border-bottom: 1px solid rgba(92, 225, 255, 0.55) !important;
+  color: #5CE1FF !important;
+  font-family: var(--font-mono) !important;
+  font-size: 9px !important;
+  font-weight: 800 !important;
+  direction: ltr !important;
+  white-space: pre !important;
+  width: auto !important;
+}
+[data-theme="dithertone-pro"] .phone-display {
+  background-color: rgba(4, 10, 20, 0.52) !important;
+  background-image: var(--dither-ecg-svg) !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: 100% 64px !important;
+}

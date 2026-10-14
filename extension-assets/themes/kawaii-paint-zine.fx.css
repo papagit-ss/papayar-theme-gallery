@@ -1,0 +1,111 @@
+/* ==========================================================================
+   Theme 25 FX: kawaii-paint-zine.fx.css — Kawaii MS-Paint & Sticky Zine Effects
+   1. Ambient: Stop-motion wiggle of sticky notes & Paint doodles (🎱 / ★ / ♥)
+   2. Hover: Paint brush color aura following cursor
+   3. Click: 3D Pink & Cobalt keyboard press + Paint splatter pop
+   4. Transition: Paper zine stop-motion cut on tab switch
+   ========================================================================== */
+
+[data-theme="kawaii-paint-zine"] .fx-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 20;
+  overflow: hidden;
+}
+
+/* 1. AMBIENT: Floating MS-Paint Doodles (🎱, ♥, ★) */
+html[data-theme="kawaii-paint-zine"][data-fx="full"] .fx-ambient-a::before {
+  content: "🎱";
+  position: fixed;
+  top: 72px;
+  left: 14px;
+  font-size: 16px;
+  animation: paint-doodle-wiggle 2.2s steps(2, end) infinite alternate;
+}
+
+html[data-theme="kawaii-paint-zine"][data-fx="full"] .fx-ambient-b::before {
+  content: "♥";
+  position: fixed;
+  top: 295px;
+  right: 14px;
+  font-size: 18px;
+  color: #FB258A;
+  text-shadow: 1px 1px 0 #181824;
+  animation: paint-doodle-wiggle 2.6s steps(2, end) infinite alternate-reverse;
+}
+
+html[data-theme="kawaii-paint-zine"][data-fx="full"] .fx-ambient-c::before {
+  content: "★";
+  position: fixed;
+  bottom: 64px;
+  left: 18px;
+  font-size: 18px;
+  color: #1434DC;
+  text-shadow: 1px 1px 0 #F5E89B;
+  animation: paint-doodle-wiggle 2.4s steps(2, end) infinite alternate;
+}
+
+@keyframes paint-doodle-wiggle {
+  0% { transform: rotate(-8deg) scale(0.96); }
+  100% { transform: rotate(10deg) scale(1.08); }
+}
+
+/* 2. HOVER: MS-Paint Brush Swatch Follower */
+html[data-theme="kawaii-paint-zine"]:not([data-fx="off"]) .fx-cursor-follower {
+  position: fixed;
+  left: var(--fx-mx, 175px);
+  top: var(--fx-my, 220px);
+  width: 22px;
+  height: 22px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 2px solid #1434DC;
+  background: rgba(245, 232, 155, 0.45);
+  pointer-events: none;
+}
+
+/* 3. CLICK: 3D Pink & Cobalt Keyboard Key Press + Paint Splat */
+html[data-theme="kawaii-paint-zine"]:not([data-fx="off"]) .is-fx-clicked {
+  animation: paint-keyboard-press 0.3s steps(3, end) !important;
+}
+
+@keyframes paint-keyboard-press {
+  0% { transform: translate(0, 0); }
+  40% {
+    transform: translate(-3px, 4px);
+    box-shadow: 0 0 0 #1B36D8 !important;
+  }
+  100% { transform: translate(0, 0); }
+}
+
+html[data-theme="kawaii-paint-zine"]:not([data-fx="off"]) .fx-click-burst.is-bursting {
+  position: fixed;
+  left: var(--burst-x, 175px);
+  top: var(--burst-y, 220px);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  border: 3px dotted #FB258A;
+  background: rgba(20, 52, 220, 0.25);
+  pointer-events: none;
+  z-index: 999;
+  animation: paint-splat-burst 0.38s steps(4, end) forwards;
+}
+
+@keyframes paint-splat-burst {
+  0% { width: 12px; height: 12px; opacity: 1; }
+  100% { width: 82px; height: 82px; opacity: 0; }
+}
+
+/* 4. TRANSITION: Stop-Motion Zine Wiggle Tab Switch */
+html[data-theme="kawaii-paint-zine"]:not([data-fx="off"]) .tab-page.active {
+  animation: paint-zine-tab 0.28s steps(3, end) both !important;
+}
+
+@keyframes paint-zine-tab {
+  0% { opacity: 0; transform: rotate(1.5deg) translateY(6px); }
+  50% { opacity: 1; transform: rotate(-1deg) translateY(-2px); }
+  100% { opacity: 1; transform: rotate(0deg) translateY(0); }
+}

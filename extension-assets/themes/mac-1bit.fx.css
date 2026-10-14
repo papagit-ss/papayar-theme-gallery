@@ -1,0 +1,116 @@
+/* ==========================================================================
+   themes/mac-1bit.fx.css — Exclusive Effects for Theme 18 (Mac 1-Bit OS)
+   Effects:
+   1. [ambient] نوار پیشرفت کپی ۱-بیت (COPYING... ▮▮▮░░) و چشمک وضعیت (mac-copy-progress)
+   2. [hover] وارونه‌سازی فوری ۱-بیت (سیاه↔سفید) در هاور (mac-invert-hover)
+   3. [click] چشمک ۳ مرحله‌ای سیاه‌وسفید دکمه‌ی مکینتاش (System 7 Menu Strobe) و حلقه‌ی کمند MacPaint (mac-menu-strobe)
+   4. [transition] باز شدن کادر نقطه‌چین پله‌ای مکینتاش (ZoomRect) در تغییر تب (mac-window-zoom)
+   ========================================================================== */
+
+@keyframes mac-cursor-blink {
+  0%, 49% { background-color: #000000; }
+  50%, 100% { background-color: #ffffff; }
+}
+
+@keyframes mac-copy-blocks {
+  0% { width: 18%; }
+  50% { width: 72%; }
+  100% { width: 18%; }
+}
+
+@keyframes mac-zoom-rect {
+  0% { opacity: 0.3; transform: scale(0.92); outline: 2px dashed #000000; }
+  50% { opacity: 0.8; transform: scale(0.97); outline: 2px dashed #000000; }
+  100% { opacity: 1; transform: scale(1); outline: none; }
+}
+
+/* Authentic Classic Mac OS 3x Rapid Black/White Inversion Strobe on Clicked Button */
+@keyframes mac-button-strobe {
+  0%, 32% { background-color: #000000 !important; color: #ffffff !important; }
+  16%, 48% { background-color: #ffffff !important; color: #000000 !important; }
+  64%, 100% { background-color: #000000 !important; color: #ffffff !important; }
+}
+
+/* MacPaint Expanding 1-Bit Dotted Selection Crosshair Box */
+@keyframes mac-lasso-snap {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.35);
+  }
+  65% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.15);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.15);
+  }
+}
+
+@keyframes mac-error-shake {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(-4px, 2px); }
+  50% { transform: translate(4px, -2px); }
+  75% { transform: translate(-3px, -2px); }
+}
+
+/* 1. Ambient: 1-Bit Status Blink & Segmented COPYING Progress Bar */
+html[data-theme="mac-1bit"][data-fx="full"]:not([data-motion="reduced"]) .status-dot.online {
+  animation: mac-cursor-blink 1.2s steps(2, end) infinite;
+}
+
+html[data-theme="mac-1bit"][data-fx="full"]:not([data-motion="reduced"]) .app-footer {
+  position: relative;
+  padding-bottom: 13px;
+}
+
+html[data-theme="mac-1bit"][data-fx="full"]:not([data-motion="reduced"]) .app-footer::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  bottom: 3px;
+  height: 5px;
+  background: repeating-linear-gradient(90deg, #000000 0 6px, #ffffff 6px 8px);
+  border: 1px solid #000000;
+  animation: mac-copy-blocks 3.2s steps(6, end) infinite;
+}
+
+/* 2. Hover: Instant 1-Bit Section Title Inversion */
+html[data-theme="mac-1bit"]:not([data-fx="off"]):not([data-motion="reduced"]) .section-title:hover {
+  background: #000000;
+  color: #ffffff;
+}
+
+/* 3. Click: System 7 3x Button Strobe Flash + MacPaint Selection Crosshair Snap */
+html[data-theme="mac-1bit"]:not([data-fx="off"]):not([data-motion="reduced"]) button.is-fx-clicked {
+  animation: mac-button-strobe 0.36s steps(1, end);
+}
+
+html[data-theme="mac-1bit"]:not([data-fx="off"]):not([data-motion="reduced"]) .fx-click-burst.is-bursting {
+  position: fixed;
+  left: var(--burst-x, 175px);
+  top: var(--burst-y, 350px);
+  width: 44px;
+  height: 28px;
+  border: 2px dashed #000000;
+  background:
+    linear-gradient(90deg, transparent 47%, #000000 47% 53%, transparent 53%),
+    linear-gradient(180deg, transparent 45%, #000000 45% 55%, transparent 55%);
+  box-shadow:
+    -3px -3px 0 -1px #ffffff, -3px -3px 0 0.5px #000000,
+     3px -3px 0 -1px #ffffff,  3px -3px 0 0.5px #000000,
+    -3px  3px 0 -1px #ffffff, -3px  3px 0 0.5px #000000,
+     3px  3px 0 -1px #ffffff,  3px  3px 0 0.5px #000000;
+  pointer-events: none;
+  z-index: 9999;
+  animation: mac-lasso-snap 0.34s steps(3, end) forwards;
+}
+
+html[data-theme="mac-1bit"]:not([data-fx="off"]):not([data-motion="reduced"]) .is-fx-alert {
+  animation: mac-error-shake 0.28s steps(3, end);
+}
+
+/* 4. Transition: Stepped Macintosh Dotted ZoomRect on Tab Switch */
+html[data-theme="mac-1bit"]:not([data-fx="off"]):not([data-motion="reduced"]) .tab-page.active {
+  animation: mac-zoom-rect 0.16s steps(3, end) both;
+}

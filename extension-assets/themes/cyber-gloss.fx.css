@@ -1,0 +1,65 @@
+/* ==========================================================================
+   themes/cyber-gloss.fx.css — Exclusive Effects for Theme 12 (Cyber Chrome)
+   Effects:
+   1. [hover] جاروی بازتاب کروم (cyber-chrome-sweep)
+   2. [hover] گلیچ با جدا شدن کانال RGB در هاور (cyber-rgb-glitch)
+   3. [ambient] براکت‌های HUD در گوشه‌ی کارت فعال (cyber-hud-brackets)
+   ========================================================================== */
+
+@keyframes cyber-hud-pulse {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.015); }
+}
+
+@keyframes cyber-rgb-jitter {
+  0%, 100% { transform: translate(0, 0); text-shadow: -1.5px 0 #ff1a35, 1.5px 0 #00e5ff; }
+  50% { transform: translate(-1px, 0.5px); text-shadow: 1.5px 0 #ff1a35, -1.5px 0 #00e5ff; }
+}
+
+/* Ambient: Glowing Cyan HUD Corner Brackets on Active Account Card */
+html[data-theme="cyber-gloss"][data-fx="full"]:not([data-motion="reduced"]) .active-account-card {
+  background-image:
+    linear-gradient(90deg, #00e5ff 10px, transparent 10px),
+    linear-gradient(180deg, #00e5ff 10px, transparent 10px),
+    linear-gradient(270deg, #00e5ff 10px, transparent 10px),
+    linear-gradient(0deg, #00e5ff 10px, transparent 10px),
+    linear-gradient(180deg, #0d1520 0%, #060a0f 100%);
+  background-size: 14px 2px, 2px 14px, 14px 2px, 2px 14px, 100% 100%;
+  background-position: top 6px left 6px, top 6px left 6px, bottom 6px right 6px, bottom 6px right 6px, 0 0;
+  background-repeat: no-repeat;
+}
+
+html[data-theme="cyber-gloss"][data-fx="full"]:not([data-motion="reduced"]) .status-dot.online {
+  animation: cyber-hud-pulse 2s ease-in-out infinite;
+}
+
+/* Hover: Chrome Reflection Sweep & RGB Channel Split Glitch */
+html[data-theme="cyber-gloss"]:not([data-fx="off"]):not([data-motion="reduced"]) .btn-pill,
+html[data-theme="cyber-gloss"]:not([data-fx="off"]):not([data-motion="reduced"]) .btn-inject-neon {
+  position: relative;
+  overflow: hidden;
+}
+
+html[data-theme="cyber-gloss"]:not([data-fx="off"]):not([data-motion="reduced"]) .btn-pill::after,
+html[data-theme="cyber-gloss"]:not([data-fx="off"]):not([data-motion="reduced"]) .btn-inject-neon::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: -45%;
+  width: 38%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+  transform: skewX(-25deg) translateX(0);
+  transition: transform 0.4s ease;
+  pointer-events: none;
+}
+
+html[data-theme="cyber-gloss"]:not([data-fx="off"]):not([data-motion="reduced"]) .btn-pill:hover::after,
+html[data-theme="cyber-gloss"]:not([data-fx="off"]):not([data-motion="reduced"]) .btn-inject-neon:hover::after {
+  transform: skewX(-25deg) translateX(-360%);
+}
+
+html[data-theme="cyber-gloss"]:not([data-fx="off"]):not([data-motion="reduced"]) .btn-pill:hover,
+html[data-theme="cyber-gloss"]:not([data-fx="off"]):not([data-motion="reduced"]) .brand-title:hover {
+  animation: cyber-rgb-jitter 0.24s steps(2);
+}

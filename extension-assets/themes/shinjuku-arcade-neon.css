@@ -1,0 +1,251 @@
+/* ==========================================================================
+   Theme: shinjuku-arcade-neon — آرکید نئونی توکیو (Shinjuku Sega Arcade Lightbox)
+   - Wet Midnight Tokyo Asphalt (#070912) with Vertical Japanese Lightbox Signs
+   - Electric Crimson-Pink (#FF2E63), Cyber-Turquoise (#08D9D6) & Coin-Op
+     Yellow (#FDE047) Sanwa Arcade Push-Buttons
+   - Coin-Slot "INSERT COIN // 100 YEN 新宿" Header & High-Score CRT Display
+   ========================================================================== */
+
+[data-theme="shinjuku-arcade-neon"] {
+  --bg-deep: #070912;
+  --bg-card: #0E1222;
+  --bg-card-hover: #151B32;
+  --bg-input: #070912;
+  --bg-modal: #0E1222;
+  --bg-overlay: rgba(5, 6, 12, 0.88);
+  --bg-page-gradient:
+    radial-gradient(200px 140px at 85% 15%, rgba(255, 46, 99, 0.22) 0%, transparent 70%),
+    radial-gradient(200px 140px at 15% 75%, rgba(8, 217, 214, 0.20) 0%, transparent 70%),
+    #070912;
+  --backdrop-blur: none;
+  --tabs-bar-bg: #0B0E1A;
+  --subchip-bg: #161D36;
+
+  --text-primary: #FFFFFF;
+  --text-secondary: #E2E8F0;
+  --text-muted: #94A3B8;
+  --text-input: #FDE047;
+  --text-on-accent: #070912;
+  --text-brand: #FFFFFF;
+  --text-brand-accent: #FF2E63;
+  --text-phone: #FDE047;
+
+  --primary-neon: #08D9D6;
+  --primary-light: #70F8FF;
+  --accent-cyan: #08D9D6;
+  --accent-purple: #FF2E63;
+  --accent-emerald: #10B981;
+  --accent-crimson: #FF2E63;
+  --accent-yellow: #FDE047;
+  --semantic-danger: #FF2E63;
+  --semantic-success: #08D9D6;
+  --semantic-warning: #FDE047;
+
+  --border-subtle: #08D9D6;
+  --border-glow: #FF2E63;
+  --border-card-top: #FF2E63;
+  --border-width: 2px;
+  --border-color: #08D9D6;
+  --border-input: 2px solid #08D9D6;
+  --border-modal: 2.5px solid #FF2E63;
+  --border-chip: 1.5px solid #08D9D6;
+  --border-subchip: 1.5px solid #FF2E63;
+
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-pill: 999px;
+
+  --card-shadow: 0 4px 0 #FF2E63, 0 10px 24px rgba(0, 0, 0, 0.75);
+  --card-shadow-hover: 0 5px 0 #FDE047, 0 12px 28px rgba(8, 217, 214, 0.35);
+  --active-card-shadow: var(--card-shadow);
+  --btn-shadow: 0 4px 0 #000000, inset 0 1.5px 0 rgba(255, 255, 255, 0.45);
+  --btn-shadow-hover: 0 5px 0 #000000, 0 0 14px rgba(8, 217, 214, 0.55);
+  --modal-shadow: 0 22px 48px rgba(0, 0, 0, 0.92);
+  --glow-pill: 0 0 12px rgba(255, 46, 99, 0.55);
+  --glow-dot: 0 0 8px #08D9D6;
+
+  --btn-transform-hover: translateY(-1px);
+  --btn-transform-active: translateY(2px);
+
+  --btn-inject-bg: #08D9D6;
+  --btn-inject-color: #070912;
+  --btn-inject-border: 2px solid #FFFFFF;
+  --btn-scan-mass-bg: #FF2E63;
+  --btn-scan-mass-color: #FFFFFF;
+  --btn-scan-mass-border: 2px solid #FFFFFF;
+  --btn-gofullpage-bg: #FDE047;
+  --btn-gofullpage-color: #070912;
+  --btn-gofullpage-border: 2px solid #FFFFFF;
+  --btn-ai-scan-bg: #151B32;
+  --btn-ai-scan-color: #08D9D6;
+  --btn-ai-scan-border: 2px solid #08D9D6;
+  --btn-upload-bg: #151B32;
+  --btn-upload-color: #FFFFFF;
+  --btn-upload-border: 2px solid #FF2E63;
+  --btn-excel-bg: #08D9D6;
+  --btn-excel-color: #070912;
+  --btn-excel-border: 2px solid #FFFFFF;
+  --excel-banner-bg: #151B32;
+  --excel-banner-color: #FDE047;
+  --excel-banner-border: 2px solid #FDE047;
+
+  --v-code-box-bg: #070912;
+  --v-code-box-border: 2px solid #FDE047;
+  --v-code-color: #FDE047;
+  --v-pill-meta-bg: #151B32;
+  --v-pill-meta-color: #08D9D6;
+
+  --switcher-bg: #151B32;
+  --switcher-border: 1.5px solid #08D9D6;
+  --scrollbar-thumb: #FF2E63;
+  --scrollbar-thumb-hover: #08D9D6;
+  --scrollbar-track: #070912;
+  --scrollbar-width: 5px;
+  --scrollbar-radius: 999px;
+  --scrollbar-border: none;
+
+  --flare-display: none;
+  --active-card-topline-display: none;
+  --font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "Courier New", ui-monospace, monospace;
+}
+
+[data-theme="shinjuku-arcade-neon"] body {
+  background-color: #070912 !important;
+  color: #FFFFFF;
+}
+
+[data-theme="shinjuku-arcade-neon"] .popup-wrapper {
+  position: relative;
+  padding-top: 28px !important;
+}
+
+[data-theme="shinjuku-arcade-neon"] .popup-wrapper::before {
+  content: "新宿ゲーム  //  INSERT COIN [100 YEN]  //  1UP HIGH SCORE";
+  position: absolute;
+  top: 5px;
+  inset-inline: 12px;
+  height: 19px;
+  background: #FF2E63;
+  color: #FFFFFF;
+  border: 1.5px solid #FDE047;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  font-weight: 900;
+  letter-spacing: 0.7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  direction: ltr;
+  box-shadow: 0 2px 0 #08D9D6;
+}
+
+[data-theme="shinjuku-arcade-neon"] .app-header,
+[data-theme="shinjuku-arcade-neon"] .active-account-card,
+[data-theme="shinjuku-arcade-neon"] .section-container,
+[data-theme="shinjuku-arcade-neon"] .app-footer {
+  background: #0E1222 !important;
+  border: 2px solid #08D9D6 !important;
+  border-radius: 16px !important;
+  box-shadow: var(--card-shadow) !important;
+}
+
+[data-theme="shinjuku-arcade-neon"] .section-container {
+  padding: 12px !important;
+}
+
+[data-theme="shinjuku-arcade-neon"] .active-account-card::before {
+  display: none !important;
+}
+
+/* Arcade High-Score CRT Display for Phone Number */
+[data-theme="shinjuku-arcade-neon"] .phone-display {
+  background: #060810 !important;
+  color: #FDE047 !important;
+  border: 2px solid #FF2E63 !important;
+  outline: 2px solid #08D9D6 !important;
+  border-radius: 10px !important;
+  padding: 10px 14px !important;
+  margin-block: 8px !important;
+  font-family: var(--font-mono) !important;
+  font-size: 23px !important;
+  font-weight: 900 !important;
+  letter-spacing: 2px !important;
+  text-shadow: 2px 2px 0 #FF2E63, 0 0 12px rgba(253, 224, 71, 0.55) !important;
+}
+
+[data-theme="shinjuku-arcade-neon"] .quick-profile-card,
+[data-theme="shinjuku-arcade-neon"] .saved-account-card {
+  background: #141A30 !important;
+  border: 2px solid #FF2E63 !important;
+  border-radius: 14px !important;
+  box-shadow: 0 3px 0 #08D9D6 !important;
+}
+
+[data-theme="shinjuku-arcade-neon"] .avatar-glow {
+  background: #FF2E63 !important;
+  color: #FFFFFF !important;
+  border: 2px solid #FDE047 !important;
+}
+
+[data-theme="shinjuku-arcade-neon"] .nav-tabs-bar {
+  background: #0B0E1A !important;
+  border: 2px solid #FF2E63 !important;
+  border-radius: 999px !important;
+  padding: 4px !important;
+  box-shadow: 0 4px 0 #08D9D6 !important;
+}
+
+[data-theme="shinjuku-arcade-neon"] .nav-tab-item {
+  border-radius: 999px !important;
+  color: #E2E8F0 !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="shinjuku-arcade-neon"] .nav-tab-item.active {
+  background: #FDE047 !important;
+  color: #070912 !important;
+  border: 1.5px solid #FFFFFF !important;
+  font-weight: 900 !important;
+}
+
+[data-theme="shinjuku-arcade-neon"] .nav-tab-item.active::after {
+  display: none !important;
+}
+
+[data-theme="shinjuku-arcade-neon"] .btn-cyan,
+[data-theme="shinjuku-arcade-neon"] .btn-inject-neon,
+[data-theme="shinjuku-arcade-neon"] .btn-activate,
+[data-theme="shinjuku-arcade-neon"] .btn-v-copy {
+  background: #08D9D6 !important;
+  color: #070912 !important;
+  border: 2px solid #FFFFFF !important;
+  border-radius: 999px !important;
+  font-weight: 900 !important;
+  box-shadow: var(--btn-shadow) !important;
+}
+
+[data-theme="shinjuku-arcade-neon"] .btn-crimson,
+[data-theme="shinjuku-arcade-neon"] .btn-delete-acc {
+  background: #FF2E63 !important;
+  color: #FFFFFF !important;
+  border: 2px solid #FFFFFF !important;
+  border-radius: 999px !important;
+  box-shadow: var(--btn-shadow) !important;
+  font-weight: 900 !important;
+}
+
+[data-theme="shinjuku-arcade-neon"] .btn-neon-green,
+[data-theme="shinjuku-arcade-neon"] .btn-launch-power,
+[data-theme="shinjuku-arcade-neon"] .status-indicator-box,
+[data-theme="shinjuku-arcade-neon"] .service-tag {
+  background: #141A30 !important;
+  color: #FDE047 !important;
+  border: 1.5px solid #08D9D6 !important;
+  border-radius: 999px !important;
+  padding: 3px 10px !important;
+  font-weight: 800 !important;
+}

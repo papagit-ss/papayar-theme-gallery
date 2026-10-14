@@ -1,0 +1,35 @@
+/* win-98: complete semantic tokens plus a distinctive material system. */
+[data-theme="win-98"] {
+ --bg-deep:#008080; --bg-card:#c0c0c0; --bg-card-hover:#c0c0c0; --bg-input:#c0c0c0; --bg-modal:#c0c0c0; --bg-overlay:#10203088; --bg-page-gradient:#008080;
+ --backdrop-blur:none; --tabs-bar-bg:#c0c0c0; --subchip-bg:#c0c0c0;
+ --text-primary:#151515; --text-secondary:#343434; --text-muted:#343434; --text-input:#151515; --text-on-accent:#ffffff; --text-brand:#151515; --text-brand-accent:#000080; --text-phone:#151515;
+ --primary-neon:#000080; --primary-light:#000080; --accent-cyan:#000080; --accent-purple:#000080; --accent-emerald:#000080; --accent-crimson:#b52b3a; --accent-yellow:#000080;
+ --semantic-danger:#b52b3a; --semantic-success:#157052; --semantic-warning:#946200;
+ --border-subtle:#808080; --border-glow:#808080; --border-card-top:#808080; --border-width:1px; --border-color:#808080; --border-input:1px solid #808080; --border-modal:1px solid #808080; --border-chip:1px solid #808080; --border-subchip:1px solid #808080;
+ --radius-xs:0px; --radius-sm:0px; --radius-md:0px; --radius-lg:0px; --radius-pill:0px;
+ --card-shadow:inset 1px 1px #fff,inset -1px -1px #000,2px 2px #0005; --card-shadow-hover:inset 1px 1px #fff,inset -1px -1px #000,2px 2px #0005; --active-card-shadow:inset 1px 1px #fff,inset -1px -1px #000,2px 2px #0005; --btn-shadow:none; --btn-shadow-hover:none; --glow-pill:none; --glow-dot:none; --modal-shadow:0 12px 40px #0003;
+ --btn-transform-hover:translateY(-1px); --btn-transform-active:translateY(1px);
+ --btn-inject-bg:#000080; --btn-inject-color:#ffffff; --btn-inject-border:1px solid #808080;
+ --btn-scan-mass-bg:#000080; --btn-scan-mass-color:#ffffff; --btn-scan-mass-border:1px solid #808080;
+ --btn-gofullpage-bg:#c0c0c0; --btn-gofullpage-color:#151515; --btn-gofullpage-border:1px solid #808080;
+ --btn-ai-scan-bg:#c0c0c0; --btn-ai-scan-color:#151515; --btn-ai-scan-border:1px solid #808080;
+ --btn-upload-bg:#c0c0c0; --btn-upload-color:#151515; --btn-upload-border:1px solid #808080;
+ --btn-excel-bg:#000080; --btn-excel-color:#ffffff; --btn-excel-border:1px solid #808080;
+ --excel-banner-bg:#c0c0c0; --excel-banner-color:#151515; --excel-banner-border:1px solid #808080;
+ --v-code-box-bg:#c0c0c0; --v-code-box-border:1px dashed #808080; --v-code-color:#000080; --v-pill-meta-bg:#c0c0c0; --v-pill-meta-color:#343434;
+ --switcher-bg:#c0c0c0; --switcher-border:1px solid #808080; --scrollbar-thumb:#808080; --scrollbar-thumb-hover:#000080; --scrollbar-track:transparent; --scrollbar-width:5px; --scrollbar-radius:4px; --scrollbar-border:none;
+ --flare-display:none; --active-card-topline-display:none; --font-family:'Vazirmatn',Tahoma,sans-serif; --font-mono:ui-monospace,monospace;
+}
+[data-theme="win-98"] .app-header { background:#c0c0c0; border:2px solid; border-color:#fff #000 #000 #fff; padding:10px; }
+[data-theme="win-98"] .brand-subtitle { color:#343434; }
+[data-theme="win-98"] .active-account-card { padding-top:40px; position:relative; }
+[data-theme="win-98"] .active-account-card::before { content:'Papa Yar — Account Manager'; position:absolute; inset:3px 3px auto; height:23px; display:flex; align-items:center; padding:0 7px; background:linear-gradient(90deg,#000080,#1084d0); color:#fff; font:700 11px Tahoma; }
+[data-theme="win-98"] .nav-tabs-bar { padding:4px; border:2px solid; border-color:#fff #000 #000 #fff; }
+[data-theme="win-98"] .nav-tab-item.active { background:#c0c0c0; color:#000; box-shadow:inset 1px 1px #fff,inset -1px -1px #000; }
+[data-theme="win-98"] .btn-pill,[data-theme="win-98"] .btn-inject-neon,[data-theme="win-98"] .btn-v-copy,[data-theme="win-98"] .btn-launch-power,[data-theme="win-98"] .theme-picker-toggle-btn { background:#c0c0c0!important; color:#000!important; border:2px solid!important; border-color:#fff #000 #000 #fff!important; border-radius:0!important; box-shadow:none!important; }
+[data-theme="win-98"] button:active { transform:translate(1px,1px); border-color:#000 #fff #fff #000!important; }
+[data-theme="win-98"] button:focus-visible { outline:1px dotted #000; outline-offset:-5px; }
+[data-theme="win-98"] .v-code-box,[data-theme="win-98"] input,[data-theme="win-98"] textarea,[data-theme="win-98"] select { box-shadow:inset 1px 1px #000,inset -1px -1px #fff; }
+[data-theme="win-98"] .theme-picker-dropdown { border:2px solid; border-color:#fff #000 #000 #fff; }
+[data-theme="win-98"] progress::-webkit-progress-value { background:repeating-linear-gradient(90deg,#000080 0 7px,transparent 7px 9px); }
+html[data-theme="win-98"][data-fx="off"] * { animation:none!important; transition:none!important; }

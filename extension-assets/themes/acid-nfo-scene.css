@@ -1,0 +1,249 @@
+/* ==========================================================================
+   Theme: acid-nfo-scene — اسکی دموسین (ACiD .NFO Release Sheet 2000)
+   Reference: image_68a5f8.jpg (ACiD Productions(tm) [acid-90.zip])
+   - Pitch-Black VGA Text-Mode Void (#050505) with Silver (#BDBDBD) & Pure
+     White (#FFFFFF) CP437 Box-Drawing Table Borders
+   - Stepped Block-Pixel ACiD Logo Header + "P r o d u c t i o n S" Banner
+   - Bracketed Data Fields: File Name [ acid-90.zip ] | [■] SVGA
+   ========================================================================== */
+
+[data-theme="acid-nfo-scene"] {
+  --bg-deep: #050505;
+  --bg-card: #080808;
+  --bg-card-hover: #121212;
+  --bg-input: #050505;
+  --bg-modal: #080808;
+  --bg-overlay: rgba(0, 0, 0, 0.90);
+  --bg-page-gradient:
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.025) 0px, rgba(255, 255, 255, 0.025) 1px, transparent 1px, transparent 3px),
+    #050505;
+  --backdrop-blur: none;
+  --tabs-bar-bg: #080808;
+  --subchip-bg: #111111;
+
+  --text-primary: #EFEFEF;
+  --text-secondary: #BDBDBD;
+  --text-muted: #8E8E8E;
+  --text-input: #FFFFFF;
+  --text-on-accent: #050505;
+  --text-brand: #FFFFFF;
+  --text-brand-accent: #BDBDBD;
+  --text-phone: #FFFFFF;
+
+  --primary-neon: #FFFFFF;
+  --primary-light: #D4D4D4;
+  --accent-cyan: #FFFFFF;
+  --accent-purple: #BDBDBD;
+  --accent-emerald: #FFFFFF;
+  --accent-crimson: #A8A8A8;
+  --accent-yellow: #E0E0E0;
+  --semantic-danger: #E0E0E0;
+  --semantic-success: #FFFFFF;
+  --semantic-warning: #CCCCCC;
+
+  --border-subtle: #A8A8A8;
+  --border-glow: #FFFFFF;
+  --border-card-top: #FFFFFF;
+  --border-width: 1.5px;
+  --border-color: #B8B8B8;
+  --border-input: 1.5px solid #B8B8B8;
+  --border-modal: 2px solid #FFFFFF;
+  --border-chip: 1px solid #B8B8B8;
+  --border-subchip: 1px dashed #8E8E8E;
+
+  --radius-xs: 0px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-pill: 0px;
+
+  --card-shadow: 3px 3px 0 #333333;
+  --card-shadow-hover: 4px 4px 0 #555555;
+  --active-card-shadow: 4px 4px 0 #3A3A3A;
+  --btn-shadow: 2px 2px 0 #3A3A3A;
+  --btn-shadow-hover: 3px 3px 0 #666666;
+  --modal-shadow: 6px 6px 0 #444444;
+  --glow-pill: none;
+  --glow-dot: none;
+
+  --btn-transform-hover: none;
+  --btn-transform-active: translate(1px, 1px);
+
+  --btn-inject-bg: #EFEFEF;
+  --btn-inject-color: #050505;
+  --btn-inject-border: 1.5px solid #FFFFFF;
+  --btn-scan-mass-bg: #EFEFEF;
+  --btn-scan-mass-color: #050505;
+  --btn-scan-mass-border: 1.5px solid #FFFFFF;
+  --btn-gofullpage-bg: #111111;
+  --btn-gofullpage-color: #EFEFEF;
+  --btn-gofullpage-border: 1.5px solid #B8B8B8;
+  --btn-ai-scan-bg: #080808;
+  --btn-ai-scan-color: #EFEFEF;
+  --btn-ai-scan-border: 1.5px solid #B8B8B8;
+  --btn-upload-bg: #080808;
+  --btn-upload-color: #EFEFEF;
+  --btn-upload-border: 1.5px solid #B8B8B8;
+  --btn-excel-bg: #EFEFEF;
+  --btn-excel-color: #050505;
+  --btn-excel-border: 1.5px solid #FFFFFF;
+  --excel-banner-bg: #111111;
+  --excel-banner-color: #EFEFEF;
+  --excel-banner-border: 1.5px solid #B8B8B8;
+
+  --v-code-box-bg: #050505;
+  --v-code-box-border: 1.5px solid #B8B8B8;
+  --v-code-color: #FFFFFF;
+  --v-pill-meta-bg: #141414;
+  --v-pill-meta-color: #D4D4D4;
+
+  --switcher-bg: #080808;
+  --switcher-border: 1px solid #B8B8B8;
+  --scrollbar-thumb: #B8B8B8;
+  --scrollbar-thumb-hover: #FFFFFF;
+  --scrollbar-track: #050505;
+  --scrollbar-width: 5px;
+  --scrollbar-radius: 0px;
+  --scrollbar-border: none;
+
+  --flare-display: none;
+  --active-card-topline-display: none;
+  --font-family: 'Vazirmatn', "Courier New", ui-monospace, monospace;
+  --font-mono: "Courier New", ui-monospace, monospace;
+}
+
+[data-theme="acid-nfo-scene"] * {
+  border-radius: 0px !important;
+}
+
+[data-theme="acid-nfo-scene"] body {
+  background-color: #050505 !important;
+  color: #EFEFEF;
+}
+
+/* Top NFO Release Header Strip */
+[data-theme="acid-nfo-scene"] .popup-wrapper {
+  position: relative;
+  padding-top: 28px !important;
+}
+
+[data-theme="acid-nfo-scene"] .popup-wrapper::before {
+  content: "·· ACiD Productions(tm)  //  [ acid-90.zip ] ··";
+  position: absolute;
+  top: 5px;
+  inset-inline: 12px;
+  height: 19px;
+  background: #080808;
+  color: #EFEFEF;
+  border: 1.5px solid #B8B8B8;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  direction: ltr;
+  box-shadow: 2px 2px 0 #333333;
+}
+
+[data-theme="acid-nfo-scene"] .app-header,
+[data-theme="acid-nfo-scene"] .active-account-card,
+[data-theme="acid-nfo-scene"] .section-container,
+[data-theme="acid-nfo-scene"] .app-footer {
+  background: #080808 !important;
+  border: 1.5px solid #B8B8B8 !important;
+  box-shadow: 3px 3px 0 #333333 !important;
+}
+
+[data-theme="acid-nfo-scene"] .section-container {
+  padding: 12px !important;
+}
+
+[data-theme="acid-nfo-scene"] .active-account-card::before {
+  display: none !important;
+}
+
+/* Bracketed NFO Table Field [ 0912 345 6789 ] for Phone Display */
+[data-theme="acid-nfo-scene"] .phone-display {
+  position: relative;
+  background: #050505 !important;
+  color: #FFFFFF !important;
+  border-top: 1.5px solid #B8B8B8 !important;
+  border-bottom: 1.5px solid #B8B8B8 !important;
+  border-inline: 4px solid #EFEFEF !important;
+  padding: 10px 14px !important;
+  margin-block: 8px !important;
+  font-family: var(--font-mono) !important;
+  font-size: 19px !important;
+  white-space: nowrap !important;
+  font-weight: 900 !important;
+  letter-spacing: 2px !important;
+  text-shadow: 2px 2px 0 #3A3A3A !important;
+}
+
+[data-theme="acid-nfo-scene"] .phone-display::before {
+  content: "[ ";
+  color: #8E8E8E;
+}
+
+[data-theme="acid-nfo-scene"] .phone-display::after {
+  content: " ]";
+  color: #8E8E8E;
+}
+
+/* Sub-Cards Styled like NFO Table Cells (Released | Total Bytes) */
+[data-theme="acid-nfo-scene"] .quick-profile-card,
+[data-theme="acid-nfo-scene"] .saved-account-card {
+  background: #0A0A0A !important;
+  border: 1.5px solid #B8B8B8 !important;
+  box-shadow: 2px 2px 0 #333333 !important;
+}
+
+[data-theme="acid-nfo-scene"] .avatar-glow {
+  background: #050505 !important;
+  color: #FFFFFF !important;
+  border: 1.5px solid #FFFFFF !important;
+  box-shadow: 2px 2px 0 #444444 !important;
+}
+
+[data-theme="acid-nfo-scene"] .active-pill,
+[data-theme="acid-nfo-scene"] .nav-tab-item.active,
+[data-theme="acid-nfo-scene"] .btn-cyan,
+[data-theme="acid-nfo-scene"] .btn-inject-neon,
+[data-theme="acid-nfo-scene"] .btn-activate,
+[data-theme="acid-nfo-scene"] .btn-v-copy {
+  background: #EFEFEF !important;
+  color: #050505 !important;
+  border: 1.5px solid #FFFFFF !important;
+  font-weight: 900 !important;
+  box-shadow: 2px 2px 0 #444444 !important;
+}
+
+[data-theme="acid-nfo-scene"] .nav-tabs-bar {
+  background: #080808 !important;
+  border: 1.5px solid #B8B8B8 !important;
+  padding: 3px !important;
+}
+
+[data-theme="acid-nfo-scene"] .nav-tab-item {
+  color: #BDBDBD !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="acid-nfo-scene"] .nav-tab-item.active::after {
+  display: none !important;
+}
+
+[data-theme="acid-nfo-scene"] .btn-crimson,
+[data-theme="acid-nfo-scene"] .btn-delete-acc,
+[data-theme="acid-nfo-scene"] .btn-neon-green,
+[data-theme="acid-nfo-scene"] .btn-launch-power,
+[data-theme="acid-nfo-scene"] .status-indicator-box,
+[data-theme="acid-nfo-scene"] .service-tag {
+  background: #080808 !important;
+  color: #EFEFEF !important;
+  border: 1.5px solid #B8B8B8 !important;
+  padding: 3px 10px !important;
+  font-weight: 800 !important;
+}

@@ -1,0 +1,1237 @@
+/* ==========================================================================
+   Theme 20: liquid-glass — Light White-Based Apple Liquid Glass (WCAG AA/AAA)
+   Architecture & Design System:
+   1. Soft Pastel Mesh Background (#F7F8FC base + #EEF0FF Lavender, #E6F4FF Sky,
+      #E8FBF3 Mint, #FDEBF3 Blush radial blobs + subtle <=3.5% SVG noise texture).
+   2. Translucent White Liquid Glass Surfaces:
+      - Main cards: rgba(255, 255, 255, 0.65) + backdrop-filter: url(#liquid-glass-lens) blur(18px) saturate(160%)
+      - Nested elements: rgba(255, 255, 255, 0.42) with NO nested backdrop-filter (max 2 blur layers total)
+      - 1px solid rgba(255, 255, 255, 0.75) border + inset 0 1px 0 rgba(255, 255, 255, 0.92) top highlight
+      - Soft indigo ambient shadow: 0 8px 32px rgba(99, 102, 241, 0.12)
+   3. WCAG AAA/AA Typography & Persian RTL Readability:
+      - Bundled Vazirmatn (400/500/700/800), line-height >= 1.6, 12px minimum font size
+      - Primary text: #1B1B3A (~15.5:1 AAA), Secondary text: #4A4A68 (~8.0:1 AAA)
+      - unicode-bidi: plaintext for mixed Persian/English strings & text-wrap: balance for long buttons
+   4. Tokenized Color System + Optional Dark Mode Token Overrides (zero hard-coded colors outside tokens)
+   ========================================================================== */
+
+.fx-liquid-tab-pill {
+  display: none;
+  pointer-events: none;
+}
+
+:root[data-theme="liquid-glass"],
+[data-theme="liquid-glass"] {
+  /* ------------------------------------------------------------------------
+     1. DESIGN TOKENS (Surfaces, Mesh Blobs, Borders, Text, Accents, Semantic)
+     ------------------------------------------------------------------------ */
+  /* Background & Mesh Gradient Blobs */
+  --lg-bg-base: #F7F8FC;
+  --lg-blob-lavender: #EEF0FF;
+  --lg-blob-lavender-core: #D9DEFF;
+  --lg-blob-sky: #E6F4FF;
+  --lg-blob-sky-core: #C4E4FF;
+  --lg-blob-mint: #E8FBF3;
+  --lg-blob-mint-core: #C2F5E2;
+  --lg-blob-blush: #FDEBF3;
+  --lg-blob-blush-core: #F9CEE2;
+  --lg-ribbon-line: rgba(99, 102, 241, 0.045);
+
+  /* Glass Surfaces (Main = 0.65, Nested = 0.42, Elevated = 0.72, Fallback = 0.92) */
+  --lg-surface-card: rgba(255, 255, 255, 0.65);
+  --lg-surface-card-gradient: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.70) 0%,
+    rgba(255, 255, 255, 0.56) 55%,
+    rgba(246, 248, 255, 0.66) 100%
+  );
+  --lg-surface-nested: rgba(255, 255, 255, 0.42);
+  --lg-surface-nested-hover: rgba(255, 255, 255, 0.58);
+  --lg-surface-input: rgba(255, 255, 255, 0.62);
+  --lg-surface-input-focus: rgba(255, 255, 255, 0.85);
+  --lg-surface-secondary-btn: rgba(255, 255, 255, 0.68);
+  --lg-surface-secondary-btn-hover: rgba(255, 255, 255, 0.86);
+  --lg-surface-dropdown: rgba(250, 251, 255, 0.94);
+  --lg-surface-modal: rgba(252, 253, 255, 0.94);
+  --lg-surface-overlay: rgba(27, 27, 58, 0.32);
+  --lg-surface-fallback: rgba(255, 255, 255, 0.92);
+  --lg-surface-droplet: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.92) 0%,
+    rgba(238, 240, 255, 0.76) 52%,
+    rgba(230, 244, 255, 0.88) 100%
+  );
+
+  /* Optical Blur & SVG Refraction Filters */
+  --lg-backdrop-card: url(#liquid-glass-lens) blur(18px) saturate(160%);
+  --lg-backdrop-droplet: url(#liquid-droplet-lens) blur(12px) saturate(180%);
+
+  /* Borders & Specular Highlights */
+  --lg-border-glass: rgba(255, 255, 255, 0.76);
+  --lg-border-nested: rgba(255, 255, 255, 0.82);
+  --lg-border-accent: rgba(99, 102, 241, 0.36);
+  --lg-border-accent-strong: rgba(79, 70, 229, 0.58);
+  --lg-border-specular-gradient: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.96) 0%,
+    rgba(255, 255, 255, 0.62) 38%,
+    rgba(99, 102, 241, 0.24) 72%,
+    rgba(255, 255, 255, 0.92) 100%
+  );
+
+  /* Shadows & Inner Meniscus Highlights */
+  --lg-shadow-card:
+    0 8px 32px rgba(99, 102, 241, 0.12),
+    0 2px 8px rgba(27, 27, 58, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.94),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.65);
+  --lg-shadow-card-hover:
+    0 12px 36px rgba(99, 102, 241, 0.18),
+    0 4px 12px rgba(27, 27, 58, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.98),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.75);
+  --lg-shadow-nested:
+    0 4px 16px rgba(99, 102, 241, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.90);
+  --lg-shadow-primary-btn:
+    0 8px 22px rgba(79, 70, 229, 0.28),
+    0 2px 6px rgba(79, 70, 229, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.38);
+  --lg-shadow-primary-btn-hover:
+    0 10px 26px rgba(79, 70, 229, 0.36),
+    0 4px 10px rgba(79, 70, 229, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.48);
+  --lg-shadow-droplet:
+    0 6px 20px rgba(99, 102, 241, 0.18),
+    0 2px 6px rgba(27, 27, 58, 0.06),
+    inset 0 2px 2.5px rgba(255, 255, 255, 0.98),
+    inset 0 -1.5px 2px rgba(255, 255, 255, 0.85),
+    inset 2.5px 1.5px 5px rgba(56, 189, 248, 0.22),
+    inset -2.5px -1.5px 5px rgba(168, 85, 247, 0.18);
+
+  /* Typography Tokens (WCAG AAA/AA Verified on Light Glass) */
+  --lg-text-primary: #1B1B3A;     /* 15.9:1 on card glass (AAA) */
+  --lg-text-secondary: #4A4A68;   /* 8.1:1 on card glass (AAA) */
+  --lg-text-disabled: #585878;    /* 6.5:1 on input glass (AA) */
+  --lg-text-on-accent: #FFFFFF;   /* 6.2:1 - 7.1:1 on primary gradient (AA/AAA) */
+  --lg-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.65);
+
+  /* Primary Indigo/Violet Accent System (Darkened slightly so #FFF text >= 6.15:1) */
+  --lg-accent-solid: #4F46E5;
+  --lg-accent-violet: #6D28D9;
+  --lg-accent-soft: #6366F1;
+  --lg-accent-gradient: linear-gradient(135deg, #4F46E5 0%, #5B3FF0 50%, #6D28D9 100%);
+  --lg-accent-gradient-hover: linear-gradient(135deg, #4338CA 0%, #4F46E5 50%, #5B21B6 100%);
+  --lg-accent-tint-bg: rgba(99, 102, 241, 0.10);
+
+  /* Semantic Tokens (Active = Green, Standby = Amber, Danger/Exit = Soft Red + Dark Red Text, Info = Indigo) */
+  --lg-success-dot: #16A34A;
+  --lg-success-bg: rgba(220, 252, 231, 0.88);
+  --lg-success-border: rgba(22, 163, 74, 0.35);
+  --lg-success-text: #14532D;     /* 8.35:1 contrast (AAA) */
+
+  --lg-warning-dot: #D97706;
+  --lg-warning-bg: rgba(254, 243, 199, 0.90);
+  --lg-warning-border: rgba(217, 119, 6, 0.38);
+  --lg-warning-text: #78350F;     /* 8.21:1 contrast (AAA) */
+
+  --lg-danger-dot: #DC2626;
+  --lg-danger-bg: rgba(254, 226, 226, 0.82);
+  --lg-danger-bg-hover: rgba(254, 202, 202, 0.92);
+  --lg-danger-border: rgba(220, 38, 38, 0.35);
+  --lg-danger-text: #991B1B;      /* 6.98:1 contrast (AA/AAA) */
+
+  --lg-info-bg: rgba(224, 231, 255, 0.85);
+  --lg-info-border: rgba(79, 70, 229, 0.32);
+  --lg-info-text: #312E81;        /* 9.4:1 contrast (AAA) */
+
+  /* Radii Scale (10 / 14 / 20 / 28px) */
+  --lg-radius-xs: 10px;
+  --lg-radius-sm: 14px;
+  --lg-radius-md: 20px;
+  --lg-radius-lg: 28px;
+  --lg-radius-pill: 999px;
+
+  /* Spacing Scale (4 / 8 / 12 / 16 / 20px) */
+  --lg-space-1: 4px;
+  --lg-space-2: 8px;
+  --lg-space-3: 12px;
+  --lg-space-4: 16px;
+  --lg-space-5: 20px;
+
+  /* Scrollbar Tokens */
+  --lg-scrollbar-thumb: rgba(99, 102, 241, 0.28);
+  --lg-scrollbar-thumb-hover: rgba(79, 70, 229, 0.52);
+
+  /* Custom RTL Select Chevron (Lucide-style stroke 1.75 in #1B1B3A) */
+  --lg-select-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%231B1B3A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+
+  /* Subtle <=3.5% Procedural Noise Texture (No external image) */
+  --lg-noise-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.032'/%3E%3C/svg%3E");
+
+  /* ------------------------------------------------------------------------
+     2. MAPPING TO EXTENSION SHARED CONTRACT TOKENS
+     ------------------------------------------------------------------------ */
+  --bg-deep: var(--lg-bg-base);
+  --bg-card: var(--lg-surface-card);
+  --bg-card-hover: var(--lg-surface-secondary-btn-hover);
+  --bg-input: var(--lg-surface-input);
+  --bg-modal: var(--lg-surface-modal);
+  --bg-overlay: var(--lg-surface-overlay);
+  --bg-page-gradient: var(--lg-bg-base);
+  --backdrop-blur: var(--lg-backdrop-card);
+  --tabs-bar-bg: var(--lg-surface-card);
+  --subchip-bg: var(--lg-surface-nested);
+
+  --text-primary: var(--lg-text-primary);
+  --text-secondary: var(--lg-text-secondary);
+  --text-muted: var(--lg-text-secondary);
+  --text-input: var(--lg-text-primary);
+  --text-on-accent: var(--lg-text-on-accent);
+  --text-brand: var(--lg-text-primary);
+  --text-brand-accent: var(--lg-accent-solid);
+  --text-phone: var(--lg-text-primary);
+
+  --primary-neon: var(--lg-accent-solid);
+  --primary-light: var(--lg-accent-soft);
+  --accent-cyan: var(--lg-accent-solid);
+  --accent-purple: var(--lg-accent-violet);
+  --accent-emerald: var(--lg-success-text);
+  --accent-crimson: var(--lg-danger-text);
+  --accent-yellow: var(--lg-warning-text);
+  --semantic-danger: var(--lg-danger-text);
+  --semantic-success: var(--lg-success-text);
+  --semantic-warning: var(--lg-warning-text);
+
+  --border-subtle: var(--lg-border-glass);
+  --border-glow: var(--lg-border-accent);
+  --border-card-top: var(--lg-border-glass);
+  --border-width: 1px;
+  --border-color: var(--lg-border-glass);
+  --border-input: 1px solid var(--lg-border-accent);
+  --border-modal: 1px solid var(--lg-border-glass);
+  --border-chip: 1px solid var(--lg-border-accent);
+  --border-subchip: 1px solid var(--lg-border-accent);
+
+  --radius-xs: var(--lg-radius-xs);
+  --radius-sm: var(--lg-radius-sm);
+  --radius-md: var(--lg-radius-md);
+  --radius-lg: var(--lg-radius-lg);
+  --radius-pill: var(--lg-radius-pill);
+
+  --card-shadow: var(--lg-shadow-card);
+  --card-shadow-hover: var(--lg-shadow-card-hover);
+  --active-card-shadow: var(--lg-shadow-card);
+  --btn-shadow: var(--lg-shadow-nested);
+  --btn-shadow-hover: var(--lg-shadow-card-hover);
+  --modal-shadow: var(--lg-shadow-card-hover);
+  --glow-pill: 0 4px 12px rgba(79, 70, 229, 0.16);
+  --glow-dot: 0 0 8px rgba(22, 163, 74, 0.45);
+
+  --btn-transform-hover: translateY(-1px);
+  --btn-transform-active: scale(0.98);
+
+  --btn-inject-bg: var(--lg-accent-gradient);
+  --btn-inject-color: var(--lg-text-on-accent);
+  --btn-inject-border: 1px solid rgba(255, 255, 255, 0.35);
+  --btn-scan-mass-bg: var(--lg-accent-gradient);
+  --btn-scan-mass-color: var(--lg-text-on-accent);
+  --btn-scan-mass-border: 1px solid rgba(255, 255, 255, 0.35);
+  --btn-gofullpage-bg: var(--lg-accent-gradient);
+  --btn-gofullpage-color: var(--lg-text-on-accent);
+  --btn-gofullpage-border: 1px solid rgba(255, 255, 255, 0.35);
+  --btn-ai-scan-bg: var(--lg-surface-secondary-btn);
+  --btn-ai-scan-color: var(--lg-text-primary);
+  --btn-ai-scan-border: 1px solid var(--lg-border-accent);
+  --btn-upload-bg: var(--lg-surface-secondary-btn);
+  --btn-upload-color: var(--lg-text-primary);
+  --btn-upload-border: 1px solid var(--lg-border-accent);
+  --btn-excel-bg: var(--lg-accent-gradient);
+  --btn-excel-color: var(--lg-text-on-accent);
+  --btn-excel-border: none;
+  --excel-banner-bg: var(--lg-info-bg);
+  --excel-banner-color: var(--lg-info-text);
+  --excel-banner-border: 1px solid var(--lg-info-border);
+
+  --v-code-box-bg: var(--lg-surface-input);
+  --v-code-box-border: 1px solid var(--lg-border-accent);
+  --v-code-color: var(--lg-text-primary);
+  --v-pill-meta-bg: var(--lg-surface-nested-hover);
+  --v-pill-meta-color: var(--lg-text-secondary);
+
+  --switcher-bg: var(--lg-surface-secondary-btn);
+  --switcher-border: 1px solid var(--lg-border-accent);
+  --scrollbar-thumb: var(--lg-scrollbar-thumb);
+  --scrollbar-thumb-hover: var(--lg-scrollbar-thumb-hover);
+  --scrollbar-track: transparent;
+  --scrollbar-width: 5px;
+  --scrollbar-radius: var(--lg-radius-pill);
+  --scrollbar-border: none;
+
+  --flare-display: none;
+  --active-card-topline-display: none;
+  --font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "SF Mono", ui-monospace, "Cascadia Mono", Menlo, monospace;
+}
+
+/* --------------------------------------------------------------------------
+   OPTIONAL DARK MODE VARIANT (Overriding ONLY the --lg-* Design Tokens)
+   Activates when html[data-color-mode="dark"] is set or OS dark mode with auto
+   -------------------------------------------------------------------------- */
+html[data-theme="liquid-glass"][data-color-mode="dark"] {
+  --lg-bg-base: #0E1024;
+  --lg-blob-lavender: rgba(99, 102, 241, 0.28);
+  --lg-blob-lavender-core: rgba(99, 102, 241, 0.42);
+  --lg-blob-sky: rgba(56, 189, 248, 0.24);
+  --lg-blob-sky-core: rgba(56, 189, 248, 0.38);
+  --lg-blob-mint: rgba(16, 185, 129, 0.20);
+  --lg-blob-mint-core: rgba(16, 185, 129, 0.32);
+  --lg-blob-blush: rgba(236, 72, 153, 0.24);
+  --lg-blob-blush-core: rgba(236, 72, 153, 0.36);
+  --lg-ribbon-line: rgba(255, 255, 255, 0.04);
+
+  --lg-surface-card: rgba(20, 20, 40, 0.58);
+  --lg-surface-card-gradient: linear-gradient(
+    145deg,
+    rgba(30, 32, 62, 0.65) 0%,
+    rgba(20, 20, 40, 0.52) 100%
+  );
+  --lg-surface-nested: rgba(30, 32, 62, 0.45);
+  --lg-surface-nested-hover: rgba(42, 45, 85, 0.62);
+  --lg-surface-input: rgba(18, 20, 42, 0.65);
+  --lg-surface-input-focus: rgba(26, 28, 58, 0.85);
+  --lg-surface-secondary-btn: rgba(36, 38, 72, 0.68);
+  --lg-surface-secondary-btn-hover: rgba(52, 55, 98, 0.82);
+  --lg-surface-dropdown: rgba(20, 22, 46, 0.95);
+  --lg-surface-modal: rgba(20, 22, 46, 0.95);
+  --lg-surface-fallback: rgba(20, 20, 40, 0.92);
+  --lg-surface-droplet: linear-gradient(
+    145deg,
+    rgba(99, 102, 241, 0.48) 0%,
+    rgba(56, 189, 248, 0.32) 100%
+  );
+
+  --lg-border-glass: rgba(255, 255, 255, 0.22);
+  --lg-border-nested: rgba(255, 255, 255, 0.18);
+  --lg-border-accent: rgba(129, 140, 248, 0.42);
+  --lg-border-accent-strong: rgba(165, 180, 252, 0.68);
+
+  --lg-text-primary: #F8FAFC;
+  --lg-text-secondary: #CBD5E1;
+  --lg-text-disabled: #94A3B8;
+  --lg-text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
+
+  --lg-success-bg: rgba(6, 78, 59, 0.75);
+  --lg-success-text: #A7F3D0;
+  --lg-warning-bg: rgba(120, 53, 15, 0.75);
+  --lg-warning-text: #FDE68A;
+  --lg-danger-bg: rgba(127, 29, 29, 0.65);
+  --lg-danger-text: #FECACA;
+  --lg-info-bg: rgba(49, 46, 129, 0.68);
+  --lg-info-text: #E0E7FF;
+  --lg-select-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23F8FAFC' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+}
+
+/* ==========================================================================
+   1. LIGHT MESH GRADIENT BACKGROUND + SUBTLE NOISE TEXTURE (<= 3.5%)
+   ========================================================================== */
+html[data-theme="liquid-glass"] {
+  color-scheme: light;
+  background-color: var(--lg-bg-base) !important;
+}
+
+[data-theme="liquid-glass"] body {
+  position: relative;
+  background-color: var(--lg-bg-base) !important;
+  background-image:
+    var(--lg-noise-svg),
+    repeating-linear-gradient(
+      -32deg,
+      var(--lg-ribbon-line) 0px,
+      var(--lg-ribbon-line) 1.5px,
+      transparent 1.5px,
+      transparent 24px
+    ),
+    radial-gradient(240px 180px at 86% 10%, var(--lg-blob-lavender-core) 0%, var(--lg-blob-lavender) 52%, transparent 82%),
+    radial-gradient(250px 190px at 14% 26%, var(--lg-blob-sky-core) 0%, var(--lg-blob-sky) 54%, transparent 82%),
+    radial-gradient(240px 180px at 82% 48%, var(--lg-blob-blush-core) 0%, var(--lg-blob-blush) 52%, transparent 82%),
+    radial-gradient(260px 195px at 20% 70%, var(--lg-blob-mint-core) 0%, var(--lg-blob-mint) 55%, transparent 84%),
+    radial-gradient(240px 175px at 78% 88%, var(--lg-blob-lavender-core) 0%, var(--lg-blob-sky) 56%, transparent 84%),
+    linear-gradient(165deg, var(--lg-blob-lavender) 0%, var(--lg-bg-base) 48%, var(--lg-blob-sky) 100%) !important;
+  background-attachment: fixed !important;
+  color: var(--lg-text-primary);
+  font-family: var(--font-family);
+  font-size: 12px;
+  line-height: 1.62;
+  text-shadow: var(--lg-text-shadow);
+}
+
+[data-theme="liquid-glass"] .popup-wrapper {
+  position: relative;
+  background: transparent !important;
+  padding-block: var(--lg-space-3) !important;
+  padding-inline: var(--lg-space-3) !important;
+  gap: var(--lg-space-3) !important;
+  isolation: isolate;
+  z-index: 1;
+}
+
+/* Soft pastel refraction blobs directly behind cards so glass edges bend pastel colors */
+[data-theme="liquid-glass"] .popup-wrapper::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(150px 110px at 78% 18%, var(--lg-blob-lavender-core) 0%, transparent 72%),
+    radial-gradient(160px 115px at 22% 38%, var(--lg-blob-sky-core) 0%, transparent 72%),
+    radial-gradient(160px 120px at 74% 62%, var(--lg-blob-blush-core) 0%, transparent 74%),
+    radial-gradient(165px 120px at 26% 82%, var(--lg-blob-mint-core) 0%, transparent 74%);
+}
+
+/* ==========================================================================
+   2. GLASS SURFACES (Max 2 Levels of backdrop-filter + Fallbacks)
+   ========================================================================== */
+/* Level 1 Glass: Top-level containers ONLY */
+[data-theme="liquid-glass"] .app-header,
+[data-theme="liquid-glass"] .active-account-card,
+[data-theme="liquid-glass"] .nav-tabs-bar,
+[data-theme="liquid-glass"] .section-container,
+[data-theme="liquid-glass"] .app-footer {
+  position: relative;
+  background: var(--lg-surface-card-gradient) !important;
+  backdrop-filter: var(--lg-backdrop-card) !important;
+  -webkit-backdrop-filter: var(--lg-backdrop-card) !important;
+  border: 1px solid var(--lg-border-glass) !important;
+  border-radius: var(--lg-radius-md) !important;
+  box-shadow: var(--lg-shadow-card) !important;
+  isolation: isolate;
+  transition:
+    background 180ms ease-out,
+    border-color 180ms ease-out,
+    transform 180ms ease-out,
+    box-shadow 180ms ease-out !important;
+}
+
+[data-theme="liquid-glass"] .active-account-card,
+[data-theme="liquid-glass"] .section-container {
+  border-radius: var(--lg-radius-lg) !important;
+  padding-block: var(--lg-space-4) !important;
+  padding-inline: var(--lg-space-3) !important;
+}
+
+[data-theme="liquid-glass"] .app-header {
+  overflow: visible !important;
+  z-index: 30;
+  padding-block: var(--lg-space-3) !important;
+  padding-inline: var(--lg-space-3) !important;
+}
+
+[data-theme="liquid-glass"] .theme-picker-dropdown {
+  background: var(--lg-surface-dropdown) !important;
+  backdrop-filter: blur(20px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(160%) !important;
+  border: 1px solid var(--lg-border-accent) !important;
+  border-radius: var(--lg-radius-md) !important;
+  box-shadow: var(--lg-shadow-card-hover) !important;
+}
+
+/* Nested Elements: Flat/Gradient Translucent Fill (0.42) — NO nested backdrop-filter! */
+[data-theme="liquid-glass"] .quick-profile-card,
+[data-theme="liquid-glass"] .saved-account-card,
+[data-theme="liquid-glass"] .gemini-config-card,
+[data-theme="liquid-glass"] .voucher-control-card,
+[data-theme="liquid-glass"] .voucher-filter-toolbar,
+[data-theme="liquid-glass"] .voucher-card,
+[data-theme="liquid-glass"] .export-box-preview {
+  position: relative;
+  background: var(--lg-surface-nested) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 1px solid var(--lg-border-nested) !important;
+  border-radius: var(--lg-radius-md) !important;
+  box-shadow: var(--lg-shadow-nested) !important;
+  padding-block: var(--lg-space-3) !important;
+  padding-inline: var(--lg-space-3) !important;
+  transition:
+    background 180ms ease-out,
+    border-color 180ms ease-out,
+    transform 180ms ease-out,
+    box-shadow 180ms ease-out !important;
+}
+
+[data-theme="liquid-glass"] .quick-profile-card:hover,
+[data-theme="liquid-glass"] .saved-account-card:hover,
+[data-theme="liquid-glass"] .voucher-card:hover {
+  background: var(--lg-surface-nested-hover) !important;
+  border-color: var(--lg-border-accent) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: var(--lg-shadow-card) !important;
+}
+
+/* Fallback for browsers without backdrop-filter & prefers-reduced-transparency */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  [data-theme="liquid-glass"] .app-header,
+  [data-theme="liquid-glass"] .active-account-card,
+  [data-theme="liquid-glass"] .nav-tabs-bar,
+  [data-theme="liquid-glass"] .section-container,
+  [data-theme="liquid-glass"] .app-footer,
+  [data-theme="liquid-glass"] .quick-profile-card,
+  [data-theme="liquid-glass"] .saved-account-card,
+  [data-theme="liquid-glass"] .voucher-control-card,
+  [data-theme="liquid-glass"] .voucher-card {
+    background: var(--lg-surface-fallback) !important;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  [data-theme="liquid-glass"] .app-header,
+  [data-theme="liquid-glass"] .active-account-card,
+  [data-theme="liquid-glass"] .nav-tabs-bar,
+  [data-theme="liquid-glass"] .section-container,
+  [data-theme="liquid-glass"] .app-footer,
+  [data-theme="liquid-glass"] .quick-profile-card,
+  [data-theme="liquid-glass"] .saved-account-card,
+  [data-theme="liquid-glass"] .voucher-control-card,
+  [data-theme="liquid-glass"] .voucher-card {
+    background: var(--lg-surface-fallback) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}
+
+/* ==========================================================================
+   3. TYPOGRAPHY, READABILITY (WCAG AAA/AA, >= 12px Floor, Bidirectional Safety)
+   ========================================================================== */
+[data-theme="liquid-glass"] h1,
+[data-theme="liquid-glass"] h2,
+[data-theme="liquid-glass"] h3,
+[data-theme="liquid-glass"] .brand-title,
+[data-theme="liquid-glass"] .section-title,
+[data-theme="liquid-glass"] .v-title,
+[data-theme="liquid-glass"] .acc-primary-phone,
+[data-theme="liquid-glass"] .profile-label,
+[data-theme="liquid-glass"] .ai-title,
+[data-theme="liquid-glass"] .v-code-text,
+[data-theme="liquid-glass"] .modal-title {
+  color: var(--lg-text-primary) !important;
+  text-shadow: var(--lg-text-shadow) !important;
+  line-height: 1.6 !important;
+}
+
+[data-theme="liquid-glass"] .brand-title {
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  line-height: 1.3 !important;
+}
+
+[data-theme="liquid-glass"] .brand-title .accent-text {
+  color: var(--lg-accent-solid) !important;
+  font-weight: 800 !important;
+}
+
+/* Secondary & Hint Text: Minimum 12px, #4A4A68 (Never lighter than #4A4A68!) */
+[data-theme="liquid-glass"] .brand-subtitle,
+[data-theme="liquid-glass"] .status-text,
+[data-theme="liquid-glass"] .service-tag,
+[data-theme="liquid-glass"] .tab-desc,
+[data-theme="liquid-glass"] .acc-sub-meta,
+[data-theme="liquid-glass"] .v-phone-tag,
+[data-theme="liquid-glass"] .footer-status-text,
+[data-theme="liquid-glass"] .control-label,
+[data-theme="liquid-glass"] .export-meta-row,
+[data-theme="liquid-glass"] .gemini-hint-text,
+[data-theme="liquid-glass"] .mass-scan-options-row,
+[data-theme="liquid-glass"] .scan-bg-label,
+[data-theme="liquid-glass"] .empty-state,
+[data-theme="liquid-glass"] .modal-desc {
+  color: var(--lg-text-secondary) !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  line-height: 1.65 !important;
+  text-shadow: var(--lg-text-shadow) !important;
+}
+
+/* Mixed Persian/English Bidirectional Punctuation Safety ("(Full-Page)", "(DOM)", "Gemini Vision") */
+[data-theme="liquid-glass"] .btn-text,
+[data-theme="liquid-glass"] .btn-pill,
+[data-theme="liquid-glass"] .scan-bg-label span,
+[data-theme="liquid-glass"] .ai-title,
+[data-theme="liquid-glass"] .gemini-hint-text,
+[data-theme="liquid-glass"] .v-title,
+[data-theme="liquid-glass"] .tab-desc {
+  unicode-bidi: plaintext;
+}
+
+/* Status Card Phone / Timer Display: tabular-nums & monospace-like numeric clarity */
+[data-theme="liquid-glass"] .phone-display {
+  font-family: var(--font-mono) !important;
+  font-variant-numeric: tabular-nums !important;
+  font-size: 22px !important;
+  font-weight: 800 !important;
+  letter-spacing: 1px !important;
+  color: var(--lg-text-primary) !important;
+  direction: ltr;
+  margin-block: var(--lg-space-2) !important;
+}
+
+[data-theme="liquid-glass"] .acc-primary-phone,
+[data-theme="liquid-glass"] .profile-label,
+[data-theme="liquid-glass"] .v-phone-tag,
+[data-theme="liquid-glass"] #exportPhoneLabel {
+  font-variant-numeric: tabular-nums !important;
+  direction: ltr;
+}
+
+/* ==========================================================================
+   4. STATUS CARD & SEMANTIC PILLS (ACTIVE = Green, STANDBY = Amber)
+   ========================================================================== */
+[data-theme="liquid-glass"] .active-pill {
+  background: var(--lg-success-bg) !important;
+  color: var(--lg-success-text) !important;
+  border: 1px solid var(--lg-success-border) !important;
+  border-radius: var(--lg-radius-pill) !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  padding-block: 3px !important;
+  padding-inline: 12px !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85) !important;
+}
+
+[data-theme="liquid-glass"] .active-pill.standby,
+[data-theme="liquid-glass"] .active-pill.offline {
+  background: var(--lg-warning-bg) !important;
+  color: var(--lg-warning-text) !important;
+  border-color: var(--lg-warning-border) !important;
+}
+
+[data-theme="liquid-glass"] .status-indicator-box,
+[data-theme="liquid-glass"] .service-tag,
+[data-theme="liquid-glass"] .gemini-status-pill,
+[data-theme="liquid-glass"] .v-stat-badge {
+  background: var(--lg-surface-secondary-btn) !important;
+  color: var(--lg-text-primary) !important;
+  border: 1px solid var(--lg-border-accent) !important;
+  border-radius: var(--lg-radius-pill) !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  padding-block: 4px !important;
+  padding-inline: 12px !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.90) !important;
+}
+
+[data-theme="liquid-glass"] .gemini-status-pill.configured {
+  background: var(--lg-success-bg) !important;
+  color: var(--lg-success-text) !important;
+  border-color: var(--lg-success-border) !important;
+}
+
+[data-theme="liquid-glass"] .status-dot,
+[data-theme="liquid-glass"] .status-indicator-dot,
+[data-theme="liquid-glass"] .footer-dot {
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 50% !important;
+  background: var(--lg-warning-dot) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.92) !important;
+  box-shadow: 0 0 0 2px rgba(217, 119, 6, 0.20) !important;
+  flex-shrink: 0;
+}
+
+[data-theme="liquid-glass"] .status-dot.online,
+[data-theme="liquid-glass"] .gemini-status-pill.configured .status-indicator-dot,
+[data-theme="liquid-glass"] .footer-dot {
+  background: var(--lg-success-dot) !important;
+  box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.22) !important;
+}
+
+/* ==========================================================================
+   5. BUTTON SYSTEM: PRIMARY INDIGO/VIOLET, SECONDARY GLASS, SAFE-EXIT SOFT RED
+   ========================================================================== */
+/* Shared Interactive Button Foundation (12px min font, balanced wrapping, 180ms ease-out) */
+[data-theme="liquid-glass"] .btn-pill,
+[data-theme="liquid-glass"] .btn-inject-neon,
+[data-theme="liquid-glass"] .btn-activate,
+[data-theme="liquid-glass"] .btn-launch-power,
+[data-theme="liquid-glass"] .btn-delete-acc,
+[data-theme="liquid-glass"] .btn-v-copy,
+[data-theme="liquid-glass"] .v-chip,
+[data-theme="liquid-glass"] .v-subchip,
+[data-theme="liquid-glass"] .theme-picker-toggle-btn,
+[data-theme="liquid-glass"] .btn-standalone-win,
+[data-theme="liquid-glass"] .file-import-link {
+  position: relative;
+  font-family: var(--font-family) !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  line-height: 1.5 !important;
+  border-radius: var(--lg-radius-sm) !important;
+  padding-block: var(--lg-space-2) !important;
+  padding-inline: var(--lg-space-3) !important;
+  text-wrap: balance;
+  white-space: normal !important;
+  height: auto !important;
+  min-height: 38px;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  text-align: center !important;
+  transition:
+    background 180ms ease-out,
+    border-color 180ms ease-out,
+    transform 180ms ease-out,
+    box-shadow 180ms ease-out !important;
+}
+
+/* A. PRIMARY BUTTONS: Solid Indigo/Violet Gradient (#4F46E5 -> #6D28D9) + Crisp WHITE Text (>= 6.15:1) */
+[data-theme="liquid-glass"] .btn-inject-neon,
+[data-theme="liquid-glass"] .btn-scan-all-mass,
+[data-theme="liquid-glass"] .btn-gofullpage-auto,
+[data-theme="liquid-glass"] #btnCopyCurrentSession,
+[data-theme="liquid-glass"] #btnSaveGeminiKey,
+[data-theme="liquid-glass"] #btnCopySessionCode,
+[data-theme="liquid-glass"] .btn-v-copy,
+[data-theme="liquid-glass"] .v-chip.active,
+[data-theme="liquid-glass"] .v-subchip.active {
+  background: var(--lg-accent-gradient) !important;
+  color: var(--lg-text-on-accent) !important;
+  border: 1px solid rgba(255, 255, 255, 0.36) !important;
+  box-shadow: var(--lg-shadow-primary-btn) !important;
+  text-shadow: 0 1px 2px rgba(27, 27, 58, 0.35) !important;
+}
+
+[data-theme="liquid-glass"] .btn-inject-neon:hover,
+[data-theme="liquid-glass"] .btn-scan-all-mass:hover,
+[data-theme="liquid-glass"] .btn-gofullpage-auto:hover,
+[data-theme="liquid-glass"] #btnCopyCurrentSession:hover,
+[data-theme="liquid-glass"] #btnSaveGeminiKey:hover,
+[data-theme="liquid-glass"] #btnCopySessionCode:hover,
+[data-theme="liquid-glass"] .btn-v-copy:hover,
+[data-theme="liquid-glass"] .v-chip.active:hover {
+  background: var(--lg-accent-gradient-hover) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: var(--lg-shadow-primary-btn-hover) !important;
+}
+
+/* B. SECONDARY BUTTONS: Translucent White Glass + Dark #1B1B3A Text + Accent Border */
+[data-theme="liquid-glass"] .btn-activate,
+[data-theme="liquid-glass"] .btn-launch-power,
+[data-theme="liquid-glass"] .btn-neon-green,
+[data-theme="liquid-glass"] .btn-emerald,
+[data-theme="liquid-glass"] .btn-ai-scan,
+[data-theme="liquid-glass"] .btn-gofullpage,
+[data-theme="liquid-glass"] .btn-open-snapp-page,
+[data-theme="liquid-glass"] .btn-bulk-import,
+[data-theme="liquid-glass"] .v-chip:not(.active),
+[data-theme="liquid-glass"] .v-subchip:not(.active),
+[data-theme="liquid-glass"] .theme-picker-toggle-btn,
+[data-theme="liquid-glass"] .btn-standalone-win,
+[data-theme="liquid-glass"] .file-import-link {
+  background: var(--lg-surface-secondary-btn) !important;
+  color: var(--lg-text-primary) !important;
+  border: 1px solid var(--lg-border-accent) !important;
+  box-shadow: var(--lg-shadow-nested) !important;
+  text-shadow: var(--lg-text-shadow) !important;
+}
+
+[data-theme="liquid-glass"] .btn-activate:hover,
+[data-theme="liquid-glass"] .btn-launch-power:hover,
+[data-theme="liquid-glass"] .btn-neon-green:hover,
+[data-theme="liquid-glass"] .btn-emerald:hover,
+[data-theme="liquid-glass"] .btn-ai-scan:hover,
+[data-theme="liquid-glass"] .btn-gofullpage:hover,
+[data-theme="liquid-glass"] .btn-open-snapp-page:hover,
+[data-theme="liquid-glass"] .btn-bulk-import:hover,
+[data-theme="liquid-glass"] .v-chip:not(.active):hover,
+[data-theme="liquid-glass"] .theme-picker-toggle-btn:hover,
+[data-theme="liquid-glass"] .btn-standalone-win:hover,
+[data-theme="liquid-glass"] .file-import-link:hover {
+  background: var(--lg-surface-secondary-btn-hover) !important;
+  border-color: var(--lg-border-accent-strong) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: var(--lg-shadow-card) !important;
+}
+
+/* C. DESTRUCTIVE / SAFE EXIT BUTTONS ("خروج امن", "پاکسازی", Delete): Soft Red Tint + Dark Red Text (#991B1B, 6.98:1) */
+[data-theme="liquid-glass"] #btnClearCurrent,
+[data-theme="liquid-glass"] .btn-crimson,
+[data-theme="liquid-glass"] .btn-delete-acc,
+[data-theme="liquid-glass"] .btn-clear-vouchers-list {
+  background: var(--lg-danger-bg) !important;
+  color: var(--lg-danger-text) !important;
+  border: 1px solid var(--lg-danger-border) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85) !important;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+}
+
+[data-theme="liquid-glass"] #btnClearCurrent:hover,
+[data-theme="liquid-glass"] .btn-crimson:hover,
+[data-theme="liquid-glass"] .btn-delete-acc:hover,
+[data-theme="liquid-glass"] .btn-clear-vouchers-list:hover {
+  background: var(--lg-danger-bg-hover) !important;
+  border-color: var(--lg-danger-dot) !important;
+  transform: translateY(-1px) !important;
+}
+
+[data-theme="liquid-glass"] .btn-text-danger,
+[data-theme="liquid-glass"] .btn-cancel-mass-scan {
+  color: var(--lg-danger-text) !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="liquid-glass"] .btn-delete-acc {
+  min-width: 32px !important;
+  min-height: 32px !important;
+  padding: 0 !important;
+  border-radius: var(--lg-radius-xs) !important;
+}
+
+/* D. BIG ACTION BUTTONS ("اسکرین‌شات کامل خودکار (Full-Page)" & "احراز زنده (DOM)"): Equal Heights & 18px Radius */
+[data-theme="liquid-glass"] .control-buttons-row {
+  display: flex !important;
+  align-items: stretch !important;
+  gap: var(--lg-space-2) !important;
+}
+
+[data-theme="liquid-glass"] .control-buttons-row > button {
+  min-height: 46px !important;
+  border-radius: 18px !important;
+  padding-block: var(--lg-space-2) !important;
+  padding-inline: var(--lg-space-2) !important;
+}
+
+[data-theme="liquid-glass"] .control-buttons-row-sub {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: var(--lg-space-2) !important;
+}
+
+[data-theme="liquid-glass"] .control-buttons-row-sub > button {
+  flex: 1 1 44% !important;
+  min-height: 40px !important;
+  border-radius: var(--lg-radius-sm) !important;
+}
+
+[data-theme="liquid-glass"] .control-buttons-row-sub > button {
+  min-height: 40px !important;
+  border-radius: var(--lg-radius-sm) !important;
+}
+
+/* Active Press & Keyboard Focus-Visible States on All Interactive Elements */
+[data-theme="liquid-glass"] button:active,
+[data-theme="liquid-glass"] .file-import-link:active {
+  transform: scale(0.98) !important;
+}
+
+[data-theme="liquid-glass"] button:focus-visible,
+[data-theme="liquid-glass"] input:focus-visible,
+[data-theme="liquid-glass"] select:focus-visible,
+[data-theme="liquid-glass"] textarea:focus-visible,
+[data-theme="liquid-glass"] .file-import-link:focus-visible {
+  outline: 2px solid var(--lg-accent-solid) !important;
+  outline-offset: 2px !important;
+}
+
+[data-theme="liquid-glass"] button:disabled,
+[data-theme="liquid-glass"] input:disabled,
+[data-theme="liquid-glass"] select:disabled {
+  opacity: 0.55 !important;
+  color: var(--lg-text-disabled) !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+}
+
+/* ==========================================================================
+   6. TABS BAR (حساب / تخفیف‌ها / خطوط / استخراج) + LIQUID DROPLET MORPH
+   Distinguishable without color alone: Elevated Liquid Glass Capsule + Bold Text
+   + 2.5px Bottom Indigo Accent Bar!
+   ========================================================================== */
+[data-theme="liquid-glass"] .nav-tabs-bar {
+  position: sticky !important;
+  top: 0 !important;
+  border-radius: var(--lg-radius-lg) !important;
+  padding: var(--lg-space-1) !important;
+  background: var(--lg-surface-card-gradient) !important;
+  backdrop-filter: var(--lg-backdrop-card) !important;
+  -webkit-backdrop-filter: var(--lg-backdrop-card) !important;
+  border: 1px solid var(--lg-border-glass) !important;
+  box-shadow: var(--lg-shadow-card) !important;
+  overflow: visible !important;
+  z-index: 20 !important;
+}
+
+[data-theme="liquid-glass"] .nav-tabs-bar.is-liquid-recoil {
+  animation: apple-tabbar-liquid-recoil 0.46s cubic-bezier(0.28, 1.38, 0.52, 1);
+}
+
+@keyframes apple-tabbar-liquid-recoil {
+  0% { transform: scale(1, 1); }
+  28% { transform: scale(1.014, 0.98); }
+  65% { transform: scale(0.996, 1.006); }
+  100% { transform: scale(1, 1); }
+}
+
+/* Level 2 Glass: The Sliding & Morphing Liquid Droplet Capsule */
+[data-theme="liquid-glass"] .fx-liquid-tab-pill {
+  display: block !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: var(--pill-y, 4px) !important;
+  width: var(--pill-w, 78px) !important;
+  height: var(--pill-h, 42px) !important;
+  transform: translate3d(var(--pill-x, 4px), 0, 0) !important;
+  transition:
+    transform 0.48s cubic-bezier(0.28, 1.35, 0.48, 1),
+    width 0.40s cubic-bezier(0.28, 1.35, 0.48, 1) !important;
+  pointer-events: none !important;
+  z-index: 2 !important;
+  will-change: transform, width;
+}
+
+[data-theme="liquid-glass"] .fx-liquid-tab-lens {
+  position: absolute;
+  inset: -1px -2px;
+  border-radius: var(--lg-radius-md);
+  background: var(--lg-surface-droplet);
+  backdrop-filter: var(--lg-backdrop-droplet);
+  -webkit-backdrop-filter: var(--lg-backdrop-droplet);
+  border: 1.5px solid var(--lg-border-accent-strong);
+  box-shadow: var(--lg-shadow-droplet);
+  transform-origin: center center;
+  will-change: transform, box-shadow;
+}
+
+/* Top curved specular lens highlight inside the sliding liquid droplet */
+[data-theme="liquid-glass"] .fx-liquid-tab-glint {
+  position: absolute;
+  top: 2px;
+  inset-inline: 14%;
+  height: 38%;
+  border-radius: var(--lg-radius-pill);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.90) 0%, rgba(255, 255, 255, 0.10) 100%);
+  pointer-events: none;
+}
+
+/* Elastic Liquid Droplet Stretch During Tab Switch */
+[data-theme="liquid-glass"] .fx-liquid-tab-pill.is-morphing-a .fx-liquid-tab-lens {
+  animation: apple-liquid-droplet-flight-a 0.52s ease-in-out forwards !important;
+}
+
+[data-theme="liquid-glass"] .fx-liquid-tab-pill.is-morphing-b .fx-liquid-tab-lens {
+  animation: apple-liquid-droplet-flight-b 0.52s ease-in-out forwards !important;
+}
+
+@keyframes apple-liquid-droplet-flight-a {
+  0% { transform: scale3d(1, 1, 1); }
+  28% {
+    transform: scale3d(1.26, 1.14, 1);
+    box-shadow:
+      0 10px 26px rgba(79, 70, 229, 0.26),
+      inset 0 2.5px 3px rgba(255, 255, 255, 1),
+      inset 4px 2px 7px rgba(56, 189, 248, 0.35),
+      inset -4px -2px 7px rgba(168, 85, 247, 0.30);
+  }
+  58% { transform: scale3d(1.14, 0.90, 1); }
+  84% { transform: scale3d(0.96, 1.05, 1); }
+  100% { transform: scale3d(1, 1, 1); }
+}
+
+@keyframes apple-liquid-droplet-flight-b {
+  0% { transform: scale3d(1, 1, 1); }
+  28% {
+    transform: scale3d(1.26, 1.14, 1);
+    box-shadow:
+      0 10px 26px rgba(79, 70, 229, 0.26),
+      inset 0 2.5px 3px rgba(255, 255, 255, 1),
+      inset 4px 2px 7px rgba(56, 189, 248, 0.35),
+      inset -4px -2px 7px rgba(168, 85, 247, 0.30);
+  }
+  58% { transform: scale3d(1.14, 0.90, 1); }
+  84% { transform: scale3d(0.96, 1.05, 1); }
+  100% { transform: scale3d(1, 1, 1); }
+}
+
+[data-theme="liquid-glass"] .nav-tab-item {
+  position: relative;
+  border: 1px solid transparent !important;
+  border-radius: var(--lg-radius-md) !important;
+  background: transparent !important;
+  color: var(--lg-text-secondary) !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  min-height: 42px !important;
+  padding-block: var(--lg-space-2) !important;
+  padding-inline: var(--lg-space-1) !important;
+  transition:
+    color 180ms ease-out,
+    background 180ms ease-out,
+    transform 180ms ease-out !important;
+  z-index: 3 !important;
+}
+
+[data-theme="liquid-glass"] .nav-tab-item:hover {
+  color: var(--lg-text-primary) !important;
+  background: rgba(255, 255, 255, 0.35) !important;
+}
+
+[data-theme="liquid-glass"] .nav-tab-item.active {
+  color: var(--lg-text-primary) !important;
+  font-weight: 800 !important;
+  background: transparent !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Non-color active tab underline fallback even if JS pill is disabled */
+[data-theme="liquid-glass"] .nav-tab-item.active::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  bottom: 3px !important;
+  inset-inline: 22% !important;
+  height: 2.5px !important;
+  border-radius: var(--lg-radius-pill) !important;
+  background: var(--lg-accent-gradient) !important;
+  box-shadow: none !important;
+}
+
+/* Header 3-State FX Mode Switcher */
+[data-theme="liquid-glass"] .fx-mode-switch {
+  background: var(--lg-surface-nested) !important;
+  border: 1px solid var(--lg-border-accent) !important;
+  border-radius: var(--lg-radius-pill) !important;
+  padding: 2px !important;
+}
+
+[data-theme="liquid-glass"] .fx-mode-btn {
+  color: var(--lg-text-secondary) !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  border-radius: var(--lg-radius-pill) !important;
+  padding-block: 2px !important;
+  padding-inline: 7px !important;
+}
+
+[data-theme="liquid-glass"] .fx-mode-btn.active {
+  background: var(--lg-accent-gradient) !important;
+  color: var(--lg-text-on-accent) !important;
+}
+
+/* ==========================================================================
+   7. INPUTS, RTL SELECT DROPDOWN, CUSTOM 18PX CHECKBOX & SCROLLBARS
+   ========================================================================== */
+[data-theme="liquid-glass"] .voucher-search,
+[data-theme="liquid-glass"] .gemini-token-input,
+[data-theme="liquid-glass"] .inject-textarea,
+[data-theme="liquid-glass"] .v-code-box {
+  background: var(--lg-surface-input) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 1px solid var(--lg-border-accent) !important;
+  border-radius: var(--lg-radius-sm) !important;
+  padding-block: var(--lg-space-2) !important;
+  padding-inline: var(--lg-space-3) !important;
+  color: var(--lg-text-primary) !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  box-shadow: inset 0 1px 2px rgba(27, 27, 58, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.90) !important;
+}
+
+[data-theme="liquid-glass"] .voucher-search:focus,
+[data-theme="liquid-glass"] .gemini-token-input:focus,
+[data-theme="liquid-glass"] .inject-textarea:focus {
+  background: var(--lg-surface-input-focus) !important;
+  border-color: var(--lg-accent-solid) !important;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.16) !important;
+}
+
+[data-theme="liquid-glass"] .inject-textarea::placeholder,
+[data-theme="liquid-glass"] .voucher-search::placeholder,
+[data-theme="liquid-glass"] .gemini-token-input::placeholder {
+  color: var(--lg-text-disabled) !important;
+  opacity: 1 !important;
+}
+
+/* RTL Dropdown / Select ("انتخاب خط") with Custom Chevron on Left (inline-end in RTL) */
+[data-theme="liquid-glass"] .voucher-select {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  background-color: var(--lg-surface-input) !important;
+  background-image: var(--lg-select-chevron) !important;
+  background-repeat: no-repeat !important;
+  background-position: left 10px center !important;
+  background-size: 15px 15px !important;
+  border: 1px solid var(--lg-border-accent) !important;
+  border-radius: var(--lg-radius-sm) !important;
+  padding-block: var(--lg-space-2) !important;
+  padding-inline-start: var(--lg-space-3) !important;
+  padding-inline-end: 32px !important;
+  color: var(--lg-text-primary) !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  min-height: 38px !important;
+  box-shadow: var(--lg-shadow-nested) !important;
+}
+
+[data-theme="liquid-glass"] .voucher-select option {
+  background-color: var(--lg-bg-base);
+  color: var(--lg-text-primary);
+}
+
+/* Custom-Styled 18px Checkbox + Larger Clickable Label Area */
+[data-theme="liquid-glass"] .mass-scan-options-row {
+  margin-block-start: var(--lg-space-2) !important;
+  padding-inline: var(--lg-space-1) !important;
+}
+
+[data-theme="liquid-glass"] .scan-bg-label {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: var(--lg-space-2) !important;
+  min-height: 32px !important;
+  padding-block: var(--lg-space-1) !important;
+  padding-inline: var(--lg-space-2) !important;
+  border-radius: var(--lg-radius-xs) !important;
+  cursor: pointer !important;
+  transition: background 180ms ease-out !important;
+}
+
+[data-theme="liquid-glass"] .scan-bg-label:hover {
+  background: var(--lg-accent-tint-bg) !important;
+}
+
+[data-theme="liquid-glass"] .scan-bg-checkbox {
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  min-height: 18px !important;
+  accent-color: var(--lg-accent-solid) !important;
+  border-radius: 5px !important;
+  cursor: pointer !important;
+  margin: 0 !important;
+}
+
+/* Voucher Category Badges & Pills (WCAG AA/AAA Contrast on Light Glass) */
+[data-theme="liquid-glass"] .v-badge,
+[data-theme="liquid-glass"] .v-pill-meta {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  padding-block: 2px !important;
+  padding-inline: 8px !important;
+  border-radius: var(--lg-radius-xs) !important;
+  background: var(--lg-info-bg) !important;
+  color: var(--lg-info-text) !important;
+  border: 1px solid var(--lg-info-border) !important;
+}
+
+[data-theme="liquid-glass"] .v-badge.ride {
+  background: var(--lg-success-bg) !important;
+  color: var(--lg-success-text) !important;
+  border-color: var(--lg-success-border) !important;
+}
+
+[data-theme="liquid-glass"] .v-badge.food,
+[data-theme="liquid-glass"] .v-pill-meta.urgent {
+  background: var(--lg-danger-bg) !important;
+  color: var(--lg-danger-text) !important;
+  border-color: var(--lg-danger-border) !important;
+}
+
+[data-theme="liquid-glass"] .v-badge.super,
+[data-theme="liquid-glass"] .v-pill-amount {
+  background: var(--lg-warning-bg) !important;
+  color: var(--lg-warning-text) !important;
+  border-color: var(--lg-warning-border) !important;
+}
+
+/* Links & Secondary Action Links */
+[data-theme="liquid-glass"] .btn-copy-all-link,
+[data-theme="liquid-glass"] .gemini-link,
+[data-theme="liquid-glass"] .accent-val,
+[data-theme="liquid-glass"] #exportPhoneLabel {
+  color: var(--lg-accent-solid) !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+}
+
+/* Avatar Orbs & Brand Tile */
+[data-theme="liquid-glass"] .avatar-glow {
+  background: var(--lg-info-bg) !important;
+  color: var(--lg-accent-solid) !important;
+  border: 1.5px solid var(--lg-border-accent) !important;
+  box-shadow: var(--lg-shadow-nested) !important;
+}
+
+[data-theme="liquid-glass"] .brand-icon-box {
+  background: var(--lg-surface-secondary-btn) !important;
+  border: 1px solid var(--lg-border-glass) !important;
+  border-radius: var(--lg-radius-sm) !important;
+  box-shadow: var(--lg-shadow-nested) !important;
+}
+
+[data-theme="liquid-glass"] .eq-mini-bar,
+[data-theme="liquid-glass"] .eq-bar {
+  background: var(--lg-accent-solid) !important;
+}
+
+/* Logical RTL Padding on Scrollable Lists */
+[data-theme="liquid-glass"] .saved-accounts-list,
+[data-theme="liquid-glass"] .vouchers-cards-list {
+  padding-inline-start: 2px !important;
+  padding-inline-end: 6px !important;
+}
+
+
+/* Header Controls Compact Layout (Prevents overlap with brand subtitle at 350px) */
+[data-theme="liquid-glass"] .app-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: var(--lg-space-2) !important;
+}
+
+[data-theme="liquid-glass"] .brand-text {
+  min-width: 0 !important;
+  overflow: hidden !important;
+}
+
+[data-theme="liquid-glass"] .brand-subtitle {
+  font-size: 11.5px !important;
+  line-height: 1.35 !important;
+  white-space: normal !important;
+  text-wrap: balance;
+}
+
+[data-theme="liquid-glass"] .theme-picker-toggle-btn,
+[data-theme="liquid-glass"] .btn-standalone-win {
+  min-height: 28px !important;
+  padding-block: 3px !important;
+  padding-inline: 8px !important;
+  font-size: 12px !important;
+  border-radius: var(--lg-radius-pill) !important;
+  white-space: nowrap !important;
+}
+
+[data-theme="liquid-glass"] .btn-standalone-win {
+  min-width: 28px !important;
+  padding-inline: 6px !important;
+}
+
+[data-theme="liquid-glass"] .ai-title,
+[data-theme="liquid-glass"] .gemini-title-box,
+[data-theme="liquid-glass"] .section-title {
+  font-size: 12.5px !important;
+  font-weight: 800 !important;
+}
+
+
+/* Inline Lucide Search SVG Icon on .voucher-search (RTL start side) */
+[data-theme="liquid-glass"] .voucher-search {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 24 24' fill='none' stroke='%234A4A68' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.3-4.3'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 11px center !important;
+  background-size: 15px 15px !important;
+  padding-inline-start: 34px !important;
+}

@@ -1,0 +1,445 @@
+/* ==========================================================================
+   Theme 22: call-me-y2k — Y2K Call Me Pink Nokia & Sky Scanlines (موبایل صورتی Y2K)
+   Reference: `image_4e43fc.jpg`
+   - Background: Dreamy Y2K blue sky (#1D55A8 -> #6EA4E8) with fluffy white clouds
+     and CRT/LCD horizontal + vertical RGB scanline mesh overlay.
+   - Active Account Card: Pink ribbed Nokia 3310 body (#FF4FA3 / #FF77BC) with
+     metallic silver bezel (#E8EEF5), glowing lime-green LCD screen (#42D65C -> #8CF29B),
+     and oval white/silver keypad pill buttons.
+   - Headers & Accents: Puffy 3D ribbed bubble-pink "CALL ME!!" typography &
+     pixelated lime-green 5-point stars (★).
+   ========================================================================== */
+
+[data-theme="call-me-y2k"] {
+  --bg-deep: #2563B8;
+  --bg-card: rgba(255, 105, 180, 0.90);
+  --bg-card-hover: rgba(255, 122, 192, 0.95);
+  --bg-input: #FFF0F7;
+  --bg-modal: #FF6EB6;
+  --bg-overlay: rgba(22, 58, 118, 0.78);
+  --bg-page-gradient: linear-gradient(180deg, #1A4E9C 0%, #3576CC 48%, #5B9AE8 100%);
+  --backdrop-blur: blur(6px);
+  --tabs-bar-bg: #FF5CAD;
+  --subchip-bg: #FFE0F0;
+
+  --text-primary: #4A0A29;
+  --text-secondary: #7A1446;
+  --text-muted: #9E245E;
+  --text-input: #4A0A29;
+  --text-on-accent: #103818;
+  --text-brand: #FFF5FA;
+  --text-brand-accent: #72F564;
+  --text-phone: #0D3816;
+
+  --primary-neon: #5CE65C;
+  --primary-light: #9DFF8C;
+  --accent-cyan: #5CE65C;
+  --accent-purple: #FF4FA3;
+  --accent-emerald: #42D65C;
+  --accent-crimson: #D91B73;
+  --accent-yellow: #72F564;
+  --semantic-danger: #D91B73;
+  --semantic-success: #1E8A34;
+  --semantic-warning: #C86400;
+
+  --border-subtle: rgba(255, 255, 255, 0.65);
+  --border-glow: rgba(114, 245, 100, 0.75);
+  --border-card-top: #FFD4EA;
+  --border-width: 2px;
+  --border-color: #9E1E5C;
+  --border-input: 2px solid #B8256D;
+  --border-modal: 2px solid #FFFFFF;
+  --border-chip: 2px solid #9E1E5C;
+  --border-subchip: 1.5px solid #C8327A;
+
+  --radius-xs: 10px;
+  --radius-sm: 14px;
+  --radius-md: 20px;
+  --radius-lg: 26px;
+  --radius-pill: 999px;
+
+  --card-shadow: 0 10px 22px rgba(16, 42, 86, 0.42), inset 0 2px 1px rgba(255, 255, 255, 0.85), inset 0 -3px 6px rgba(140, 20, 80, 0.45);
+  --card-shadow-hover: 0 12px 26px rgba(16, 42, 86, 0.52), inset 0 2px 2px #FFFFFF;
+  --active-card-shadow: 0 14px 28px rgba(12, 34, 72, 0.5), inset 0 3px 2px rgba(255, 255, 255, 0.9), inset 0 -4px 8px rgba(130, 15, 70, 0.55);
+  --btn-shadow: 0 4px 0 #8C1D56, 0 6px 12px rgba(16, 42, 86, 0.32), inset 0 2px 1px #FFFFFF;
+  --btn-shadow-hover: 0 5px 0 #8C1D56, 0 8px 16px rgba(92, 230, 92, 0.4), inset 0 2px 2px #FFFFFF;
+  --glow-pill: 0 0 12px rgba(92, 230, 92, 0.65);
+  --glow-dot: 0 0 10px #5CE65C;
+  --modal-shadow: 0 20px 44px rgba(12, 32, 68, 0.6);
+
+  --btn-transform-hover: translateY(-1px);
+  --btn-transform-active: translateY(2px);
+
+  --btn-inject-bg: linear-gradient(180deg, #98FF8C 0%, #46D858 55%, #26A63A 100%);
+  --btn-inject-color: #0B3312;
+  --btn-inject-border: 2px solid #166824;
+  --btn-scan-mass-bg: linear-gradient(180deg, #98FF8C 0%, #46D858 55%, #26A63A 100%);
+  --btn-scan-mass-color: #0B3312;
+  --btn-scan-mass-border: 2px solid #166824;
+  --btn-gofullpage-bg: #FFFFFF;
+  --btn-gofullpage-color: #4A0A29;
+  --btn-gofullpage-border: 2px solid #9E1E5C;
+  --btn-ai-scan-bg: #FFFFFF;
+  --btn-ai-scan-color: #4A0A29;
+  --btn-ai-scan-border: 2px solid #9E1E5C;
+  --btn-upload-bg: #FFEBF5;
+  --btn-upload-color: #6E103E;
+  --btn-upload-border: 2px solid #9E1E5C;
+  --btn-excel-bg: #46D858;
+  --btn-excel-color: #0B3312;
+  --btn-excel-border: 2px solid #166824;
+  --excel-banner-bg: #FFEBF5;
+  --excel-banner-color: #4A0A29;
+  --excel-banner-border: 2px solid #9E1E5C;
+
+  --v-code-box-bg: #68E878;
+  --v-code-box-border: 2px solid #185A26;
+  --v-code-color: #0B3312;
+  --v-pill-meta-bg: #FFF5FA;
+  --v-pill-meta-color: #7A1446;
+
+  --switcher-bg: #FFF0F7;
+  --switcher-border: 2px solid #9E1E5C;
+  --scrollbar-thumb: #FF4FA3;
+  --scrollbar-thumb-hover: #5CE65C;
+  --scrollbar-track: rgba(255, 255, 255, 0.35);
+  --scrollbar-width: 6px;
+  --scrollbar-radius: 999px;
+  --scrollbar-border: none;
+
+  --flare-display: none;
+  --active-card-topline-display: none;
+  --font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: ui-monospace, 'Courier New', monospace;
+}
+
+/* ==========================================================================
+   Y2K SKY & WHITE CLOUDS WITH CRT SCANLINE MESH BACKGROUND
+   ========================================================================== */
+[data-theme="call-me-y2k"] body {
+  background-color: #2A68C2 !important;
+  background-image:
+    /* Fine CRT horizontal scanline mesh */
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.08) 0px,
+      rgba(255, 255, 255, 0.08) 1px,
+      rgba(15, 45, 95, 0.10) 1px,
+      rgba(15, 45, 95, 0.10) 3px
+    ),
+    /* Vertical pixel grid sub-mesh */
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.04) 0px,
+      rgba(255, 255, 255, 0.04) 1px,
+      transparent 1px,
+      transparent 3px
+    ),
+    /* Fluffy white Y2K cloud puffs across the sky */
+    radial-gradient(150px 75px at 82% 10%, rgba(240, 248, 255, 0.88) 0%, rgba(215, 234, 255, 0.45) 55%, transparent 78%),
+    radial-gradient(170px 85px at 16% 24%, rgba(242, 249, 255, 0.85) 0%, rgba(210, 232, 255, 0.40) 58%, transparent 80%),
+    radial-gradient(190px 90px at 84% 58%, rgba(240, 248, 255, 0.85) 0%, rgba(215, 234, 255, 0.42) 56%, transparent 80%),
+    radial-gradient(160px 80px at 20% 76%, rgba(242, 249, 255, 0.88) 0%, rgba(215, 234, 255, 0.45) 55%, transparent 78%),
+    linear-gradient(180deg, #1C50A0 0%, #2E6DC4 45%, #4A89DC 100%) !important;
+  background-attachment: fixed !important;
+  color: #4A0A29;
+}
+
+/* Top "CALL ME!!" Puffy 3D Pink Banner + Pixel Green Stars */
+[data-theme="call-me-y2k"] .popup-wrapper {
+  position: relative;
+  padding-top: 26px !important;
+}
+
+[data-theme="call-me-y2k"] .popup-wrapper::before {
+  content: "★   C A L L   M E ! !   //   NOKIA 3310 Y2K   ★";
+  position: absolute;
+  top: 4px;
+  left: 10px;
+  right: 10px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  direction: ltr;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 900;
+  letter-spacing: 1.4px;
+  color: #FFFFFF;
+  text-shadow: 0 1px 0 #8C1D56, 0 0 8px #FF4FA3;
+  background:
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.18) 0px, rgba(255,255,255,0.18) 1px, transparent 1px, transparent 3px),
+    linear-gradient(180deg, #FF94CA 0%, #FF4FA3 55%, #D9267E 100%);
+  border: 1.5px solid #8C1D56;
+  border-radius: 999px;
+  box-shadow: 0 3px 0 #8C1D56, inset 0 1.5px 0 #FFFFFF;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   RIBBED PUFFY 3D BUBBLE-PINK CARDS (With Scanline Ribbing like "CALL ME!!")
+   ========================================================================== */
+[data-theme="call-me-y2k"] .app-header,
+[data-theme="call-me-y2k"] .section-container,
+[data-theme="call-me-y2k"] .voucher-card,
+[data-theme="call-me-y2k"] .gemini-config-card,
+[data-theme="call-me-y2k"] .voucher-control-card,
+[data-theme="call-me-y2k"] .voucher-filter-toolbar,
+[data-theme="call-me-y2k"] .export-box-preview,
+[data-theme="call-me-y2k"] .app-footer {
+  position: relative;
+  background:
+    repeating-linear-gradient(
+      -12deg,
+      rgba(255, 255, 255, 0.14) 0px,
+      rgba(255, 255, 255, 0.14) 2px,
+      transparent 2px,
+      transparent 5px
+    ),
+    linear-gradient(160deg, #FF99CE 0%, #FF5CAD 52%, #E8388F 100%) !important;
+  border: 2.5px solid #8C1D56 !important;
+  border-radius: 24px !important;
+  box-shadow:
+    0 6px 0 #8C1D56,
+    0 12px 24px rgba(15, 42, 88, 0.38),
+    inset 0 2.5px 1px rgba(255, 255, 255, 0.9),
+    inset 0 -3px 6px rgba(140, 20, 80, 0.45) !important;
+}
+
+[data-theme="call-me-y2k"] .section-container {
+  padding: 14px 12px !important;
+  margin-bottom: 14px !important;
+}
+
+[data-theme="call-me-y2k"] .brand-title {
+  color: #FFFFFF !important;
+  font-weight: 900 !important;
+  text-shadow:
+    0 2px 0 #8C1D56,
+    -1px -1px 0 #8C1D56,
+    1px -1px 0 #8C1D56,
+    -1px 1px 0 #8C1D56,
+    1px 1px 0 #8C1D56 !important;
+}
+
+[data-theme="call-me-y2k"] .brand-title .accent-text {
+  color: #82FF72 !important;
+  text-shadow:
+    0 2px 0 #165E22,
+    -1px -1px 0 #165E22,
+    1px -1px 0 #165E22 !important;
+}
+
+[data-theme="call-me-y2k"] .brand-subtitle,
+[data-theme="call-me-y2k"] .section-title {
+  color: #FFFFFF !important;
+  font-weight: 800 !important;
+  text-shadow: 0 1.5px 0 #8C1D56 !important;
+}
+
+/* ==========================================================================
+   ACTIVE ACCOUNT CARD: PINK NOKIA 3310 HANDSET + SILVER BEZEL + LIME GREEN LCD
+   ========================================================================== */
+[data-theme="call-me-y2k"] .active-account-card {
+  position: relative;
+  padding: 16px 14px 16px 14px !important;
+  background:
+    /* Glossy white highlight dot on top pink shell (like the phone in ref image) */
+    radial-gradient(circle at 62% 10%, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0) 9px),
+    /* Diagonal ribbed pink plastic texture */
+    repeating-linear-gradient(
+      -18deg,
+      rgba(255, 255, 255, 0.16) 0px,
+      rgba(255, 255, 255, 0.16) 2px,
+      rgba(180, 20, 95, 0.12) 2px,
+      rgba(180, 20, 95, 0.12) 5px
+    ),
+    linear-gradient(155deg, #FF85C2 0%, #FF429E 50%, #D41972 100%) !important;
+  border: 3px solid #8C1D56 !important;
+  border-radius: 30px !important;
+  box-shadow:
+    0 7px 0 #751244,
+    0 14px 28px rgba(15, 42, 88, 0.45),
+    inset 0 0 0 3px rgba(240, 245, 255, 0.82),
+    inset 0 4px 8px rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Nokia earpiece slot at top center of the pink handset card */
+[data-theme="call-me-y2k"] .active-account-card::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 7px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 46px !important;
+  height: 5px !important;
+  border-radius: 99px !important;
+  background: linear-gradient(180deg, #7A1446 0%, #FFD4EA 100%) !important;
+  box-shadow: 0 1px 2px rgba(255, 255, 255, 0.8) !important;
+  display: block !important;
+}
+
+/* Backlit Lime-Green Nokia 3310 LCD Screen inside the Pink Phone! */
+[data-theme="call-me-y2k"] .phone-display {
+  position: relative;
+  font-family: var(--font-mono) !important;
+  font-size: 22px !important;
+  font-weight: 900 !important;
+  letter-spacing: 1.5px !important;
+  color: #0D3816 !important;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.55) !important;
+  background:
+    /* Bright white glare dot on the green LCD screen (exact match to ref image) */
+    radial-gradient(circle at 74% 30%, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0) 12px),
+    /* Fine LCD scanlines */
+    repeating-linear-gradient(
+      0deg,
+      rgba(20, 80, 30, 0.08) 0px,
+      rgba(20, 80, 30, 0.08) 1px,
+      transparent 1px,
+      transparent 3px
+    ),
+    radial-gradient(circle at 50% 50%, #98F8A4 0%, #48DA62 62%, #28A440 100%) !important;
+  border: 4px solid #E4ECF5 !important;
+  outline: 2px solid #185A26 !important;
+  border-radius: 16px !important;
+  padding: 10px 14px !important;
+  margin: 8px 0 !important;
+  box-shadow:
+    0 4px 10px rgba(120, 15, 65, 0.35),
+    inset 0 3px 6px rgba(16, 68, 26, 0.45),
+    inset 0 -2px 4px rgba(255, 255, 255, 0.5) !important;
+  direction: ltr;
+}
+
+[data-theme="call-me-y2k"] .active-pill {
+  background: linear-gradient(180deg, #98FF8C 0%, #46D858 100%) !important;
+  color: #0B3312 !important;
+  border: 2px solid #166824 !important;
+  border-radius: 999px !important;
+  font-weight: 900 !important;
+  padding: 2px 10px !important;
+  box-shadow: 0 2px 0 #166824, inset 0 1px 0 #FFFFFF !important;
+}
+
+[data-theme="call-me-y2k"] .status-indicator-box,
+[data-theme="call-me-y2k"] .service-tag {
+  background: rgba(255, 240, 248, 0.92) !important;
+  color: #6E103E !important;
+  border: 1.5px solid #8C1D56 !important;
+  border-radius: 999px !important;
+  padding: 3px 10px !important;
+  font-weight: 800 !important;
+}
+
+/* ==========================================================================
+   OVAL SILVER/WHITE NOKIA KEYPAD BUTTONS & SUB-CARDS
+   ========================================================================== */
+[data-theme="call-me-y2k"] .quick-profile-card,
+[data-theme="call-me-y2k"] .saved-account-card {
+  background: linear-gradient(180deg, #FFF5FA 0%, #FFD6EB 100%) !important;
+  border: 2px solid #8C1D56 !important;
+  border-radius: 18px !important;
+  box-shadow: 0 4px 0 #8C1D56, inset 0 2px 0 #FFFFFF !important;
+}
+
+[data-theme="call-me-y2k"] .profile-label,
+[data-theme="call-me-y2k"] .acc-primary-phone {
+  color: #5E0C34 !important;
+  font-weight: 900 !important;
+}
+
+[data-theme="call-me-y2k"] .avatar-glow {
+  background: linear-gradient(180deg, #98FF8C 0%, #46D858 100%) !important;
+  border: 2px solid #166824 !important;
+  box-shadow: 0 2px 0 #166824 !important;
+}
+
+/* Oval Glossy Keypad Pill Buttons (Like 1 2 3 / 4 5 6 buttons on the Pink Nokia) */
+[data-theme="call-me-y2k"] .btn-pill,
+[data-theme="call-me-y2k"] .btn-activate,
+[data-theme="call-me-y2k"] .btn-launch-power,
+[data-theme="call-me-y2k"] .btn-v-copy,
+[data-theme="call-me-y2k"] .v-chip,
+[data-theme="call-me-y2k"] .theme-picker-toggle-btn,
+[data-theme="call-me-y2k"] .file-import-link {
+  background: linear-gradient(180deg, #FFFFFF 0%, #EBF2FA 60%, #CFDCEB 100%) !important;
+  color: #3B0820 !important;
+  border: 2px solid #8C1D56 !important;
+  border-radius: 999px !important;
+  font-weight: 900 !important;
+  box-shadow:
+    0 3.5px 0 #8C1D56,
+    0 5px 10px rgba(20, 45, 90, 0.25),
+    inset 0 2px 0 #FFFFFF !important;
+}
+
+[data-theme="call-me-y2k"] .btn-inject-neon,
+[data-theme="call-me-y2k"] .btn-neon-green,
+[data-theme="call-me-y2k"] .btn-emerald,
+[data-theme="call-me-y2k"] .v-chip.active {
+  background: linear-gradient(180deg, #9EFF92 0%, #48DA62 58%, #28A440 100%) !important;
+  color: #092E10 !important;
+  border: 2px solid #145220 !important;
+  border-radius: 999px !important;
+  font-weight: 900 !important;
+  box-shadow:
+    0 4px 0 #145220,
+    0 6px 14px rgba(16, 42, 86, 0.32),
+    inset 0 2px 0 rgba(255, 255, 255, 0.9) !important;
+}
+
+[data-theme="call-me-y2k"] .btn-crimson,
+[data-theme="call-me-y2k"] .btn-delete-acc {
+  background: linear-gradient(180deg, #FF8AC4 0%, #E6257E 100%) !important;
+  color: #FFFFFF !important;
+  border: 2px solid #6E0E3B !important;
+  text-shadow: 0 1px 0 #6E0E3B !important;
+}
+
+/* Navigation Tabs Bar */
+[data-theme="call-me-y2k"] .nav-tabs-bar {
+  background: linear-gradient(180deg, #FF85C2 0%, #F03E95 100%) !important;
+  border: 2.5px solid #8C1D56 !important;
+  border-radius: 999px !important;
+  padding: 4px !important;
+  box-shadow: 0 5px 0 #8C1D56, inset 0 2px 0 rgba(255, 255, 255, 0.85) !important;
+}
+
+[data-theme="call-me-y2k"] .nav-tab-item {
+  border-radius: 999px !important;
+  color: #FFFFFF !important;
+  font-weight: 800 !important;
+  text-shadow: 0 1px 0 #8C1D56 !important;
+}
+
+[data-theme="call-me-y2k"] .nav-tab-item.active {
+  background: linear-gradient(180deg, #9EFF92 0%, #48DA62 100%) !important;
+  color: #092E10 !important;
+  text-shadow: none !important;
+  border: 2px solid #145220 !important;
+  box-shadow: 0 2px 0 #145220, inset 0 1.5px 0 #FFFFFF !important;
+}
+
+/* Inputs & Code Boxes (Styled like the Green Nokia LCD Screen) */
+[data-theme="call-me-y2k"] .inject-textarea,
+[data-theme="call-me-y2k"] .voucher-search,
+[data-theme="call-me-y2k"] .voucher-select,
+[data-theme="call-me-y2k"] .v-code-box {
+  background: linear-gradient(180deg, #8CF29B 0%, #52DC6A 100%) !important;
+  border: 2.5px solid #185A26 !important;
+  border-radius: 14px !important;
+  color: #0B3312 !important;
+  font-weight: 800 !important;
+  box-shadow: inset 0 2px 5px rgba(16, 68, 26, 0.35), 0 2px 0 rgba(255, 255, 255, 0.7) !important;
+}
+
+[data-theme="call-me-y2k"] .inject-textarea::placeholder,
+[data-theme="call-me-y2k"] .voucher-search::placeholder {
+  color: rgba(11, 51, 18, 0.65) !important;
+}
+
+[data-theme="call-me-y2k"] .app-header {
+  padding: 10px 14px !important;
+}

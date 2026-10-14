@@ -1,0 +1,436 @@
+/* =============================================================
+   themes/win-xp.css - Windows XP Luna Blue & Bliss Nostalgia
+   ============================================================= */
+
+[data-theme="win-xp"] {
+  /* Surfaces - Windows XP Luna Silver & Bliss Blue */
+  --bg-deep: #225AD6;
+  --bg-card: #ECE9D8;
+  --bg-card-hover: #F6F4EC;
+  --bg-input: #FFFFFF;
+  --bg-modal: #ECE9D8;
+  --bg-overlay: rgba(0, 0, 0, 0.6);
+  
+  /* Background: Bliss Rolling Hill Blue Gradient */
+  --bg-page-gradient: linear-gradient(180deg, #1C54C8 0%, #2D6DE8 40%, #5296F8 75%, #4C9E35 98%, #3D882A 100%);
+
+  --backdrop-blur: none;
+  --tabs-bar-bg: #D8D4C0;
+  --subchip-bg: #E3DFCE;
+
+  /* Windows XP Luna Borders */
+  --border-subtle: #7A96DF;
+  --border-glow: #0055EA;
+  --border-card-top: #0055EA;
+  --border-width: 1px;
+  --border-color: #0040A8;
+  --border-modal: 2px solid #0055EA;
+  --border-input: 1px solid #7F9DB9;
+  --border-chip: 1px solid #0055EA;
+  --border-subchip: 1px dashed #7A96DF;
+
+  /* Classic Luna Accents */
+  --primary-neon: #388E3C;
+  --primary-light: #4CAF50;
+  --accent-cyan: #0055EA;
+  --accent-crimson: #E81123;
+  --accent-yellow: #FFB300;
+  --accent-purple: #7030A0;
+  --accent-emerald: #388E3C;
+  --semantic-danger: #E81123;
+  --semantic-success: #388E3C;
+  --semantic-warning: #FFB300;
+
+  /* Voucher Category Colors */
+  --cat-food: #E81123;
+  --cat-ride: #0055EA;
+  --cat-super: #388E3C;
+  --cat-box: #7030A0;
+  --cat-doctor: #FFB300;
+  --cat-general: #0040A8;
+
+  /* Typography */
+  --text-primary: #000000;
+  --text-secondary: #222222;
+  --text-muted: #555555;
+  --text-on-accent: #FFFFFF;
+  --text-brand: #FFFFFF;
+  --text-brand-accent: #FFD700;
+  --text-phone: #000000;
+  --text-input: #000000;
+
+  /* XP Window & Button Radii */
+  --radius-xs: 3px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-pill: 999px;
+
+  /* XP Plastic Gloss Shadows */
+  --card-shadow: 2px 2px 0 rgba(0, 0, 0, 0.35);
+  --card-shadow-hover: 3px 3px 2px rgba(0, 0, 0, 0.4);
+  --active-card-shadow: 3px 3px 4px rgba(0, 0, 0, 0.4);
+  --btn-shadow: 1px 1px 0 #002D80, inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  --btn-shadow-hover: 1px 1px 0 #002D80, inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  --btn-transform-hover: translateY(-1px);
+  --btn-transform-active: translateY(1px);
+  --modal-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+  --glow-pill: none;
+  --glow-dot: none;
+
+  /* Luna Scrollbar */
+  --scrollbar-width: 8px;
+  --scrollbar-track: #ECE9D8;
+  --scrollbar-thumb: #C2D5F2;
+  --scrollbar-thumb-hover: #8EB8EE;
+  --scrollbar-radius: 4px;
+  --scrollbar-border: 1px solid #7A96DF;
+
+  /* Component Presets */
+  --btn-inject-bg: linear-gradient(180deg, #43B53C 0%, #2A8C24 100%);
+  --btn-inject-color: #FFFFFF;
+  --btn-inject-border: 1px solid #1C6B17;
+
+  --btn-scan-mass-bg: linear-gradient(180deg, #FFFFFF 0%, #ECE9D8 100%);
+  --btn-scan-mass-color: #000000;
+  --btn-scan-mass-border: 1px solid #0055EA;
+
+  --btn-gofullpage-bg: linear-gradient(180deg, #FFFFFF 0%, #ECE9D8 100%);
+  --btn-gofullpage-color: #000000;
+  --btn-gofullpage-border: 1px solid #0055EA;
+
+  --btn-ai-scan-bg: linear-gradient(180deg, #FFC83B 0%, #E59F15 100%);
+  --btn-ai-scan-color: #000000;
+  --btn-ai-scan-border: 1px solid #A87000;
+
+  --btn-upload-bg: linear-gradient(180deg, #FFFFFF 0%, #ECE9D8 100%);
+  --btn-upload-color: #000000;
+  --btn-upload-border: 1px solid #0055EA;
+
+  --btn-excel-bg: linear-gradient(180deg, #43B53C 0%, #2A8C24 100%);
+  --btn-excel-color: #FFFFFF;
+  --btn-excel-border: 1px solid #1C6B17;
+
+  --excel-banner-bg: #ECE9D8;
+  --excel-banner-border: 1px solid #7A96DF;
+  --excel-banner-color: #000000;
+
+  --v-code-box-bg: #FFFFFF;
+  --v-code-box-border: 1px dashed #0055EA;
+  --v-code-color: #000000;
+  --v-pill-meta-bg: #E3DFCE;
+  --v-pill-meta-color: #000000;
+
+  --flare-display: none;
+  --active-card-topline-display: none;
+
+  --switcher-bg: linear-gradient(180deg, #FFFFFF 0%, #ECE9D8 100%);
+  --switcher-border: 1px solid #0055EA;
+
+  --font-family: 'Tahoma', 'Segoe UI', 'Vazirmatn', -apple-system, sans-serif;
+}
+
+/* Strict 350px Viewport Containment */
+[data-theme="win-xp"] body {
+  width: 350px !important;
+  max-width: 350px !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  box-sizing: border-box !important;
+  background: var(--bg-page-gradient) !important;
+}
+
+[data-theme="win-xp"] .popup-wrapper {
+  width: 350px !important;
+  max-width: 350px !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  padding: 14px 14px 10px 14px !important;
+  margin: 0 !important;
+  background: transparent !important;
+}
+
+/* Cards & Windows */
+[data-theme="win-xp"] .card {
+  background: #ECE9D8;
+  border: 1px solid #0040A8;
+  border-radius: 6px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.35);
+  position: relative;
+}
+
+/* Active Account Card: Luna Window with Classic Royal Blue Titlebar */
+[data-theme="win-xp"] .active-account-card {
+  background: #ECE9D8;
+  border: 1px solid #0040A8;
+  border-radius: 7px;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+  padding-top: 26px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Luna Blue Gradient Titlebar */
+[data-theme="win-xp"] .active-account-card::before {
+  content: "Papa Yar - Active Profile";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 22px;
+  background: linear-gradient(180deg, #0A55EA 0%, #2D78F2 40%, #0045B5 100%);
+  color: #FFFFFF;
+  font-size: 10px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+  border-bottom: 1px solid #002D80;
+}
+
+/* Classic XP Red Close Button */
+[data-theme="win-xp"] .active-account-card::after {
+  content: "✕";
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  width: 16px;
+  height: 16px;
+  background: linear-gradient(180deg, #E85E5E 0%, #D82222 50%, #B80A0A 100%);
+  color: #FFFFFF;
+  font-size: 9px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  border: 1px solid #780000;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  pointer-events: none;
+}
+
+/* Active Status Pill */
+[data-theme="win-xp"] .active-pill {
+  background: linear-gradient(180deg, #43B53C 0%, #2A8C24 100%);
+  color: #FFFFFF;
+  border: 1px solid #1C6B17;
+  border-radius: 3px;
+  font-weight: 800;
+  font-size: 10px;
+  padding: 2px 8px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+[data-theme="win-xp"] .active-account-card.standby .active-pill {
+  background: linear-gradient(180deg, #B0AFA6 0%, #8A887E 100%);
+  border-color: #6A6860;
+}
+
+/* XP Buttons with Plastic Cylindrical Gloss */
+[data-theme="win-xp"] .btn-pill {
+  border-radius: 3px;
+  font-weight: 700;
+  box-shadow: 1px 1px 0 #002D80, inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  transition: all 0.1s ease;
+}
+
+/* Cyan Button (کپی سشن) -> Classic XP Luna Blue Button */
+[data-theme="win-xp"] .btn-cyan {
+  background: linear-gradient(180deg, #F0F5FD 0%, #D5E4F8 45%, #B4D1F6 50%, #C9DCF8 100%);
+  color: #002275;
+  border: 1px solid #003C9E;
+}
+
+[data-theme="win-xp"] .btn-cyan:hover {
+  background: linear-gradient(180deg, #FFF6E5 0%, #FFE6B5 45%, #FFD685 50%, #FFE2A6 100%);
+  border-color: #C08000;
+  color: #704000;
+}
+
+/* Crimson Button (خروج امن) -> XP Alert Button */
+[data-theme="win-xp"] .btn-crimson {
+  background: linear-gradient(180deg, #FDF0F0 0%, #F8D5D5 45%, #F6B4B4 50%, #F8C9C9 100%);
+  color: #8C0000;
+  border: 1px solid #A80000;
+}
+
+[data-theme="win-xp"] .btn-crimson:hover {
+  background: linear-gradient(180deg, #E85E5E 0%, #D82222 100%);
+  color: #FFFFFF;
+}
+
+/* Green Action Button (بارگذاری ۶۱ اکانت) -> XP Start Button Style */
+[data-theme="win-xp"] .btn-neon-green {
+  background: linear-gradient(180deg, #43B53C 0%, #2A8C24 100%);
+  color: #FFFFFF;
+  border: 1px solid #1C6B17;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="win-xp"] .btn-neon-green:hover {
+  background: linear-gradient(180deg, #53CE4A 0%, #35A62E 100%);
+}
+
+/* Navigation Tabs: XP Property Sheet Tabs */
+[data-theme="win-xp"] .nav-tabs-bar {
+  background: #D8D4C0;
+  border: 1px solid #7F9DB9;
+  border-radius: 4px;
+  padding: 3px;
+  gap: 2px;
+}
+
+[data-theme="win-xp"] .nav-tab-item {
+  border-radius: 3px 3px 0 0;
+  color: #333333;
+  font-weight: 700;
+  transition: all 0.1s ease;
+}
+
+[data-theme="win-xp"] .nav-tab-item:hover {
+  background: #ECE9D8;
+  color: #000000;
+}
+
+[data-theme="win-xp"] .nav-tab-item.active {
+  background: #ECE9D8;
+  color: #003399;
+  border: 1px solid #0055EA;
+  border-bottom: 1px solid #ECE9D8;
+  font-weight: 800;
+  box-shadow: inset 0 1px 0 #FFFFFF;
+}
+
+/* Inputs: Classic XP Sunken Inset */
+[data-theme="win-xp"] input,
+[data-theme="win-xp"] textarea,
+[data-theme="win-xp"] .search-input,
+[data-theme="win-xp"] .voucher-select,
+[data-theme="win-xp"] .session-input-box {
+  background: #FFFFFF;
+  border: 1px solid #7F9DB9;
+  border-radius: 2px;
+  color: #000000;
+  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="win-xp"] input:focus,
+[data-theme="win-xp"] textarea:focus,
+[data-theme="win-xp"] .search-input:focus,
+[data-theme="win-xp"] .voucher-select:focus {
+  outline: none;
+  border-color: #0055EA;
+  box-shadow: 0 0 0 1px #0055EA, inset 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Saved Account Cards (61+ Rows: High Performance, No Blur) */
+[data-theme="win-xp"] .saved-account-card {
+  background: #ECE9D8;
+  border: 1px solid #7A96DF;
+  border-radius: 4px;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  backdrop-filter: none !important;
+}
+
+[data-theme="win-xp"] .saved-account-card:hover {
+  background: #F8F6EC;
+  border-color: #0055EA;
+}
+
+[data-theme="win-xp"] .acc-btn-run {
+  background: linear-gradient(180deg, #43B53C 0%, #2A8C24 100%);
+  color: #FFFFFF;
+  border: 1px solid #1C6B17;
+  border-radius: 3px;
+  font-weight: 700;
+}
+
+[data-theme="win-xp"] .acc-btn-delete {
+  color: #555555;
+}
+
+[data-theme="win-xp"] .acc-btn-delete:hover {
+  color: #E81123;
+}
+
+/* Voucher Cards */
+[data-theme="win-xp"] .voucher-card {
+  background: #ECE9D8;
+  border: 1px solid #7A96DF;
+  border-radius: 4px;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  backdrop-filter: none !important;
+}
+
+/* Theme Picker Dropdown */
+[data-theme="win-xp"] .theme-picker-dropdown {
+  background: #ECE9D8;
+  border: 2px solid #0055EA;
+  border-radius: 6px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="win-xp"] .theme-option-btn {
+  background: #FFFFFF;
+  border: 1px solid #7A96DF;
+  border-radius: 3px;
+  color: #000000;
+}
+
+[data-theme="win-xp"] .theme-option-btn:hover {
+  background: #E3EBF8;
+  border-color: #0055EA;
+}
+
+[data-theme="win-xp"] .theme-option-btn.active {
+  background: #0055EA;
+  color: #FFFFFF;
+  border-color: #003399;
+}
+
+/* Modal: XP Error / Alert Window */
+[data-theme="win-xp"] .modal-overlay {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: none;
+}
+
+[data-theme="win-xp"] .modal-box {
+  background: #ECE9D8;
+  border: 2px solid #0055EA;
+  border-radius: 6px;
+  box-shadow: 6px 6px 16px rgba(0, 0, 0, 0.6);
+  color: #000000;
+  padding-top: 28px;
+  position: relative;
+}
+
+[data-theme="win-xp"] .modal-box::before {
+  content: "Windows System Alert";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 22px;
+  background: linear-gradient(180deg, #0A55EA 0%, #2D78F2 40%, #0045B5 100%);
+  color: #FFFFFF;
+  font-size: 10px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+}
+
+/* Toast */
+[data-theme="win-xp"] .toast-notification {
+  background: #FFFFE1;
+  color: #000000;
+  border: 1px solid #000000;
+  border-radius: 2px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.35);
+}
+
+/* Equalizer Bars */
+[data-theme="win-xp"] .eq-bar {
+  background: #0055EA;
+}

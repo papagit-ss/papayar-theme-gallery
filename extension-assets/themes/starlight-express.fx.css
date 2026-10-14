@@ -1,0 +1,80 @@
+/* ==========================================================================
+   Theme 33 FX: starlight-express.fx.css — Shooting Star Laser Beam & Flare
+   ========================================================================== */
+
+[data-theme="starlight-express"] .fx-layer {
+  position: fixed;
+  inset: 0;
+  max-width: 350px;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  contain: strict;
+}
+
+html[data-theme="starlight-express"][data-fx="full"] .fx-ambient-a {
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  bottom: -5%;
+  left: 15%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(92, 225, 255, 0.28) 0%, transparent 70%);
+  animation: starlight-horizon-pulse 8s ease-in-out infinite alternate;
+}
+
+@keyframes starlight-horizon-pulse {
+  0% { transform: scale(1); opacity: 0.75; }
+  100% { transform: scale(1.18); opacity: 1; }
+}
+
+html[data-theme="starlight-express"]:not([data-fx="off"]) .fx-cursor-follower {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 140px;
+  height: 140px;
+  transform: translate3d(calc(var(--fx-mx, 175px) - 70px), calc(var(--fx-my, 220px) - 70px), 0);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(92, 225, 255, 0.18) 0%, rgba(255, 59, 107, 0.08) 45%, transparent 70%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+html[data-theme="starlight-express"]:not([data-fx="off"]) .is-fx-clicked {
+  animation: starlight-click 180ms ease-out !important;
+}
+
+@keyframes starlight-click {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.96) skewX(-4deg); filter: brightness(1.3); }
+  100% { transform: scale(1); }
+}
+
+html[data-theme="starlight-express"]:not([data-fx="off"]) .fx-click-burst.is-bursting {
+  position: fixed;
+  left: var(--burst-x, 175px);
+  top: var(--burst-y, 220px);
+  width: 84px;
+  height: 84px;
+  border: 2px solid #5CE1FF;
+  border-radius: 50%;
+  box-shadow: 0 0 18px #FF3B6B, inset 0 0 12px #FFFFFF;
+  pointer-events: none;
+  z-index: 999;
+  animation: starlight-burst 360ms ease-out forwards;
+}
+
+@keyframes starlight-burst {
+  0% { transform: translate3d(-50%, -50%, 0) scale(0.15); opacity: 1; }
+  100% { transform: translate3d(-50%, -50%, 0) scale(1); opacity: 0; }
+}
+
+html[data-theme="starlight-express"]:not([data-fx="off"]) .tab-page.active {
+  animation: starlight-tab 190ms ease-out both !important;
+}
+
+@keyframes starlight-tab {
+  0% { opacity: 0; transform: translate3d(8px, 0, 0) skewX(-4deg); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0) skewX(0); }
+}

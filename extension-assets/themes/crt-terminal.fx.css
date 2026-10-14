@@ -1,0 +1,77 @@
+/* ==========================================================================
+   Theme 31 FX: crt-terminal.fx.css — EL Amber Phosphor Scan & Strobe
+   ========================================================================== */
+
+[data-theme="crt-terminal"] .fx-layer {
+  position: fixed;
+  inset: 0;
+  max-width: 350px;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  contain: strict;
+}
+
+html[data-theme="crt-terminal"][data-fx="full"] .fx-ambient-a {
+  position: absolute;
+  inset-inline: 0;
+  top: -20%;
+  height: 24%;
+  background: linear-gradient(180deg, transparent 0%, rgba(255, 184, 28, 0.08) 85%, rgba(255, 210, 76, 0.16) 100%);
+  animation: grid87-scanline 6s linear infinite;
+}
+
+@keyframes grid87-scanline {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(0, 520%, 0); }
+}
+
+html[data-theme="crt-terminal"]:not([data-fx="off"]) .fx-cursor-follower {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 150px;
+  height: 150px;
+  transform: translate3d(calc(var(--fx-mx, 175px) - 75px), calc(var(--fx-my, 220px) - 75px), 0);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 184, 28, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+html[data-theme="crt-terminal"]:not([data-fx="off"]) .is-fx-clicked {
+  animation: grid87-invert-flash 160ms steps(2) !important;
+}
+
+@keyframes grid87-invert-flash {
+  0% { filter: invert(0); }
+  50% { filter: brightness(1.35); }
+  100% { filter: invert(0); }
+}
+
+html[data-theme="crt-terminal"]:not([data-fx="off"]) .fx-click-burst.is-bursting {
+  position: fixed;
+  left: var(--burst-x, 175px);
+  top: var(--burst-y, 220px);
+  width: 64px;
+  height: 64px;
+  border: 2px solid #FFD24C;
+  box-shadow: 0 0 12px #FFB81C;
+  pointer-events: none;
+  z-index: 999;
+  animation: grid87-box-burst 300ms steps(5) forwards;
+}
+
+@keyframes grid87-box-burst {
+  0% { transform: translate3d(-50%, -50%, 0) scale(0.2); opacity: 1; }
+  100% { transform: translate3d(-50%, -50%, 0) scale(1); opacity: 0; }
+}
+
+html[data-theme="crt-terminal"]:not([data-fx="off"]) .tab-page.active {
+  animation: grid87-redraw 140ms steps(4) both !important;
+}
+
+@keyframes grid87-redraw {
+  0% { opacity: 0; transform: translate3d(0, 4px, 0); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0); }
+}

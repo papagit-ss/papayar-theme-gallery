@@ -1,0 +1,342 @@
+/* ==========================================================================
+   Theme: ransom-cutout-zine — کلاژ حروف بریده (Ransom Cutout & Sticky Pinboard)
+   Combining Reference Images 2 & 3 (image_68b0c4.jpg + image_68b120.jpg):
+   - Dark Concrete Studio Pinboard (#26282C) with Gallery Spotlight Glow
+   - Letter-by-Letter Tilted Ransom Cutout Badges ([P][O][R][T][F][O][L][I][O])
+   - Pinned Yellow Post-It Sticky Notes (#FEF08A) & Torn Graph-Paper Cards
+     (#FFFFFF) with 3D Glossy Black Push-Pin Spheres (📌) at Top Center!
+   - Jagged Starburst Color Accents (#FACC15 Yellow, #F43F5E Coral, #3B82F6
+     Cobalt, #10B981 Mint, #A855F7 Violet) & White Scribble Borders
+   ========================================================================== */
+
+[data-theme="ransom-cutout-zine"] {
+  --bg-deep: #232529;
+  --bg-card: #FAF9F5;
+  --bg-card-hover: #FFFFFF;
+  --bg-input: #FFFFFF;
+  --bg-modal: #FAF9F5;
+  --bg-overlay: rgba(18, 20, 24, 0.82);
+  --bg-page-gradient:
+    radial-gradient(240px 160px at 50% 4%, rgba(255, 255, 255, 0.24) 0%, transparent 70%),
+    radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(180deg, #2B2E33 0%, #1E2024 100%);
+  --backdrop-blur: none;
+  --tabs-bar-bg: #1B1D21;
+  --subchip-bg: #FEF08A;
+
+  --text-primary: #141518;
+  --text-secondary: #2D3036;
+  --text-muted: #4A4E58;
+  --text-input: #141518;
+  --text-on-accent: #141518;
+  --text-brand: #141518;
+  --text-brand-accent: #E11D48;
+  --text-phone: #141518;
+
+  --primary-neon: #FACC15;
+  --primary-light: #FEF08A;
+  --accent-cyan: #3B82F6;
+  --accent-purple: #A855F7;
+  --accent-emerald: #10B981;
+  --accent-crimson: #F43F5E;
+  --accent-yellow: #FACC15;
+  --semantic-danger: #E11D48;
+  --semantic-success: #059669;
+  --semantic-warning: #D97706;
+
+  --border-subtle: #141518;
+  --border-glow: #FACC15;
+  --border-card-top: #141518;
+  --border-width: 2px;
+  --border-color: #141518;
+  --border-input: 2px solid #141518;
+  --border-modal: 2.5px solid #141518;
+  --border-chip: 2px solid #141518;
+  --border-subchip: 1.5px dashed #141518;
+
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-pill: 4px;
+
+  --card-shadow: 4px 5px 0 rgba(0, 0, 0, 0.55);
+  --card-shadow-hover: 5px 6px 0 rgba(0, 0, 0, 0.72);
+  --active-card-shadow: 5px 6px 0 rgba(0, 0, 0, 0.65);
+  --btn-shadow: 3px 3px 0 #141518;
+  --btn-shadow-hover: 4px 4px 0 #141518;
+  --modal-shadow: 8px 10px 0 rgba(0, 0, 0, 0.75);
+  --glow-pill: none;
+  --glow-dot: none;
+
+  --btn-transform-hover: translate(-1px, -1px) rotate(-1deg);
+  --btn-transform-active: translate(1px, 1px);
+
+  --btn-inject-bg: #FACC15;
+  --btn-inject-color: #141518;
+  --btn-inject-border: 2px solid #141518;
+  --btn-scan-mass-bg: #FACC15;
+  --btn-scan-mass-color: #141518;
+  --btn-scan-mass-border: 2px solid #141518;
+  --btn-gofullpage-bg: #3B82F6;
+  --btn-gofullpage-color: #FFFFFF;
+  --btn-gofullpage-border: 2px solid #141518;
+  --btn-ai-scan-bg: #FFFFFF;
+  --btn-ai-scan-color: #141518;
+  --btn-ai-scan-border: 2px solid #141518;
+  --btn-upload-bg: #FEF08A;
+  --btn-upload-color: #141518;
+  --btn-upload-border: 2px solid #141518;
+  --btn-excel-bg: #10B981;
+  --btn-excel-color: #141518;
+  --btn-excel-border: 2px solid #141518;
+  --excel-banner-bg: #FEF08A;
+  --excel-banner-color: #141518;
+  --excel-banner-border: 2px solid #141518;
+
+  --v-code-box-bg: #141518;
+  --v-code-box-border: 2px solid #FACC15;
+  --v-code-color: #FACC15;
+  --v-pill-meta-bg: #FEF08A;
+  --v-pill-meta-color: #141518;
+
+  --switcher-bg: #FEF08A;
+  --switcher-border: 2px solid #141518;
+  --scrollbar-thumb: #FACC15;
+  --scrollbar-thumb-hover: #F43F5E;
+  --scrollbar-track: #1E2024;
+  --scrollbar-width: 5px;
+  --scrollbar-radius: 0px;
+  --scrollbar-border: none;
+
+  --flare-display: none;
+  --active-card-topline-display: none;
+  --font-family: 'Vazirmatn', Impact, "Arial Black", sans-serif;
+  --font-mono: "Courier New", ui-monospace, monospace;
+}
+
+[data-theme="ransom-cutout-zine"] body {
+  background-color: #232529 !important;
+  background-image:
+    radial-gradient(240px 150px at 50% 3%, rgba(255, 255, 255, 0.24) 0%, transparent 70%),
+    radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(180deg, #2D3036 0%, #1E2024 100%) !important;
+  background-size: 100% 100%, 14px 14px, 100% 100% !important;
+  color: #141518;
+}
+
+/* Top Ransom-Note Cutout Strip: [P][O][R][T][F][O][L][I][O] */
+[data-theme="ransom-cutout-zine"] .popup-wrapper {
+  position: relative;
+  padding-top: 28px !important;
+}
+
+[data-theme="ransom-cutout-zine"] .popup-wrapper::before {
+  content: "[P][O][R][T][F][O][L][I][O]  //  CUTOUT ZINE 2024";
+  position: absolute;
+  top: 5px;
+  inset-inline: 12px;
+  height: 19px;
+  background: linear-gradient(
+    90deg,
+    #F43F5E 0%, #F43F5E 20%,
+    #FACC15 20%, #FACC15 40%,
+    #3B82F6 40%, #3B82F6 60%,
+    #A855F7 60%, #A855F7 80%,
+    #10B981 80%, #10B981 100%
+  );
+  color: #141518;
+  border: 2px solid #FFFFFF;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  direction: ltr;
+  text-shadow: 0 0 4px #FFFFFF, 0 0 2px #FFFFFF;
+  box-shadow: 3px 3px 0 #141518;
+}
+
+/* Torn Graph-Paper Cards with 14px Blueprint Grid & Yellow Masking Tape */
+[data-theme="ransom-cutout-zine"] .app-header,
+[data-theme="ransom-cutout-zine"] .active-account-card,
+[data-theme="ransom-cutout-zine"] .section-container,
+[data-theme="ransom-cutout-zine"] .app-footer {
+  background-color: #FAF9F5 !important;
+  background-image:
+    linear-gradient(rgba(20, 21, 24, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20, 21, 24, 0.06) 1px, transparent 1px) !important;
+  background-size: 14px 14px !important;
+  border: 2px solid #141518 !important;
+  box-shadow: 4px 5px 0 rgba(0, 0, 0, 0.6) !important;
+}
+
+[data-theme="ransom-cutout-zine"] .section-container {
+  padding: 12px !important;
+}
+
+/* Yellow Masking Tape Strip at Top of Active Account Card */
+[data-theme="ransom-cutout-zine"] .active-account-card {
+  position: relative;
+  padding-top: 16px !important;
+}
+
+[data-theme="ransom-cutout-zine"] .active-account-card::before {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  top: -6px !important;
+  left: 50% !important;
+  transform: translateX(-50%) rotate(-2deg) !important;
+  width: 78px !important;
+  height: 14px !important;
+  background: rgba(250, 204, 21, 0.85) !important;
+  border: 1.5px solid #141518 !important;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Ransom-Note Cutout Black Strip with Colorful Letter Blocks for Phone Display */
+[data-theme="ransom-cutout-zine"] .phone-display {
+  position: relative;
+  background:
+    linear-gradient(90deg,
+      rgba(244, 63, 94, 0.25) 0%, rgba(244, 63, 94, 0.25) 33%,
+      rgba(250, 204, 21, 0.22) 33%, rgba(250, 204, 21, 0.22) 66%,
+      rgba(59, 130, 246, 0.25) 66%, rgba(59, 130, 246, 0.25) 100%
+    ),
+    #141518 !important;
+  color: #FFFFFF !important;
+  border: 2px dashed #FFFFFF !important;
+  outline: 3px solid #141518 !important;
+  padding: 10px 14px !important;
+  margin-block: 8px !important;
+  font-family: var(--font-mono) !important;
+  font-size: 22px !important;
+  font-weight: 900 !important;
+  letter-spacing: 2.5px !important;
+  text-shadow: 2px 2px 0 #F43F5E, -1.5px -1.5px 0 #3B82F6 !important;
+  box-shadow: 4px 4px 0 #FACC15 !important;
+  transform: rotate(-0.6deg);
+}
+
+/* Pinned Yellow Post-It Sticky Notes (.quick-profile-card) with 3D Black Push-Pin (●) */
+[data-theme="ransom-cutout-zine"] .quick-profile-card {
+  position: relative;
+  background: linear-gradient(165deg, #FEF08A 0%, #FDE047 100%) !important;
+  border: 2px solid #141518 !important;
+  box-shadow: 3px 4px 0 #141518 !important;
+  padding-top: 14px !important;
+}
+
+/* 3D Glossy Black Push-Pin Sphere at Top Center of Sticky Note */
+[data-theme="ransom-cutout-zine"] .quick-profile-card::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #666666 0%, #111111 70%);
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.55);
+}
+
+[data-theme="ransom-cutout-zine"] .saved-account-card {
+  background: #FFFFFF !important;
+  border: 2px solid #141518 !important;
+  border-inline-start: 6px solid #F43F5E !important;
+  box-shadow: 3px 3px 0 #141518 !important;
+}
+
+[data-theme="ransom-cutout-zine"] .avatar-glow {
+  background: #141518 !important;
+  color: #FACC15 !important;
+  border: 2px solid #FFFFFF !important;
+  box-shadow: 2px 2px 0 #F43F5E !important;
+}
+
+/* 4 Tilted Multi-Color Cutout Paper Tiles on Navigation Tabs */
+[data-theme="ransom-cutout-zine"] .nav-tabs-bar {
+  background: #181A1E !important;
+  border: 2px solid #FFFFFF !important;
+  padding: 5px !important;
+  gap: 5px !important;
+  box-shadow: 4px 4px 0 #000000 !important;
+}
+
+[data-theme="ransom-cutout-zine"] .nav-tab-item:nth-of-type(1) {
+  background: #FDE047 !important;
+  color: #141518 !important;
+  transform: rotate(-1.2deg);
+}
+[data-theme="ransom-cutout-zine"] .nav-tab-item:nth-of-type(2) {
+  background: #FF788A !important;
+  color: #141518 !important;
+  transform: rotate(1deg);
+}
+[data-theme="ransom-cutout-zine"] .nav-tab-item:nth-of-type(3) {
+  background: #7DD3FC !important;
+  color: #141518 !important;
+  transform: rotate(-0.8deg);
+}
+[data-theme="ransom-cutout-zine"] .nav-tab-item:nth-of-type(4) {
+  background: #6EE7B7 !important;
+  color: #141518 !important;
+  transform: rotate(1.2deg);
+}
+
+[data-theme="ransom-cutout-zine"] .nav-tab-item {
+  border: 1.5px solid #141518 !important;
+  font-weight: 900 !important;
+}
+
+[data-theme="ransom-cutout-zine"] .nav-tab-item.active {
+  outline: 2.5px solid #FFFFFF !important;
+  box-shadow: 0 3px 0 #000000 !important;
+}
+
+[data-theme="ransom-cutout-zine"] .nav-tab-item.active::after {
+  display: none !important;
+}
+
+[data-theme="ransom-cutout-zine"] .btn-cyan,
+[data-theme="ransom-cutout-zine"] .btn-inject-neon,
+[data-theme="ransom-cutout-zine"] .btn-activate,
+[data-theme="ransom-cutout-zine"] .btn-v-copy {
+  background: #FACC15 !important;
+  color: #141518 !important;
+  border: 2px solid #141518 !important;
+  box-shadow: 3px 3px 0 #141518 !important;
+  font-weight: 900 !important;
+}
+
+[data-theme="ransom-cutout-zine"] .btn-crimson,
+[data-theme="ransom-cutout-zine"] .btn-delete-acc {
+  background: #F43F5E !important;
+  color: #FFFFFF !important;
+  border: 2px solid #141518 !important;
+  box-shadow: 3px 3px 0 #141518 !important;
+  font-weight: 900 !important;
+}
+
+[data-theme="ransom-cutout-zine"] .btn-neon-green,
+[data-theme="ransom-cutout-zine"] .btn-launch-power,
+[data-theme="ransom-cutout-zine"] .status-indicator-box,
+[data-theme="ransom-cutout-zine"] .service-tag {
+  background: #FFFFFF !important;
+  color: #141518 !important;
+  border: 2px solid #141518 !important;
+  padding: 3px 10px !important;
+  box-shadow: 2px 2px 0 #141518 !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="ransom-cutout-zine"] .active-pill {
+  background: #141518 !important;
+  color: #FACC15 !important;
+  border: 1.5px solid #141518 !important;
+  font-weight: 900 !important;
+}

@@ -1,0 +1,80 @@
+/* ==========================================================================
+   Theme 30 FX: showdown-968.fx.css — Chrome Shuriken Glint & Sage Spotlight
+   ========================================================================== */
+
+[data-theme="showdown-968"] .fx-layer {
+  position: fixed;
+  inset: 0;
+  max-width: 350px;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  contain: strict;
+}
+
+html[data-theme="showdown-968"][data-fx="full"] .fx-ambient-a {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  top: 12%;
+  right: -10%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(156, 182, 175, 0.22) 0%, transparent 70%);
+  animation: s968-sage-pulse 10s ease-in-out infinite alternate;
+}
+
+@keyframes s968-sage-pulse {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(-30px, 25px, 0) scale(1.12); }
+}
+
+html[data-theme="showdown-968"]:not([data-fx="off"]) .fx-cursor-follower {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 150px;
+  height: 150px;
+  transform: translate3d(calc(var(--fx-mx, 175px) - 75px), calc(var(--fx-my, 220px) - 75px), 0);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(216, 230, 226, 0.16) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+html[data-theme="showdown-968"]:not([data-fx="off"]) .is-fx-clicked {
+  animation: s968-chrome-press 200ms ease-out !important;
+}
+
+@keyframes s968-chrome-press {
+  0% { transform: scale(1); }
+  45% { transform: scale(0.97); }
+  100% { transform: scale(1); }
+}
+
+html[data-theme="showdown-968"]:not([data-fx="off"]) .fx-click-burst.is-bursting {
+  position: fixed;
+  left: var(--burst-x, 175px);
+  top: var(--burst-y, 220px);
+  width: 80px;
+  height: 80px;
+  border: 1.5px solid #D8E6E2;
+  border-radius: 50%;
+  box-shadow: 0 0 16px rgba(156, 182, 175, 0.55);
+  pointer-events: none;
+  z-index: 999;
+  animation: s968-ring-out 360ms ease-out forwards;
+}
+
+@keyframes s968-ring-out {
+  0% { transform: translate3d(-50%, -50%, 0) scale(0.2); opacity: 0.95; }
+  100% { transform: translate3d(-50%, -50%, 0) scale(1); opacity: 0; }
+}
+
+html[data-theme="showdown-968"]:not([data-fx="off"]) .tab-page.active {
+  animation: s968-tab-glide 180ms ease-out both !important;
+}
+
+@keyframes s968-tab-glide {
+  0% { opacity: 0; transform: translate3d(0, 5px, 0); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0); }
+}

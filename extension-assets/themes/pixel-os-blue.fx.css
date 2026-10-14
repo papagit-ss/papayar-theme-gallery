@@ -1,0 +1,52 @@
+/* ==========================================================================
+   themes/pixel-os-blue.fx.css — Exclusive Effects for Theme 06 (Pixel OS Blue)
+   Effects:
+   1. [transition] باز/بسته شدن پنجره از نوار عنوان با scale (os-window-scale)
+   2. [ambient] نوار پیشرفت بلوکی در فوتر/کارت فعال (os-block-progress)
+   3. [click] تکان خوردن پنجره‌ی خطا هنگام کلیک روی حذف/خروج (os-error-shake)
+   ========================================================================== */
+
+@keyframes os-window-open {
+  0% { opacity: 0; transform: scaleY(0.15); transform-origin: top center; }
+  100% { opacity: 1; transform: scaleY(1); transform-origin: top center; }
+}
+
+@keyframes os-block-load {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes os-error-shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-4px); }
+  40%, 80% { transform: translateX(4px); }
+}
+
+/* Transition: Window scales open from titlebar when switching tabs */
+html[data-theme="pixel-os-blue"]:not([data-fx="off"]):not([data-motion="reduced"]) .tab-page.active {
+  animation: os-window-open 0.18s steps(4) both;
+}
+
+/* Ambient: Segmented Block Progress Bar along bottom of Active Account Window */
+html[data-theme="pixel-os-blue"][data-fx="full"]:not([data-motion="reduced"]) .active-account-card {
+  padding-bottom: 18px;
+}
+
+html[data-theme="pixel-os-blue"][data-fx="full"]:not([data-motion="reduced"]) .fx-layer .fx-ambient-a {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: repeating-linear-gradient(90deg, #0078D7 0 10px, transparent 10px 13px);
+  pointer-events: none;
+  z-index: 80;
+  will-change: transform;
+  animation: os-block-load 3.5s steps(12) infinite;
+}
+
+/* Click: Classic OS Window Error Shake on Danger/Delete Click */
+html[data-theme="pixel-os-blue"]:not([data-fx="off"]):not([data-motion="reduced"]) .is-fx-alert,
+html[data-theme="pixel-os-blue"]:not([data-fx="off"]):not([data-motion="reduced"]) .btn-crimson.is-fx-clicked {
+  animation: os-error-shake 0.3s steps(3);
+}

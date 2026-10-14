@@ -1,0 +1,257 @@
+/* ==========================================================================
+   Theme 30: esperanza-econ — Mustard-Ochre Torn-Paper & Classical Engraving
+   Complete Ground-Up Sculpted Redesign (Reference: image_5cc116.jpg):
+   - Top Academic Strip (.popup-wrapper::before): "+ DEPARTMENT OF ECONOMICS // ESPERANZA 2026 +"
+   - Rich Saffron-Mustard Poster Containers (#E5A424) with Warm Parchment
+     Sub-Cards (#F7E6BE) & Espresso-Black Ink (#141008) for 14:1 Readability!
+   - Dedicated Recessed Torn-Paper Classical Engraving Window (.phone-display)
+     with Subtle Crosshatching & Deep Inner Cast Shadow (Zero Clutter!)
+   ========================================================================== */
+
+[data-theme="esperanza-econ"] {
+  --bg-deep: #D99518;
+  --bg-card: #E6A628;
+  --bg-card-hover: #F5E3B8;
+  --bg-input: #F7E8C4;
+  --bg-modal: #F5E3B8;
+  --bg-overlay: rgba(20, 16, 8, 0.72);
+  --bg-page-gradient: radial-gradient(ellipse at 50% 30%, #EEB238 0%, #D99518 68%, #BF7E0E 100%);
+  --backdrop-blur: none;
+  --tabs-bar-bg: #F5E3B8;
+  --subchip-bg: #F5E3B8;
+
+  --text-primary: #141008;
+  --text-secondary: #2B2110;
+  --text-muted: #3E3016;
+  --text-input: #141008;
+  --text-on-accent: #F7E8C4;
+  --text-brand: #141008;
+  --text-brand-accent: #7A3E00;
+  --text-phone: #141008;
+
+  --primary-neon: #141008;
+  --primary-light: #3E3016;
+  --accent-cyan: #141008;
+  --accent-purple: #2B2110;
+  --accent-emerald: #1B4332;
+  --accent-crimson: #7F1D1D;
+  --accent-yellow: #141008;
+  --semantic-danger: #7F1D1D;
+  --semantic-success: #1B4332;
+  --semantic-warning: #451A03;
+
+  --border-subtle: #141008;
+  --border-glow: #141008;
+  --border-card-top: #141008;
+  --border-width: 2px;
+  --border-color: #141008;
+  --border-input: 2px solid #141008;
+  --border-modal: 2.5px solid #141008;
+  --border-chip: 1.5px solid #141008;
+  --border-subchip: 1.5px solid #141008;
+
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-pill: 6px;
+
+  --card-shadow: 4px 4px 0 #141008;
+  --card-shadow-hover: 5px 5px 0 #141008;
+  --active-card-shadow: 5px 5px 0 #141008;
+  --btn-shadow: 3px 3px 0 #141008;
+  --btn-shadow-hover: 4px 4px 0 #141008;
+  --modal-shadow: 8px 8px 0 #141008;
+  --glow-pill: none;
+  --glow-dot: none;
+
+  --btn-transform-hover: translate(-1px, -1px);
+  --btn-transform-active: translate(1px, 1px);
+
+  --btn-inject-bg: #141008;
+  --btn-inject-color: #F7E8C4;
+  --btn-inject-border: 2px solid #141008;
+  --btn-scan-mass-bg: #141008;
+  --btn-scan-mass-color: #F7E8C4;
+  --btn-scan-mass-border: 2px solid #141008;
+  --btn-gofullpage-bg: #2B2110;
+  --btn-gofullpage-color: #F7E8C4;
+  --btn-gofullpage-border: 2px solid #141008;
+  --btn-ai-scan-bg: #F7E8C4;
+  --btn-ai-scan-color: #141008;
+  --btn-ai-scan-border: 2px solid #141008;
+  --btn-upload-bg: #F7E8C4;
+  --btn-upload-color: #141008;
+  --btn-upload-border: 2px solid #141008;
+  --btn-excel-bg: #141008;
+  --btn-excel-color: #F7E8C4;
+  --btn-excel-border: 2px solid #141008;
+  --excel-banner-bg: #F7E8C4;
+  --excel-banner-color: #141008;
+  --excel-banner-border: 2px solid #141008;
+
+  --v-code-box-bg: #F7E8C4;
+  --v-code-box-border: 2px solid #141008;
+  --v-code-color: #141008;
+  --v-pill-meta-bg: #F7E8C4;
+  --v-pill-meta-color: #141008;
+
+  --switcher-bg: #F7E8C4;
+  --switcher-border: 1.5px solid #141008;
+  --scrollbar-thumb: #141008;
+  --scrollbar-thumb-hover: #3E3016;
+  --scrollbar-track: #D18D14;
+  --scrollbar-width: 5px;
+  --scrollbar-radius: 0px;
+  --scrollbar-border: none;
+
+  --flare-display: none;
+  --active-card-topline-display: none;
+  --font-family: 'Vazirmatn', Georgia, serif;
+  --font-mono: "Courier New", ui-monospace, monospace;
+}
+
+[data-theme="esperanza-econ"] body {
+  background-color: #D99518 !important;
+  background-image:
+    radial-gradient(ellipse at 50% 30%, #EEB238 0%, #D99518 68%, #BF7E0E 100%) !important;
+  color: #141008;
+}
+
+/* Top Poster Banner: + DEPARTMENT OF ECONOMICS // ESPERANZA 2026 + */
+[data-theme="esperanza-econ"] .popup-wrapper {
+  position: relative;
+  padding-top: 28px !important;
+}
+
+[data-theme="esperanza-econ"] .popup-wrapper::before {
+  content: "+  DEPARTMENT OF ECONOMICS  //  ESPERANZA 2026  +";
+  position: absolute;
+  top: 5px;
+  inset-inline: 12px;
+  height: 19px;
+  background: #141008;
+  color: #F7E8C4;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  direction: ltr;
+}
+
+[data-theme="esperanza-econ"] .app-header,
+[data-theme="esperanza-econ"] .active-account-card,
+[data-theme="esperanza-econ"] .section-container,
+[data-theme="esperanza-econ"] .app-footer {
+  background: linear-gradient(160deg, #F0B43A 0%, #E2A022 100%) !important;
+  border: 2px solid #141008 !important;
+  border-radius: 12px !important;
+  box-shadow: 4px 4px 0 #141008, inset 0 1.5px 0 rgba(255, 240, 195, 0.65) !important;
+}
+
+[data-theme="esperanza-econ"] .section-container {
+  padding: 12px !important;
+}
+
+[data-theme="esperanza-econ"] .active-account-card::before {
+  display: none !important;
+}
+
+/* Recessed Torn-Paper Classical Engraving Viewport for the Phone Number */
+[data-theme="esperanza-econ"] .phone-display {
+  position: relative;
+  background-color: #F5E3B8 !important;
+  background-image:
+    repeating-linear-gradient(35deg, rgba(20, 16, 8, 0.05) 0px, rgba(20, 16, 8, 0.05) 1px, transparent 1px, transparent 4px),
+    repeating-linear-gradient(-35deg, rgba(20, 16, 8, 0.05) 0px, rgba(20, 16, 8, 0.05) 1px, transparent 1px, transparent 4px) !important;
+  color: #141008 !important;
+  border: 2px solid #141008 !important;
+  border-radius: 8px !important;
+  padding: 10px 14px !important;
+  margin-block: 8px !important;
+  font-family: var(--font-mono) !important;
+  font-size: 22px !important;
+  font-weight: 900 !important;
+  letter-spacing: 2px !important;
+  box-shadow:
+    inset 0 4px 10px rgba(35, 20, 0, 0.32),
+    3px 3px 0 #141008 !important;
+}
+
+/* Warm Antique Parchment Sub-Cards for High-Contrast Readability */
+[data-theme="esperanza-econ"] .quick-profile-card,
+[data-theme="esperanza-econ"] .saved-account-card {
+  background: #F7E8C4 !important;
+  border: 2px solid #141008 !important;
+  border-radius: 10px !important;
+  box-shadow: 3px 3px 0 #141008 !important;
+}
+
+[data-theme="esperanza-econ"] .avatar-glow {
+  background: #141008 !important;
+  color: #F0B43A !important;
+  border: 2px solid #141008 !important;
+}
+
+[data-theme="esperanza-econ"] .nav-tabs-bar {
+  background: #F7E8C4 !important;
+  border: 2px solid #141008 !important;
+  border-radius: 10px !important;
+  padding: 4px !important;
+  box-shadow: 4px 4px 0 #141008 !important;
+}
+
+[data-theme="esperanza-econ"] .nav-tab-item {
+  color: #141008 !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="esperanza-econ"] .nav-tab-item.active {
+  background: #141008 !important;
+  color: #F7E8C4 !important;
+  border-radius: 6px !important;
+  font-weight: 900 !important;
+}
+
+[data-theme="esperanza-econ"] .nav-tab-item.active::after {
+  display: none !important;
+}
+
+[data-theme="esperanza-econ"] .btn-cyan,
+[data-theme="esperanza-econ"] .btn-inject-neon,
+[data-theme="esperanza-econ"] .btn-activate,
+[data-theme="esperanza-econ"] .btn-v-copy {
+  background: #141008 !important;
+  color: #F7E8C4 !important;
+  border: 2px solid #141008 !important;
+  border-radius: 6px !important;
+  font-weight: 900 !important;
+  box-shadow: 2px 2px 0 #8C5E0A !important;
+}
+
+[data-theme="esperanza-econ"] .btn-crimson,
+[data-theme="esperanza-econ"] .btn-delete-acc {
+  background: #F7E8C4 !important;
+  color: #7F1D1D !important;
+  border: 2px solid #141008 !important;
+  border-radius: 6px !important;
+  box-shadow: 2px 2px 0 #141008 !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="esperanza-econ"] .btn-neon-green,
+[data-theme="esperanza-econ"] .btn-launch-power,
+[data-theme="esperanza-econ"] .status-indicator-box,
+[data-theme="esperanza-econ"] .service-tag {
+  background: #F7E8C4 !important;
+  color: #141008 !important;
+  border: 2px solid #141008 !important;
+  border-radius: 6px !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="esperanza-econ"] .status-indicator-box, [data-theme="esperanza-econ"] .service-tag { padding: 3px 10px !important; }

@@ -1,0 +1,493 @@
+/* ==========================================================================
+   ui.css - Typography, Shared Theme Contracts, FX Controls & Visual Enhancements
+   ========================================================================== */
+
+/* Bundled Variable Persian Typeface */
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('fonts/Vazirmatn-Variable.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+html {
+  color-scheme: light dark;
+  width: 100%;
+  max-width: 350px;
+  overflow-x: hidden;
+}
+
+:where(html[data-theme]) {
+  --font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Tahoma, sans-serif;
+}
+
+body {
+  width: 100%;
+  max-width: 350px;
+  overflow-x: hidden;
+  font-family: var(--font-family, 'Vazirmatn', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Tahoma, sans-serif);
+  font-size: 12px;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 3px;
+}
+
+/* App Header Layout */
+.app-header {
+  gap: 8px;
+}
+
+.brand-text {
+  min-width: 0;
+  flex: 1;
+}
+
+.brand-title {
+  white-space: nowrap;
+}
+
+.brand-subtitle {
+  font-size: 10px;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+
+.brand-icon-box {
+  flex-shrink: 0;
+}
+
+.brand-logo-img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+[data-theme="editorial"] .brand-logo-img {
+  display: block;
+}
+
+.editorial-logo-badge {
+  display: none !important;
+}
+
+/* Theme Picker & 3-State FX Control Bar (Stacked cleanly to preserve header width) */
+.theme-picker-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  flex-shrink: 0;
+}
+
+.theme-picker-toggle-btn {
+  max-width: 118px;
+}
+
+.theme-current-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Compact 3-state FX Control under Theme Picker */
+.fx-mode-switch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--switcher-bg, var(--bg-card));
+  border: var(--border-width, 1px) solid var(--border-color, rgba(128, 128, 128, 0.35));
+  border-radius: var(--radius-pill, 999px);
+  padding: 1px 2px;
+  gap: 1px;
+  box-shadow: var(--card-shadow);
+}
+
+.fx-mode-btn {
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 8.5px;
+  font-weight: 700;
+  padding: 1px 5px;
+  border-radius: var(--radius-pill, 999px);
+  line-height: 1.25;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.fx-mode-btn:hover {
+  color: var(--text-primary);
+}
+
+.fx-mode-btn.active {
+  background: var(--primary-neon);
+  color: var(--text-on-accent);
+  font-weight: 800;
+}
+
+.theme-picker-dropdown {
+  max-height: 420px;
+  overflow-y: auto;
+  width: 228px;
+  z-index: 100;
+  padding: 8px;
+  grid-template-columns: 1fr;
+}
+
+.theme-option-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 6px 9px;
+}
+
+.theme-option-btn img {
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.theme-option-name {
+  flex: 1;
+  text-align: right;
+  font-size: 11px;
+}
+
+.theme-swatch-strip {
+  gap: 3px;
+}
+
+.theme-swatch-chip {
+  width: 7px;
+  height: 7px;
+}
+
+/* Sticky Navigation Tabs */
+.nav-tabs-bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.nav-tab-item {
+  min-height: 42px;
+}
+
+.tab-page.active {
+  animation: content-arrive 180ms ease both;
+}
+
+@keyframes content-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Theme-specific Overrides */
+[data-theme="win-xp"] .active-account-card::after,
+[data-theme="pixel-os-blue"] .active-account-card::after,
+[data-theme="pastel-y2k"] .active-account-card::after {
+  display: none;
+}
+
+.footer-equalizer {
+  opacity: 0.35;
+}
+
+.footer-equalizer .eq-bar {
+  animation: none;
+  height: 3px;
+}
+
+/* ==========================================================================
+   Shared FX System Rules (data-fx="full | calm | off" & data-fx-paused)
+   ========================================================================== */
+.fx-layer,
+.fx-layer * {
+  pointer-events: none !important;
+  user-select: none !important;
+}
+
+/* In 'calm' mode, disable all ambient layers */
+html[data-fx="calm"] .fx-ambient-a,
+html[data-fx="calm"] .fx-ambient-b,
+html[data-fx="calm"] .fx-ambient-c,
+html[data-fx="calm"] .fx-cursor-follower {
+  display: none !important;
+  animation: none !important;
+}
+
+/* In 'off' mode, disable all animations, transitions, and decorative FX layers */
+html[data-fx="off"] .fx-layer {
+  display: none !important;
+}
+
+html[data-fx="off"] *,
+html[data-fx="off"] *::before,
+html[data-fx="off"] *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Pause all animations when popup is hidden (document.hidden) */
+html[data-fx-paused] *,
+html[data-fx-paused] *::before,
+html[data-fx-paused] *::after {
+  animation-play-state: paused !important;
+}
+
+/* Reduced Motion */
+[data-motion="reduced"] *,
+[data-motion="reduced"] *::before,
+[data-motion="reduced"] *::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+
+[data-motion="reduced"] .fx-layer {
+  display: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .fx-layer {
+    display: none !important;
+  }
+}
+
+/* Color Scheme per Theme (Light vs Dark) */
+html[data-theme] {
+  color-scheme: light;
+}
+
+html[data-theme="neon"],
+html[data-theme="pixel-spec"],
+html[data-theme="cyber-gloss"],
+html[data-theme="crt-terminal"],
+html[data-theme="vhs-tape"],
+html[data-theme="cyberdeck-hud"],
+html[data-theme="dithertone-pro"],
+html[data-theme="frosted-balaclava"],
+html[data-theme="showdown-968"],
+html[data-theme="commodore-64-jp"],
+html[data-theme="retrodisc-g2"],
+html[data-theme="starlight-express"] {
+  color-scheme: dark;
+}
+
+.gemini-status-pill {
+  background: var(--bg-input);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+}
+
+.gemini-status-pill.configured {
+  color: var(--semantic-success);
+}
+
+.v-title {
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+
+/* Unified Inline Lucide SVG Icon Styling (stroke 1.75, currentColor) */
+.lucide-icon {
+  width: 15px;
+  height: 15px;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+  vertical-align: -2.5px;
+}
+
+.lucide-icon.lucide-xs {
+  width: 13px;
+  height: 13px;
+  vertical-align: -2px;
+}
+
+.lucide-icon.lucide-lg {
+  width: 20px;
+  height: 20px;
+}
+
+.lucide-icon.lucide-xl {
+  width: 26px;
+  height: 26px;
+  margin-inline: auto;
+}
+
+.btn-icon,
+.tab-icon,
+.ai-sparkle,
+.excel-badge-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* ==========================================================================
+   Global Layout Stability & Permanent Scrollbar Across All Tabs & Themes
+   Prevents horizontal width jumps or disappearing scrollbar when switching tabs
+   ========================================================================== */
+html {
+  width: 350px !important;
+  max-width: 350px !important;
+  overflow-y: scroll !important;
+  overflow-x: hidden !important;
+  scrollbar-gutter: stable !important;
+}
+
+body {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: 730px !important;
+  overflow-x: hidden !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.popup-wrapper {
+  width: 100% !important;
+  min-height: 720px !important;
+  box-sizing: border-box !important;
+}
+
+.app-header,
+.active-account-card,
+.nav-tabs-bar,
+.section-container,
+.app-footer {
+  width: 100% !important;
+  box-sizing: border-box !important;
+  flex-shrink: 0 !important;
+}
+
+.tab-page.active {
+  min-height: 350px !important;
+}
+
+/* ==========================================================================
+   Theme Picker Toggle & Dropdown: Always Display Theme Name + Swatches Clearly
+   ========================================================================== */
+.app-header .theme-picker-toggle-btn,
+.theme-picker-toggle-btn {
+  max-width: 134px !important;
+  padding: 3px 8px !important;
+  gap: 5px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+.theme-current-name {
+  font-size: 10.5px !important;
+  font-weight: 800 !important;
+  color: inherit !important;
+  max-width: 86px !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  display: inline-block !important;
+}
+
+.theme-picker-dropdown {
+  width: 262px !important;
+  max-height: 380px !important;
+  overflow-y: auto !important;
+  padding: 8px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 5px !important;
+  z-index: 999 !important;
+}
+
+.theme-picker-dropdown[hidden] {
+  display: none !important;
+}
+
+.theme-option-btn {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 8px !important;
+  width: 100% !important;
+  min-height: 38px !important;
+  padding: 6px 10px !important;
+  box-sizing: border-box !important;
+}
+
+.theme-option-name {
+  width: auto !important;
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  font-size: 11.5px !important;
+  font-weight: 800 !important;
+  color: var(--text-primary) !important;
+  text-align: right !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  display: block !important;
+}
+
+.theme-option-btn.active .theme-option-name {
+  color: inherit !important;
+}
+
+.theme-swatch-strip {
+  width: auto !important;
+  flex: 0 0 auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 3px !important;
+}
+
+.theme-swatch-chip {
+  width: 9px !important;
+  height: 9px !important;
+  border-radius: 50% !important;
+  flex-shrink: 0 !important;
+  border: 1px solid rgba(128, 128, 128, 0.35) !important;
+}
+
+html[data-theme="acid-nfo-scene"],
+html[data-theme="atomic-purple-gbc"],
+html[data-theme="shinjuku-arcade-neon"] {
+  color-scheme: dark;
+}

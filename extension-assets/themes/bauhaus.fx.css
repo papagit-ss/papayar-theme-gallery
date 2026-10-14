@@ -1,0 +1,66 @@
+/* ==========================================================================
+   themes/bauhaus.fx.css — Exclusive Effects for Theme 10 (Bauhaus Swiss)
+   Effects:
+   1. [ambient] شکل‌های هندسی پس‌زمینه که آهسته می‌چرخند (bauhaus-geo-rotate)
+   2. [transition] لغزش بلوک‌های رنگی بین تب‌ها (bauhaus-block-slide)
+   3. [hover] تبدیل دایره↔مربع در هاور (bauhaus-shape-morph)
+   ========================================================================== */
+
+@keyframes bauhaus-slow-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes bauhaus-slide-rtl {
+  0% { opacity: 0; transform: translateX(14px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+/* Ambient: Slowly Rotating Geometric Bauhaus Forms in Background */
+html[data-theme="bauhaus"][data-fx="full"]:not([data-motion="reduced"]) .fx-layer .fx-ambient-a {
+  position: fixed;
+  top: 64px;
+  left: -18px;
+  width: 56px;
+  height: 56px;
+  border: 3px solid rgba(10, 37, 201, 0.16);
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform;
+  animation: bauhaus-slow-spin 24s linear infinite;
+}
+
+html[data-theme="bauhaus"][data-fx="full"]:not([data-motion="reduced"]) .fx-layer .fx-ambient-b {
+  position: fixed;
+  bottom: 42px;
+  right: -14px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 3px solid rgba(230, 57, 70, 0.18);
+  border-top-color: rgba(255, 183, 3, 0.35);
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform;
+  animation: bauhaus-slow-spin 18s linear reverse infinite;
+}
+
+/* Hover: Circle <-> Square Geometric Morph on Avatars, Dots & Badges */
+html[data-theme="bauhaus"]:not([data-fx="off"]):not([data-motion="reduced"]) .avatar-glow,
+html[data-theme="bauhaus"]:not([data-fx="off"]):not([data-motion="reduced"]) .brand-icon-box {
+  transition: border-radius 0.25s cubic-bezier(0.22, 1, 0.36, 1), transform 0.25s ease;
+}
+
+html[data-theme="bauhaus"]:not([data-fx="off"]):not([data-motion="reduced"]) .quick-profile-card:hover .avatar-glow {
+  border-radius: 0% !important;
+  transform: rotate(45deg) scale(0.92);
+}
+
+html[data-theme="bauhaus"]:not([data-fx="off"]):not([data-motion="reduced"]) .app-header:hover .brand-icon-box {
+  border-radius: 50% !important;
+}
+
+/* Transition: Primary Color Block Slide on Tab Switch */
+html[data-theme="bauhaus"]:not([data-fx="off"]):not([data-motion="reduced"]) .tab-page.active {
+  animation: bauhaus-slide-rtl 0.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+}

@@ -1,0 +1,69 @@
+/* ==========================================================================
+   themes/pop-art.fx.css — Exclusive Effects for Theme 19 (Pop Art Comic)
+   Effects:
+   1. [click] انفجار «POW!» با شکل ستاره‌ای در کلیک (popart-pow-burst)
+   2. [hover] جابه‌جا شدن نقطه‌های هالف‌تون در هاور (popart-halftone-shift)
+   3. [hover] ابر حرف کمیک (speech bubble) روی دکمه‌ها و برچسب‌ها (popart-speech-bubble)
+   4. [transition] ورق خوردن پنل کمیک در تغییر تب (popart-panel-snap)
+   ========================================================================== */
+
+@keyframes popart-pow-boom {
+  0% { opacity: 1; transform: translate(-50%, -50%) scale(0.2) rotate(-18deg); }
+  55% { opacity: 1; transform: translate(-50%, -50%) scale(1.18) rotate(8deg); }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(1.35) rotate(14deg); }
+}
+
+@keyframes popart-halftone-pan {
+  0% { background-position: 0 0; }
+  100% { background-position: 10px 10px; }
+}
+
+@keyframes popart-panel-in {
+  0% { opacity: 0; transform: scale(0.94) rotate(-1.5deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+/* Click: Comic Starburst "POW!" Explosion */
+html[data-theme="pop-art"]:not([data-fx="off"]):not([data-motion="reduced"]) .fx-click-burst.is-bursting {
+  position: fixed;
+  left: var(--burst-x, 175px);
+  top: var(--burst-y, 350px);
+  width: 76px;
+  height: 76px;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cpolygon points='40,2 49,20 69,10 60,29 78,40 60,51 69,70 49,60 40,78 31,60 11,70 20,51 2,40 20,29 11,10 31,20' fill='%23ffe600' stroke='%230d0d0d' stroke-width='3'/%3E%3Ctext x='40' y='45' text-anchor='middle' font-family='Impact,sans-serif' font-weight='900' font-size='16' fill='%23ff1e27' stroke='%230d0d0d' stroke-width='0.8'%3EPOW!%3C/text%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: popart-pow-boom 0.52s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Hover: Shifting Ben-Day Halftone Dots on Cards */
+html[data-theme="pop-art"]:not([data-fx="off"]):not([data-motion="reduced"]) .voucher-card:hover,
+html[data-theme="pop-art"]:not([data-fx="off"]):not([data-motion="reduced"]) .saved-account-card:hover,
+html[data-theme="pop-art"]:not([data-fx="off"]):not([data-motion="reduced"]) .quick-profile-card:hover {
+  background-image: radial-gradient(rgba(255, 30, 39, 0.2) 2px, transparent 2px);
+  background-size: 10px 10px;
+  animation: popart-halftone-pan 0.4s linear infinite;
+}
+
+/* Hover: Comic Speech Bubble Callout on Primary Action Button */
+html[data-theme="pop-art"]:not([data-fx="off"]):not([data-motion="reduced"]) .btn-inject-neon:hover::before {
+  content: 'ZAP! ⚡';
+  position: absolute;
+  top: 2px;
+  left: 8px;
+  background: #ffffff;
+  color: #0d0d0d;
+  border: 2px solid #0d0d0d;
+  border-radius: 8px 8px 8px 0;
+  padding: 0 5px;
+  font-size: 9px;
+  font-weight: 900;
+  pointer-events: none;
+}
+
+/* Transition: Comic Panel Snap */
+html[data-theme="pop-art"]:not([data-fx="off"]):not([data-motion="reduced"]) .tab-page.active {
+  animation: popart-panel-in 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}

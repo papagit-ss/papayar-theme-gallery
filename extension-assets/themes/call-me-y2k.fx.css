@@ -1,0 +1,115 @@
+/* ==========================================================================
+   Theme 22 FX: call-me-y2k.fx.css — Y2K Call Me Pink Flip & Pixel Stars
+   1. Ambient: Floating pixelated lime-green stars (★) in the Y2K sky
+   2. Hover: Glossy Y2K pink & green star sparkle trail
+   3. Click: Tactile Nokia keypad press + green pixel star burst
+   4. Transition: Y2K sky cloud flip bounce
+   ========================================================================== */
+
+[data-theme="call-me-y2k"] .fx-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 20;
+  overflow: hidden;
+}
+
+/* 1. AMBIENT: Floating Pixelated Lime-Green Stars (from `image_4e43fc.jpg`) */
+html[data-theme="call-me-y2k"][data-fx="full"] .fx-ambient-a::before,
+html[data-theme="call-me-y2k"][data-fx="full"] .fx-ambient-b::before,
+html[data-theme="call-me-y2k"][data-fx="full"] .fx-ambient-c::before {
+  content: "★";
+  position: fixed;
+  font-size: 20px;
+  color: #72F564;
+  text-shadow:
+    2px 0 0 #1E8A34,
+    -2px 0 0 #1E8A34,
+    0 2px 0 #1E8A34,
+    0 -2px 0 #1E8A34,
+    0 0 12px rgba(114, 245, 100, 0.85);
+  pointer-events: none;
+}
+
+html[data-theme="call-me-y2k"][data-fx="full"] .fx-ambient-a::before {
+  top: 68px;
+  left: 14px;
+  animation: y2k-star-float 3.4s steps(4, end) infinite alternate;
+}
+
+html[data-theme="call-me-y2k"][data-fx="full"] .fx-ambient-b::before {
+  top: 310px;
+  right: 12px;
+  font-size: 17px;
+  animation: y2k-star-float 4.1s steps(4, end) infinite alternate-reverse;
+}
+
+html[data-theme="call-me-y2k"][data-fx="full"] .fx-ambient-c::before {
+  bottom: 52px;
+  left: 18px;
+  font-size: 18px;
+  animation: y2k-star-float 3.8s steps(4, end) infinite alternate;
+}
+
+@keyframes y2k-star-float {
+  0% { transform: translateY(0) rotate(-8deg) scale(0.95); }
+  100% { transform: translateY(-8px) rotate(12deg) scale(1.12); }
+}
+
+/* 2. HOVER: Pixel Lime Star Cursor Follower */
+html[data-theme="call-me-y2k"]:not([data-fx="off"]) .fx-cursor-follower {
+  position: fixed;
+  left: var(--fx-mx, 175px);
+  top: var(--fx-my, 220px);
+  width: 24px;
+  height: 24px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(114, 245, 100, 0.55) 0%, rgba(255, 79, 163, 0.25) 55%, transparent 75%);
+  pointer-events: none;
+}
+
+/* 3. CLICK: Oval Keypad DTMF Press & Pixel Star Ring */
+html[data-theme="call-me-y2k"]:not([data-fx="off"]) .is-fx-clicked {
+  animation: y2k-keypad-press 0.36s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+@keyframes y2k-keypad-press {
+  0% { transform: translateY(0) scale(1); }
+  35% {
+    transform: translateY(3.5px) scale(0.94, 0.90);
+    box-shadow: 0 0 0 #8C1D56, 0 0 18px #72F564 !important;
+  }
+  75% { transform: translateY(-2px) scale(1.04, 1.03); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+html[data-theme="call-me-y2k"]:not([data-fx="off"]) .fx-click-burst.is-bursting {
+  position: fixed;
+  left: var(--burst-x, 175px);
+  top: var(--burst-y, 220px);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  border: 3px dotted #72F564;
+  box-shadow: 0 0 12px #FF4FA3;
+  pointer-events: none;
+  z-index: 999;
+  animation: y2k-star-burst 0.45s ease-out forwards;
+}
+
+@keyframes y2k-star-burst {
+  0% { width: 12px; height: 12px; opacity: 1; transform: translate(-50%, -50%) rotate(0deg); }
+  100% { width: 92px; height: 92px; opacity: 0; transform: translate(-50%, -50%) rotate(65deg); }
+}
+
+/* 4. TRANSITION: Y2K Flip-Phone Snap */
+html[data-theme="call-me-y2k"]:not([data-fx="off"]) .tab-page.active {
+  animation: y2k-flip-open 0.34s cubic-bezier(0.34, 1.56, 0.64, 1) both !important;
+}
+
+@keyframes y2k-flip-open {
+  0% { opacity: 0; transform: perspective(500px) rotateX(-14deg) translateY(8px) scale(0.96); }
+  100% { opacity: 1; transform: perspective(500px) rotateX(0deg) translateY(0) scale(1); }
+}

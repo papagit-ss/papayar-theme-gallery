@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-chrome="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>گالری تم‌های Papa Yar</title>
+<style>
+@font-face{font-family:'Vazirmatn';src:url('extension-assets/fonts/Vazirmatn-Variable.woff2') format('woff2');font-weight:100 900}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Vazirmatn',Tahoma,sans-serif;line-height:1.7;background:var(--page);color:var(--ink)}
+button{font-family:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+html[data-chrome=dark]{--page:#0d0f14;--card:#151922;--ink:#eef1f7;--muted:#9aa3b5;--line:rgba(255,255,255,.1);--accent:#6ee7b7;--nav:rgba(13,15,20,.85)}
+html[data-chrome=light]{--page:#f1f2f6;--card:#fff;--ink:#14171f;--muted:#5a6275;--line:rgba(0,0,0,.12);--accent:#0f766e;--nav:rgba(241,242,246,.88)}
+.hero{max-width:1120px;margin:0 auto;padding:clamp(40px,7vw,90px) 22px 28px}
+.hero h1{font-size:clamp(32px,6vw,60px);line-height:1.2;margin:0 0 12px;font-weight:800}
+.hero p{max-width:62ch;color:var(--muted);margin:0 0 10px;font-size:clamp(14px,2vw,17px)}
+.hero code{background:var(--card);border:1px solid var(--line);padding:2px 8px;border-radius:6px;font-size:.9em;direction:ltr;unicode-bidi:isolate}
+.nav{position:sticky;top:0;z-index:50;background:var(--nav);backdrop-filter:blur(14px);border-block:1px solid var(--line)}
+.nav-in{max-width:1120px;margin:0 auto;padding:10px 16px;display:flex;flex-direction:column;gap:8px}
+.nav-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.chips{display:flex;gap:6px;overflow-x:auto;flex:1;padding:2px;scrollbar-width:thin}
+.chips a{white-space:nowrap;text-decoration:none;color:var(--muted);font-size:12.5px;font-weight:600;padding:5px 11px;border-radius:100px;border:1px solid transparent;display:flex;gap:6px;align-items:center}
+.chips a i{font-style:normal;font-size:11px;opacity:.7;direction:ltr}
+.chips a:hover{color:var(--ink);border-color:var(--line)}
+.chips a.on{color:var(--ink);border-color:var(--accent);background:color-mix(in srgb,var(--accent) 16%,transparent)}
+.seg{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden;flex:none}
+.seg button{border:0;background:transparent;color:var(--muted);padding:5px 12px;font-size:12px;font-weight:600}
+.seg button.on{background:var(--accent);color:var(--page)}
+.lbl{font-size:12px;color:var(--muted);flex:none}
+.tog{flex:none;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:10px;width:36px;height:32px}
+.theme{max-width:1120px;margin:0 auto;padding:clamp(34px,5vw,64px) 22px;scroll-margin-top:96px;display:grid;grid-template-columns:1fr auto;gap:clamp(24px,4vw,56px);align-items:start;border-bottom:1px solid var(--line)}
+.info{min-width:0;position:sticky;top:118px}
+.num{font-size:clamp(54px,9vw,104px);font-weight:900;line-height:1;direction:ltr;text-align:right;color:transparent;-webkit-text-stroke:1.5px var(--ink);opacity:.9}
+.info h2{margin:6px 0 0;font-size:clamp(24px,3.6vw,38px);line-height:1.3}
+.en{color:var(--muted);direction:ltr;text-align:right;font-size:14px;margin-bottom:12px}
+.desc{padding:0;margin:0 0 14px;list-style:none;max-width:52ch}
+.desc li{margin-bottom:4px;color:var(--ink)}
+.fx-box{margin:12px 0 16px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:var(--card);max-width:52ch}
+.fx-head{font-size:12px;font-weight:700;color:var(--accent);margin-bottom:6px;display:flex;align-items:center;justify-content:space-between}
+.fx-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:5px}
+.fx-list li{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:12.5px}
+.fx-trig{font-size:10.5px;padding:1px 7px;border-radius:100px;border:1px solid var(--line);color:var(--muted);direction:ltr;font-family:ui-monospace,Menlo,monospace}
+.sw{display:flex;gap:8px;margin:14px 0}
+.sw button{display:flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--card);color:var(--muted);border-radius:100px;padding:4px 10px 4px 6px;font-size:11px;direction:ltr}
+.sw b{width:18px;height:18px;border-radius:50%;border:1px solid var(--line)}
+dl{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:0 0 16px;font-size:12.5px}
+dt{color:var(--muted)} dd{margin:0;direction:ltr;text-align:right;font-family:ui-monospace,Menlo,monospace}
+.acts{display:flex;flex-wrap:wrap;gap:8px}
+.btn{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;padding:8px 14px;font-size:13px;font-weight:600;text-decoration:none}
+.btn.pri{background:var(--accent);color:var(--page);border-color:transparent}
+.btn:hover{filter:brightness(1.1)}
+.stage{border-radius:22px;padding:22px;border:1px solid var(--line);position:relative}
+.stage iframe{display:block;width:350px;height:700px;border:0;border-radius:14px;background:#fff;box-shadow:0 18px 50px rgba(0,0,0,.28)}
+.stage .tabs,.stage .fx-stage-bar{display:flex;gap:6px;justify-content:center;margin-top:10px;align-items:center}
+.stage .tabs button,.stage .fx-stage-bar button{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:100px;font-size:11.5px;padding:3px 11px}
+.stage .tabs button.on,.stage .fx-stage-bar button.on{background:var(--accent);color:var(--page)}
+footer{max-width:1120px;margin:0 auto;padding:40px 22px 70px;color:var(--muted);font-size:14px;text-align:center}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--page);padding:9px 18px;border-radius:10px;font-size:13px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:99}
+.toast.show{opacity:1}
+@media(max-width:860px){.theme{grid-template-columns:1fr;justify-items:stretch}.info{position:static}.stage{justify-self:center;max-width:100%;overflow:auto}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <h1>گالری تم‌های Papa Yar</h1>
+  <p>همه‌ی ۲۵ تم اکستنشن به همراه سیستم افکت اختصاصی، هرکدام روی یک رابط یکسان و زنده. هر تم یک شماره‌ی ثابت دارد؛ هنگام انتقال به پروژه‌ی دیگر کافی است شماره را بگویید.</p>
+  <p>مثلاً: «تم شماره <code>07</code> را به پروژه‌ام منتقل کن». دکمه‌ی «کپی دستور انتقال» دستور کامل انتقال تم و فایل افکت آن را آماده می‌کند.</p>
+</header>
+<nav class="nav" aria-label="فهرست تم‌ها">
+  <div class="nav-in">
+    <div class="nav-row"><div class="chips" id="chips"></div><button class="tog" id="chrome" aria-label="تغییر روشنایی صفحه">☀︎</button></div>
+    <div class="nav-row">
+      <span class="lbl">تب همه‌ی پیش‌نمایش‌ها:</span>
+      <div class="seg" id="seg"><button class="on" data-tab="tab-main">حساب</button><button data-tab="tab-vouchers">تخفیف‌ها</button><button data-tab="tab-accounts">خطوط</button><button data-tab="tab-export">استخراج</button></div>
+      <span class="lbl" style="margin-inline-start:12px">افکت‌ها:</span>
+      <div class="seg" id="fxSeg"><button class="on" data-fx="full">کامل</button><button data-fx="calm">آرام</button><button data-fx="off">خاموش</button></div>
+    </div>
+  </div>
+</nav>
+<main id="main"></main>
+<footer><b id="cnt"></b> تم · کلیدهای ← و → بین تم‌ها جابه‌جا می‌شوند · جزئیات فنی در <code>THEMES.md</code></footer>
+<div class="toast" id="toast"></div>
+<script src="catalog.js"></script>
+<script>
+(function(){
+var TABS=[['tab-main','حساب'],['tab-vouchers','تخفیف‌ها'],['tab-accounts','خطوط'],['tab-export','استخراج']];
+var FX_MODES=[['full','کامل'],['calm','آرام'],['off','خاموش']];
+var cur='tab-main',curFx='full',C=window.CATALOG,main=document.getElementById('main'),chips=document.getElementById('chips'),frames=[];
+var pad=function(n){return (n<10?'0':'')+n};
+var fa=function(s){return String(s).replace(/\d/g,function(d){return '۰۱۲۳۴۵۶۷۸۹'[d]})};
+function toast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove('show')},1600)}
+function copy(txt,msg){(navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject()).catch(function(){var a=document.createElement('textarea');a.value=txt;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}).then?0:0;toast(msg)}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+C.forEach(function(t){
+  var a=document.createElement('a');a.href='#t-'+t.id;a.dataset.id=t.id;a.innerHTML='<i>'+pad(t.n)+'</i>'+esc(t.title);chips.appendChild(a);
+  var s=document.createElement('section');s.className='theme';s.id='t-'+t.id;
+  var tint=t.swatches[2]||t.swatches[0];
+  var where=t.inPopup?'popup.css (خط '+t.tokenLine+')':t.cssFile;
+  var fxWhere=t.fxFile||('themes/'+t.id+'.fx.css');
+  var prompt='تم شماره '+pad(t.n)+' ('+t.en+' — '+t.title+') را به همراه افکت‌های اختصاصی‌اش از پروژه‌ی Papa Yar Theme Gallery به پروژه‌ی من منتقل کن. فایل‌های مرجع: '+where+' و '+fxWhere+' (به همراه theme-fx.js).';
+  var fxItems=(t.effects||[]).map(function(fx){return '<li><span>'+esc(fx.nameFa)+'</span><span class="fx-trig">'+esc(fx.trigger)+'</span></li>'}).join('');
+  s.innerHTML='<div class="info"><div class="num">'+pad(t.n)+'</div><h2>'+esc(t.title)+'</h2><div class="en">'+esc(t.en)+' · '+esc(t.id)+'</div>'
+   +'<ul class="desc">'+t.desc.map(function(d){return '<li>'+esc(d)+'</li>'}).join('')+'</ul>'
+   +'<div class="fx-box"><div class="fx-head"><span>افکت‌های اختصاصی ('+fa((t.effects||[]).length)+')</span><code>'+esc(fxWhere)+'</code></div><ul class="fx-list">'+fxItems+'</ul></div>'
+   +'<div class="sw">'+t.swatches.map(function(c){return '<button data-c="'+c+'" title="کپی رنگ"><b style="background:'+c+'"></b>'+c+'</button>'}).join('')+'</div>'
+   +'<dl><dt>فایل CSS</dt><dd>'+esc(where)+'</dd><dt>فایل افکت</dt><dd>'+esc(fxWhere)+' ('+(t.fxKb||0)+' KB)</dd><dt>حجم کل</dt><dd>'+t.kb+' KB</dd><dt>بافت‌ها</dt><dd>'+(t.textures.join(', ')||'—')+'</dd></dl>'
+   +'<div class="acts"><button class="btn pri" data-p="1">کپی دستور انتقال</button><a class="btn" target="_blank" href="preview.html?theme='+t.id+'">پیش‌نمایش تنها</a></div></div>'
+   +'<div class="stage" style="background:linear-gradient(145deg,color-mix(in srgb,'+tint+' 34%,var(--card)),color-mix(in srgb,'+t.swatches[0]+' 22%,var(--card)))"><iframe loading="lazy" title="'+esc(t.title)+'" src="preview.html?theme='+t.id+'&fx='+curFx+'"></iframe>'
+   +'<div class="tabs">'+TABS.map(function(x){return '<button data-tab="'+x[0]+'"'+(x[0]===cur?' class="on"':'')+'>'+x[1]+'</button>'}).join('')+'</div>'
+   +'<div class="fx-stage-bar"><span class="lbl">افکت‌ها:</span>'+FX_MODES.map(function(m){return '<button data-fx-btn="'+m[0]+'"'+(m[0]===curFx?' class="on"':'')+'>'+m[1]+'</button>'}).join('')+'</div></div>';
+  s.querySelector('[data-p]').onclick=function(){copy(prompt,'دستور انتقال تم '+fa(pad(t.n))+' کپی شد')};
+  s.querySelectorAll('[data-c]').forEach(function(b){b.onclick=function(){copy(b.dataset.c,'رنگ '+b.dataset.c+' کپی شد')}});
+  var f=s.querySelector('iframe');frames.push({f:f,s:s});
+  s.querySelectorAll('.tabs button').forEach(function(b){b.onclick=function(){f.contentWindow.postMessage({pyTab:b.dataset.tab},'*');mark(s,b.dataset.tab)}});
+  s.querySelectorAll('.fx-stage-bar button').forEach(function(b){b.onclick=function(){var fm=b.getAttribute('data-fx-btn');f.contentWindow.postMessage({pyFx:fm},'*');markFx(s,fm)}});
+  main.appendChild(s);
+});
+function mark(s,tab){s.querySelectorAll('.tabs button').forEach(function(b){b.classList.toggle('on',b.dataset.tab===tab)})}
+function markFx(s,fx){s.querySelectorAll('.fx-stage-bar button').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-fx-btn')===fx)})}
+function setAll(tab){cur=tab;document.querySelectorAll('#seg button').forEach(function(b){b.classList.toggle('on',b.dataset.tab===tab)});frames.forEach(function(o){mark(o.s,tab);try{o.f.contentWindow.postMessage({pyTab:tab},'*')}catch(e){}})}
+function setAllFx(fx){curFx=fx;document.querySelectorAll('#fxSeg button').forEach(function(b){b.classList.toggle('on',b.dataset.fx===fx)});frames.forEach(function(o){markFx(o.s,fx);try{o.f.contentWindow.postMessage({pyFx:fx},'*')}catch(e){}})}
+document.querySelectorAll('#seg button').forEach(function(b){b.onclick=function(){setAll(b.dataset.tab)}});
+document.querySelectorAll('#fxSeg button').forEach(function(b){b.onclick=function(){setAllFx(b.dataset.fx)}});
+frames.forEach(function(o){o.f.addEventListener('load',function(){if(cur!=='tab-main')o.f.contentWindow.postMessage({pyTab:cur},'*');if(curFx!=='full')o.f.contentWindow.postMessage({pyFx:curFx},'*')})});
+addEventListener('message',function(e){if(e.data&&e.data.pyTab){frames.forEach(function(o){if(o.f.contentWindow===e.source)mark(o.s,e.data.pyTab)})}});
+document.getElementById('cnt').textContent=fa(C.length);
+var links=[].slice.call(chips.children),idx=0;
+var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){links.forEach(function(l){l.classList.toggle('on',l.dataset.id===x.target.id.slice(2))});idx=C.findIndex(function(t){return 't-'+t.id===x.target.id});var a=links[idx];if(a)a.scrollIntoView({inline:'center',block:'nearest'})}})},{rootMargin:'-45% 0px -50% 0px'});
+var pauseIo=new IntersectionObserver(function(en){en.forEach(function(x){var fr=x.target.querySelector('iframe');if(!fr||!fr.contentDocument||!fr.contentDocument.documentElement)return;if(x.isIntersecting){fr.contentDocument.documentElement.removeAttribute('data-fx-paused')}else{fr.contentDocument.documentElement.setAttribute('data-fx-paused','')}})},{rootMargin:'250px 0px'});
+frames.forEach(function(o){io.observe(o.s);pauseIo.observe(o.s)});
+addEventListener('keydown',function(e){if(/INPUT|TEXTAREA|SELECT/.test((e.target||{}).tagName))return;var d=e.key==='ArrowLeft'?1:e.key==='ArrowRight'?-1:0;if(!d)return;var n=Math.max(0,Math.min(C.length-1,idx+d));if(n!==idx){frames[n].s.scrollIntoView({behavior:'smooth'})}});
+document.getElementById('chrome').onclick=function(){var h=document.documentElement,n=h.dataset.chrome==='dark'?'light':'dark';h.dataset.chrome=n;this.textContent=n==='dark'?'☀︎':'☾'};
+})();
+</script>
+</body>
+</html>

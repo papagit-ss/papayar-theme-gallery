@@ -1,0 +1,654 @@
+/* ==========================================================================
+   Theme 21: cyberdeck-hud — Samurai Cyberdeck HUD (سایبردک سامورایی)
+   - Palette & HUD Telemetry: Crimson Red (#D9383A / #C84B4B) &
+     Ice-Cyan (#5CE1E6 / #00F0FF) on dark burgundy-to-navy-black (#261015 -> #070C16),
+     top compass ruler [ · | · · S · | · · W · | · ], barcode strip, binary matrix,
+     BREACH PROTOCOL sidebar, and tactical buttons with top-right cyan triangle (◣).
+   - Box Geometry: Sci-fi chamfered/angled polygon boxes with thick
+     stepped top header banners, diagonal hazard/vent hatch stripes (////////),
+     and technical double-line corner bracket frames.
+   - Performance-Optimized: Fixed-tile background sizing, zero clipped outer
+     Gaussian shadows on polygon boxes, & compositor-only transitions for
+     instantaneous, zero-lag tab switching.
+   ========================================================================== */
+
+[data-theme="cyberdeck-hud"] {
+  --bg-deep: #0B0D16;
+  --bg-card: rgba(18, 16, 26, 0.94);
+  --bg-card-hover: rgba(26, 20, 34, 0.97);
+  --bg-input: #09131E;
+  --bg-modal: #120E18;
+  --bg-overlay: rgba(7, 10, 18, 0.85);
+  --bg-page-gradient: linear-gradient(180deg, #2D1216 0%, #1B0D13 38%, #0B111D 76%, #060B14 100%);
+  --backdrop-blur: none;
+  --tabs-bar-bg: #120E17;
+  --subchip-bg: #0D1B28;
+
+  --text-primary: #E2F8FF;
+  --text-secondary: #5CE1E6;
+  --text-muted: #C85A5A;
+  --text-input: #5CE1E6;
+  --text-on-accent: #070C14;
+  --text-brand: #5CE1E6;
+  --text-brand-accent: #FF4242;
+  --text-phone: #5CE1E6;
+
+  --primary-neon: #5CE1E6;
+  --primary-light: #99F6FF;
+  --accent-cyan: #5CE1E6;
+  --accent-purple: #E04F4F;
+  --accent-emerald: #5CE1E6;
+  --accent-crimson: #E04F4F;
+  --accent-yellow: #5CE1E6;
+  --semantic-danger: #FF4242;
+  --semantic-success: #5CE1E6;
+  --semantic-warning: #FF6B6B;
+
+  --border-subtle: rgba(200, 75, 75, 0.45);
+  --border-glow: rgba(92, 225, 230, 0.65);
+  --border-card-top: #E04F4F;
+  --border-width: 1px;
+  --border-color: #C84B4B;
+  --border-input: 1px solid #C84B4B;
+  --border-modal: 1px solid #5CE1E6;
+  --border-chip: 1px solid #C84B4B;
+  --border-subchip: 1px solid rgba(92, 225, 230, 0.45);
+
+  --radius-xs: 2px;
+  --radius-sm: 3px;
+  --radius-md: 4px;
+  --radius-lg: 4px;
+  --radius-pill: 2px;
+
+  --card-shadow: inset 0 0 18px rgba(200, 75, 75, 0.08);
+  --card-shadow-hover: inset 0 0 18px rgba(92, 225, 230, 0.16);
+  --active-card-shadow: inset 0 0 22px rgba(92, 225, 230, 0.08);
+  --btn-shadow: inset 0 0 10px rgba(92, 225, 230, 0.08);
+  --btn-shadow-hover: inset 0 0 14px rgba(92, 225, 230, 0.24);
+  --glow-pill: 0 0 8px rgba(92, 225, 230, 0.4);
+  --glow-dot: 0 0 8px #5CE1E6;
+  --modal-shadow: 0 20px 50px rgba(0, 0, 0, 0.85);
+
+  --btn-transform-hover: translate3d(-2px, 0, 0);
+  --btn-transform-active: translate3d(1px, 1px, 0);
+
+  --btn-inject-bg: #C84B4B;
+  --btn-inject-color: #080C14;
+  --btn-inject-border: 1px solid #FF6B6B;
+  --btn-scan-mass-bg: #C84B4B;
+  --btn-scan-mass-color: #080C14;
+  --btn-scan-mass-border: 1px solid #FF6B6B;
+  --btn-gofullpage-bg: #0D1B26;
+  --btn-gofullpage-color: #5CE1E6;
+  --btn-gofullpage-border: 1px solid #234B5E;
+  --btn-ai-scan-bg: #0D1B26;
+  --btn-ai-scan-color: #5CE1E6;
+  --btn-ai-scan-border: 1px solid #234B5E;
+  --btn-upload-bg: #0D1B26;
+  --btn-upload-color: #5CE1E6;
+  --btn-upload-border: 1px solid #C84B4B;
+  --btn-excel-bg: #0D1B26;
+  --btn-excel-color: #5CE1E6;
+  --btn-excel-border: 1px solid #C84B4B;
+  --excel-banner-bg: #160E16;
+  --excel-banner-color: #5CE1E6;
+  --excel-banner-border: 1px solid #C84B4B;
+
+  --v-code-box-bg: #07131E;
+  --v-code-box-border: 1px solid #5CE1E6;
+  --v-code-color: #5CE1E6;
+  --v-pill-meta-bg: rgba(200, 75, 75, 0.18);
+  --v-pill-meta-color: #FF8585;
+
+  --switcher-bg: #160D14;
+  --switcher-border: 1px solid #C84B4B;
+  --scrollbar-thumb: #C84B4B;
+  --scrollbar-thumb-hover: #5CE1E6;
+  --scrollbar-track: #090D16;
+  --scrollbar-width: 5px;
+  --scrollbar-radius: 0px;
+  --scrollbar-border: none;
+
+  --flare-display: none;
+  --active-card-topline-display: none;
+  --font-family: 'Vazirmatn', ui-monospace, Menlo, Consolas, monospace;
+  --font-mono: ui-monospace, 'Cascadia Mono', 'Courier New', monospace;
+}
+
+/* ==========================================================================
+   CYBERDECK BACKGROUND & TOP COMPASS / BARCODE TELEMETRY
+   Fixed tile heights prevent full-page gradient re-rasterization on tab switch
+   ========================================================================== */
+[data-theme="cyberdeck-hud"] body {
+  background-color: #080C14 !important;
+  background-image:
+    /* Subtle horizontal CRT/HUD scanlines (fixed 3px tile) */
+    linear-gradient(
+      180deg,
+      rgba(92, 225, 230, 0.022) 0px,
+      rgba(92, 225, 230, 0.022) 1px,
+      transparent 1px,
+      transparent 3px
+    ),
+    /* Right-edge red diagonal hazard stripe rail */
+    repeating-linear-gradient(
+      -45deg,
+      rgba(200, 75, 75, 0.18) 0px,
+      rgba(200, 75, 75, 0.18) 4px,
+      transparent 4px,
+      transparent 9px
+    ),
+    /* Top crimson atmospheric glow to deep navy-black bottom (pinned to 700px viewport) */
+    radial-gradient(circle at 50% 8%, rgba(200, 60, 60, 0.34) 0%, transparent 55%),
+    radial-gradient(circle at 75% 92%, rgba(22, 65, 92, 0.35) 0%, transparent 50%),
+    linear-gradient(180deg, #2B1216 0%, #190C11 35%, #0A101B 75%, #060A12 100%) !important;
+  background-size: 100% 3px, 8px 64px, 100% 700px, 100% 700px, 100% 700px !important;
+  background-position: 0 0, right top, 0 0, 0 0, 0 0 !important;
+  background-repeat: repeat, repeat-y, no-repeat, no-repeat, no-repeat !important;
+  color: #E2F8FF;
+  transition: none !important;
+}
+
+/* Top Compass Ruler above Header: 武士 [ · | · · S · | · · W · | · ] */
+[data-theme="cyberdeck-hud"] .popup-wrapper {
+  position: relative;
+  padding-top: 24px !important;
+}
+
+[data-theme="cyberdeck-hud"] .popup-wrapper::before {
+  content: "武士     [  ·  |  ·  ·  S  ·  |  ·  ·  W  ·  |  ·  ]     ⚙";
+  position: absolute;
+  top: 4px;
+  left: 10px;
+  right: 10px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  direction: ltr;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #C84B4B;
+  text-shadow: 0 0 6px rgba(200, 75, 75, 0.45);
+  border-bottom: 1px solid rgba(200, 75, 75, 0.35);
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   HEADER: 05 KILO MICROCYBER BATTLEDECK V02 + CYAN BARCODE + SCANNING 64%
+   ========================================================================== */
+[data-theme="cyberdeck-hud"] .app-header {
+  position: relative;
+  background: linear-gradient(180deg, rgba(38, 16, 22, 0.95) 0%, rgba(16, 14, 24, 0.95) 100%) !important;
+  border: 1px solid #C84B4B !important;
+  border-top: 3px solid #E04F4F !important;
+  padding: 10px 12px 28px 12px !important;
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+  box-shadow: inset 0 0 16px rgba(200, 75, 75, 0.1) !important;
+}
+
+/* Bottom Cyan Barcode & SCANNING ... 64% strip inside Header */
+[data-theme="cyberdeck-hud"] .app-header::after {
+  content: "05 KILO V02  |||||||||||||  SCANNING 64%";
+  white-space: nowrap;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 17px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  direction: ltr;
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+  background: linear-gradient(90deg, rgba(200, 75, 75, 0.28) 0%, rgba(92, 225, 230, 0.88) 58%, #5CE1E6 100%);
+  color: #071018;
+  border-top: 1px solid #5CE1E6;
+  pointer-events: none;
+}
+
+[data-theme="cyberdeck-hud"] .brand-title {
+  color: #5CE1E6 !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(92, 225, 230, 0.45);
+}
+
+[data-theme="cyberdeck-hud"] .brand-title .accent-text {
+  color: #FF4242 !important;
+  text-shadow: 0 0 10px rgba(255, 66, 66, 0.55);
+}
+
+[data-theme="cyberdeck-hud"] .brand-subtitle {
+  color: #D96B6B !important;
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   SCI-FI CHAMFERED BOX SYSTEM
+   Every box features:
+   - Chamfered octagonal corners
+   - A thick stepped solid top header banner (Red or Ice-Cyan)
+   - Diagonal hatch stripes (////////) along the top-right & bottom edges
+   ========================================================================== */
+[data-theme="cyberdeck-hud"] .active-account-card,
+[data-theme="cyberdeck-hud"] .section-container,
+[data-theme="cyberdeck-hud"] .voucher-card,
+[data-theme="cyberdeck-hud"] .gemini-config-card,
+[data-theme="cyberdeck-hud"] .voucher-control-card,
+[data-theme="cyberdeck-hud"] .export-box-preview {
+  position: relative;
+  background-color: rgba(16, 15, 25, 0.94) !important;
+  border: 1.5px solid #C84B4B !important;
+  border-radius: 3px !important;
+  clip-path: polygon(
+    14px 0,
+    calc(100% - 16px) 0,
+    100% 16px,
+    100% calc(100% - 14px),
+    calc(100% - 14px) 100%,
+    16px 100%,
+    0 calc(100% - 16px),
+    0 14px
+  );
+  box-shadow: inset 0 0 20px rgba(200, 75, 75, 0.08) !important;
+  overflow: hidden;
+  contain: paint;
+  transition: border-color 0.12s ease !important;
+}
+
+/* ACTIVE ACCOUNT HERO BOX: Stepped Red Header Banner + Left BREACH PROTOCOL Rail + Diagonal Hatch */
+[data-theme="cyberdeck-hud"] .active-account-card {
+  padding: 36px 14px 20px 30px !important;
+  background:
+    /* Bottom diagonal hatch stripes (////////) */
+    repeating-linear-gradient(
+      -45deg,
+      rgba(224, 79, 79, 0.55) 0px,
+      rgba(224, 79, 79, 0.55) 4px,
+      transparent 4px,
+      transparent 8px
+    ) no-repeat 18px calc(100% - 3px) / calc(100% - 36px) 5px,
+    /* Left vertical crimson BREACH PROTOCOL block */
+    linear-gradient(180deg, #C84B4B 0%, #9E3335 100%) no-repeat 0 28px / 20px calc(100% - 28px),
+    /* Subtle binary data watermark in background */
+    radial-gradient(circle at 50% 45%, rgba(92, 225, 230, 0.10) 0%, transparent 65%),
+    linear-gradient(180deg, #211017 0%, #0D131F 100%) !important;
+  border-color: #E04F4F !important;
+}
+
+/* Stepped Solid Red Top Header Bar on Active Account Card */
+[data-theme="cyberdeck-hud"] .active-account-card::before {
+  content: "⚠ ATTENTION // LINK CONNECTED" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 26px !important;
+  padding: 0 16px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  direction: ltr !important;
+  font-family: var(--font-mono) !important;
+  font-size: 9.5px !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.9px !important;
+  color: #090C14 !important;
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      #090C14 0px,
+      #090C14 3px,
+      transparent 3px,
+      transparent 6px
+    ) no-repeat calc(100% - 16px) 4px / 70px 6px,
+    linear-gradient(90deg, #FF4747 0%, #D9383A 72%, #9E2628 100%) !important;
+  clip-path: polygon(0 0, 100% 0, 100% 18px, calc(100% - 95px) 18px, calc(100% - 105px) 26px, 0 26px);
+  z-index: 2 !important;
+}
+
+/* Binary matrix & ACCESS GRANTED telemetry strip at bottom of Active Card */
+[data-theme="cyberdeck-hud"] .active-account-card::after {
+  content: "COMPLETE // ACCESS GRANTED · 01010101 01001101" !important;
+  position: absolute !important;
+  bottom: 6px !important;
+  left: 26px !important;
+  right: 14px !important;
+  height: 13px !important;
+  display: flex !important;
+  align-items: center !important;
+  direction: ltr !important;
+  font-family: var(--font-mono) !important;
+  font-size: 8px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.8px !important;
+  color: #5CE1E6 !important;
+  opacity: 0.85 !important;
+  pointer-events: none !important;
+}
+
+[data-theme="cyberdeck-hud"] .phone-display {
+  font-family: var(--font-mono) !important;
+  font-size: 22px !important;
+  font-weight: 900 !important;
+  letter-spacing: 2px !important;
+  color: #5CE1E6 !important;
+  text-shadow: 0 0 14px rgba(92, 225, 230, 0.55) !important;
+  background: rgba(9, 24, 36, 0.78);
+  border: 1px solid rgba(92, 225, 230, 0.5);
+  border-left: 5px solid #5CE1E6;
+  padding: 5px 12px;
+  margin: 6px 0;
+  direction: ltr;
+}
+
+[data-theme="cyberdeck-hud"] .active-pill {
+  background: #5CE1E6 !important;
+  color: #061018 !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 900 !important;
+  border-radius: 2px !important;
+  padding: 2px 8px !important;
+  box-shadow: 0 0 10px rgba(92, 225, 230, 0.45) !important;
+}
+
+[data-theme="cyberdeck-hud"] .service-tag {
+  background: rgba(200, 75, 75, 0.2) !important;
+  border: 1px solid #C84B4B !important;
+  color: #FF8A8A !important;
+  font-weight: 700 !important;
+}
+
+/* ==========================================================================
+   SECTION CONTAINERS: Stepped Sci-Fi Header Banners
+   ========================================================================== */
+[data-theme="cyberdeck-hud"] .section-container {
+  padding: 32px 12px 16px 12px !important;
+  background:
+    /* Bottom diagonal hatch ticks (////////) */
+    repeating-linear-gradient(
+      -45deg,
+      rgba(92, 225, 230, 0.55) 0px,
+      rgba(92, 225, 230, 0.55) 4px,
+      transparent 4px,
+      transparent 8px
+    ) no-repeat 16px calc(100% - 3px) / 95px 5px,
+    linear-gradient(180deg, rgba(11, 24, 36, 0.94) 0%, rgba(9, 15, 24, 0.96) 100%) !important;
+  border-color: #5CE1E6 !important;
+}
+
+[data-theme="cyberdeck-hud"] .section-container::before {
+  content: "CORE 1.5 // SAMURAI ARCHIVE";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 22px;
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  direction: ltr;
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  font-weight: 900;
+  letter-spacing: 0.9px;
+  color: #061018;
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      #061018 0px,
+      #061018 3px,
+      transparent 3px,
+      transparent 6px
+    ) no-repeat calc(100% - 14px) 4px / 64px 5px,
+    linear-gradient(90deg, #5CE1E6 0%, #2CB5BE 70%, #16697A 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 15px, calc(100% - 85px) 15px, calc(100% - 95px) 22px, 0 22px);
+  pointer-events: none;
+}
+
+/* Second Section (Inject Section) gets the Red `NEW SEARCH // BREACH` Stepped Header Box */
+[data-theme="cyberdeck-hud"] .inject-section {
+  border-color: #E04F4F !important;
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      rgba(224, 79, 79, 0.55) 0px,
+      rgba(224, 79, 79, 0.55) 4px,
+      transparent 4px,
+      transparent 8px
+    ) no-repeat 16px calc(100% - 3px) / 110px 5px,
+    linear-gradient(180deg, rgba(32, 14, 20, 0.94) 0%, rgba(16, 11, 18, 0.96) 100%) !important;
+}
+
+[data-theme="cyberdeck-hud"] .inject-section::before {
+  content: "BREACH // SOCKET_SYS.098";
+  color: #090C14;
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      #090C14 0px,
+      #090C14 3px,
+      transparent 3px,
+      transparent 6px
+    ) no-repeat calc(100% - 14px) 4px / 64px 5px,
+    linear-gradient(90deg, #FF4747 0%, #D9383A 70%, #9E2628 100%);
+}
+
+/* ==========================================================================
+   QUICK PROFILE & SAVED ACCOUNT CARDS (Chamfered Sci-Fi HUD Modules)
+   ========================================================================== */
+[data-theme="cyberdeck-hud"] .quick-profile-card,
+[data-theme="cyberdeck-hud"] .saved-account-card {
+  position: relative;
+  background: linear-gradient(135deg, rgba(14, 28, 40, 0.92) 0%, rgba(10, 17, 26, 0.95) 100%) !important;
+  border: 1px solid #C84B4B !important;
+  border-top: 3px solid #5CE1E6 !important;
+  border-radius: 2px !important;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  box-shadow: inset 0 0 12px rgba(92, 225, 230, 0.08) !important;
+  contain: paint;
+  transition: border-color 0.12s ease !important;
+}
+
+[data-theme="cyberdeck-hud"] #quickProfile2 {
+  border-top-color: #E04F4F !important;
+}
+
+[data-theme="cyberdeck-hud"] .profile-label,
+[data-theme="cyberdeck-hud"] .acc-primary-phone {
+  font-family: var(--font-mono) !important;
+  color: #5CE1E6 !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.6px;
+}
+
+[data-theme="cyberdeck-hud"] .avatar-glow {
+  background: rgba(200, 75, 75, 0.2) !important;
+  border: 1px solid #E04F4F !important;
+  border-radius: 2px !important;
+  color: #5CE1E6 !important;
+}
+
+/* ==========================================================================
+   TACTICAL CYBERDECK BUTTONS
+   - Dark slate-cyan interior (#0D1B26) or Tactical Red (#C84B4B)
+   - Chamfered bottom-left corner
+   - Glowing Ice-Cyan triangle marker in top-right corner (◣)
+   ========================================================================== */
+[data-theme="cyberdeck-hud"] .btn-pill,
+[data-theme="cyberdeck-hud"] .btn-activate,
+[data-theme="cyberdeck-hud"] .btn-launch-power,
+[data-theme="cyberdeck-hud"] .btn-v-copy,
+[data-theme="cyberdeck-hud"] .v-chip,
+[data-theme="cyberdeck-hud"] .theme-picker-toggle-btn,
+[data-theme="cyberdeck-hud"] .file-import-link {
+  position: relative;
+  background:
+    linear-gradient(225deg, #5CE1E6 0px, #5CE1E6 6px, transparent 6px) no-repeat top 3px right 3px / 9px 9px,
+    linear-gradient(180deg, #102332 0%, #0A1620 100%) !important;
+  color: #5CE1E6 !important;
+  border: 1px solid #C84B4B !important;
+  border-radius: 2px !important;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 7px), calc(100% - 7px) 100%, 7px 100%, 0 calc(100% - 7px));
+  font-weight: 800 !important;
+  letter-spacing: 0.4px;
+  text-shadow: 0 0 8px rgba(92, 225, 230, 0.35);
+  box-shadow: inset 0 0 10px rgba(92, 225, 230, 0.08) !important;
+  transition: transform 0.12s ease, border-color 0.12s ease !important;
+}
+
+/* Primary Action Buttons styled like the red `HACK` top button */
+[data-theme="cyberdeck-hud"] .btn-inject-neon,
+[data-theme="cyberdeck-hud"] .btn-crimson,
+[data-theme="cyberdeck-hud"] .btn-delete-acc,
+[data-theme="cyberdeck-hud"] .v-chip.active {
+  position: relative;
+  background:
+    linear-gradient(225deg, #080C14 0px, #080C14 6px, transparent 6px) no-repeat top 3px right 3px / 9px 9px,
+    linear-gradient(90deg, #E04F4F 0%, #C84B4B 100%) !important;
+  color: #080C14 !important;
+  border: 1px solid #FF7A7A !important;
+  border-radius: 2px !important;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 8px 100%, 0 calc(100% - 8px));
+  font-weight: 900 !important;
+  text-shadow: none !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
+  transition: transform 0.12s ease, border-color 0.12s ease !important;
+}
+
+[data-theme="cyberdeck-hud"] .btn-pill:hover,
+[data-theme="cyberdeck-hud"] .btn-activate:hover,
+[data-theme="cyberdeck-hud"] .btn-launch-power:hover,
+[data-theme="cyberdeck-hud"] .btn-v-copy:hover {
+  border-color: #5CE1E6 !important;
+  box-shadow: inset 0 0 12px rgba(92, 225, 230, 0.22) !important;
+}
+
+/* ==========================================================================
+   NAVIGATION TABS BAR (Tactical HUD Deck Selector)
+   ========================================================================== */
+[data-theme="cyberdeck-hud"] .nav-tabs-bar {
+  background: #120C14 !important;
+  border: 1.5px solid #C84B4B !important;
+  border-radius: 2px !important;
+  padding: 4px !important;
+  clip-path: polygon(8px 0, calc(100% - 8px) 0, 100% 8px, 100% calc(100% - 8px), calc(100% - 8px) 100%, 8px 100%, 0 calc(100% - 8px), 0 8px);
+  box-shadow: none !important;
+  transition: none !important;
+}
+
+[data-theme="cyberdeck-hud"] .nav-tab-item {
+  border-radius: 2px !important;
+  color: #C86464 !important;
+  font-weight: 800 !important;
+  border: 1px solid transparent !important;
+  transition: color 0.1s ease, border-color 0.1s ease !important;
+}
+
+[data-theme="cyberdeck-hud"] .nav-tab-item.active {
+  background:
+    linear-gradient(225deg, #5CE1E6 0px, #5CE1E6 5px, transparent 5px) no-repeat top 2px right 2px / 8px 8px,
+    linear-gradient(180deg, #132B3D 0%, #0B1924 100%) !important;
+  color: #5CE1E6 !important;
+  border: 1px solid #5CE1E6 !important;
+  box-shadow: inset 0 0 10px rgba(92, 225, 230, 0.18) !important;
+}
+
+/* ==========================================================================
+   VOUCHER CARDS (Alternating Red & Ice-Cyan Stepped Sci-Fi Boxes)
+   ========================================================================== */
+[data-theme="cyberdeck-hud"] .voucher-card {
+  padding-top: 28px !important;
+}
+
+[data-theme="cyberdeck-hud"] .voucher-card.cat-ride {
+  border-color: #5CE1E6 !important;
+}
+
+[data-theme="cyberdeck-hud"] .voucher-card.cat-ride::before {
+  content: "DATA V.09 // RIDE VOUCHER";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  direction: ltr;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: 900;
+  color: #061018;
+  background: linear-gradient(90deg, #5CE1E6 0%, #2096A2 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 13px, calc(100% - 70px) 13px, calc(100% - 78px) 20px, 0 20px);
+}
+
+[data-theme="cyberdeck-hud"] .voucher-card.cat-food {
+  border-color: #E04F4F !important;
+}
+
+[data-theme="cyberdeck-hud"] .voucher-card.cat-food::before {
+  content: "ARCHIVE // FOOD PROTOCOL 1.1";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  direction: ltr;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: 900;
+  color: #090C14;
+  background: linear-gradient(90deg, #FF4747 0%, #C84B4B 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 13px, calc(100% - 70px) 13px, calc(100% - 78px) 20px, 0 20px);
+}
+
+/* Inputs & Code Boxes */
+[data-theme="cyberdeck-hud"] .inject-textarea,
+[data-theme="cyberdeck-hud"] .voucher-search,
+[data-theme="cyberdeck-hud"] .voucher-select,
+[data-theme="cyberdeck-hud"] .v-code-box {
+  background: #07121C !important;
+  border: 1px solid #C84B4B !important;
+  border-left: 3px solid #5CE1E6 !important;
+  border-radius: 2px !important;
+  color: #5CE1E6 !important;
+  font-family: var(--font-mono) !important;
+}
+
+/* Footer: ROOT@HARADAN : ~ # Telemetry Bar */
+[data-theme="cyberdeck-hud"] .app-footer {
+  position: relative;
+  background: #100B12 !important;
+  border: 1px solid #C84B4B !important;
+  border-top: 2px solid #5CE1E6 !important;
+  padding-top: 18px !important;
+}
+
+[data-theme="cyberdeck-hud"] .app-footer::before {
+  content: "ROOT@HARADAN : ~ #   ||||| ||||||| ||| ||||||||   BUILD 52 REV 22";
+  position: absolute;
+  top: 2px;
+  left: 10px;
+  right: 10px;
+  direction: ltr;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: 800;
+  color: #5CE1E6;
+  letter-spacing: 0.7px;
+  pointer-events: none;
+}

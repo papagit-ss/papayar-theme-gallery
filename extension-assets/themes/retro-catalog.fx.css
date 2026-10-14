@@ -1,0 +1,110 @@
+/* ==========================================================================
+   themes/retro-catalog.fx.css — Exclusive Effects for Theme 17 (Retro Catalog)
+   Effects:
+   1. [ambient] لغزش شطرنجی پیکسلی (Dither) و چشمک نشانگر کاتالوگ (retro-dither-scroll)
+   2. [hover] نشانگر مثلثی پیکسلی «◀» کنار گزینه‌ها در هاور (retro-cursor-arrow)
+   3. [click] انفجار ۸ جهته ذرات پیکسلی (8-Bit Pixel Shards) و فشردگی کلید کنسول (retro-pixel-shards)
+   4. [transition] جا رفتن کارتریج و رفرش پله‌ای صفحه در تغییر تب (retro-cartridge-boot)
+   ========================================================================== */
+
+@keyframes retro-title-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0.72; }
+}
+
+@keyframes retro-cartridge-snap {
+  0% { opacity: 0; transform: translateY(-8px); }
+  50% { opacity: 0.75; transform: translateY(2px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes retro-arrow-nudge {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-3px); }
+}
+
+/* 8-Directional Stepped Pixel Particle Explosion (Zero Text Box) */
+@keyframes retro-pixel-particles {
+  0% {
+    opacity: 1;
+    box-shadow:
+      0 -6px 0 #222116, 0 6px 0 #222116, -6px 0 0 #222116, 6px 0 0 #222116,
+      -4px -4px 0 #6b6b53, 4px -4px 0 #6b6b53, -4px 4px 0 #6b6b53, 4px 4px 0 #6b6b53;
+  }
+  50% {
+    opacity: 1;
+    box-shadow:
+      0 -22px 0 #222116, 0 22px 0 #222116, -22px 0 0 #222116, 22px 0 0 #222116,
+      -16px -16px 0 #d6d5bd, 16px -16px 0 #d6d5bd, -16px 16px 0 #d6d5bd, 16px 16px 0 #d6d5bd,
+      -16px -16px 0 1.5px #222116, 16px -16px 0 1.5px #222116, -16px 16px 0 1.5px #222116, 16px 16px 0 1.5px #222116;
+  }
+  100% {
+    opacity: 0;
+    box-shadow:
+      0 -36px 0 #222116, 0 36px 0 #222116, -36px 0 0 #222116, 36px 0 0 #222116,
+      -26px -26px 0 #6b6b53, 26px -26px 0 #6b6b53, -26px 26px 0 #6b6b53, 26px 26px 0 #6b6b53;
+  }
+}
+
+@keyframes retro-dpad-press {
+  0% { transform: translate(0, 0); }
+  25%, 65% {
+    transform: translate(2.5px, 2.5px);
+    box-shadow: inset 2px 2px 0 #222116, inset -1px -1px 0 #d6d5bd !important;
+  }
+  100% { transform: translate(0, 0); }
+}
+
+/* 1. Ambient: Pixel Console Scanline & Cartridge Header Pulse */
+html[data-theme="retro-catalog"][data-fx="full"]:not([data-motion="reduced"]) .active-account-card::before {
+  animation: retro-title-blink 2.4s steps(2, end) infinite;
+}
+
+html[data-theme="retro-catalog"][data-fx="full"]:not([data-motion="reduced"]) .fx-layer .fx-ambient-a {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 6px;
+  background: repeating-conic-gradient(#222116 0% 25%, #acac91 0% 50%) 0 0 / 4px 4px;
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 60;
+}
+
+/* 2. Hover: Stepped Pixel Triangle Cursor Indicator on Cards & Buttons */
+html[data-theme="retro-catalog"]:not([data-fx="off"]):not([data-motion="reduced"]) .saved-account-card:hover .acc-primary-phone::before {
+  content: "◀ ";
+  display: inline-block;
+  animation: retro-arrow-nudge 0.45s steps(2, end) infinite;
+}
+
+html[data-theme="retro-catalog"]:not([data-fx="off"]):not([data-motion="reduced"]) .btn-pill:hover,
+html[data-theme="retro-catalog"]:not([data-fx="off"]):not([data-motion="reduced"]) .btn-inject-neon:hover {
+  transition: transform 0.08s steps(2, end), box-shadow 0.08s steps(2, end);
+}
+
+/* 3. Click: Tactile D-Pad Button Depression + 8-Way Pixel Shard Burst */
+html[data-theme="retro-catalog"]:not([data-fx="off"]):not([data-motion="reduced"]) button.is-fx-clicked {
+  animation: retro-dpad-press 0.28s steps(2, end);
+}
+
+html[data-theme="retro-catalog"]:not([data-fx="off"]):not([data-motion="reduced"]) .fx-click-burst.is-bursting {
+  position: fixed;
+  left: var(--burst-x, 175px);
+  top: var(--burst-y, 350px);
+  width: 6px;
+  height: 6px;
+  margin-left: -3px;
+  margin-top: -3px;
+  background: #d6d5bd;
+  border: 1.5px solid #222116;
+  pointer-events: none;
+  z-index: 9999;
+  animation: retro-pixel-particles 0.42s steps(4, end) forwards;
+}
+
+/* 4. Transition: Stepped Cartridge Snap on Tab Change */
+html[data-theme="retro-catalog"]:not([data-fx="off"]):not([data-motion="reduced"]) .tab-page.active {
+  animation: retro-cartridge-snap 0.18s steps(3, end) both;
+}

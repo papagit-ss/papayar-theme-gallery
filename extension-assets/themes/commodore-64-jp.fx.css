@@ -1,0 +1,63 @@
+/* ==========================================================================
+   Theme 31 FX: commodore-64-jp.fx.css — C64 Keycap Clack & Rainbow Sweep
+   ========================================================================== */
+
+[data-theme="commodore-64-jp"] .fx-layer {
+  position: fixed;
+  inset: 0;
+  max-width: 350px;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  contain: strict;
+}
+
+html[data-theme="commodore-64-jp"]:not([data-fx="off"]) .fx-cursor-follower {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 140px;
+  height: 140px;
+  transform: translate3d(calc(var(--fx-mx, 175px) - 70px), calc(var(--fx-my, 220px) - 70px), 0);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232, 207, 160, 0.14) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+html[data-theme="commodore-64-jp"]:not([data-fx="off"]) .is-fx-clicked {
+  animation: c64-key-press 160ms ease-out !important;
+}
+
+@keyframes c64-key-press {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(3px); }
+  100% { transform: translateY(0); }
+}
+
+html[data-theme="commodore-64-jp"]:not([data-fx="off"]) .fx-click-burst.is-bursting {
+  position: fixed;
+  left: var(--burst-x, 175px);
+  top: var(--burst-y, 220px);
+  width: 72px;
+  height: 72px;
+  border: 2px solid #F5B81C;
+  box-shadow: 0 0 0 3px #0A74B8;
+  pointer-events: none;
+  z-index: 999;
+  animation: c64-burst 320ms ease-out forwards;
+}
+
+@keyframes c64-burst {
+  0% { transform: translate3d(-50%, -50%, 0) scale(0.2); opacity: 1; }
+  100% { transform: translate3d(-50%, -50%, 0) scale(1); opacity: 0; }
+}
+
+html[data-theme="commodore-64-jp"]:not([data-fx="off"]) .tab-page.active {
+  animation: c64-tab-load 180ms steps(4) both !important;
+}
+
+@keyframes c64-tab-load {
+  0% { opacity: 0; transform: translate3d(0, 4px, 0); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0); }
+}

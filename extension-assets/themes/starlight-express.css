@@ -1,0 +1,280 @@
+/* ==========================================================================
+   Theme 33: starlight-express — 1984 Starlight Express Synthwave Laser Star
+   Complete Ground-Up Sculpted Redesign (Reference: image_67b1fe.png):
+   - Top Speed Pill (.popup-wrapper::before): "★ STARLIGHT EXPRESS // VOCAL SELECTIONS 1984 ★"
+   - Deep Starry Cosmos to Electric Stage-Horizon Azure Gradient (#050916 -> #1D8CF8)
+   - Dedicated 3D Extruded Neon-Ribbed Laser Screen (.phone-display) with
+     Diagonal Cyan-White Laser Beam & Coral-Magenta (#FF3B6B) 3D Drop Shadow
+     (Zero text collision!)
+   ========================================================================== */
+
+[data-theme="starlight-express"] {
+  --bg-deep: #06102A;
+  --bg-card: rgba(9, 24, 58, 0.92);
+  --bg-card-hover: rgba(14, 36, 82, 0.96);
+  --bg-input: #050C20;
+  --bg-modal: #09183A;
+  --bg-overlay: rgba(4, 8, 20, 0.88);
+  --bg-page-gradient:
+    radial-gradient(circle at 84% 10%, #FFFFFF 0px, rgba(92, 225, 255, 0.55) 3px, transparent 16px),
+    radial-gradient(circle at 18% 22%, #FFFFFF 0px, rgba(92, 225, 255, 0.45) 2px, transparent 12px),
+    linear-gradient(180deg, #050914 0%, #091D47 38%, #0E4DA4 74%, #1E88E5 100%);
+  --backdrop-blur: blur(8px);
+  --tabs-bar-bg: rgba(7, 18, 44, 0.94);
+  --subchip-bg: rgba(14, 36, 82, 0.92);
+
+  --text-primary: #FFFFFF;
+  --text-secondary: #C8F0FF;
+  --text-muted: #8AD8FF;
+  --text-input: #FFFFFF;
+  --text-on-accent: #050914;
+  --text-brand: #FFFFFF;
+  --text-brand-accent: #5CE1FF;
+  --text-phone: #FFFFFF;
+
+  --primary-neon: #5CE1FF;
+  --primary-light: #A6F0FF;
+  --accent-cyan: #5CE1FF;
+  --accent-purple: #FF3B6B;
+  --accent-emerald: #34D399;
+  --accent-crimson: #FF3B6B;
+  --accent-yellow: #FDE047;
+  --semantic-danger: #FF3B6B;
+  --semantic-success: #5CE1FF;
+  --semantic-warning: #FDE047;
+
+  --border-subtle: #5CE1FF;
+  --border-glow: #FF3B6B;
+  --border-card-top: #FFFFFF;
+  --border-width: 2px;
+  --border-color: #5CE1FF;
+  --border-input: 2px solid #5CE1FF;
+  --border-modal: 2px solid #FF3B6B;
+  --border-chip: 1.5px solid #5CE1FF;
+  --border-subchip: 1.5px solid #FF3B6B;
+
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-pill: 999px;
+
+  --card-shadow:
+    -3px 3px 0 #FF3B6B,
+    0 10px 26px rgba(4, 10, 28, 0.75),
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.45);
+  --card-shadow-hover:
+    -4px 4px 0 #FF3B6B,
+    0 0 20px rgba(92, 225, 255, 0.55),
+    inset 0 1.5px 0 #FFFFFF;
+  --active-card-shadow: var(--card-shadow-hover);
+  --btn-shadow: -2.5px 2.5px 0 #FF3B6B, 0 4px 12px rgba(4, 10, 28, 0.55);
+  --btn-shadow-hover: -3.5px 3.5px 0 #FF3B6B, 0 6px 18px rgba(92, 225, 255, 0.65);
+  --modal-shadow: 0 22px 48px rgba(0, 0, 0, 0.9);
+  --glow-pill: 0 0 14px rgba(92, 225, 255, 0.65);
+  --glow-dot: 0 0 10px #5CE1FF, 0 0 4px #FFFFFF;
+
+  --btn-transform-hover: translateY(-1px);
+  --btn-transform-active: translateY(1px);
+
+  --btn-inject-bg: linear-gradient(135deg, #5CE1FF 0%, #1D8CF8 55%, #FF3B6B 100%);
+  --btn-inject-color: #FFFFFF;
+  --btn-inject-border: 2px solid #FFFFFF;
+  --btn-scan-mass-bg: linear-gradient(135deg, #5CE1FF 0%, #1D8CF8 55%, #FF3B6B 100%);
+  --btn-scan-mass-color: #FFFFFF;
+  --btn-scan-mass-border: 2px solid #FFFFFF;
+  --btn-gofullpage-bg: #0D2252;
+  --btn-gofullpage-color: #FFFFFF;
+  --btn-gofullpage-border: 2px solid #FF3B6B;
+  --btn-ai-scan-bg: #0D2252;
+  --btn-ai-scan-color: #5CE1FF;
+  --btn-ai-scan-border: 2px solid #5CE1FF;
+  --btn-upload-bg: #0D2252;
+  --btn-upload-color: #FFFFFF;
+  --btn-upload-border: 2px solid #5CE1FF;
+  --btn-excel-bg: #5CE1FF;
+  --btn-excel-color: #050914;
+  --btn-excel-border: 2px solid #FFFFFF;
+  --excel-banner-bg: #09183A;
+  --excel-banner-color: #5CE1FF;
+  --excel-banner-border: 2px solid #FF3B6B;
+
+  --v-code-box-bg: #050C20;
+  --v-code-box-border: 2px solid #FF3B6B;
+  --v-code-color: #5CE1FF;
+  --v-pill-meta-bg: rgba(92, 225, 255, 0.18);
+  --v-pill-meta-color: #FFFFFF;
+
+  --switcher-bg: #09183A;
+  --switcher-border: 1.5px solid #5CE1FF;
+  --scrollbar-thumb: #5CE1FF;
+  --scrollbar-thumb-hover: #FF3B6B;
+  --scrollbar-track: #050914;
+  --scrollbar-width: 5px;
+  --scrollbar-radius: 999px;
+  --scrollbar-border: none;
+
+  --flare-display: block;
+  --active-card-topline-display: none;
+  --font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "SF Mono", ui-monospace, monospace;
+}
+
+[data-theme="starlight-express"] body {
+  background-color: #06102A !important;
+  background-image:
+    radial-gradient(circle at 84% 10%, #FFFFFF 0px, rgba(92, 225, 255, 0.55) 3px, transparent 16px),
+    radial-gradient(circle at 18% 22%, #FFFFFF 0px, rgba(92, 225, 255, 0.45) 2px, transparent 12px),
+    linear-gradient(180deg, #050914 0%, #091D47 38%, #0E4DA4 74%, #1E88E5 100%) !important;
+  background-attachment: fixed !important;
+  color: #FFFFFF;
+}
+
+/* Top Pill Banner: ★ STARLIGHT EXPRESS // VOCAL SELECTIONS 1984 ★ */
+[data-theme="starlight-express"] .popup-wrapper {
+  position: relative;
+  padding-top: 28px !important;
+}
+
+[data-theme="starlight-express"] .popup-wrapper::before {
+  content: "★  STARLIGHT EXPRESS  //  VOCAL SELECTIONS 1984  ★";
+  position: absolute;
+  top: 5px;
+  inset-inline: 12px;
+  height: 19px;
+  background: linear-gradient(90deg, #091D47 0%, #1D4ED8 50%, #FF3B6B 100%);
+  color: #FFFFFF;
+  border: 1.5px solid #5CE1FF;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-style: italic;
+  font-size: 8.5px;
+  font-weight: 900;
+  letter-spacing: 0.8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  direction: ltr;
+  box-shadow: -2px 2px 0 #FF3B6B;
+}
+
+[data-theme="starlight-express"] .app-header,
+[data-theme="starlight-express"] .active-account-card,
+[data-theme="starlight-express"] .section-container,
+[data-theme="starlight-express"] .app-footer {
+  background: linear-gradient(155deg, rgba(8, 22, 56, 0.94) 0%, rgba(16, 46, 104, 0.92) 100%) !important;
+  border: 2px solid #5CE1FF !important;
+  border-radius: 16px !important;
+  box-shadow: var(--card-shadow) !important;
+}
+
+[data-theme="starlight-express"] .section-container {
+  padding: 12px !important;
+}
+
+[data-theme="starlight-express"] .active-account-card::before {
+  display: none !important;
+}
+
+[data-theme="starlight-express"] .brand-title {
+  font-style: italic !important;
+  text-shadow: -2px 2px 0 #FF3B6B, 0 0 12px #5CE1FF !important;
+}
+
+/* Dedicated 3D Extruded Laser Star Viewport for the Phone Number */
+[data-theme="starlight-express"] .phone-display {
+  position: relative;
+  background:
+    linear-gradient(-25deg, transparent 38%, rgba(92, 225, 255, 0.25) 48%, rgba(255, 255, 255, 0.45) 50%, rgba(255, 59, 107, 0.25) 52%, transparent 62%),
+    linear-gradient(180deg, #040814 0%, #0A1E4A 100%) !important;
+  color: #FFFFFF !important;
+  border: 2px solid #FFFFFF !important;
+  outline: 2px solid #5CE1FF !important;
+  border-radius: 12px !important;
+  padding: 10px 14px !important;
+  margin-block: 8px !important;
+  font-family: var(--font-mono) !important;
+  font-style: italic !important;
+  font-size: 23px !important;
+  font-weight: 900 !important;
+  letter-spacing: 2px !important;
+  text-shadow: -2.5px 2.5px 0 #FF3B6B, 0 0 14px #5CE1FF !important;
+  box-shadow: -3px 3px 0 #FF3B6B, inset 0 0 16px rgba(92, 225, 255, 0.35) !important;
+}
+
+[data-theme="starlight-express"] .quick-profile-card,
+[data-theme="starlight-express"] .saved-account-card {
+  background: linear-gradient(160deg, #0B1E4A 0%, #07122E 100%) !important;
+  border: 1.5px solid #5CE1FF !important;
+  border-radius: 12px !important;
+  box-shadow: -2.5px 2.5px 0 #FF3B6B !important;
+}
+
+[data-theme="starlight-express"] .avatar-glow {
+  background: linear-gradient(135deg, #FF3B6B 0%, #1D8CF8 100%) !important;
+  color: #FFFFFF !important;
+  border: 2px solid #FFFFFF !important;
+  box-shadow: 0 0 12px rgba(92, 225, 255, 0.55) !important;
+}
+
+[data-theme="starlight-express"] .nav-tabs-bar {
+  background: #06122E !important;
+  border: 2px solid #5CE1FF !important;
+  border-radius: 999px !important;
+  padding: 4px !important;
+  box-shadow: -3px 3px 0 #FF3B6B !important;
+}
+
+[data-theme="starlight-express"] .nav-tab-item {
+  border-radius: 999px !important;
+  color: #C8F0FF !important;
+  font-weight: 800 !important;
+  font-style: italic !important;
+}
+
+[data-theme="starlight-express"] .nav-tab-item.active {
+  background: linear-gradient(135deg, #FF3B6B 0%, #A855F7 50%, #1D8CF8 100%) !important;
+  color: #FFFFFF !important;
+  border: 1.5px solid #FFFFFF !important;
+  font-weight: 900 !important;
+  box-shadow: 0 0 14px rgba(92, 225, 255, 0.65) !important;
+}
+
+[data-theme="starlight-express"] .nav-tab-item.active::after {
+  display: none !important;
+}
+
+[data-theme="starlight-express"] .btn-cyan,
+[data-theme="starlight-express"] .btn-inject-neon,
+[data-theme="starlight-express"] .btn-activate,
+[data-theme="starlight-express"] .btn-v-copy {
+  background: linear-gradient(180deg, #7CE8FF 0%, #2492F2 60%, #0E58B8 100%) !important;
+  color: #FFFFFF !important;
+  border: 2px solid #FFFFFF !important;
+  border-radius: 999px !important;
+  font-weight: 900 !important;
+  text-shadow: 0 1px 2px #050914 !important;
+  box-shadow: var(--btn-shadow) !important;
+}
+
+[data-theme="starlight-express"] .btn-crimson,
+[data-theme="starlight-express"] .btn-delete-acc {
+  background: linear-gradient(180deg, #FF5C85 0%, #D91B52 100%) !important;
+  color: #FFFFFF !important;
+  border: 2px solid #FFFFFF !important;
+  border-radius: 999px !important;
+  box-shadow: -2px 2px 0 #050914 !important;
+}
+
+[data-theme="starlight-express"] .btn-neon-green,
+[data-theme="starlight-express"] .btn-launch-power,
+[data-theme="starlight-express"] .status-indicator-box,
+[data-theme="starlight-express"] .service-tag {
+  background: #0B1E4A !important;
+  color: #5CE1FF !important;
+  border: 1.5px solid #5CE1FF !important;
+  border-radius: 999px !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="starlight-express"] .status-indicator-box, [data-theme="starlight-express"] .service-tag { padding: 3px 10px !important; }

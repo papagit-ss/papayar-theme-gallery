@@ -1,0 +1,259 @@
+/* ==========================================================================
+   Theme: marantz-hifi-70s — آمپلی‌فایر کلاسیک ۷۰ (70s Silver & Walnut Hi-Fi)
+   - American Walnut Woodgrain Cabinet Side-Cheeks (border-inline: 5px solid #5C3317)
+   - Brushed Champagne-Silver Aluminum Faceplates (#E8E4D8 -> #CFCAB8)
+   - Backlit Warm-Amber & Gyro-Blue Analog VU Meter Window (.phone-display)
+     with dB Scale (-20 -10 -3 0 +3 dB) & Red Peak Needle!
+   ========================================================================== */
+
+[data-theme="marantz-hifi-70s"] {
+  --bg-deep: #2B1B10;
+  --bg-card: #E6E2D6;
+  --bg-card-hover: #F2EFE6;
+  --bg-input: #141C24;
+  --bg-modal: #E6E2D6;
+  --bg-overlay: rgba(24, 15, 8, 0.82);
+  --bg-page-gradient: linear-gradient(90deg, #3D2312 0%, #5C361C 6%, #24160C 6%, #24160C 94%, #5C361C 94%, #3D2312 100%);
+  --backdrop-blur: none;
+  --tabs-bar-bg: #D8D3C4;
+  --subchip-bg: #CFCAB8;
+
+  --text-primary: #1C1917;
+  --text-secondary: #332E2A;
+  --text-muted: #4E4740;
+  --text-input: #38BDF8;
+  --text-on-accent: #FFFFFF;
+  --text-brand: #1C1917;
+  --text-brand-accent: #0284C7;
+  --text-phone: #1C1917;
+
+  --primary-neon: #0284C7;
+  --primary-light: #38BDF8;
+  --accent-cyan: #0284C7;
+  --accent-purple: #B45309;
+  --accent-emerald: #047857;
+  --accent-crimson: #B91C1C;
+  --accent-yellow: #D97706;
+  --semantic-danger: #B91C1C;
+  --semantic-success: #047857;
+  --semantic-warning: #B45309;
+
+  --border-subtle: #8C8574;
+  --border-glow: #38BDF8;
+  --border-card-top: #FFFFFF;
+  --border-width: 2px;
+  --border-color: #6E6758;
+  --border-input: 2px solid #4E4740;
+  --border-modal: 3px solid #5C3317;
+  --border-chip: 1.5px solid #6E6758;
+  --border-subchip: 1px solid #8C8574;
+
+  --radius-xs: 3px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-pill: 4px;
+
+  --card-shadow:
+    0 6px 16px rgba(0, 0, 0, 0.6),
+    inset 0 1.5px 0 #FFFFFF,
+    inset 0 -2px 0 #B5AFA0;
+  --card-shadow-hover:
+    0 8px 20px rgba(0, 0, 0, 0.7),
+    inset 0 1.5px 0 #FFFFFF;
+  --active-card-shadow: var(--card-shadow);
+  --btn-shadow: 0 3px 0 #575246, inset 0 1.5px 0 #FFFFFF;
+  --btn-shadow-hover: 0 4px 0 #575246, inset 0 1.5px 0 #FFFFFF;
+  --modal-shadow: 0 22px 48px rgba(0, 0, 0, 0.88);
+  --glow-pill: none;
+  --glow-dot: 0 0 8px #F59E0B;
+
+  --btn-transform-hover: translateY(-1px);
+  --btn-transform-active: translateY(2px);
+
+  --btn-inject-bg: linear-gradient(180deg, #F5F3EC 0%, #D4CFC0 55%, #B8B2A2 100%);
+  --btn-inject-color: #1C1917;
+  --btn-inject-border: 1.5px solid #575246;
+  --btn-scan-mass-bg: linear-gradient(180deg, #F5F3EC 0%, #D4CFC0 55%, #B8B2A2 100%);
+  --btn-scan-mass-color: #1C1917;
+  --btn-scan-mass-border: 1.5px solid #575246;
+  --btn-gofullpage-bg: #141C24;
+  --btn-gofullpage-color: #38BDF8;
+  --btn-gofullpage-border: 1.5px solid #575246;
+  --btn-ai-scan-bg: #F5F3EC;
+  --btn-ai-scan-color: #1C1917;
+  --btn-ai-scan-border: 1.5px solid #575246;
+  --btn-upload-bg: #F5F3EC;
+  --btn-upload-color: #1C1917;
+  --btn-upload-border: 1.5px solid #575246;
+  --btn-excel-bg: #141C24;
+  --btn-excel-color: #FBBF24;
+  --btn-excel-border: 1.5px solid #575246;
+  --excel-banner-bg: #141C24;
+  --excel-banner-color: #38BDF8;
+  --excel-banner-border: 1.5px solid #0284C7;
+
+  --v-code-box-bg: #141C24;
+  --v-code-box-border: 2px solid #575246;
+  --v-code-color: #38BDF8;
+  --v-pill-meta-bg: #D8D3C4;
+  --v-pill-meta-color: #1C1917;
+
+  --switcher-bg: #D8D3C4;
+  --switcher-border: 1.5px solid #575246;
+  --scrollbar-thumb: #8C8574;
+  --scrollbar-thumb-hover: #5C3317;
+  --scrollbar-track: #24160C;
+  --scrollbar-width: 5px;
+  --scrollbar-radius: 0px;
+  --scrollbar-border: none;
+
+  --flare-display: none;
+  --active-card-topline-display: none;
+  --font-family: 'Vazirmatn', "Eurostile", "Arial Narrow", sans-serif;
+  --font-mono: "Courier New", ui-monospace, monospace;
+
+  /* Analog VU Meter Arc & Red Needle SVG */
+  --vu-meter-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='70' viewBox='0 0 280 70'%3E%3Cpath d='M30 58 Q140 12 250 58' fill='none' stroke='%2338BDF8' stroke-width='1.5' stroke-opacity='0.45'/%3E%3Cpath d='M195 36 Q225 44 250 58' fill='none' stroke='%23EF4444' stroke-width='2.5' stroke-opacity='0.65'/%3E%3Cline x1='140' y1='68' x2='198' y2='18' stroke='%23F59E0B' stroke-width='2' stroke-opacity='0.65'/%3E%3C/svg%3E");
+}
+
+[data-theme="marantz-hifi-70s"] body {
+  background-color: #24160C !important;
+  color: #1C1917;
+}
+
+[data-theme="marantz-hifi-70s"] .popup-wrapper {
+  position: relative;
+  padding-top: 28px !important;
+}
+
+[data-theme="marantz-hifi-70s"] .popup-wrapper::before {
+  content: "⊕  STEREOPHONIC HI-FI RECEIVER  //  MODEL 2270  ⊕";
+  position: absolute;
+  top: 5px;
+  inset-inline: 12px;
+  height: 19px;
+  background: linear-gradient(90deg, #5C3317 0%, #7C4722 50%, #5C3317 100%);
+  color: #FDE68A;
+  border: 1.5px solid #B48A5A;
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  font-weight: 800;
+  letter-spacing: 0.9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  direction: ltr;
+}
+
+/* Brushed Champagne-Silver Aluminum Faceplate Cards with Walnut Side-Cheeks */
+[data-theme="marantz-hifi-70s"] .app-header,
+[data-theme="marantz-hifi-70s"] .active-account-card,
+[data-theme="marantz-hifi-70s"] .section-container,
+[data-theme="marantz-hifi-70s"] .app-footer {
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.18) 0px, rgba(255, 255, 255, 0.18) 1px, transparent 1px, transparent 3px),
+    linear-gradient(180deg, #EFECE2 0%, #DFDBD0 50%, #CFCAB8 100%) !important;
+  border-block: 2px solid #6E6758 !important;
+  border-inline: 6px solid #5C3317 !important;
+  box-shadow: var(--card-shadow) !important;
+}
+
+[data-theme="marantz-hifi-70s"] .section-container {
+  padding: 12px !important;
+}
+
+[data-theme="marantz-hifi-70s"] .active-account-card::before {
+  display: none !important;
+}
+
+/* Glowing Gyro-Blue & Warm Amber Analog VU-Meter Window for Phone Display */
+[data-theme="marantz-hifi-70s"] .phone-display {
+  background-color: #0C1520 !important;
+  background-image:
+    var(--vu-meter-svg),
+    radial-gradient(ellipse at 50% 80%, rgba(245, 158, 11, 0.22) 0%, rgba(2, 132, 199, 0.25) 55%, #091018 100%) !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  color: #7DD3FC !important;
+  border: 3px solid #332E2A !important;
+  outline: 1.5px solid #FFFFFF !important;
+  padding: 12px 14px !important;
+  margin-block: 8px !important;
+  font-family: var(--font-mono) !important;
+  font-size: 22px !important;
+  font-weight: 900 !important;
+  letter-spacing: 2px !important;
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.65) !important;
+  box-shadow: inset 0 4px 12px rgba(0, 0, 0, 0.85) !important;
+}
+
+[data-theme="marantz-hifi-70s"] .quick-profile-card,
+[data-theme="marantz-hifi-70s"] .saved-account-card {
+  background: linear-gradient(180deg, #F7F5EE 0%, #E5E0D2 100%) !important;
+  border: 1.5px solid #6E6758 !important;
+  box-shadow: 0 3px 0 #6E6758, inset 0 1px 0 #FFFFFF !important;
+}
+
+[data-theme="marantz-hifi-70s"] .avatar-glow {
+  background: #141C24 !important;
+  color: #38BDF8 !important;
+  border: 2px solid #575246 !important;
+}
+
+[data-theme="marantz-hifi-70s"] .nav-tabs-bar {
+  background: #141C24 !important;
+  border-block: 2px solid #6E6758 !important;
+  border-inline: 6px solid #5C3317 !important;
+  padding: 4px !important;
+}
+
+[data-theme="marantz-hifi-70s"] .nav-tab-item {
+  color: #7DD3FC !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="marantz-hifi-70s"] .nav-tab-item.active {
+  background: linear-gradient(180deg, #F5F3EC 0%, #CFCAB8 100%) !important;
+  color: #1C1917 !important;
+  border: 1px solid #FFFFFF !important;
+  font-weight: 900 !important;
+  box-shadow: 0 2px 0 #000000 !important;
+}
+
+[data-theme="marantz-hifi-70s"] .nav-tab-item.active::after {
+  display: none !important;
+}
+
+/* Machined Aluminum Toggle Buttons */
+[data-theme="marantz-hifi-70s"] .btn-cyan,
+[data-theme="marantz-hifi-70s"] .btn-inject-neon,
+[data-theme="marantz-hifi-70s"] .btn-activate,
+[data-theme="marantz-hifi-70s"] .btn-v-copy {
+  background: linear-gradient(180deg, #FFFFFF 0%, #D8D3C4 55%, #B8B2A0 100%) !important;
+  color: #1C1917 !important;
+  border: 1.5px solid #4E4740 !important;
+  font-weight: 900 !important;
+  box-shadow: 0 3px 0 #4E4740, inset 0 1.5px 0 #FFFFFF !important;
+}
+
+[data-theme="marantz-hifi-70s"] .btn-crimson,
+[data-theme="marantz-hifi-70s"] .btn-delete-acc {
+  background: linear-gradient(180deg, #FEE2E2 0%, #FCA5A5 100%) !important;
+  color: #7F1D1D !important;
+  border: 1.5px solid #7F1D1D !important;
+  box-shadow: 0 3px 0 #4E4740 !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="marantz-hifi-70s"] .btn-neon-green,
+[data-theme="marantz-hifi-70s"] .btn-launch-power,
+[data-theme="marantz-hifi-70s"] .status-indicator-box,
+[data-theme="marantz-hifi-70s"] .status-indicator-box .status-text,
+[data-theme="marantz-hifi-70s"] .service-tag {
+  background: #141C24 !important;
+  color: #FBBF24 !important;
+  border: 1.5px solid #575246 !important;
+  padding: 3px 10px !important;
+  font-weight: 800 !important;
+}

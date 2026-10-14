@@ -1,0 +1,169 @@
+/* ==========================================================================
+   Theme 20 FX: liquid-glass.fx.css — Light Pastel Liquid Glass Effects
+   1. Ambient: Soft pastel lavender, sky, and mint radial blobs gently drifting
+      behind the translucent white glass cards.
+   2. Hover: Soft indigo/white meniscus reflection following the pointer.
+   3. Click: Subtle press (scale 0.98) & soft indigo optical ripple ring.
+   4. Tab Switch: Smooth 180ms ease-out tab arrival & reduced-motion support.
+   ========================================================================== */
+
+[data-theme="liquid-glass"] .fx-layer {
+  position: fixed;
+  inset: 0;
+  max-width: 350px;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  contain: strict;
+}
+
+/* 1. AMBIENT: Soft Pastel Mesh Blobs (Lavender, Sky, Mint) */
+html[data-theme="liquid-glass"][data-fx="full"] .fx-ambient-a,
+html[data-theme="liquid-glass"][data-fx="full"] .fx-ambient-b,
+html[data-theme="liquid-glass"][data-fx="full"] .fx-ambient-c {
+  position: absolute;
+  border-radius: 50%;
+  will-change: transform;
+}
+
+html[data-theme="liquid-glass"][data-fx="full"] .fx-ambient-a {
+  width: 220px;
+  height: 220px;
+  top: 2%;
+  inset-inline-start: -8%;
+  background: radial-gradient(
+    circle,
+    var(--lg-blob-lavender-core) 0%,
+    var(--lg-blob-lavender) 55%,
+    transparent 76%
+  );
+  animation: lg-pastel-blob-a 14s ease-in-out infinite alternate;
+}
+
+html[data-theme="liquid-glass"][data-fx="full"] .fx-ambient-b {
+  width: 230px;
+  height: 230px;
+  top: 32%;
+  inset-inline-end: -10%;
+  background: radial-gradient(
+    circle,
+    var(--lg-blob-sky-core) 0%,
+    var(--lg-blob-sky) 55%,
+    transparent 76%
+  );
+  animation: lg-pastel-blob-b 16s ease-in-out infinite alternate;
+}
+
+html[data-theme="liquid-glass"][data-fx="full"] .fx-ambient-c {
+  width: 220px;
+  height: 220px;
+  bottom: 4%;
+  inset-inline-start: 10%;
+  background: radial-gradient(
+    circle,
+    var(--lg-blob-mint-core) 0%,
+    var(--lg-blob-blush) 55%,
+    transparent 76%
+  );
+  animation: lg-pastel-blob-c 15s ease-in-out infinite alternate;
+}
+
+@keyframes lg-pastel-blob-a {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(-32px, 24px, 0) scale(1.08); }
+}
+
+@keyframes lg-pastel-blob-b {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(30px, 32px, 0) scale(1.08); }
+}
+
+@keyframes lg-pastel-blob-c {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(-24px, -28px, 0) scale(1.08); }
+}
+
+/* 2. HOVER: Soft White & Indigo Specular Highlight Following Pointer */
+html[data-theme="liquid-glass"]:not([data-fx="off"]) .fx-cursor-follower {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 190px;
+  height: 190px;
+  transform: translate3d(calc(var(--fx-mx, 175px) - 95px), calc(var(--fx-my, 220px) - 95px), 0);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(99, 102, 241, 0.08) 45%,
+    transparent 70%
+  );
+  will-change: transform;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* 3. CLICK: Subtle Press Animation & Soft Indigo Optical Ripple */
+html[data-theme="liquid-glass"]:not([data-fx="off"]) .is-fx-clicked {
+  animation: lg-press-bounce 180ms ease-out !important;
+}
+
+@keyframes lg-press-bounce {
+  0% { transform: scale(1); }
+  45% { transform: scale(0.98); }
+  100% { transform: scale(1); }
+}
+
+html[data-theme="liquid-glass"]:not([data-fx="off"]) .fx-click-burst.is-bursting {
+  position: fixed;
+  left: var(--burst-x, 175px);
+  top: var(--burst-y, 220px);
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  border: 1.5px solid var(--lg-border-accent-strong);
+  box-shadow:
+    0 0 14px rgba(99, 102, 241, 0.22),
+    inset 0 0 10px rgba(255, 255, 255, 0.85);
+  pointer-events: none;
+  z-index: 999;
+  will-change: transform, opacity;
+  animation: lg-ripple-ring 360ms ease-out forwards;
+}
+
+@keyframes lg-ripple-ring {
+  0% {
+    transform: translate3d(-50%, -50%, 0) scale(0.2);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate3d(-50%, -50%, 0) scale(1);
+    opacity: 0;
+  }
+}
+
+/* 4. TAB TRANSITION & REDUCED MOTION */
+html[data-theme="liquid-glass"]:not([data-fx="off"]) .tab-page.active {
+  animation: lg-tab-arrive 180ms ease-out both !important;
+}
+
+@keyframes lg-tab-arrive {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 4px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-theme="liquid-glass"] *,
+  html[data-theme="liquid-glass"] *::before,
+  html[data-theme="liquid-glass"] *::after {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}

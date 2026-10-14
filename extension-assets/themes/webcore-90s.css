@@ -1,0 +1,419 @@
+/* ==========================================================================
+   Theme 23: webcore-90s — 90s Retro Webcore Collage (وب‌کور نوستالژی ۹۰)
+   Reference: `image_4e4417.jpg` ("I miss when the Internet was just a place")
+   - Background: Warm vintage newsprint cream paper (#F2EFE6) with faint
+     newspaper column print lines and pixel checkerboard strips.
+   - Main Mat & Cards: Bubblegum Pink rounded mat (#F468B6) with 2px solid #1F1E1C
+     ink borders, Beige 90s CRT Monitor (#D8DBD6 bezel + #303230 charcoal screen),
+     3D sculpted beige mechanical keyboard keycaps, and glitter star stickers.
+   ========================================================================== */
+
+[data-theme="webcore-90s"] {
+  --bg-deep: #F2EFE6;
+  --bg-card: #F468B6;
+  --bg-card-hover: #F77AC0;
+  --bg-input: #F7F5EE;
+  --bg-modal: #F2EFE6;
+  --bg-overlay: rgba(31, 30, 28, 0.65);
+  --bg-page-gradient: linear-gradient(180deg, #F4F1E8 0%, #EAE5D7 100%);
+  --backdrop-blur: none;
+  --tabs-bar-bg: #DEDFD9;
+  --subchip-bg: #F2EFE6;
+
+  --text-primary: #1F1E1C;
+  --text-secondary: #33312E;
+  --text-muted: #57534E;
+  --text-input: #1F1E1C;
+  --text-on-accent: #FFFFFF;
+  --text-brand: #1F1E1C;
+  --text-brand-accent: #D92B82;
+  --text-phone: #1F1E1C;
+
+  --primary-neon: #1F1E1C;
+  --primary-light: #F468B6;
+  --accent-cyan: #1F75FE;
+  --accent-purple: #D92B82;
+  --accent-emerald: #1B9E5A;
+  --accent-crimson: #D0021B;
+  --accent-yellow: #F5A623;
+  --semantic-danger: #D0021B;
+  --semantic-success: #1B9E5A;
+  --semantic-warning: #D98200;
+
+  --border-subtle: #1F1E1C;
+  --border-glow: #1F1E1C;
+  --border-card-top: #1F1E1C;
+  --border-width: 2px;
+  --border-color: #1F1E1C;
+  --border-input: 2px solid #1F1E1C;
+  --border-modal: 2px solid #1F1E1C;
+  --border-chip: 2px solid #1F1E1C;
+  --border-subchip: 1.5px solid #1F1E1C;
+
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  --card-shadow: 4px 4px 0 #1F1E1C;
+  --card-shadow-hover: 5px 5px 0 #1F1E1C;
+  --active-card-shadow: 4px 4px 0 #1F1E1C;
+  --btn-shadow: 0 4px 0 #8E928B, 0 5px 0 1.5px #1F1E1C, inset 0 1.5px 0 #FFFFFF;
+  --btn-shadow-hover: 0 5px 0 #8E928B, 0 6px 0 1.5px #1F1E1C, inset 0 1.5px 0 #FFFFFF;
+  --glow-pill: none;
+  --glow-dot: none;
+  --modal-shadow: 6px 6px 0 #1F1E1C;
+
+  --btn-transform-hover: translateY(-1px);
+  --btn-transform-active: translateY(3px);
+
+  --btn-inject-bg: #1F1E1C;
+  --btn-inject-color: #F2EFE6;
+  --btn-inject-border: 2px solid #1F1E1C;
+  --btn-scan-mass-bg: #1F1E1C;
+  --btn-scan-mass-color: #F2EFE6;
+  --btn-scan-mass-border: 2px solid #1F1E1C;
+  --btn-gofullpage-bg: #DEDFD9;
+  --btn-gofullpage-color: #1F1E1C;
+  --btn-gofullpage-border: 2px solid #1F1E1C;
+  --btn-ai-scan-bg: #DEDFD9;
+  --btn-ai-scan-color: #1F1E1C;
+  --btn-ai-scan-border: 2px solid #1F1E1C;
+  --btn-upload-bg: #DEDFD9;
+  --btn-upload-color: #1F1E1C;
+  --btn-upload-border: 2px solid #1F1E1C;
+  --btn-excel-bg: #1B9E5A;
+  --btn-excel-color: #FFFFFF;
+  --btn-excel-border: 2px solid #1F1E1C;
+  --excel-banner-bg: #DEDFD9;
+  --excel-banner-color: #1F1E1C;
+  --excel-banner-border: 2px solid #1F1E1C;
+
+  --v-code-box-bg: #303230;
+  --v-code-box-border: 2px solid #1F1E1C;
+  --v-code-color: #F2EFE6;
+  --v-pill-meta-bg: #DEDFD9;
+  --v-pill-meta-color: #1F1E1C;
+
+  --switcher-bg: #DEDFD9;
+  --switcher-border: 2px solid #1F1E1C;
+  --scrollbar-thumb: #1F1E1C;
+  --scrollbar-thumb-hover: #F468B6;
+  --scrollbar-track: #E5E0D3;
+  --scrollbar-width: 6px;
+  --scrollbar-radius: 0px;
+  --scrollbar-border: none;
+
+  --flare-display: none;
+  --active-card-topline-display: none;
+  --font-family: 'Vazirmatn', Georgia, serif;
+  --font-mono: 'Courier New', ui-monospace, monospace;
+}
+
+/* ==========================================================================
+   VINTAGE NEWSPRINT PAPER BACKGROUND + PIXEL CHECKERBOARD HEADER STRIP
+   ========================================================================== */
+[data-theme="webcore-90s"] body {
+  background-color: #F2EFE6 !important;
+  background-image:
+    /* Subtle faded newspaper text lines watermark */
+    repeating-linear-gradient(
+      0deg,
+      rgba(31, 30, 28, 0.03) 0px,
+      rgba(31, 30, 28, 0.03) 1px,
+      transparent 1px,
+      transparent 9px
+    ),
+    /* Newspaper vertical column rules */
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 108px,
+      rgba(31, 30, 28, 0.045) 108px,
+      rgba(31, 30, 28, 0.045) 109px
+    ),
+    linear-gradient(180deg, #F5F2E9 0%, #EAE4D6 100%) !important;
+  color: #1F1E1C;
+}
+
+/* Top Poster Quote & 2-Row Black Pixel Checkerboard Banner */
+[data-theme="webcore-90s"] .popup-wrapper {
+  position: relative;
+  padding-top: 28px !important;
+}
+
+[data-theme="webcore-90s"] .popup-wrapper::before {
+  content: "✦ I miss when the Internet was just a place ✦   🌈";
+  position: absolute;
+  top: 4px;
+  left: 10px;
+  right: 10px;
+  height: 20px;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  direction: ltr;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-size: 10px;
+  font-weight: 900;
+  color: #1F1E1C;
+  border-bottom: 2px solid #1F1E1C;
+  pointer-events: none;
+}
+
+/* Header with 2-Row Black Pixel Checkerboard Strip at Bottom-Left (from ref image) */
+[data-theme="webcore-90s"] .app-header {
+  position: relative;
+  background:
+    /* 2-row black & cream pixel checkerboard strip along bottom edge */
+    repeating-conic-gradient(#1F1E1C 0% 25%, #F2EFE6 0% 50%) no-repeat 12px calc(100% - 4px) / 14px 14px,
+    #F2EFE6 !important;
+  border: 2px solid #1F1E1C !important;
+  border-radius: 16px !important;
+  padding: 10px 12px 14px 12px !important;
+  box-shadow: 4px 4px 0 #1F1E1C !important;
+}
+
+[data-theme="webcore-90s"] .brand-title {
+  font-family: Georgia, 'Vazirmatn', serif !important;
+  font-style: italic;
+  font-weight: 900 !important;
+  color: #1F1E1C !important;
+}
+
+[data-theme="webcore-90s"] .brand-title .accent-text {
+  color: #D92B82 !important;
+  text-decoration: underline wavy #1F1E1C 1.5px;
+}
+
+/* ==========================================================================
+   ACTIVE ACCOUNT CARD: BUBBLEGUM PINK DESK MAT + BEIGE 90s CRT MONITOR
+   ========================================================================== */
+[data-theme="webcore-90s"] .active-account-card {
+  position: relative;
+  padding: 14px 14px 28px 14px !important;
+  background: #F468B6 !important;
+  border: 2.5px solid #1F1E1C !important;
+  border-radius: 26px !important;
+  box-shadow: 4px 4px 0 #1F1E1C !important;
+}
+
+/* Beige CRT Monitor Stand & Glitter Star Sticker Accents */
+[data-theme="webcore-90s"] .active-account-card::after {
+  content: "★  [ CRT-VGA // 640x480 ]  ✦" !important;
+  position: absolute !important;
+  bottom: 4px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 8.5px !important;
+  font-weight: 900 !important;
+  color: #1F1E1C !important;
+  letter-spacing: 0.6px !important;
+  white-space: nowrap !important;
+  pointer-events: none !important;
+}
+
+/* Phone Display Styled as the Beige 90s CRT Monitor with Dark Glass Screen */
+[data-theme="webcore-90s"] .phone-display {
+  position: relative;
+  font-family: var(--font-mono) !important;
+  font-size: 21px !important;
+  font-weight: 900 !important;
+  letter-spacing: 1.5px !important;
+  color: #F2EFE6 !important;
+  text-shadow: 0 0 8px rgba(242, 239, 230, 0.45) !important;
+  /* Dark charcoal CRT screen (#303230) with diagonal white glass reflection + thick beige monitor bezel (#D8DBD6) */
+  background:
+    linear-gradient(125deg, transparent 22%, rgba(255, 255, 255, 0.14) 24%, rgba(255, 255, 255, 0.14) 30%, transparent 32%),
+    radial-gradient(circle at 50% 50%, #3E413E 0%, #272927 100%) !important;
+  border: 7px solid #D8DBD6 !important;
+  outline: 2px solid #1F1E1C !important;
+  border-radius: 10px !important;
+  padding: 10px 12px !important;
+  margin: 8px 4px !important;
+  box-shadow:
+    0 4px 0 #9FA39C,
+    0 6px 0 2px #1F1E1C,
+    inset 0 2px 6px rgba(0, 0, 0, 0.75) !important;
+  direction: ltr;
+}
+
+[data-theme="webcore-90s"] .active-pill {
+  background: #F5A623 !important;
+  color: #1F1E1C !important;
+  border: 2px solid #1F1E1C !important;
+  border-radius: 999px !important;
+  font-weight: 900 !important;
+  padding: 2px 10px !important;
+  box-shadow: 2px 2px 0 #1F1E1C !important;
+}
+
+[data-theme="webcore-90s"] .status-indicator-box,
+[data-theme="webcore-90s"] .service-tag {
+  background: #F2EFE6 !important;
+  color: #1F1E1C !important;
+  border: 2px solid #1F1E1C !important;
+  border-radius: 999px !important;
+  padding: 3px 10px !important;
+  font-weight: 800 !important;
+  box-shadow: 2px 2px 0 #1F1E1C !important;
+}
+
+/* ==========================================================================
+   SECTION CONTAINERS & SUB-CARDS (Pink Mat & Beige Computer Plastic)
+   ========================================================================== */
+[data-theme="webcore-90s"] .section-container {
+  background: #F468B6 !important;
+  border: 2.5px solid #1F1E1C !important;
+  border-radius: 24px !important;
+  padding: 14px 12px !important;
+  margin-bottom: 14px !important;
+  box-shadow: 4px 4px 0 #1F1E1C !important;
+}
+
+[data-theme="webcore-90s"] .section-title {
+  color: #1F1E1C !important;
+  font-weight: 900 !important;
+  background: #F2EFE6;
+  border: 2px solid #1F1E1C;
+  border-radius: 999px;
+  padding: 2px 10px;
+  box-shadow: 2px 2px 0 #1F1E1C;
+}
+
+[data-theme="webcore-90s"] .quick-profile-card,
+[data-theme="webcore-90s"] .saved-account-card,
+[data-theme="webcore-90s"] .voucher-card,
+[data-theme="webcore-90s"] .gemini-config-card,
+[data-theme="webcore-90s"] .voucher-control-card,
+[data-theme="webcore-90s"] .voucher-filter-toolbar,
+[data-theme="webcore-90s"] .export-box-preview {
+  background: #DEDFD9 !important;
+  border: 2px solid #1F1E1C !important;
+  border-radius: 14px !important;
+  box-shadow:
+    0 4px 0 #9FA39C,
+    0 6px 0 1.5px #1F1E1C,
+    inset 0 2px 0 #FFFFFF !important;
+}
+
+/* ==========================================================================
+   3D SCULPTED BEIGE MECHANICAL KEYBOARD KEYCAP BUTTONS & ARCADE JOYSTICK
+   ========================================================================== */
+[data-theme="webcore-90s"] .btn-pill,
+[data-theme="webcore-90s"] .btn-activate,
+[data-theme="webcore-90s"] .btn-launch-power,
+[data-theme="webcore-90s"] .btn-v-copy,
+[data-theme="webcore-90s"] .v-chip,
+[data-theme="webcore-90s"] .theme-picker-toggle-btn,
+[data-theme="webcore-90s"] .file-import-link {
+  background: linear-gradient(180deg, #ECEEE9 0%, #D5D8D0 100%) !important;
+  color: #1F1E1C !important;
+  border: 2px solid #1F1E1C !important;
+  border-radius: 8px !important;
+  font-weight: 900 !important;
+  box-shadow:
+    0 4px 0 #8E928B,
+    0 5.5px 0 1.5px #1F1E1C,
+    inset 0 1.5px 0 #FFFFFF !important;
+}
+
+/* Black Arcade Joystick Primary Button with 4 Colored Dots (Red/Yellow/Green/Blue) */
+[data-theme="webcore-90s"] .btn-inject-neon,
+[data-theme="webcore-90s"] .v-chip.active {
+  background:
+    radial-gradient(circle at 18px 50%, #D0021B 0 3px, transparent 3.5px),
+    radial-gradient(circle at 28px 36%, #F5A623 0 3px, transparent 3.5px),
+    radial-gradient(circle at 28px 64%, #1B9E5A 0 3px, transparent 3.5px),
+    radial-gradient(circle at 38px 50%, #1F75FE 0 3px, transparent 3.5px),
+    linear-gradient(180deg, #323338 0%, #18191C 100%) !important;
+  color: #F2EFE6 !important;
+  border: 2px solid #1F1E1C !important;
+  border-radius: 10px !important;
+  font-weight: 900 !important;
+  box-shadow:
+    0 4px 0 #000000,
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.35) !important;
+}
+
+/* Navigation Tabs Bar (2-Row Checkerboard Accented Bar) */
+[data-theme="webcore-90s"] .nav-tabs-bar {
+  background: #DEDFD9 !important;
+  border: 2px solid #1F1E1C !important;
+  border-radius: 14px !important;
+  padding: 5px !important;
+  box-shadow: 4px 4px 0 #1F1E1C !important;
+}
+
+[data-theme="webcore-90s"] .nav-tab-item {
+  border-radius: 9px !important;
+  color: #1F1E1C !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="webcore-90s"] .nav-tab-item.active {
+  background: #F468B6 !important;
+  color: #1F1E1C !important;
+  border: 2px solid #1F1E1C !important;
+  box-shadow: 2px 2px 0 #1F1E1C, inset 0 1.5px 0 rgba(255, 255, 255, 0.65) !important;
+}
+
+/* Inputs & Textareas */
+[data-theme="webcore-90s"] .inject-textarea,
+[data-theme="webcore-90s"] .voucher-search,
+[data-theme="webcore-90s"] .voucher-select,
+[data-theme="webcore-90s"] .v-code-box {
+  background: #F7F5EE !important;
+  border: 2px solid #1F1E1C !important;
+  border-radius: 8px !important;
+  color: #1F1E1C !important;
+  font-weight: 800 !important;
+  box-shadow: inset 2px 2px 0 rgba(31, 30, 28, 0.15) !important;
+}
+
+/* Footer: Wireframe Globe 🌐 + ( LT 2024 ) Oval Stamp + Pixel Checkerboard */
+[data-theme="webcore-90s"] .app-footer {
+  position: relative;
+  background: #F2EFE6 !important;
+  border: 2px solid #1F1E1C !important;
+  border-radius: 14px !important;
+  padding-top: 22px !important;
+  box-shadow: 3px 3px 0 #1F1E1C !important;
+}
+
+[data-theme="webcore-90s"] .app-footer::before {
+  content: "🌐  ( LT 2024 )                    ▀▄▀▄▀▄▀▄";
+  position: absolute;
+  top: 3px;
+  left: 12px;
+  right: 12px;
+  direction: ltr;
+  font-family: Georgia, serif;
+  font-size: 9px;
+  font-weight: 900;
+  color: #1F1E1C;
+  pointer-events: none;
+}
+
+[data-theme="webcore-90s"] .app-header {
+  padding: 10px 14px 18px 14px !important;
+}
+[data-theme="webcore-90s"] .app-header::after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  left: 14px;
+  width: 84px;
+  height: 10px;
+  background-image: repeating-conic-gradient(#1F1E1C 0% 25%, #F2EFE6 0% 50%);
+  background-size: 10px 10px;
+  pointer-events: none;
+}
+[data-theme="webcore-90s"] .acc-primary-phone {
+  color: #1F1E1C !important;
+  font-weight: 900 !important;
+}

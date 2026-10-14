@@ -1,0 +1,388 @@
+/* =============================================================
+   themes/neumorph.css - Soft Neumorphic Widget Theme
+   Reference: Image 4 (Tactile, Dual Soft Shadows, Amber/Blue Accents)
+   ============================================================= */
+
+[data-theme="neumorph"] {
+  /* Surfaces */
+  --bg-deep: #E6E8EE;
+  --bg-card: #E6E8EE;
+  --bg-card-hover: #E9EBF1;
+  --bg-input: #E6E8EE;
+  --bg-modal: #E6E8EE;
+  --bg-overlay: rgba(31, 34, 48, 0.4);
+  --bg-page-gradient: #E6E8EE;
+  --backdrop-blur: none;
+  --tabs-bar-bg: #E6E8EE;
+  --subchip-bg: #E6E8EE;
+
+  /* Borders - Zero harsh lines in Neumorphism */
+  --border-subtle: transparent;
+  --border-glow: transparent;
+  --border-card-top: transparent;
+  --border-width: 0px;
+  --border-color: transparent;
+  --border-modal: none;
+  --border-input: none;
+  --border-chip: none;
+  --border-subchip: none;
+
+  /* Accents */
+  --primary-neon: #E8B02B;
+  --primary-light: #F4C456;
+  --accent-cyan: #3B82F6;
+  --accent-crimson: #EF4444;
+  --accent-yellow: #E8B02B;
+  --accent-purple: #8B5CF6;
+  --accent-emerald: #10B981;
+  --semantic-danger: #EF4444;
+  --semantic-success: #10B981;
+  --semantic-warning: #E8B02B;
+
+  /* Voucher category colors */
+  --cat-food: #E8B02B;
+  --cat-ride: #3B82F6;
+  --cat-super: #10B981;
+  --cat-box: #6366F1;
+  --cat-doctor: #EC4899;
+  --cat-general: #8B5CF6;
+
+  /* Typography */
+  --text-primary: #1F2230;
+  --text-secondary: #7D8396;
+  --text-muted: #9AA0B4;
+  --text-on-accent: #1F2230;
+  --text-brand: #1F2230;
+  --text-brand-accent: #E8B02B;
+  --text-phone: #1F2230;
+  --text-input: #1F2230;
+
+  /* Squircle / Pill Radii */
+  --radius-xs: 8px;
+  --radius-sm: 14px;
+  --radius-md: 20px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  /* Dual Neumorphic Shadows */
+  --card-shadow: 6px 6px 14px #C5CAD8, -6px -6px 14px #FFFFFF;
+  --card-shadow-hover: 8px 8px 18px #C5CAD8, -8px -8px 18px #FFFFFF;
+  --active-card-shadow: 8px 8px 18px #C5CAD8, -8px -8px 18px #FFFFFF;
+  --btn-shadow: 4px 4px 10px #C5CAD8, -4px -4px 10px #FFFFFF;
+  --btn-shadow-hover: 6px 6px 12px #C5CAD8, -6px -6px 12px #FFFFFF;
+  --btn-transform-hover: translateY(-1px);
+  --btn-transform-active: translateY(1px);
+  --modal-shadow: 12px 12px 28px #C5CAD8, -12px -12px 28px #FFFFFF;
+  --glow-pill: none;
+  --glow-dot: none;
+
+  /* Scrollbars */
+  --scrollbar-width: 6px;
+  --scrollbar-track: #E6E8EE;
+  --scrollbar-thumb: #C5CAD8;
+  --scrollbar-thumb-hover: #A0A8BF;
+  --scrollbar-radius: 999px;
+  --scrollbar-border: none;
+
+  /* Buttons & Presets */
+  --btn-inject-bg: #E6E8EE;
+  --btn-inject-color: #E8B02B;
+  --btn-inject-border: none;
+
+  --btn-scan-mass-bg: #E6E8EE;
+  --btn-scan-mass-color: #1F2230;
+  --btn-scan-mass-border: none;
+
+  --btn-gofullpage-bg: #E6E8EE;
+  --btn-gofullpage-color: #3B82F6;
+  --btn-gofullpage-border: none;
+
+  --btn-ai-scan-bg: #E6E8EE;
+  --btn-ai-scan-color: #8B5CF6;
+  --btn-ai-scan-border: none;
+
+  --btn-upload-bg: #E6E8EE;
+  --btn-upload-color: #1F2230;
+  --btn-upload-border: none;
+
+  --btn-excel-bg: #E6E8EE;
+  --btn-excel-color: #10B981;
+  --btn-excel-border: none;
+
+  --excel-banner-bg: #E6E8EE;
+  --excel-banner-border: none;
+  --excel-banner-color: #1F2230;
+
+  --v-code-box-bg: #E6E8EE;
+  --v-code-box-border: none;
+  --v-code-color: #E8B02B;
+  --v-pill-meta-bg: #E6E8EE;
+  --v-pill-meta-color: #7D8396;
+
+  --flare-display: none;
+  --active-card-topline-display: none;
+
+  --switcher-bg: #E6E8EE;
+  --switcher-border: none;
+
+  --font-family: 'Poppins', 'Vazirmatn', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Neumorphic Inset Components */
+[data-theme="neumorph"] input,
+[data-theme="neumorph"] textarea,
+[data-theme="neumorph"] .search-input,
+[data-theme="neumorph"] .voucher-select,
+[data-theme="neumorph"] .session-input-box {
+  background: #E6E8EE;
+  border: none;
+  box-shadow: inset 3px 3px 6px #C5CAD8, inset -3px -3px 6px #FFFFFF;
+  border-radius: var(--radius-md);
+  color: #1F2230;
+}
+
+[data-theme="neumorph"] input:focus,
+[data-theme="neumorph"] textarea:focus,
+[data-theme="neumorph"] .search-input:focus,
+[data-theme="neumorph"] .voucher-select:focus {
+  outline: none;
+  box-shadow: inset 4px 4px 8px #C5CAD8, inset -4px -4px 8px #FFFFFF, 0 0 0 2px rgba(232, 176, 43, 0.4);
+}
+
+/* Cards & Containers */
+[data-theme="neumorph"] .popup-wrapper {
+  background: var(--bg-deep);
+}
+
+[data-theme="neumorph"] .card {
+  background: #E6E8EE;
+  border-radius: var(--radius-lg);
+  border: none;
+  box-shadow: var(--card-shadow);
+}
+
+[data-theme="neumorph"] .active-account-card {
+  background: #E6E8EE;
+  box-shadow: var(--active-card-shadow);
+  border-radius: var(--radius-lg);
+  border: none;
+}
+
+/* Active Status Pill */
+[data-theme="neumorph"] .active-pill {
+  background: #E6E8EE;
+  color: #E8B02B;
+  font-weight: 800;
+  box-shadow: inset 2px 2px 5px #C5CAD8, inset -2px -2px 5px #FFFFFF;
+  border-radius: var(--radius-pill);
+  border: none;
+  padding: 4px 12px;
+}
+
+[data-theme="neumorph"] .active-account-card.standby .active-pill {
+  color: #7D8396;
+}
+
+/* Action Buttons (Raised tactile buttons) */
+[data-theme="neumorph"] .btn-pill,
+[data-theme="neumorph"] .btn-action {
+  background: #E6E8EE;
+  border: none;
+  box-shadow: var(--btn-shadow);
+  border-radius: var(--radius-pill);
+  transition: all 0.2s ease;
+  font-weight: 600;
+}
+
+[data-theme="neumorph"] .btn-pill:hover,
+[data-theme="neumorph"] .btn-action:hover {
+  box-shadow: var(--btn-shadow-hover);
+}
+
+[data-theme="neumorph"] .btn-pill:active,
+[data-theme="neumorph"] .btn-action:active {
+  box-shadow: inset 3px 3px 6px #C5CAD8, inset -3px -3px 6px #FFFFFF;
+  transform: translateY(1px);
+}
+
+[data-theme="neumorph"] .btn-cyan {
+  color: #3B82F6;
+}
+
+[data-theme="neumorph"] .btn-crimson {
+  color: #EF4444;
+}
+
+[data-theme="neumorph"] #btnInjectSession {
+  box-shadow: 4px 4px 10px #C5CAD8, -4px -4px 10px #FFFFFF;
+  color: #E8B02B;
+  font-weight: 700;
+}
+
+[data-theme="neumorph"] #btnInjectSession:hover {
+  color: #D99B1E;
+}
+
+/* Navigation Tabs Bar */
+[data-theme="neumorph"] .nav-tabs-bar {
+  background: #E6E8EE;
+  border-radius: var(--radius-pill);
+  box-shadow: inset 3px 3px 7px #C5CAD8, inset -3px -3px 7px #FFFFFF;
+  border: none;
+  padding: 4px;
+}
+
+[data-theme="neumorph"] .nav-tab-item {
+  border-radius: var(--radius-pill);
+  color: #7D8396;
+  background: transparent;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+[data-theme="neumorph"] .nav-tab-item.active {
+  background: #E6E8EE;
+  color: #E8B02B;
+  box-shadow: 3px 3px 8px #C5CAD8, -3px -3px 8px #FFFFFF;
+  font-weight: 700;
+}
+
+/* Filter Chips */
+[data-theme="neumorph"] .category-chip {
+  background: #E6E8EE;
+  color: #7D8396;
+  border-radius: var(--radius-pill);
+  border: none;
+  box-shadow: 3px 3px 6px #C5CAD8, -3px -3px 6px #FFFFFF;
+  font-weight: 600;
+}
+
+[data-theme="neumorph"] .category-chip.active {
+  color: #E8B02B;
+  box-shadow: inset 2px 2px 5px #C5CAD8, inset -2px -2px 5px #FFFFFF;
+  font-weight: 700;
+}
+
+[data-theme="neumorph"] .sub-chip {
+  background: #E6E8EE;
+  color: #7D8396;
+  border-radius: var(--radius-pill);
+  border: none;
+  box-shadow: 2px 2px 5px #C5CAD8, -2px -2px 5px #FFFFFF;
+}
+
+[data-theme="neumorph"] .sub-chip.active {
+  color: #3B82F6;
+  box-shadow: inset 2px 2px 4px #C5CAD8, inset -2px -2px 4px #FFFFFF;
+  font-weight: 700;
+}
+
+/* Saved Account Card (Performance: Clean solid card with soft shadow) */
+[data-theme="neumorph"] .saved-account-card {
+  background: #E6E8EE;
+  border-radius: var(--radius-md);
+  border: none;
+  box-shadow: 3px 3px 8px #C5CAD8, -3px -3px 8px #FFFFFF;
+}
+
+[data-theme="neumorph"] .acc-btn-run {
+  background: #E6E8EE;
+  color: #10B981;
+  border-radius: var(--radius-pill);
+  border: none;
+  box-shadow: 2px 2px 5px #C5CAD8, -2px -2px 5px #FFFFFF;
+  font-weight: 700;
+}
+
+[data-theme="neumorph"] .acc-btn-run:active {
+  box-shadow: inset 2px 2px 4px #C5CAD8, inset -2px -2px 4px #FFFFFF;
+}
+
+[data-theme="neumorph"] .acc-btn-delete {
+  color: #EF4444;
+  border-radius: 50%;
+}
+
+/* Voucher Cards & Code Box */
+[data-theme="neumorph"] .voucher-card {
+  background: #E6E8EE;
+  border-radius: var(--radius-md);
+  border: none;
+  box-shadow: 4px 4px 10px #C5CAD8, -4px -4px 10px #FFFFFF;
+}
+
+[data-theme="neumorph"] .v-code-box {
+  background: #E6E8EE;
+  border: none;
+  box-shadow: inset 2px 2px 5px #C5CAD8, inset -2px -2px 5px #FFFFFF;
+  border-radius: var(--radius-sm);
+  color: #E8B02B;
+}
+
+[data-theme="neumorph"] .v-pill-meta {
+  background: #E6E8EE;
+  box-shadow: inset 1px 1px 3px #C5CAD8, inset -1px -1px 3px #FFFFFF;
+  border-radius: var(--radius-pill);
+  color: #7D8396;
+}
+
+/* Excel Banner */
+[data-theme="neumorph"] .excel-export-banner {
+  background: #E6E8EE;
+  border: none;
+  box-shadow: 4px 4px 12px #C5CAD8, -4px -4px 12px #FFFFFF;
+  border-radius: var(--radius-md);
+}
+
+/* Modal */
+[data-theme="neumorph"] .modal-box {
+  background: #E6E8EE;
+  border-radius: var(--radius-lg);
+  border: none;
+  box-shadow: var(--modal-shadow);
+}
+
+[data-theme="neumorph"] .modal-icon-badge {
+  background: #E6E8EE;
+  box-shadow: inset 3px 3px 6px #C5CAD8, inset -3px -3px 6px #FFFFFF;
+  color: #EF4444;
+  border-radius: 50%;
+  border: none;
+}
+
+/* Footer Equalizer */
+[data-theme="neumorph"] .eq-bar {
+  background: #C5CAD8;
+}
+
+[data-theme="neumorph"] .footer-equalizer:hover .eq-bar {
+  background: #E8B02B;
+}
+
+/* Status Dot */
+[data-theme="neumorph"] .status-dot.online {
+  background: #10B981;
+  box-shadow: 0 0 6px rgba(16, 185, 129, 0.5);
+}
+
+/* Theme Picker Dropdown */
+[data-theme="neumorph"] .theme-picker-dropdown {
+  background: #E6E8EE;
+  border: none;
+  box-shadow: 8px 8px 20px #C5CAD8, -8px -8px 20px #FFFFFF;
+  border-radius: 20px;
+}
+
+[data-theme="neumorph"] .theme-option-btn {
+  background: #E6E8EE;
+  border-radius: 12px;
+  border: none;
+  box-shadow: 2px 2px 5px #C5CAD8, -2px -2px 5px #FFFFFF;
+  color: #1F2230;
+}
+
+[data-theme="neumorph"] .theme-option-btn.active {
+  color: #E8B02B;
+  box-shadow: inset 2px 2px 4px #C5CAD8, inset -2px -2px 4px #FFFFFF;
+  font-weight: 700;
+}

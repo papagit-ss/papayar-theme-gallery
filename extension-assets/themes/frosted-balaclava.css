@@ -1,0 +1,267 @@
+/* ==========================================================================
+   Theme 28: frosted-balaclava — Frosted Reeder Glass & 35mm Contact Sheet
+   Complete Ground-Up Sculpted Redesign (Reference: image_5c6e3d.jpg):
+   - Top 35mm Rebate Strip (.popup-wrapper::before): "22 ● 342 11 66 // WINTERTHUR // + 41 ●"
+   - Heavy 3D Pebble-Frosted Silver-White Ice Glass Panels (#F1F5F9 -> #CBD5E1)
+     with Crisp Specular Highlights over Pitch-Black Darkroom (#07080A)
+   - Dedicated Cutout Eye-Slit Visor Box (.phone-display): Deep Chrome-Black
+     Visor with Corner Viewfinder Brackets (┌ ┐) & Center Target Crosshair (+)
+   - Crisp High-Contrast Frosted White Sub-Cards with 17:1 Black Ink Readability
+   ========================================================================== */
+
+[data-theme="frosted-balaclava"] {
+  --bg-deep: #07080A;
+  --bg-card: #E8EDF4;
+  --bg-card-hover: #F4F7FB;
+  --bg-input: #0B0D11;
+  --bg-modal: #E8EDF4;
+  --bg-overlay: rgba(5, 6, 8, 0.86);
+  --bg-page-gradient: radial-gradient(ellipse at 50% 25%, #252A34 0%, #07080A 72%);
+  --backdrop-blur: blur(10px);
+  --tabs-bar-bg: #E8EDF4;
+  --subchip-bg: #D5DCE6;
+
+  --text-primary: #0B0D11;
+  --text-secondary: #1E242E;
+  --text-muted: #384152;
+  --text-input: #F8FAFC;
+  --text-on-accent: #FFFFFF;
+  --text-brand: #0B0D11;
+  --text-brand-accent: #334155;
+  --text-phone: #0B0D11;
+
+  --primary-neon: #0B0D11;
+  --primary-light: #334155;
+  --accent-cyan: #0B0D11;
+  --accent-purple: #334155;
+  --accent-emerald: #0B0D11;
+  --accent-crimson: #991B1B;
+  --accent-yellow: #1E293B;
+  --semantic-danger: #991B1B;
+  --semantic-success: #0B0D11;
+  --semantic-warning: #78350F;
+
+  --border-subtle: #FFFFFF;
+  --border-glow: #FFFFFF;
+  --border-card-top: #FFFFFF;
+  --border-width: 2px;
+  --border-color: #FFFFFF;
+  --border-input: 2px solid #FFFFFF;
+  --border-modal: 2px solid #FFFFFF;
+  --border-chip: 1.5px solid #0B0D11;
+  --border-subchip: 1px solid #334155;
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 6px;
+
+  --card-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.78),
+    inset 0 2px 2px #FFFFFF,
+    inset 0 -3px 6px rgba(15, 23, 42, 0.22);
+  --card-shadow-hover:
+    0 16px 32px rgba(0, 0, 0, 0.85),
+    inset 0 2px 3px #FFFFFF;
+  --active-card-shadow: var(--card-shadow);
+  --btn-shadow: 0 3px 0 #0B0D11;
+  --btn-shadow-hover: 0 4px 0 #0B0D11;
+  --modal-shadow: 0 22px 48px rgba(0, 0, 0, 0.9);
+  --glow-pill: none;
+  --glow-dot: 0 0 8px #0B0D11;
+
+  --btn-transform-hover: translateY(-1px);
+  --btn-transform-active: translateY(1px);
+
+  --btn-inject-bg: #0B0D11;
+  --btn-inject-color: #FFFFFF;
+  --btn-inject-border: 2px solid #FFFFFF;
+  --btn-scan-mass-bg: #0B0D11;
+  --btn-scan-mass-color: #FFFFFF;
+  --btn-scan-mass-border: 2px solid #FFFFFF;
+  --btn-gofullpage-bg: #1E242E;
+  --btn-gofullpage-color: #FFFFFF;
+  --btn-gofullpage-border: 2px solid #FFFFFF;
+  --btn-ai-scan-bg: #FFFFFF;
+  --btn-ai-scan-color: #0B0D11;
+  --btn-ai-scan-border: 2px solid #0B0D11;
+  --btn-upload-bg: #FFFFFF;
+  --btn-upload-color: #0B0D11;
+  --btn-upload-border: 2px solid #0B0D11;
+  --btn-excel-bg: #0B0D11;
+  --btn-excel-color: #FFFFFF;
+  --btn-excel-border: 2px solid #FFFFFF;
+  --excel-banner-bg: #F1F5F9;
+  --excel-banner-color: #0B0D11;
+  --excel-banner-border: 2px solid #0B0D11;
+
+  --v-code-box-bg: #0B0D11;
+  --v-code-box-border: 2px solid #FFFFFF;
+  --v-code-color: #FFFFFF;
+  --v-pill-meta-bg: #FFFFFF;
+  --v-pill-meta-color: #0B0D11;
+
+  --switcher-bg: #FFFFFF;
+  --switcher-border: 1.5px solid #0B0D11;
+  --scrollbar-thumb: #64748B;
+  --scrollbar-thumb-hover: #FFFFFF;
+  --scrollbar-track: #07080A;
+  --scrollbar-width: 5px;
+  --scrollbar-radius: 4px;
+  --scrollbar-border: none;
+
+  --flare-display: none;
+  --active-card-topline-display: none;
+  --font-family: 'Vazirmatn', "Courier New", ui-monospace, monospace;
+  --font-mono: "Courier New", "SF Mono", ui-monospace, monospace;
+
+  /* Pebble-Frosted Glass Texture SVG */
+  --pebble-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23p)' opacity='0.11'/%3E%3C/svg%3E");
+}
+
+[data-theme="frosted-balaclava"] body {
+  background-color: #07080A !important;
+  background-image:
+    var(--pebble-svg),
+    radial-gradient(ellipse at 50% 25%, #282E3A 0%, #07080A 74%) !important;
+  color: #0B0D11;
+}
+
+/* Top 35mm Contact Sheet Film Rebate Strip */
+[data-theme="frosted-balaclava"] .popup-wrapper {
+  position: relative;
+  padding-top: 28px !important;
+}
+
+[data-theme="frosted-balaclava"] .popup-wrapper::before {
+  content: "22 ● 342 11 66   //   8400 WINTERTHUR   //   + 41 ●";
+  position: absolute;
+  top: 5px;
+  inset-inline: 12px;
+  height: 19px;
+  background: #14171D;
+  color: #CBD5E1;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  direction: ltr;
+}
+
+/* Sculpted Pebble-Frosted Silver-White Glass Panels */
+[data-theme="frosted-balaclava"] .app-header,
+[data-theme="frosted-balaclava"] .active-account-card,
+[data-theme="frosted-balaclava"] .nav-tabs-bar,
+[data-theme="frosted-balaclava"] .section-container,
+[data-theme="frosted-balaclava"] .app-footer {
+  background-color: #E8EDF4 !important;
+  background-image:
+    var(--pebble-svg),
+    linear-gradient(155deg, #F8FAFC 0%, #E2E8F0 58%, #CBD5E1 100%) !important;
+  border: 2px solid #FFFFFF !important;
+  border-radius: 18px !important;
+  box-shadow: var(--card-shadow) !important;
+}
+
+[data-theme="frosted-balaclava"] .section-container {
+  padding: 12px !important;
+}
+
+[data-theme="frosted-balaclava"] .active-account-card::before,
+[data-theme="frosted-balaclava"] .active-account-card::after {
+  display: none !important;
+}
+
+/* Cutout Dark Chrome Eye-Slit Visor Box with Viewfinder Crosshair */
+[data-theme="frosted-balaclava"] .phone-display {
+  position: relative;
+  background-color: #090B0E !important;
+  background-image:
+    linear-gradient(90deg, transparent 49.5%, rgba(255, 255, 255, 0.18) 49.5%, rgba(255, 255, 255, 0.18) 50.5%, transparent 50.5%),
+    linear-gradient(180deg, transparent 48%, rgba(255, 255, 255, 0.18) 48%, rgba(255, 255, 255, 0.18) 52%, transparent 52%),
+    radial-gradient(ellipse at 50% 50%, #252B37 0%, #080A0D 80%) !important;
+  color: #FFFFFF !important;
+  border: 2px solid #0B0D11 !important;
+  outline: 2.5px solid #FFFFFF !important;
+  border-radius: 6px !important;
+  padding: 12px 14px !important;
+  margin-block: 8px !important;
+  font-family: var(--font-mono) !important;
+  font-size: 22px !important;
+  font-weight: 900 !important;
+  letter-spacing: 2px !important;
+  box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.9), 0 4px 12px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Crisp Frosted White Sub-Cards with 17:1 Black Ink Readability */
+[data-theme="frosted-balaclava"] .quick-profile-card,
+[data-theme="frosted-balaclava"] .saved-account-card {
+  background: #F8FAFC !important;
+  border: 2px solid #0B0D11 !important;
+  border-radius: 12px !important;
+  box-shadow: 0 3px 0 #0B0D11, inset 0 1px 0 #FFFFFF !important;
+}
+
+[data-theme="frosted-balaclava"] .profile-label,
+[data-theme="frosted-balaclava"] .acc-primary-phone {
+  color: #0B0D11 !important;
+  font-weight: 900 !important;
+}
+
+[data-theme="frosted-balaclava"] .avatar-glow {
+  background: #0B0D11 !important;
+  color: #FFFFFF !important;
+  border: 2px solid #FFFFFF !important;
+  box-shadow: 0 2px 0 #0B0D11 !important;
+}
+
+[data-theme="frosted-balaclava"] .active-pill,
+[data-theme="frosted-balaclava"] .nav-tab-item.active,
+[data-theme="frosted-balaclava"] .btn-cyan,
+[data-theme="frosted-balaclava"] .btn-inject-neon,
+[data-theme="frosted-balaclava"] .btn-activate,
+[data-theme="frosted-balaclava"] .btn-v-copy {
+  background: #0B0D11 !important;
+  color: #FFFFFF !important;
+  border: 1.5px solid #FFFFFF !important;
+  border-radius: 8px !important;
+  font-weight: 900 !important;
+  box-shadow: 0 3px 0 #334155 !important;
+}
+
+[data-theme="frosted-balaclava"] .nav-tab-item {
+  color: #0B0D11 !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="frosted-balaclava"] .nav-tab-item.active::after {
+  display: none !important;
+}
+
+[data-theme="frosted-balaclava"] .btn-crimson,
+[data-theme="frosted-balaclava"] .btn-delete-acc {
+  background: #FEE2E2 !important;
+  color: #991B1B !important;
+  border: 2px solid #991B1B !important;
+  border-radius: 8px !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="frosted-balaclava"] .btn-neon-green,
+[data-theme="frosted-balaclava"] .btn-launch-power,
+[data-theme="frosted-balaclava"] .status-indicator-box,
+[data-theme="frosted-balaclava"] .service-tag {
+  background: #FFFFFF !important;
+  color: #0B0D11 !important;
+  border: 2px solid #0B0D11 !important;
+  border-radius: 8px !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="frosted-balaclava"] .status-indicator-box, [data-theme="frosted-balaclava"] .service-tag { padding: 3px 10px !important; }

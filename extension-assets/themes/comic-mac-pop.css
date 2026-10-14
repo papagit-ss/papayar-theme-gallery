@@ -1,0 +1,272 @@
+/* ==========================================================================
+   Theme: comic-mac-pop — مکینتاش کمیک پاپ (Comic Sans & Classic Mac Pop)
+   Reference: image_68b15f.jpg ("Comic Sans is not outdated. // GRAPHIC DESIGN")
+   - Distressed Vintage Red Halftone Poster Background (#DF3B30) with Dark-Red
+     Ben-Day Dots & White Sunburst Radial Lines
+   - Top Charcoal Pill Badge (.popup-wrapper::before): "Comic Sans is not outdated."
+   - Vintage Cream Macintosh Classic II Cards (#F7E8D8) with Thick 2.5px
+     Charcoal-Black Ink Outlines (#1C1917) & 4px 3D Extruded Cartoon Shadows
+   - Recessed Dark Charcoal Macintosh CRT Screen (.phone-display) with Bold
+     Comic-Red (#F24C3D) & Cream Typography + Giant Cartoon Cursor Arrow!
+   ========================================================================== */
+
+[data-theme="comic-mac-pop"] {
+  --bg-deep: #DF3B30;
+  --bg-card: #F7E8D8;
+  --bg-card-hover: #FFF4E8;
+  --bg-input: #FFFFFF;
+  --bg-modal: #F7E8D8;
+  --bg-overlay: rgba(28, 25, 23, 0.78);
+  --bg-page-gradient:
+    radial-gradient(rgba(110, 15, 10, 0.22) 1.5px, transparent 1.5px),
+    radial-gradient(circle at 50% 35%, #EE5346 0%, #DF3B30 68%, #BD281E 100%);
+  --backdrop-blur: none;
+  --tabs-bar-bg: #1C1917;
+  --subchip-bg: #EFE0CE;
+
+  --text-primary: #1C1917;
+  --text-secondary: #2E2926;
+  --text-muted: #4A423D;
+  --text-input: #1C1917;
+  --text-on-accent: #F7E8D8;
+  --text-brand: #1C1917;
+  --text-brand-accent: #DF3B30;
+  --text-phone: #1C1917;
+
+  --primary-neon: #DF3B30;
+  --primary-light: #F24C3D;
+  --accent-cyan: #DF3B30;
+  --accent-purple: #1C1917;
+  --accent-emerald: #15803D;
+  --accent-crimson: #B91C1C;
+  --accent-yellow: #DF3B30;
+  --semantic-danger: #B91C1C;
+  --semantic-success: #15803D;
+  --semantic-warning: #B45309;
+
+  --border-subtle: #1C1917;
+  --border-glow: #1C1917;
+  --border-card-top: #1C1917;
+  --border-width: 2.5px;
+  --border-color: #1C1917;
+  --border-input: 2.5px solid #1C1917;
+  --border-modal: 3px solid #1C1917;
+  --border-chip: 2px solid #1C1917;
+  --border-subchip: 2px solid #1C1917;
+
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  --card-shadow: 4px 4px 0 #1C1917;
+  --card-shadow-hover: 5px 5px 0 #1C1917;
+  --active-card-shadow: 5px 5px 0 #1C1917;
+  --btn-shadow: 3px 3px 0 #1C1917;
+  --btn-shadow-hover: 4px 4px 0 #1C1917;
+  --modal-shadow: 8px 8px 0 #1C1917;
+  --glow-pill: none;
+  --glow-dot: none;
+
+  --btn-transform-hover: translate(-1px, -1px);
+  --btn-transform-active: translate(2px, 2px);
+
+  --btn-inject-bg: #DF3B30;
+  --btn-inject-color: #F7E8D8;
+  --btn-inject-border: 2.5px solid #1C1917;
+  --btn-scan-mass-bg: #DF3B30;
+  --btn-scan-mass-color: #F7E8D8;
+  --btn-scan-mass-border: 2.5px solid #1C1917;
+  --btn-gofullpage-bg: #1C1917;
+  --btn-gofullpage-color: #F7E8D8;
+  --btn-gofullpage-border: 2.5px solid #1C1917;
+  --btn-ai-scan-bg: #FFFFFF;
+  --btn-ai-scan-color: #1C1917;
+  --btn-ai-scan-border: 2.5px solid #1C1917;
+  --btn-upload-bg: #FFFFFF;
+  --btn-upload-color: #1C1917;
+  --btn-upload-border: 2.5px solid #1C1917;
+  --btn-excel-bg: #1C1917;
+  --btn-excel-color: #F7E8D8;
+  --btn-excel-border: 2.5px solid #1C1917;
+  --excel-banner-bg: #FFFFFF;
+  --excel-banner-color: #1C1917;
+  --excel-banner-border: 2.5px solid #1C1917;
+
+  --v-code-box-bg: #1C1917;
+  --v-code-box-border: 2.5px solid #1C1917;
+  --v-code-color: #F24C3D;
+  --v-pill-meta-bg: #FFFFFF;
+  --v-pill-meta-color: #1C1917;
+
+  --switcher-bg: #FFFFFF;
+  --switcher-border: 2px solid #1C1917;
+  --scrollbar-thumb: #1C1917;
+  --scrollbar-thumb-hover: #F7E8D8;
+  --scrollbar-track: #C42B20;
+  --scrollbar-width: 6px;
+  --scrollbar-radius: 999px;
+  --scrollbar-border: none;
+
+  --flare-display: none;
+  --active-card-topline-display: none;
+  --font-family: 'Vazirmatn', "Comic Sans MS", "Chalkboard SE", cursive, sans-serif;
+  --font-mono: "Comic Sans MS", "Courier New", monospace;
+}
+
+[data-theme="comic-mac-pop"] body {
+  background-color: #DF3B30 !important;
+  background-image:
+    radial-gradient(rgba(95, 12, 8, 0.24) 1.5px, transparent 1.5px),
+    radial-gradient(circle at 50% 35%, #F05245 0%, #DF3B30 68%, #BD281E 100%) !important;
+  background-size: 9px 9px, 100% 100% !important;
+  color: #1C1917;
+}
+
+/* Top Charcoal Pill Badge: "Comic Sans is not outdated. // it's just misunderstood." */
+[data-theme="comic-mac-pop"] .popup-wrapper {
+  position: relative;
+  padding-top: 28px !important;
+}
+
+[data-theme="comic-mac-pop"] .popup-wrapper::before {
+  content: "Comic Sans is not outdated.  //  it's just misunderstood.";
+  position: absolute;
+  top: 5px;
+  inset-inline: 12px;
+  height: 20px;
+  background: #1C1917;
+  color: #F7E8D8;
+  border: 2px solid #F7E8D8;
+  border-radius: 999px;
+  font-family: var(--font-family);
+  font-size: 9.5px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  direction: ltr;
+  box-shadow: 0 3px 0 #1C1917;
+}
+
+/* Vintage Cream Macintosh Classic II Cards */
+[data-theme="comic-mac-pop"] .app-header,
+[data-theme="comic-mac-pop"] .active-account-card,
+[data-theme="comic-mac-pop"] .section-container,
+[data-theme="comic-mac-pop"] .app-footer {
+  background: #F7E8D8 !important;
+  border: 2.5px solid #1C1917 !important;
+  border-radius: 16px !important;
+  box-shadow: 4px 4px 0 #1C1917 !important;
+}
+
+[data-theme="comic-mac-pop"] .section-container {
+  padding: 12px !important;
+}
+
+[data-theme="comic-mac-pop"] .active-account-card::before {
+  display: none !important;
+}
+
+/* Recessed Dark Charcoal Macintosh Classic II CRT Screen ("GRAPHIC DESIGN") */
+[data-theme="comic-mac-pop"] .phone-display {
+  position: relative;
+  background: #1C1917 !important;
+  color: #F24C3D !important;
+  border: 3px solid #1C1917 !important;
+  outline: 2px solid #DF3B30 !important;
+  border-radius: 10px !important;
+  padding: 12px 14px !important;
+  margin-block: 8px !important;
+  font-family: var(--font-mono) !important;
+  font-size: 23px !important;
+  font-weight: 900 !important;
+  letter-spacing: 2px !important;
+  text-shadow: 2px 2px 0 #000000 !important;
+  box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.8), 3px 3px 0 #DF3B30 !important;
+}
+
+[data-theme="comic-mac-pop"] .quick-profile-card,
+[data-theme="comic-mac-pop"] .saved-account-card {
+  background: #FFF6EC !important;
+  border: 2.5px solid #1C1917 !important;
+  border-radius: 14px !important;
+  box-shadow: 3px 3px 0 #1C1917 !important;
+}
+
+[data-theme="comic-mac-pop"] .avatar-glow {
+  background: #DF3B30 !important;
+  color: #F7E8D8 !important;
+  border: 2.5px solid #1C1917 !important;
+  box-shadow: 2px 2px 0 #1C1917 !important;
+}
+
+/* Dark Charcoal Pill Navigation Bar ("is not outdated.") */
+[data-theme="comic-mac-pop"] .nav-tabs-bar {
+  background: #1C1917 !important;
+  border: 2.5px solid #1C1917 !important;
+  border-radius: 999px !important;
+  padding: 4px !important;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.45) !important;
+}
+
+[data-theme="comic-mac-pop"] .nav-tab-item {
+  border-radius: 999px !important;
+  color: #F7E8D8 !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="comic-mac-pop"] .nav-tab-item.active {
+  background: #DF3B30 !important;
+  color: #F7E8D8 !important;
+  border: 2px solid #F7E8D8 !important;
+  font-weight: 900 !important;
+}
+
+[data-theme="comic-mac-pop"] .nav-tab-item.active::after {
+  display: none !important;
+}
+
+[data-theme="comic-mac-pop"] .btn-cyan,
+[data-theme="comic-mac-pop"] .btn-inject-neon,
+[data-theme="comic-mac-pop"] .btn-activate,
+[data-theme="comic-mac-pop"] .btn-v-copy {
+  background: #DF3B30 !important;
+  color: #F7E8D8 !important;
+  border: 2.5px solid #1C1917 !important;
+  border-radius: 999px !important;
+  font-weight: 900 !important;
+  box-shadow: 3px 3px 0 #1C1917 !important;
+}
+
+[data-theme="comic-mac-pop"] .btn-crimson,
+[data-theme="comic-mac-pop"] .btn-delete-acc {
+  background: #1C1917 !important;
+  color: #F24C3D !important;
+  border: 2.5px solid #1C1917 !important;
+  border-radius: 999px !important;
+  box-shadow: 3px 3px 0 #DF3B30 !important;
+  font-weight: 900 !important;
+}
+
+[data-theme="comic-mac-pop"] .btn-neon-green,
+[data-theme="comic-mac-pop"] .btn-launch-power,
+[data-theme="comic-mac-pop"] .status-indicator-box,
+[data-theme="comic-mac-pop"] .service-tag {
+  background: #FFF6EC !important;
+  color: #1C1917 !important;
+  border: 2px solid #1C1917 !important;
+  border-radius: 999px !important;
+  padding: 3px 10px !important;
+  box-shadow: 2px 2px 0 #1C1917 !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="comic-mac-pop"] .active-pill {
+  background: #1C1917 !important;
+  color: #F7E8D8 !important;
+  border: 2px solid #1C1917 !important;
+  border-radius: 999px !important;
+  font-weight: 900 !important;
+}

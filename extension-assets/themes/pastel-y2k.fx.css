@@ -1,0 +1,72 @@
+/* ==========================================================================
+   themes/pastel-y2k.fx.css — Exclusive Effects for Theme 07 (Pastel Y2K)
+   Effects:
+   1. [hover] چشمک ستاره‌ها و جرقه‌ها در هاور (y2k-star-twinkle)
+   2. [ambient] ردِ ستاره‌ای دنبال موس (y2k-cursor-stars)
+   3. [hover] درخشش گلیتری روی دکمه‌ی اصلی (y2k-glitter-shine)
+   ========================================================================== */
+
+@keyframes y2k-twinkle {
+  0%, 100% { transform: scale(0.85) rotate(0deg); opacity: 0.7; }
+  50% { transform: scale(1.2) rotate(18deg); opacity: 1; }
+}
+
+@keyframes y2k-tab-pop {
+  0% { opacity: 0; transform: scale(0.96) translateY(4px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Ambient: Cute Y2K Star Follower trailing the mouse */
+html[data-theme="pastel-y2k"][data-fx="full"]:not([data-motion="reduced"]) .fx-layer .fx-cursor-follower {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 28px;
+  height: 28px;
+  margin-left: -14px;
+  margin-top: -14px;
+  pointer-events: none;
+  z-index: 95;
+  transform: translate3d(var(--fx-mx, 160px), var(--fx-my, 200px), 0);
+  transition: transform 0.12s ease-out;
+  will-change: transform;
+}
+
+html[data-theme="pastel-y2k"][data-fx="full"]:not([data-motion="reduced"]) .fx-layer .fx-cursor-follower::before {
+  content: '✦ ✧';
+  color: #F27BA5;
+  font-size: 13px;
+  text-shadow: 1px 1px 0 #3A2323;
+  display: block;
+  animation: y2k-twinkle 1.6s ease-in-out infinite;
+}
+
+/* Hover: Twinkling Stars on Cards & Glitter Sweep on Primary Button */
+html[data-theme="pastel-y2k"]:not([data-fx="off"]):not([data-motion="reduced"]) .btn-inject-neon {
+  position: relative;
+  overflow: hidden;
+}
+
+html[data-theme="pastel-y2k"]:not([data-fx="off"]):not([data-motion="reduced"]) .btn-inject-neon::after {
+  content: '✦  ✧  ★  ✦';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 12px;
+  opacity: 0;
+  transform: translateX(35%);
+  transition: opacity 0.25s ease, transform 0.4s ease;
+  pointer-events: none;
+}
+
+html[data-theme="pastel-y2k"]:not([data-fx="off"]):not([data-motion="reduced"]) .btn-inject-neon:hover::after {
+  opacity: 1;
+  transform: translateX(-25%);
+}
+
+html[data-theme="pastel-y2k"]:not([data-fx="off"]):not([data-motion="reduced"]) .tab-page.active {
+  animation: y2k-tab-pop 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}

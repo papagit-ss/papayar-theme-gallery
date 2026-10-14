@@ -1,0 +1,508 @@
+/* ==========================================================================
+   Cyber Chrome (سایبر گلاس) Theme - Papa Yar
+   Futuristic glossy skeuomorphic dark cockpit with double metallic beveled borders,
+   horizontal neon cyan LED light strips, and 3D glass capsule buttons.
+   ========================================================================== */
+
+[data-theme="cyber-gloss"] {
+  /* Semantic Tokens */
+  --bg-deep: #06090e;
+  --bg-card: #0b121a;
+  --bg-card-hover: #101924;
+  --bg-input: #070d14;
+  --bg-modal: #0b121a;
+  --bg-overlay: rgba(3, 6, 10, 0.85);
+  --bg-page-gradient: radial-gradient(ellipse at 50% -10%, #16263b 0%, #080d14 55%, #030508 100%);
+  --backdrop-blur: none;
+  --tabs-bar-bg: #080d14;
+  --subchip-bg: #0f1722;
+
+  --text-primary: #e6edf5;
+  --text-secondary: #8da4be;
+  --text-muted: #5e7793;
+  --text-input: #ffffff;
+  --text-on-accent: #ffffff;
+  --text-brand: #ffffff;
+  --text-brand-accent: #00e5ff;
+  --text-phone: #ffffff;
+
+  --primary-neon: #00e5ff;
+  --primary-light: #48cae4;
+  --accent-cyan: #00e5ff;
+  --accent-purple: #a855f7;
+  --accent-emerald: #00e676;
+  --accent-crimson: #ff1a35;
+  --accent-yellow: #ffb703;
+
+  --semantic-danger: #ff1a35;
+  --semantic-success: #00e676;
+  --semantic-warning: #ffb703;
+
+  --border-subtle: #1c2b3d;
+  --border-glow: #00e5ff;
+  --border-card-top: #2a3e56;
+  --border-width: 1px;
+  --border-color: #233548;
+  --border-input: 1.5px solid #233548;
+  --border-modal: 2px solid #283e58;
+  --border-chip: 1px solid #233548;
+  --border-subchip: 1px solid #1a2a3a;
+
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-pill: 24px;
+
+  --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.85);
+  --card-shadow-hover: 0 10px 28px rgba(0, 0, 0, 0.95);
+  --active-card-shadow: 0 12px 32px rgba(0, 0, 0, 0.9);
+  --btn-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --btn-shadow-hover: 0 6px 16px rgba(0, 229, 255, 0.25);
+  --glow-pill: 0 0 12px rgba(0, 229, 255, 0.4);
+  --glow-dot: 0 0 8px #00e5ff;
+  --modal-shadow: 0 18px 45px rgba(0, 0, 0, 0.95);
+
+  --btn-transform-hover: translateY(-1px);
+  --btn-transform-active: translateY(1px);
+
+  --btn-inject-bg: linear-gradient(180deg, #0d3858 0%, #071f33 100%);
+  --btn-inject-color: #00e5ff;
+  --btn-inject-border: 1.5px solid #00e5ff;
+
+  --btn-scan-mass-bg: linear-gradient(180deg, #1fe073 0%, #0c8c3e 50%, #05481d 100%);
+  --btn-scan-mass-color: #ffffff;
+  --btn-scan-mass-border: 1.5px solid #34fd8b;
+
+  --btn-gofullpage-bg: #0f1722;
+  --btn-gofullpage-color: #e2e8f0;
+  --btn-gofullpage-border: 1px solid #233548;
+
+  --btn-ai-scan-bg: #0f1722;
+  --btn-ai-scan-color: #e2e8f0;
+  --btn-ai-scan-border: 1px solid #233548;
+
+  --btn-upload-bg: #0f1722;
+  --btn-upload-color: #e2e8f0;
+  --btn-upload-border: 1px solid #233548;
+
+  --btn-excel-bg: #00e5ff;
+  --btn-excel-color: #06090e;
+  --btn-excel-border: 1px solid #00e5ff;
+
+  --excel-banner-bg: #0b1420;
+  --excel-banner-color: #e2e8f0;
+  --excel-banner-border: 1px solid #233548;
+
+  --v-code-box-bg: #070d14;
+  --v-code-box-border: 1px dashed #233548;
+  --v-code-color: #00e5ff;
+  --v-pill-meta-bg: #0f1722;
+  --v-pill-meta-color: #8da4be;
+
+  --switcher-bg: #090e15;
+  --switcher-border: 1.5px solid #233548;
+  --scrollbar-thumb: #233548;
+  --scrollbar-thumb-hover: #00e5ff;
+  --scrollbar-track: transparent;
+  --scrollbar-width: 5px;
+  --scrollbar-radius: 4px;
+  --scrollbar-border: none;
+
+  --flare-display: none;
+  --active-card-topline-display: none;
+  --font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, Tahoma, sans-serif;
+  --font-mono: ui-monospace, 'Cascadia Code', monospace;
+}
+
+/* Page Background & Atmosphere */
+[data-theme="cyber-gloss"] body {
+  background: #06090e radial-gradient(ellipse at 50% 0%, #142337 0%, #080d14 60%, #030508 100%) no-repeat fixed;
+  color: var(--text-primary);
+}
+
+[data-theme="cyber-gloss"] .popup-wrapper {
+  background: transparent;
+}
+
+/* Header */
+[data-theme="cyber-gloss"] .app-header {
+  border-bottom: 2px solid #162436;
+  padding-bottom: 12px;
+  position: relative;
+}
+
+[data-theme="cyber-gloss"] .brand-title {
+  color: #ffffff;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+[data-theme="cyber-gloss"] .brand-title .accent-text {
+  color: #ffffff;
+}
+
+[data-theme="cyber-gloss"] .brand-subtitle {
+  color: #8da4be;
+  font-size: 11px;
+}
+
+[data-theme="cyber-gloss"] .brand-icon-box {
+  background: transparent;
+  box-shadow: none;
+}
+
+[data-theme="cyber-gloss"] .brand-logo-img {
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.9));
+  border-radius: 12px;
+}
+
+/* Theme Picker Toggle (Header Capsule) */
+[data-theme="cyber-gloss"] .theme-picker-toggle-btn {
+  background: linear-gradient(180deg, #101a26 0%, #090e15 100%);
+  border: 1.5px solid #233548;
+  border-radius: 20px;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.15), 0 3px 8px rgba(0, 0, 0, 0.7);
+  color: #e2e8f0;
+  padding: 4px 12px;
+}
+
+[data-theme="cyber-gloss"] .theme-picker-toggle-btn:hover {
+  border-color: #00e5ff;
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.35);
+}
+
+/* Active Account Card (Metallic Cockpit Frame with Cyan LED Bars) */
+[data-theme="cyber-gloss"] .active-account-card {
+  position: relative;
+  background: linear-gradient(180deg, #0d1520 0%, #060a0f 100%);
+  border: 2px solid #233548;
+  border-radius: 20px;
+  box-shadow: 0 0 0 1px #090e15, 0 0 0 3px #182332, 0 12px 30px rgba(0, 0, 0, 0.9), inset 0 1px 1px rgba(255, 255, 255, 0.25), inset 0 -2px 4px rgba(0, 0, 0, 0.8);
+  padding: 16px 14px;
+}
+
+/* Horizontal Cyan LED Tubes at Top of Active Card */
+[data-theme="cyber-gloss"] .active-account-card::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 18px;
+  width: 50px;
+  height: 3px;
+  background: #00e5ff;
+  border-radius: 2px;
+  box-shadow: 0 0 8px #00e5ff, 0 0 14px #00e5ff;
+}
+
+[data-theme="cyber-gloss"] .active-account-card::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  right: 18px;
+  width: 50px;
+  height: 3px;
+  background: #00e5ff;
+  border-radius: 2px;
+  box-shadow: 0 0 8px #00e5ff, 0 0 14px #00e5ff;
+}
+
+[data-theme="cyber-gloss"] .active-pill {
+  background: #041a0d;
+  border: 1.5px solid #00e676;
+  color: #00e676;
+  font-weight: 800;
+  font-size: 10.5px;
+  padding: 3px 12px;
+  border-radius: 12px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 0 10px rgba(0, 230, 118, 0.35);
+}
+
+[data-theme="cyber-gloss"] .status-text {
+  color: #e2e8f0;
+  font-size: 11px;
+}
+
+[data-theme="cyber-gloss"] .status-dot.online {
+  background: #00e5ff;
+  box-shadow: 0 0 8px #00e5ff, 0 0 12px #00e5ff;
+}
+
+[data-theme="cyber-gloss"] .phone-display {
+  color: #ffffff;
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+  margin: 6px 0 2px;
+}
+
+[data-theme="cyber-gloss"] .service-tag {
+  color: #7e9bb5;
+  font-size: 11.5px;
+  margin-bottom: 14px;
+}
+
+/* 3D Glass Capsule Buttons in Active Card */
+[data-theme="cyber-gloss"] .active-account-card .btn-pill.btn-crimson {
+  background: linear-gradient(180deg, #ff2a40 0%, #aa071a 50%, #55000b 100%);
+  border: 1.5px solid #ff4d63;
+  border-radius: 20px;
+  box-shadow: inset 0 2px 2px rgba(255, 255, 255, 0.7), inset 0 -2px 4px rgba(0, 0, 0, 0.7), 0 5px 14px rgba(255, 26, 53, 0.45);
+  color: #ffffff;
+  font-weight: 800;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+  padding: 7px 18px;
+}
+
+[data-theme="cyber-gloss"] .active-account-card .btn-pill.btn-crimson:hover {
+  box-shadow: inset 0 2px 2px rgba(255, 255, 255, 0.85), 0 6px 18px rgba(255, 26, 53, 0.65);
+}
+
+[data-theme="cyber-gloss"] .active-account-card .btn-pill.btn-cyan {
+  background: linear-gradient(180deg, #1fe073 0%, #0c8c3e 50%, #05481d 100%);
+  border: 1.5px solid #34fd8b;
+  border-radius: 20px;
+  box-shadow: inset 0 2px 2px rgba(255, 255, 255, 0.7), inset 0 -2px 4px rgba(0, 0, 0, 0.7), 0 5px 14px rgba(0, 230, 118, 0.45);
+  color: #ffffff;
+  font-weight: 800;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+  padding: 7px 18px;
+}
+
+[data-theme="cyber-gloss"] .active-account-card .btn-pill.btn-cyan:hover {
+  box-shadow: inset 0 2px 2px rgba(255, 255, 255, 0.85), 0 6px 18px rgba(0, 230, 118, 0.65);
+}
+
+/* Navigation Tabs Bar */
+[data-theme="cyber-gloss"] .nav-tabs-bar {
+  background: #080d14;
+  border: 1.5px solid #1a2736;
+  border-radius: 16px;
+  padding: 5px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.8), inset 0 1px 2px rgba(0, 0, 0, 0.9);
+  gap: 4px;
+}
+
+[data-theme="cyber-gloss"] .nav-tab-item {
+  border-radius: 12px;
+  color: #8da4be;
+  transition: all 0.2s ease;
+}
+
+[data-theme="cyber-gloss"] .nav-tab-item.active {
+  background: linear-gradient(180deg, #0d3858 0%, #071e30 100%);
+  border: 1.5px solid #00e5ff;
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.5), inset 0 0 8px rgba(0, 229, 255, 0.25);
+  color: #ffffff;
+  font-weight: 800;
+}
+
+/* Quick Profiles Grid (Subcards) */
+[data-theme="cyber-gloss"] .quick-profiles-grid {
+  gap: 10px;
+  margin-top: 8px;
+}
+
+[data-theme="cyber-gloss"] .quick-profile-card {
+  position: relative;
+  background: linear-gradient(180deg, #0b121a 0%, #060a0f 100%);
+  border: 2px solid #233548;
+  border-radius: 16px;
+  box-shadow: 0 0 0 1px #090e15, 0 8px 18px rgba(0, 0, 0, 0.8), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  padding: 12px 10px;
+}
+
+/* Horizontal Cyan LED Bar on Quick Profile Subcards */
+[data-theme="cyber-gloss"] .quick-profile-card::before {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 20%;
+  right: 20%;
+  height: 2px;
+  background: #00e5ff;
+  border-radius: 1px;
+  box-shadow: 0 0 6px #00e5ff, 0 0 10px #00e5ff;
+}
+
+[data-theme="cyber-gloss"] #quickProfile1 .avatar-glow {
+  background: radial-gradient(circle at 35% 35%, #00b4d8, #0077b6 60%, #03045e 100%);
+  border: 1.5px solid #00b4d8;
+  box-shadow: 0 0 12px rgba(0, 180, 216, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.6);
+  color: #ffffff;
+}
+
+[data-theme="cyber-gloss"] #quickProfile2 .avatar-glow {
+  background: radial-gradient(circle at 35% 35%, #a855f7, #7c3aed 60%, #3b0764 100%);
+  border: 1.5px solid #c084fc;
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.6);
+  color: #ffffff;
+}
+
+[data-theme="cyber-gloss"] .profile-label {
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 13px;
+}
+
+/* Card 1 Button: Golden-Amber Glass Capsule */
+[data-theme="cyber-gloss"] #quickProfile1 .btn-activate {
+  background: linear-gradient(180deg, #ffd166 0%, #f4a261 50%, #b85d19 100%);
+  border: 1.5px solid #ffe699;
+  border-radius: 14px;
+  box-shadow: inset 0 2px 2px rgba(255, 255, 255, 0.8), 0 4px 12px rgba(244, 162, 97, 0.45);
+  color: #1a0f00;
+  font-weight: 900;
+  font-size: 12px;
+  padding: 6px 0;
+}
+
+/* Card 2 Button: Electric Cyan Glass Capsule */
+[data-theme="cyber-gloss"] #quickProfile2 .btn-activate {
+  background: linear-gradient(180deg, #48cae4 0%, #0096c7 50%, #005f73 100%);
+  border: 1.5px solid #90e0ef;
+  border-radius: 14px;
+  box-shadow: inset 0 2px 2px rgba(255, 255, 255, 0.8), 0 4px 12px rgba(0, 180, 216, 0.45);
+  color: #001219;
+  font-weight: 900;
+  font-size: 12px;
+  padding: 6px 0;
+}
+
+/* Load 61 Accounts Action Pill */
+[data-theme="cyber-gloss"] .btn-quick-load-action,
+[data-theme="cyber-gloss"] .btn-bundled-load {
+  background: linear-gradient(180deg, #1fe073 0%, #0c8c3e 50%, #05481d 100%) !important;
+  border: 1.5px solid #34fd8b !important;
+  border-radius: 16px !important;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.6), 0 3px 10px rgba(0, 230, 118, 0.4) !important;
+  color: #ffffff !important;
+  font-weight: 800;
+}
+
+/* Saved Accounts List Rows */
+[data-theme="cyber-gloss"] .saved-account-card {
+  position: relative;
+  background: linear-gradient(180deg, #0a1017 0%, #06090e 100%);
+  border: 1.5px solid #202d3d;
+  border-radius: 14px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.7), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  margin-bottom: 7px;
+  padding: 9px 12px;
+}
+
+/* Cyan Accent Light at Top-Left of Each Row */
+[data-theme="cyber-gloss"] .saved-account-card::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 10px;
+  width: 14px;
+  height: 2px;
+  background: #00e5ff;
+  border-radius: 1px;
+  box-shadow: 0 0 6px #00e5ff;
+}
+
+[data-theme="cyber-gloss"] .acc-primary-phone {
+  color: #ffffff;
+  font-size: 13.5px;
+  font-weight: 800;
+}
+
+[data-theme="cyber-gloss"] .acc-sub-meta {
+  color: #7e9bb5;
+}
+
+[data-theme="cyber-gloss"] .eq-mini-bar {
+  background: #00e5ff;
+  box-shadow: 0 0 5px #00e5ff;
+}
+
+/* Row Action Buttons: Green Glass Capsule [اجرا] and Minimal [✕] */
+[data-theme="cyber-gloss"] .btn-launch-power {
+  background: linear-gradient(180deg, #1fe073 0%, #0c8c3e 50%, #05481d 100%);
+  border: 1px solid #34fd8b;
+  border-radius: 10px;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.7), 0 3px 8px rgba(0, 230, 118, 0.35);
+  color: #ffffff;
+  font-weight: 800;
+  padding: 4px 10px;
+}
+
+[data-theme="cyber-gloss"] .btn-launch-power:hover {
+  box-shadow: inset 0 1px 1px #fff, 0 4px 12px rgba(0, 230, 118, 0.6);
+}
+
+[data-theme="cyber-gloss"] .btn-delete-acc {
+  background: transparent;
+  border: none;
+  color: #8da4be;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+[data-theme="cyber-gloss"] .btn-delete-acc:hover {
+  color: #ff1a35;
+}
+
+/* Session Injection Section */
+[data-theme="cyber-gloss"] .inject-section {
+  background: transparent;
+}
+
+[data-theme="cyber-gloss"] .inject-textarea {
+  background: #070d14;
+  border: 1.5px solid #233548;
+  border-radius: 14px;
+  color: #ffffff;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+[data-theme="cyber-gloss"] .inject-textarea:focus {
+  border-color: #00e5ff;
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.35), inset 0 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+[data-theme="cyber-gloss"] .btn-inject-neon {
+  background: linear-gradient(180deg, #0d3858 0%, #071f33 100%);
+  border: 1.5px solid #00e5ff;
+  border-radius: 14px;
+  box-shadow: 0 0 14px rgba(0, 229, 255, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.4);
+  color: #00e5ff;
+  font-weight: 900;
+}
+
+[data-theme="cyber-gloss"] .btn-inject-neon:hover {
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.65), inset 0 1px 3px #fff;
+  color: #ffffff;
+}
+
+/* Vouchers & Cards */
+[data-theme="cyber-gloss"] .voucher-card,
+[data-theme="cyber-gloss"] .gemini-config-card,
+[data-theme="cyber-gloss"] .voucher-control-card {
+  background: linear-gradient(180deg, #0a111a 0%, #060a0f 100%);
+  border: 1.5px solid #202d3d;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+}
+
+[data-theme="cyber-gloss"] .v-chip {
+  background: #0c1520;
+  border: 1px solid #233548;
+  border-radius: 14px;
+  color: #8da4be;
+}
+
+[data-theme="cyber-gloss"] .v-chip.active {
+  background: #00e5ff;
+  color: #06090e;
+  font-weight: 800;
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.4);
+}

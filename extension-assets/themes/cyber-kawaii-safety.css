@@ -1,0 +1,271 @@
+/* ==========================================================================
+   Theme: cyber-kawaii-safety — کارتون اینترنت امن (Remember Kids! Blue Halftone)
+   Reference: image_68b13a.jpg (REMEMBER KIDS! // Let's Practice Web Safety!)
+   - Snow-White Backdrop (#FFFFFF) with Sky-Blue Ben-Day Halftone Dot Starburst
+     (#64BDF8 / #0080E6)
+   - Puffy Sky-Blue Cartoon Headers with Thick White Sticker Outlines
+   - Cute Cartoon CRT Monitor Card ("WHAT'S YOUR NAME?") with Recessed Blue-
+     Tinted CRT Screen (.phone-display) & Wobbly Marker Borders (2.5px #0066CC)
+   ========================================================================== */
+
+[data-theme="cyber-kawaii-safety"] {
+  --bg-deep: #F0F8FF;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #FFFFFF;
+  --bg-input: #F5FAFF;
+  --bg-modal: #FFFFFF;
+  --bg-overlay: rgba(0, 72, 140, 0.55);
+  --bg-page-gradient:
+    radial-gradient(#58B8F8 1.4px, transparent 1.4px),
+    linear-gradient(180deg, #FFFFFF 0%, #E8F5FF 100%);
+  --backdrop-blur: none;
+  --tabs-bar-bg: #FFFFFF;
+  --subchip-bg: #E0F2FE;
+
+  --text-primary: #004E98;
+  --text-secondary: #0066CC;
+  --text-muted: #1E78D6;
+  --text-input: #004E98;
+  --text-on-accent: #FFFFFF;
+  --text-brand: #0077E6;
+  --text-brand-accent: #0099FF;
+  --text-phone: #004E98;
+
+  --primary-neon: #0084F4;
+  --primary-light: #64BDF8;
+  --accent-cyan: #0084F4;
+  --accent-purple: #38BDF8;
+  --accent-emerald: #0284C7;
+  --accent-crimson: #E11D48;
+  --accent-yellow: #0084F4;
+  --semantic-danger: #E11D48;
+  --semantic-success: #0284C7;
+  --semantic-warning: #0077E6;
+
+  --border-subtle: #0066CC;
+  --border-glow: #64BDF8;
+  --border-card-top: #0066CC;
+  --border-width: 2.5px;
+  --border-color: #0066CC;
+  --border-input: 2.5px solid #0066CC;
+  --border-modal: 3px solid #0066CC;
+  --border-chip: 2px solid #0066CC;
+  --border-subchip: 2px dashed #38BDF8;
+
+  --radius-xs: 12px;
+  --radius-sm: 16px;
+  --radius-md: 20px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  --card-shadow: 0 5px 0 #64BDF8;
+  --card-shadow-hover: 0 6px 0 #0084F4;
+  --active-card-shadow: 0 6px 0 #58B8F8;
+  --btn-shadow: 0 4px 0 #0052A3;
+  --btn-shadow-hover: 0 5px 0 #0052A3;
+  --modal-shadow: 0 12px 0 #58B8F8;
+  --glow-pill: none;
+  --glow-dot: none;
+
+  --btn-transform-hover: translateY(-1px);
+  --btn-transform-active: translateY(2px);
+
+  --btn-inject-bg: #0084F4;
+  --btn-inject-color: #FFFFFF;
+  --btn-inject-border: 2.5px solid #004E98;
+  --btn-scan-mass-bg: #0084F4;
+  --btn-scan-mass-color: #FFFFFF;
+  --btn-scan-mass-border: 2.5px solid #004E98;
+  --btn-gofullpage-bg: #E0F2FE;
+  --btn-gofullpage-color: #004E98;
+  --btn-gofullpage-border: 2.5px solid #0066CC;
+  --btn-ai-scan-bg: #FFFFFF;
+  --btn-ai-scan-color: #004E98;
+  --btn-ai-scan-border: 2.5px solid #0066CC;
+  --btn-upload-bg: #FFFFFF;
+  --btn-upload-color: #004E98;
+  --btn-upload-border: 2.5px solid #0066CC;
+  --btn-excel-bg: #0084F4;
+  --btn-excel-color: #FFFFFF;
+  --btn-excel-border: 2.5px solid #004E98;
+  --excel-banner-bg: #E0F2FE;
+  --excel-banner-color: #004E98;
+  --excel-banner-border: 2.5px solid #0066CC;
+
+  --v-code-box-bg: #E0F2FE;
+  --v-code-box-border: 2.5px solid #0066CC;
+  --v-code-color: #004E98;
+  --v-pill-meta-bg: #E0F2FE;
+  --v-pill-meta-color: #004E98;
+
+  --switcher-bg: #E0F2FE;
+  --switcher-border: 2px solid #0066CC;
+  --scrollbar-thumb: #0084F4;
+  --scrollbar-thumb-hover: #004E98;
+  --scrollbar-track: #E0F2FE;
+  --scrollbar-width: 6px;
+  --scrollbar-radius: 999px;
+  --scrollbar-border: none;
+
+  --flare-display: none;
+  --active-card-topline-display: none;
+  --font-family: 'Vazirmatn', "Comic Sans MS", "Chalkboard SE", sans-serif;
+  --font-mono: "Courier New", ui-monospace, monospace;
+}
+
+/* Snow-White Background with Sky-Blue Ben-Day Halftone Dots */
+[data-theme="cyber-kawaii-safety"] body {
+  background-color: #FFFFFF !important;
+  background-image:
+    radial-gradient(#64BDF8 1.5px, transparent 1.5px),
+    linear-gradient(180deg, #FFFFFF 0%, #EAF6FF 100%) !important;
+  background-size: 10px 10px, 100% 100% !important;
+  color: #004E98;
+}
+
+/* Top Puffy Sticker Banner: REMEMBER KIDS! // LET'S PRACTICE WEB SAFETY! */
+[data-theme="cyber-kawaii-safety"] .popup-wrapper {
+  position: relative;
+  padding-top: 28px !important;
+}
+
+[data-theme="cyber-kawaii-safety"] .popup-wrapper::before {
+  content: "★  REMEMBER KIDS!  //  LET'S PRACTICE WEB SAFETY!  ★";
+  position: absolute;
+  top: 5px;
+  inset-inline: 12px;
+  height: 19px;
+  background: #0084F4;
+  color: #FFFFFF;
+  border: 2px solid #FFFFFF;
+  outline: 2px solid #0052A3;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  font-weight: 900;
+  letter-spacing: 0.7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  direction: ltr;
+}
+
+[data-theme="cyber-kawaii-safety"] .app-header,
+[data-theme="cyber-kawaii-safety"] .active-account-card,
+[data-theme="cyber-kawaii-safety"] .section-container,
+[data-theme="cyber-kawaii-safety"] .app-footer {
+  background: #FFFFFF !important;
+  border: 2.5px solid #0066CC !important;
+  border-radius: 22px !important;
+  box-shadow: 0 5px 0 #64BDF8 !important;
+}
+
+[data-theme="cyber-kawaii-safety"] .section-container {
+  padding: 12px !important;
+}
+
+[data-theme="cyber-kawaii-safety"] .active-account-card::before {
+  display: none !important;
+}
+
+/* Cartoon CRT Computer Screen ("WHAT'S YOUR NAME?") for Phone Display */
+[data-theme="cyber-kawaii-safety"] .phone-display {
+  position: relative;
+  background:
+    radial-gradient(rgba(0, 132, 244, 0.14) 1.2px, transparent 1.2px),
+    linear-gradient(180deg, #E8F6FF 0%, #FFFFFF 100%) !important;
+  background-size: 8px 8px, 100% 100% !important;
+  color: #0052A3 !important;
+  border: 2.5px solid #0066CC !important;
+  border-radius: 16px !important;
+  padding: 12px 14px !important;
+  margin-block: 8px !important;
+  font-family: var(--font-mono) !important;
+  font-size: 22px !important;
+  font-weight: 900 !important;
+  letter-spacing: 2px !important;
+  box-shadow: inset 0 3px 0 #BCE3FF, 0 4px 0 #64BDF8 !important;
+}
+
+[data-theme="cyber-kawaii-safety"] .quick-profile-card,
+[data-theme="cyber-kawaii-safety"] .saved-account-card {
+  background: #F5FAFF !important;
+  border: 2.5px solid #0066CC !important;
+  border-radius: 18px !important;
+  box-shadow: 0 4px 0 #7CC8F8 !important;
+}
+
+[data-theme="cyber-kawaii-safety"] .avatar-glow {
+  background: #0084F4 !important;
+  color: #FFFFFF !important;
+  border: 2.5px solid #004E98 !important;
+  box-shadow: 0 3px 0 #7CC8F8 !important;
+}
+
+[data-theme="cyber-kawaii-safety"] .nav-tabs-bar {
+  background: #FFFFFF !important;
+  border: 2.5px solid #0066CC !important;
+  border-radius: 999px !important;
+  padding: 4px !important;
+  box-shadow: 0 5px 0 #64BDF8 !important;
+}
+
+[data-theme="cyber-kawaii-safety"] .nav-tab-item {
+  border-radius: 999px !important;
+  color: #0052A3 !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="cyber-kawaii-safety"] .nav-tab-item.active {
+  background: #0084F4 !important;
+  color: #FFFFFF !important;
+  border: 2px solid #004E98 !important;
+  font-weight: 900 !important;
+  box-shadow: 0 2px 0 #004E98 !important;
+}
+
+[data-theme="cyber-kawaii-safety"] .nav-tab-item.active::after {
+  display: none !important;
+}
+
+[data-theme="cyber-kawaii-safety"] .btn-cyan,
+[data-theme="cyber-kawaii-safety"] .btn-inject-neon,
+[data-theme="cyber-kawaii-safety"] .btn-activate,
+[data-theme="cyber-kawaii-safety"] .btn-v-copy {
+  background: #0084F4 !important;
+  color: #FFFFFF !important;
+  border: 2.5px solid #004E98 !important;
+  border-radius: 999px !important;
+  font-weight: 900 !important;
+  box-shadow: 0 3.5px 0 #004E98 !important;
+}
+
+[data-theme="cyber-kawaii-safety"] .btn-crimson,
+[data-theme="cyber-kawaii-safety"] .btn-delete-acc {
+  background: #FFF0F3 !important;
+  color: #BE123C !important;
+  border: 2.5px solid #BE123C !important;
+  border-radius: 999px !important;
+  box-shadow: 0 3px 0 #FDA4AF !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="cyber-kawaii-safety"] .btn-neon-green,
+[data-theme="cyber-kawaii-safety"] .btn-launch-power,
+[data-theme="cyber-kawaii-safety"] .status-indicator-box,
+[data-theme="cyber-kawaii-safety"] .service-tag {
+  background: #E8F6FF !important;
+  color: #004E98 !important;
+  border: 2px solid #0066CC !important;
+  border-radius: 999px !important;
+  padding: 3px 10px !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="cyber-kawaii-safety"] .active-pill {
+  background: #0084F4 !important;
+  color: #FFFFFF !important;
+  border: 2px solid #004E98 !important;
+  border-radius: 999px !important;
+  font-weight: 900 !important;
+}

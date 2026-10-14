@@ -1,0 +1,532 @@
+/* =============================================================
+   themes/pastel-y2k.css - Pastel Y2K Retro Desktop & Cyber Zine
+   Reference: Image 7 / Image 3 (Cute Retro-OS, Peach Windows & Desktop Grid)
+   ============================================================= */
+
+[data-theme="pastel-y2k"] {
+  /* Surfaces - Peach & Pastel Windows on Desktop Grid */
+  --bg-deep: #D6E4FA;
+  --bg-card: #FBE3CC;
+  --bg-card-hover: #FFF1E3;
+  --bg-input: #FFFFFF;
+  --bg-modal: #FBE3CC;
+  --bg-overlay: rgba(58, 35, 35, 0.6);
+  
+  /* Background: 24px Crisp White Desktop Grid (Zero Overflow) */
+  --bg-page-gradient: 
+    linear-gradient(rgba(255, 255, 255, 0.75) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.75) 1px, transparent 1px);
+
+  --backdrop-blur: none;
+  --tabs-bar-bg: #E4D5C5;
+  --subchip-bg: #F4D9BE;
+
+  /* Hard 1.5px Dark Brown Outlines */
+  --border-subtle: #D8BCB2;
+  --border-glow: #62B5A9;
+  --border-card-top: #62B5A9;
+  --border-width: 1.5px;
+  --border-color: #3A2323;
+  --border-modal: 2px solid #3A2323;
+  --border-input: 1.5px solid #3A2323;
+  --border-chip: 1.5px solid #3A2323;
+  --border-subchip: 1px dashed #3A2323;
+
+  /* Pastel Y2K Accents */
+  --primary-neon: #62B5A9;
+  --primary-light: #7ED4C8;
+  --accent-cyan: #62B5A9;
+  --accent-crimson: #F27BA5;
+  --accent-yellow: #E8C34E;
+  --accent-purple: #9D84B7;
+  --accent-emerald: #5CC274;
+  --semantic-danger: #E85555;
+  --semantic-success: #5CC274;
+  --semantic-warning: #EE8430;
+
+  /* Voucher Category Colors */
+  --cat-food: #F27BA5;
+  --cat-ride: #62B5A9;
+  --cat-super: #5CC274;
+  --cat-box: #7A93E8;
+  --cat-doctor: #EE8430;
+  --cat-general: #3A2323;
+
+  /* Typography - Dark Chocolate Ink */
+  --text-primary: #3A2323;
+  --text-secondary: #6B5252;
+  --text-muted: #8E7575;
+  --text-on-accent: #FFFFFF;
+  --text-brand: #3A2323;
+  --text-brand-accent: #EE8430;
+  --text-phone: #3A2323;
+  --text-input: #3A2323;
+
+  /* Gentle 4-6px Retro Curves */
+  --radius-xs: 3px;
+  --radius-sm: 5px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-pill: 999px;
+
+  /* Hard Offset Drop Shadows (Zero Blur) */
+  --card-shadow: 3px 3px 0 #3A2323;
+  --card-shadow-hover: 4px 4px 0 #3A2323;
+  --active-card-shadow: 3px 3px 0 #3A2323;
+  --btn-shadow: 2px 2px 0 #3A2323;
+  --btn-shadow-hover: 3px 3px 0 #3A2323;
+  --btn-transform-hover: translate(-1px, -1px);
+  --btn-transform-active: translate(2px, 2px);
+  --modal-shadow: 5px 5px 0 #3A2323;
+  --glow-pill: none;
+  --glow-dot: none;
+
+  /* Scrollbar */
+  --scrollbar-width: 8px;
+  --scrollbar-track: #EFE4D6;
+  --scrollbar-thumb: #62B5A9;
+  --scrollbar-thumb-hover: #EE8430;
+  --scrollbar-radius: 4px;
+  --scrollbar-border: 1px solid #3A2323;
+
+  /* Component Presets */
+  --btn-inject-bg: #62B5A9;
+  --btn-inject-color: #FFFFFF;
+  --btn-inject-border: 1.5px solid #3A2323;
+
+  --btn-scan-mass-bg: #FBE3CC;
+  --btn-scan-mass-color: #3A2323;
+  --btn-scan-mass-border: 1.5px solid #3A2323;
+
+  --btn-gofullpage-bg: #FBE3CC;
+  --btn-gofullpage-color: #3A2323;
+  --btn-gofullpage-border: 1.5px solid #3A2323;
+
+  --btn-ai-scan-bg: #EE8430;
+  --btn-ai-scan-color: #FFFFFF;
+  --btn-ai-scan-border: 1.5px solid #3A2323;
+
+  --btn-upload-bg: #FBE3CC;
+  --btn-upload-color: #3A2323;
+  --btn-upload-border: 1.5px solid #3A2323;
+
+  --btn-excel-bg: #5CC274;
+  --btn-excel-color: #FFFFFF;
+  --btn-excel-border: 1.5px solid #3A2323;
+
+  --excel-banner-bg: #FBE3CC;
+  --excel-banner-border: 1.5px solid #3A2323;
+  --excel-banner-color: #3A2323;
+
+  --v-code-box-bg: #FFFFFF;
+  --v-code-box-border: 1.5px dashed #3A2323;
+  --v-code-color: #3A2323;
+  --v-pill-meta-bg: #F4D9BE;
+  --v-pill-meta-color: #3A2323;
+
+  --flare-display: none;
+  --active-card-topline-display: none;
+
+  --switcher-bg: #FBE3CC;
+  --switcher-border: 1.5px solid #3A2323;
+
+  --font-family: 'VT323', 'Silkscreen', 'Vazirmatn', -apple-system, sans-serif;
+}
+
+/* =============================================================
+   Strict 350px Viewport Containment
+   ============================================================= */
+[data-theme="pastel-y2k"] body {
+  width: 350px !important;
+  max-width: 350px !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  box-sizing: border-box !important;
+  background-color: var(--bg-deep) !important;
+  background-image: var(--bg-page-gradient) !important;
+  background-size: 24px 24px !important;
+}
+
+[data-theme="pastel-y2k"] .popup-wrapper {
+  width: 350px !important;
+  max-width: 350px !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  padding: 14px 14px 10px 14px !important;
+  margin: 0 !important;
+  background: transparent !important;
+}
+
+/* =============================================================
+   Cards & Y2K Windows
+   ============================================================= */
+[data-theme="pastel-y2k"] .card {
+  background: var(--bg-card);
+  border: 1.5px solid #3A2323;
+  border-radius: var(--radius-md);
+  box-shadow: var(--card-shadow);
+  position: relative;
+}
+
+/* Active Account Card with Teal Window Header & Controls */
+[data-theme="pastel-y2k"] .active-account-card {
+  background: #FBE3CC;
+  border: 1.5px solid #3A2323;
+  border-radius: 6px;
+  box-shadow: 3px 3px 0 #3A2323;
+  padding-top: 26px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Y2K Window Title Bar */
+[data-theme="pastel-y2k"] .active-account-card::before {
+  content: "★ PAPA_SESSION.EXE";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: #62B5A9;
+  color: #FFFFFF;
+  font-size: 10px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  border-bottom: 1.5px solid #3A2323;
+  letter-spacing: 0.5px;
+}
+
+/* Window Buttons: _ □ ✕ */
+[data-theme="pastel-y2k"] .active-account-card::after {
+  content: "— □ ✕";
+  position: absolute;
+  top: 0;
+  left: 6px;
+  height: 20px;
+  color: #FFFFFF;
+  font-size: 9px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  letter-spacing: 3px;
+  pointer-events: none;
+}
+
+[data-theme="pastel-y2k"] .active-account-card.standby::before {
+  background: #EE8430;
+}
+
+/* Active Status Pill */
+[data-theme="pastel-y2k"] .active-pill {
+  background: #3A2323;
+  color: #FFF8F0;
+  border: 1.5px solid #3A2323;
+  border-radius: var(--radius-pill);
+  box-shadow: 1px 1px 0 #3A2323;
+  font-weight: 800;
+  font-size: 10px;
+  padding: 2px 10px;
+}
+
+[data-theme="pastel-y2k"] .active-account-card.standby .active-pill {
+  background: #E8D3C0;
+  color: #3A2323;
+}
+
+/* Status Dot */
+[data-theme="pastel-y2k"] .status-dot {
+  border: 1px solid #3A2323;
+}
+
+[data-theme="pastel-y2k"] .status-dot.online {
+  background: #5CC274;
+}
+
+/* =============================================================
+   Buttons: Chunky Y2K Action Buttons
+   ============================================================= */
+[data-theme="pastel-y2k"] .btn-pill {
+  border: 1.5px solid #3A2323;
+  border-radius: var(--radius-pill);
+  box-shadow: 2px 2px 0 #3A2323;
+  font-weight: 700;
+  transition: all 0.1s ease;
+}
+
+/* Cyan Button (کپی سشن) -> Teal Y2K Pill */
+[data-theme="pastel-y2k"] .btn-cyan {
+  background: #62B5A9;
+  color: #FFFFFF;
+}
+
+[data-theme="pastel-y2k"] .btn-cyan:hover {
+  background: #76C8BD;
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 #3A2323;
+}
+
+/* Crimson Button (خروج امن) -> Pastel Pink Pill */
+[data-theme="pastel-y2k"] .btn-crimson {
+  background: #F27BA5;
+  color: #FFFFFF;
+}
+
+[data-theme="pastel-y2k"] .btn-crimson:hover {
+  background: #FF8EB6;
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 #3A2323;
+}
+
+/* Green Action Button (بارگذاری ۶۱ اکانت) -> Chocolate "OK" Style Button */
+[data-theme="pastel-y2k"] .btn-neon-green {
+  background: #3A2323;
+  color: #FFF8F0;
+}
+
+[data-theme="pastel-y2k"] .btn-neon-green:hover {
+  background: #523434;
+}
+
+/* =============================================================
+   Navigation Tabs Bar
+   ============================================================= */
+[data-theme="pastel-y2k"] .nav-tabs-bar {
+  background: #E4D5C5;
+  border: 1.5px solid #3A2323;
+  border-radius: var(--radius-pill);
+  box-shadow: 2px 2px 0 #3A2323;
+  padding: 3px;
+  gap: 3px;
+}
+
+[data-theme="pastel-y2k"] .nav-tab-item {
+  border-radius: var(--radius-pill);
+  color: #553A3A;
+  font-weight: 700;
+  transition: all 0.1s ease;
+}
+
+[data-theme="pastel-y2k"] .nav-tab-item:hover {
+  background: #FBE3CC;
+  color: #3A2323;
+}
+
+[data-theme="pastel-y2k"] .nav-tab-item.active {
+  background: #62B5A9;
+  color: #FFFFFF;
+  border: 1px solid #3A2323;
+  box-shadow: 1px 1px 0 #3A2323;
+  font-weight: 800;
+}
+
+/* =============================================================
+   Chips & Inputs
+   ============================================================= */
+[data-theme="pastel-y2k"] .category-chip {
+  background: #FBE3CC;
+  border: 1.5px solid #3A2323;
+  border-radius: var(--radius-pill);
+  color: #3A2323;
+  box-shadow: 1px 1px 0 #3A2323;
+  font-weight: 700;
+}
+
+[data-theme="pastel-y2k"] .category-chip:hover {
+  background: #FFF1E3;
+}
+
+[data-theme="pastel-y2k"] .category-chip.active {
+  background: #62B5A9;
+  color: #FFFFFF;
+  box-shadow: 2px 2px 0 #3A2323;
+}
+
+[data-theme="pastel-y2k"] .sub-chip {
+  background: #FBE3CC;
+  border: 1px solid #3A2323;
+  border-radius: var(--radius-pill);
+  color: #3A2323;
+}
+
+[data-theme="pastel-y2k"] .sub-chip.active {
+  background: #EE8430;
+  color: #FFFFFF;
+  border-color: #3A2323;
+}
+
+[data-theme="pastel-y2k"] input,
+[data-theme="pastel-y2k"] textarea,
+[data-theme="pastel-y2k"] .search-input,
+[data-theme="pastel-y2k"] .voucher-select,
+[data-theme="pastel-y2k"] .session-input-box {
+  background: #FFFFFF;
+  border: 1.5px solid #3A2323;
+  border-radius: 4px;
+  color: #3A2323;
+  box-shadow: inset 1px 1px 0 #E8D3C0;
+}
+
+[data-theme="pastel-y2k"] input:focus,
+[data-theme="pastel-y2k"] textarea:focus,
+[data-theme="pastel-y2k"] .search-input:focus,
+[data-theme="pastel-y2k"] .voucher-select:focus {
+  outline: none;
+  border-color: #62B5A9;
+  box-shadow: 0 0 0 2px #62B5A9, inset 1px 1px 0 #E8D3C0;
+}
+
+/* =============================================================
+   Quick Profile Cards
+   ============================================================= */
+[data-theme="pastel-y2k"] .quick-profile-card {
+  background: #FBE3CC;
+  border: 1.5px solid #3A2323;
+  border-radius: 6px;
+  box-shadow: 2px 2px 0 #3A2323;
+}
+
+[data-theme="pastel-y2k"] .quick-profile-card.active-profile {
+  background: #FFF5EC;
+  border-color: #62B5A9;
+  box-shadow: 2px 2px 0 #62B5A9;
+}
+
+[data-theme="pastel-y2k"] .btn-activate {
+  background: #FBE3CC;
+  border: 1.5px solid #3A2323;
+  border-radius: var(--radius-pill);
+  color: #3A2323;
+  font-weight: 700;
+}
+
+[data-theme="pastel-y2k"] .btn-activate.active {
+  background: #62B5A9;
+  color: #FFFFFF;
+  box-shadow: 1px 1px 0 #3A2323;
+}
+
+/* =============================================================
+   PERFORMANCE CRITICAL: 61+ Rows (Zero Blur, 60fps)
+   ============================================================= */
+[data-theme="pastel-y2k"] .saved-account-card {
+  background: #FBE3CC;
+  border: 1.5px solid #3A2323;
+  border-radius: 6px;
+  box-shadow: 1.5px 1.5px 0 #3A2323;
+  backdrop-filter: none !important;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+[data-theme="pastel-y2k"] .saved-account-card:hover {
+  background: #FFF1E3;
+  transform: translate(-1px, -1px);
+  box-shadow: 2.5px 2.5px 0 #3A2323;
+}
+
+[data-theme="pastel-y2k"] .acc-btn-run {
+  background: #62B5A9;
+  color: #FFFFFF;
+  border: 1.5px solid #3A2323;
+  border-radius: var(--radius-pill);
+  box-shadow: 1px 1px 0 #3A2323;
+  font-weight: 700;
+}
+
+[data-theme="pastel-y2k"] .acc-btn-run:hover {
+  background: #76C8BD;
+}
+
+[data-theme="pastel-y2k"] .acc-btn-delete {
+  color: #8E7575;
+}
+
+[data-theme="pastel-y2k"] .acc-btn-delete:hover {
+  color: #E85555;
+}
+
+/* Voucher Cards */
+[data-theme="pastel-y2k"] .voucher-card {
+  background: #FBE3CC;
+  border: 1.5px solid #3A2323;
+  border-radius: 6px;
+  box-shadow: 1.5px 1.5px 0 #3A2323;
+  backdrop-filter: none !important;
+}
+
+/* =============================================================
+   Theme Picker Dropdown
+   ============================================================= */
+[data-theme="pastel-y2k"] .theme-picker-dropdown {
+  background: #FBE3CC;
+  border: 1.5px solid #3A2323;
+  border-radius: 6px;
+  box-shadow: 4px 4px 0 #3A2323;
+}
+
+[data-theme="pastel-y2k"] .theme-option-btn {
+  background: #FFF1E3;
+  border: 1.5px solid #3A2323;
+  border-radius: 4px;
+  color: #3A2323;
+}
+
+[data-theme="pastel-y2k"] .theme-option-btn:hover {
+  background: #FFFFFF;
+}
+
+[data-theme="pastel-y2k"] .theme-option-btn.active {
+  background: #62B5A9;
+  color: #FFFFFF;
+  box-shadow: 1px 1px 0 #3A2323;
+}
+
+/* =============================================================
+   Modal & Toast
+   ============================================================= */
+[data-theme="pastel-y2k"] .modal-overlay {
+  background: rgba(58, 35, 35, 0.6);
+  backdrop-filter: none;
+}
+
+[data-theme="pastel-y2k"] .modal-box {
+  background: #FBE3CC;
+  border: 2px solid #3A2323;
+  border-radius: 8px;
+  box-shadow: 6px 6px 0 #3A2323;
+  color: #3A2323;
+  padding-top: 26px;
+  position: relative;
+}
+
+[data-theme="pastel-y2k"] .modal-box::before {
+  content: "★ SYSTEM_ALERT";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: #EE8430;
+  color: #FFFFFF;
+  font-size: 10px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  border-bottom: 1.5px solid #3A2323;
+}
+
+[data-theme="pastel-y2k"] .toast-notification {
+  background: #3A2323;
+  color: #FFF8F0;
+  border: 1.5px solid #62B5A9;
+  border-radius: var(--radius-pill);
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
+  font-family: 'VT323', monospace;
+}
+
+/* Equalizer Bars */
+[data-theme="pastel-y2k"] .eq-bar {
+  background: #62B5A9;
+}

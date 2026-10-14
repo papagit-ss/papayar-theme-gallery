@@ -1,0 +1,133 @@
+/* ==========================================================================
+   themes/nokia-lcd.fx.css — Exclusive Effects for Theme 19 (Nokia 3310 LCD)
+   Effects:
+   1. [ambient] نبض سگمنت‌های خاموش ساعت (88:88) و حرکت اسلایدر پخش موزیک (lcd-segment-pulse)
+   2. [hover] هایلایت نواری پلی‌لیست نوکیا (Inverted Bar) با ردِ شبح کریستال مایع (lcd-playlist-invert)
+   3. [click] موج فشار انگشت روی شیشه‌ی کریستال مایع (LCD Pressure Pooling Rings) و درخشش بک‌لایت سبز (lcd-pressure-wave)
+   4. [transition] تغییر فاز کریستال مایع با شبح سگمنت‌ها (LCD Slow-Response Ghosting) در تعویض تب (lcd-crystal-fade)
+   ========================================================================== */
+
+@keyframes lcd-ghost-breathe {
+  0%, 100% { opacity: 0.11; }
+  50% { opacity: 0.22; }
+}
+
+@keyframes lcd-clock-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0.72; }
+}
+
+@keyframes lcd-eq-step {
+  0%, 100% { transform: scaleY(0.5); }
+  50% { transform: scaleY(1.35); }
+}
+
+@keyframes lcd-scrubber-slide {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(96px); }
+}
+
+@keyframes lcd-crystal-response {
+  0% {
+    opacity: 0.18;
+    filter: contrast(0.35) brightness(1.15);
+    transform: translateY(2px);
+  }
+  45% {
+    opacity: 0.75;
+    filter: contrast(0.75);
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 1;
+    filter: contrast(1);
+    transform: translateY(0);
+  }
+}
+
+/* Liquid-Crystal Finger-Pressure Pooling Distortion Rings on LCD Glass */
+@keyframes lcd-glass-pressure {
+  0% {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(0.25);
+  }
+  55% {
+    opacity: 0.65;
+    transform: translate(-50%, -50%) scale(1.15);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.65);
+  }
+}
+
+@keyframes lcd-backlight-surge {
+  0%, 100% { filter: brightness(1); }
+  40% {
+    box-shadow: 0 0 0 3px rgba(152, 177, 102, 0.85), inset 0 0 10px rgba(152, 177, 102, 0.55) !important;
+  }
+}
+
+/* 1. Ambient: Unlit 7-Segment Ghost Breathing, Scrubber Slide & Stepped LCD Equalizer */
+html[data-theme="nokia-lcd"][data-fx="full"]:not([data-motion="reduced"]) .phone-display::before {
+  animation: lcd-ghost-breathe 2.6s steps(3, end) infinite;
+}
+
+html[data-theme="nokia-lcd"][data-fx="full"]:not([data-motion="reduced"]) .app-header::before {
+  animation: lcd-clock-blink 2s steps(2, end) infinite;
+}
+
+html[data-theme="nokia-lcd"][data-fx="full"]:not([data-motion="reduced"]) .active-account-card::after {
+  animation: lcd-scrubber-slide 6s steps(12, end) infinite;
+}
+
+html[data-theme="nokia-lcd"][data-fx="full"]:not([data-motion="reduced"]) .footer-equalizer .eq-bar:nth-child(odd) {
+  animation: lcd-eq-step 0.9s steps(2, end) infinite;
+}
+
+html[data-theme="nokia-lcd"][data-fx="full"]:not([data-motion="reduced"]) .footer-equalizer .eq-bar:nth-child(even) {
+  animation: lcd-eq-step 0.9s steps(2, end) 0.45s infinite;
+}
+
+/* 2. Hover: Liquid-Crystal Ghost Afterimage Trail & Playlist Bar Invert */
+html[data-theme="nokia-lcd"]:not([data-fx="off"]):not([data-motion="reduced"]) .btn-pill,
+html[data-theme="nokia-lcd"]:not([data-fx="off"]):not([data-motion="reduced"]) .saved-account-card,
+html[data-theme="nokia-lcd"]:not([data-fx="off"]):not([data-motion="reduced"]) .quick-profile-card,
+html[data-theme="nokia-lcd"]:not([data-fx="off"]):not([data-motion="reduced"]) .voucher-card {
+  transition: background-color 0.14s steps(2, end), color 0.14s steps(2, end), box-shadow 0.14s steps(2, end);
+}
+
+html[data-theme="nokia-lcd"]:not([data-fx="off"]):not([data-motion="reduced"]) .phone-display:hover {
+  text-shadow: 3px 3px 0 rgba(11, 19, 7, 0.38), -2px -1px 0 rgba(11, 19, 7, 0.18);
+}
+
+/* 3. Click: Concentric Liquid-Crystal Pressure Pooling Wave on LCD Glass + Backlight Surge */
+html[data-theme="nokia-lcd"]:not([data-fx="off"]):not([data-motion="reduced"]) button.is-fx-clicked {
+  animation: lcd-backlight-surge 0.35s steps(3, end);
+}
+
+html[data-theme="nokia-lcd"]:not([data-fx="off"]):not([data-motion="reduced"]) .fx-click-burst.is-bursting {
+  position: fixed;
+  left: var(--burst-x, 175px);
+  top: var(--burst-y, 350px);
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(11, 19, 7, 0.42) 0% 22%,
+    transparent 23% 38%,
+    rgba(11, 19, 7, 0.32) 39% 52%,
+    transparent 53% 68%,
+    rgba(11, 19, 7, 0.22) 69% 78%,
+    transparent 79%
+  );
+  pointer-events: none;
+  z-index: 9999;
+  animation: lcd-glass-pressure 0.48s steps(5, end) forwards;
+}
+
+/* 4. Transition: Authentic Slow Liquid-Crystal Response Fade on Tab Switch */
+html[data-theme="nokia-lcd"]:not([data-fx="off"]):not([data-motion="reduced"]) .tab-page.active {
+  animation: lcd-crystal-response 0.26s steps(4, end) both;
+}

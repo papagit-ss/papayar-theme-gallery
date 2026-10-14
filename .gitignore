@@ -1,0 +1,14 @@
+# Packaging
+*.zip
+dist/
+
+# Python (build.py)
+__pycache__/
+*.py[cod]
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log

@@ -1,0 +1,281 @@
+/* ==========================================================================
+   Theme 29: showdown-968 — 968 Showdown Dark Chrome & Metallic Sage VR UI
+   Complete Ground-Up Sculpted Redesign (Reference: image_5c6ec1.jpg):
+   - Top Capsule HUD Bar (.popup-wrapper::before): "968 SHOWDOWN ✦ NINTENDO VR + PLAYSTATION"
+   - Airbrushed Metallic Sage-Chrome & Carbon Cards (#182C28 -> #080E0D)
+     with Liquid-Mercury 1.5px Borders (#B8D0C9)
+   - Dedicated Metallic Sage-Teal Telemetry Screen (.phone-display) with 4-Point
+     Chrome Shuriken Star (✦) in Corner & Italic Chrome Speed Readout
+   - Sculpted 3D Liquid-Silver Pill Buttons with Metallic Bevel Shadows
+   ========================================================================== */
+
+[data-theme="showdown-968"] {
+  --bg-deep: #050808;
+  --bg-card: #0D1615;
+  --bg-card-hover: #142220;
+  --bg-input: #080E0D;
+  --bg-modal: #0D1615;
+  --bg-overlay: rgba(3, 5, 5, 0.88);
+  --bg-page-gradient:
+    radial-gradient(240px 180px at 85% 20%, rgba(156, 188, 180, 0.22) 0%, transparent 72%),
+    linear-gradient(180deg, #040707 0%, #0B1413 55%, #040707 100%);
+  --backdrop-blur: blur(12px);
+  --tabs-bar-bg: #0A1211;
+  --subchip-bg: #12201E;
+
+  --text-primary: #F2FAF8;
+  --text-secondary: #C2D8D2;
+  --text-muted: #8FAEA6;
+  --text-input: #F2FAF8;
+  --text-on-accent: #050808;
+  --text-brand: #FFFFFF;
+  --text-brand-accent: #A8C6BE;
+  --text-phone: #FFFFFF;
+
+  --primary-neon: #B8D2CB;
+  --primary-light: #E2F0EC;
+  --accent-cyan: #B8D2CB;
+  --accent-purple: #82A69D;
+  --accent-emerald: #6EE7B7;
+  --accent-crimson: #FDA4AF;
+  --accent-yellow: #D8EAE5;
+  --semantic-danger: #FDA4AF;
+  --semantic-success: #6EE7B7;
+  --semantic-warning: #FCD34D;
+
+  --border-subtle: rgba(184, 210, 203, 0.48);
+  --border-glow: #E2F0EC;
+  --border-card-top: #E2F0EC;
+  --border-width: 1.5px;
+  --border-color: rgba(184, 210, 203, 0.52);
+  --border-input: 1.5px solid rgba(184, 210, 203, 0.55);
+  --border-modal: 2px solid #B8D2CB;
+  --border-chip: 1.5px solid rgba(184, 210, 203, 0.48);
+  --border-subchip: 1px solid rgba(184, 210, 203, 0.35);
+
+  --radius-xs: 10px;
+  --radius-sm: 14px;
+  --radius-md: 20px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  --card-shadow:
+    0 14px 32px rgba(0, 0, 0, 0.8),
+    inset 0 1.5px 0 rgba(235, 246, 243, 0.35);
+  --card-shadow-hover:
+    0 18px 36px rgba(0, 0, 0, 0.88),
+    0 0 16px rgba(184, 210, 203, 0.25),
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.55);
+  --active-card-shadow: var(--card-shadow);
+  --btn-shadow: 0 3px 0 #3E5953, 0 6px 14px rgba(0, 0, 0, 0.55), inset 0 1.5px 0 #FFFFFF;
+  --btn-shadow-hover: 0 4px 0 #3E5953, 0 8px 18px rgba(184, 210, 203, 0.35), inset 0 1.5px 0 #FFFFFF;
+  --modal-shadow: 0 24px 48px rgba(0, 0, 0, 0.92);
+  --glow-pill: 0 0 14px rgba(184, 210, 203, 0.4);
+  --glow-dot: 0 0 8px #B8D2CB;
+
+  --btn-transform-hover: translateY(-1px);
+  --btn-transform-active: translateY(2px);
+
+  --btn-inject-bg: linear-gradient(180deg, #F0F7F5 0%, #B4CEC7 55%, #82A39B 100%);
+  --btn-inject-color: #050808;
+  --btn-inject-border: 1.5px solid #FFFFFF;
+  --btn-scan-mass-bg: linear-gradient(180deg, #F0F7F5 0%, #B4CEC7 55%, #82A39B 100%);
+  --btn-scan-mass-color: #050808;
+  --btn-scan-mass-border: 1.5px solid #FFFFFF;
+  --btn-gofullpage-bg: linear-gradient(180deg, #243C38 0%, #101C1A 100%);
+  --btn-gofullpage-color: #F2FAF8;
+  --btn-gofullpage-border: 1.5px solid #B8D2CB;
+  --btn-ai-scan-bg: #101C1A;
+  --btn-ai-scan-color: #F2FAF8;
+  --btn-ai-scan-border: 1.5px solid rgba(184, 210, 203, 0.55);
+  --btn-upload-bg: #101C1A;
+  --btn-upload-color: #F2FAF8;
+  --btn-upload-border: 1.5px solid rgba(184, 210, 203, 0.55);
+  --btn-excel-bg: linear-gradient(180deg, #F0F7F5 0%, #9CB8B0 100%);
+  --btn-excel-color: #050808;
+  --btn-excel-border: 1.5px solid #FFFFFF;
+  --excel-banner-bg: #101C1A;
+  --excel-banner-color: #E2F0EC;
+  --excel-banner-border: 1.5px solid #B8D2CB;
+
+  --v-code-box-bg: #070C0B;
+  --v-code-box-border: 1.5px solid #B8D2CB;
+  --v-code-color: #F2FAF8;
+  --v-pill-meta-bg: rgba(184, 210, 203, 0.16);
+  --v-pill-meta-color: #E2F0EC;
+
+  --switcher-bg: #101C1A;
+  --switcher-border: 1.5px solid rgba(184, 210, 203, 0.52);
+  --scrollbar-thumb: #82A39B;
+  --scrollbar-thumb-hover: #E2F0EC;
+  --scrollbar-track: #050808;
+  --scrollbar-width: 5px;
+  --scrollbar-radius: 999px;
+  --scrollbar-border: none;
+
+  --flare-display: none;
+  --active-card-topline-display: none;
+  --font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "SF Mono", ui-monospace, monospace;
+}
+
+[data-theme="showdown-968"] body {
+  background-color: #050808 !important;
+  color: #F2FAF8;
+}
+
+/* Top Pill VR Bar: 968 SHOWDOWN ✦ NINTENDO VR + PLAYSTATION */
+[data-theme="showdown-968"] .popup-wrapper {
+  position: relative;
+  padding-top: 28px !important;
+}
+
+[data-theme="showdown-968"] .popup-wrapper::before {
+  content: "968 SHOWDOWN   ✦   NINTENDO VR + PLAYSTATION   🌐";
+  position: absolute;
+  top: 5px;
+  inset-inline: 12px;
+  height: 19px;
+  background: linear-gradient(90deg, #0B1413 0%, #1E332F 50%, #0B1413 100%);
+  color: #E2F0EC;
+  border: 1px solid rgba(200, 224, 218, 0.55);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  font-weight: 800;
+  letter-spacing: 0.9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  direction: ltr;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+[data-theme="showdown-968"] .app-header {
+  border-radius: 999px !important;
+  padding: 8px 14px !important;
+  background: linear-gradient(135deg, #12211E 0%, #091110 100%) !important;
+  border: 1.5px solid rgba(190, 216, 209, 0.52) !important;
+  box-shadow: var(--card-shadow) !important;
+}
+
+/* Active Account Card: Airbrushed Metallic Sage-Chrome Panel */
+[data-theme="showdown-968"] .active-account-card {
+  position: relative;
+  padding: 14px !important;
+  background:
+    radial-gradient(180px 100px at 84% 16%, rgba(216, 234, 229, 0.28) 0%, transparent 72%),
+    linear-gradient(155deg, #1B302C 0%, #0D1816 58%, #070C0B 100%) !important;
+  border: 1.5px solid rgba(205, 226, 220, 0.58) !important;
+  border-radius: 22px !important;
+  box-shadow: var(--card-shadow) !important;
+}
+
+[data-theme="showdown-968"] .active-account-card::before {
+  display: none !important;
+}
+
+/* Dedicated Airbrushed Sage-Chrome Telemetry Visor for the Phone Number */
+[data-theme="showdown-968"] .phone-display {
+  position: relative;
+  background:
+    radial-gradient(120px 60px at 18% 50%, rgba(190, 218, 210, 0.32) 0%, transparent 75%),
+    linear-gradient(135deg, #243E39 0%, #101D1A 52%, #1C322E 100%) !important;
+  color: #FFFFFF !important;
+  border: 1.5px solid #D8EAE5 !important;
+  border-radius: 14px !important;
+  padding: 10px 14px !important;
+  margin-block: 8px !important;
+  font-family: var(--font-mono) !important;
+  font-size: 22px !important;
+  font-style: italic !important;
+  font-weight: 900 !important;
+  letter-spacing: 2px !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.75) !important;
+  box-shadow: inset 0 1.5px 0 rgba(255, 255, 255, 0.55), 0 6px 16px rgba(0, 0, 0, 0.55) !important;
+}
+
+[data-theme="showdown-968"] .section-container {
+  padding: 12px !important;
+  background: linear-gradient(160deg, #101D1B 0%, #070C0B 100%) !important;
+  border: 1.5px solid rgba(184, 210, 203, 0.45) !important;
+  border-radius: 20px !important;
+}
+
+[data-theme="showdown-968"] .section-container::before {
+  display: none !important;
+}
+
+/* Sub-Cards Styled like the "NEW • VR GAME© // RACE ARENA ↗" Panels */
+[data-theme="showdown-968"] .quick-profile-card,
+[data-theme="showdown-968"] .saved-account-card {
+  background: linear-gradient(145deg, #162825 0%, #0A1312 100%) !important;
+  border: 1.5px solid rgba(190, 216, 209, 0.48) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
+}
+
+[data-theme="showdown-968"] .avatar-glow {
+  background: linear-gradient(135deg, #D8EAE5 0%, #7E9F97 100%) !important;
+  color: #050808 !important;
+  border: 1.5px solid #FFFFFF !important;
+  box-shadow: 0 2px 8px rgba(184, 210, 203, 0.35) !important;
+}
+
+[data-theme="showdown-968"] .nav-tabs-bar {
+  border-radius: 999px !important;
+  background: #091110 !important;
+  border: 1.5px solid rgba(190, 216, 209, 0.52) !important;
+  padding: 4px !important;
+}
+
+[data-theme="showdown-968"] .nav-tab-item {
+  border-radius: 999px !important;
+  color: #C2D8D2 !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="showdown-968"] .nav-tab-item.active {
+  background: linear-gradient(180deg, #F0F7F5 0%, #9CB8B0 100%) !important;
+  color: #050808 !important;
+  border: 1px solid #FFFFFF !important;
+  font-weight: 900 !important;
+  box-shadow: 0 2px 10px rgba(184, 210, 203, 0.45) !important;
+}
+
+[data-theme="showdown-968"] .nav-tab-item.active::after {
+  display: none !important;
+}
+
+[data-theme="showdown-968"] .btn-cyan,
+[data-theme="showdown-968"] .btn-inject-neon,
+[data-theme="showdown-968"] .btn-activate,
+[data-theme="showdown-968"] .btn-v-copy {
+  background: linear-gradient(180deg, #F0F7F5 0%, #B4CEC7 55%, #82A39B 100%) !important;
+  color: #050808 !important;
+  border: 1.5px solid #FFFFFF !important;
+  border-radius: 999px !important;
+  font-weight: 900 !important;
+  box-shadow: var(--btn-shadow) !important;
+}
+
+[data-theme="showdown-968"] .btn-crimson,
+[data-theme="showdown-968"] .btn-delete-acc {
+  background: rgba(244, 63, 94, 0.18) !important;
+  color: #FECDD3 !important;
+  border: 1.5px solid rgba(253, 164, 175, 0.55) !important;
+  border-radius: 999px !important;
+}
+
+[data-theme="showdown-968"] .btn-neon-green,
+[data-theme="showdown-968"] .btn-launch-power,
+[data-theme="showdown-968"] .status-indicator-box,
+[data-theme="showdown-968"] .service-tag {
+  background: #12211E !important;
+  color: #E2F0EC !important;
+  border: 1.5px solid rgba(190, 216, 209, 0.52) !important;
+  border-radius: 999px !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="showdown-968"] .status-indicator-box, [data-theme="showdown-968"] .service-tag { padding: 3px 10px !important; }

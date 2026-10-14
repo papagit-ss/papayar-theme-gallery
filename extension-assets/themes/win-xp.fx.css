@@ -1,0 +1,65 @@
+/* ==========================================================================
+   themes/win-xp.fx.css — Exclusive Effects for Theme 08 (Windows XP)
+   Effects:
+   1. [ambient] نوار پیشرفت سبز با بلوک‌های لغزان (xp-green-progress)
+   2. [transition] بالن اعلان زرد که با انیمیشن بالا می‌آید (xp-balloon-toast)
+   3. [hover] درخشش دکمه‌ی سبز (xp-green-shine)
+   ========================================================================== */
+
+@keyframes xp-blocks-marquee {
+  0% { transform: translateX(110%); }
+  100% { transform: translateX(-110%); }
+}
+
+@keyframes xp-balloon-rise {
+  0% { opacity: 0; transform: translateY(8px) scale(0.97); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Ambient: Classic XP Indeterminate 3-Block Green Progress Bar in Footer */
+html[data-theme="win-xp"][data-fx="full"]:not([data-motion="reduced"]) .app-footer {
+  position: relative;
+  overflow: hidden;
+}
+
+html[data-theme="win-xp"][data-fx="full"]:not([data-motion="reduced"]) .app-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 66px;
+  height: 4px;
+  background: repeating-linear-gradient(90deg, #388E3C 0 10px, #66BB6A 10px 12px, transparent 12px 15px);
+  pointer-events: none;
+  will-change: transform;
+  animation: xp-blocks-marquee 2.4s linear infinite;
+}
+
+/* Hover: Glossy Luna Green Shine on Start/Inject & Quick Load Buttons */
+html[data-theme="win-xp"]:not([data-fx="off"]):not([data-motion="reduced"]) .btn-inject-neon,
+html[data-theme="win-xp"]:not([data-fx="off"]):not([data-motion="reduced"]) .btn-neon-green {
+  position: relative;
+  overflow: hidden;
+}
+
+html[data-theme="win-xp"]:not([data-fx="off"]):not([data-motion="reduced"]) .btn-inject-neon::after,
+html[data-theme="win-xp"]:not([data-fx="off"]):not([data-motion="reduced"]) .btn-neon-green::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+  transform: translateX(120%);
+  transition: transform 0.38s ease;
+  pointer-events: none;
+}
+
+html[data-theme="win-xp"]:not([data-fx="off"]):not([data-motion="reduced"]) .btn-inject-neon:hover::after,
+html[data-theme="win-xp"]:not([data-fx="off"]):not([data-motion="reduced"]) .btn-neon-green:hover::after {
+  transform: translateX(-120%);
+}
+
+/* Transition: XP Balloon Tooltip Pop on Tab / Gemini Status */
+html[data-theme="win-xp"]:not([data-fx="off"]):not([data-motion="reduced"]) .tab-page.active,
+html[data-theme="win-xp"]:not([data-fx="off"]):not([data-motion="reduced"]) .gemini-config-card {
+  animation: xp-balloon-rise 0.22s ease-out both;
+}

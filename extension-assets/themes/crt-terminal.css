@@ -1,0 +1,296 @@
+/* ==========================================================================
+   Theme 13: crt-terminal — Merged CRT Phosphor & 1987 GRiD Compass EL Terminal
+   Fusing Theme 13 (CRT Terminal: root@papayar:~$, blinking block cursor ▮,
+   CRT scanlines, emerald phosphor accents) + Theme 31 (1987 GRiD Compass
+   Electroluminescent Amber Display: 1-Jan-87 1:44 am BIOS bar, Device: Bubble
+   Memory, Inverted Solid Amber Selection Bars #FFB81C & Bottom Prompt Bar)
+   ========================================================================== */
+
+[data-theme="crt-terminal"] {
+  --bg-deep: #110A00;
+  --bg-card: #160D00;
+  --bg-card-hover: #221400;
+  --bg-input: #0D0700;
+  --bg-modal: #160D00;
+  --bg-overlay: rgba(10, 5, 0, 0.88);
+  --bg-page-gradient:
+    repeating-linear-gradient(0deg, rgba(255, 184, 28, 0.055) 0px, rgba(255, 184, 28, 0.055) 1px, transparent 1px, transparent 3px),
+    radial-gradient(ellipse at 50% 20%, #261600 0%, #110A00 75%);
+  --backdrop-blur: none;
+  --tabs-bar-bg: #160D00;
+  --subchip-bg: #221400;
+
+  --text-primary: #FFC738;
+  --text-secondary: #E6A817;
+  --text-muted: #C48B0C;
+  --text-input: #FFD24C;
+  --text-on-accent: #110A00;
+  --text-brand: #FFD24C;
+  --text-brand-accent: #33FF66;
+  --text-phone: #FFD24C;
+
+  --primary-neon: #FFB81C;
+  --primary-light: #FFD24C;
+  --accent-cyan: #FFB81C;
+  --accent-purple: #33FF66;
+  --accent-emerald: #33FF66;
+  --accent-crimson: #FF5533;
+  --accent-yellow: #FFD24C;
+  --semantic-danger: #FF5533;
+  --semantic-success: #33FF66;
+  --semantic-warning: #FFB81C;
+
+  --border-subtle: #FFB81C;
+  --border-glow: #FFD24C;
+  --border-card-top: #FFB81C;
+  --border-width: 1.5px;
+  --border-color: #FFB81C;
+  --border-input: 1.5px solid #FFB81C;
+  --border-modal: 2px solid #FFD24C;
+  --border-chip: 1.5px solid #FFB81C;
+  --border-subchip: 1px dashed #33FF66;
+
+  --radius-xs: 0px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-pill: 0px;
+
+  --card-shadow: 0 0 14px rgba(255, 184, 28, 0.22), inset 0 0 10px rgba(255, 184, 28, 0.08);
+  --card-shadow-hover: 0 0 20px rgba(255, 184, 28, 0.42);
+  --active-card-shadow: 0 0 18px rgba(255, 184, 28, 0.30);
+  --btn-shadow: 0 0 8px rgba(255, 184, 28, 0.25);
+  --btn-shadow-hover: 0 0 14px rgba(255, 210, 76, 0.55);
+  --modal-shadow: 0 0 32px rgba(255, 184, 28, 0.45);
+  --glow-pill: 0 0 8px rgba(51, 255, 102, 0.45);
+  --glow-dot: 0 0 8px #33FF66;
+
+  --btn-transform-hover: none;
+  --btn-transform-active: translateY(1px);
+
+  --btn-inject-bg: #FFB81C;
+  --btn-inject-color: #110A00;
+  --btn-inject-border: 1.5px solid #FFD24C;
+  --btn-scan-mass-bg: #FFB81C;
+  --btn-scan-mass-color: #110A00;
+  --btn-scan-mass-border: 1.5px solid #FFD24C;
+  --btn-gofullpage-bg: #160D00;
+  --btn-gofullpage-color: #FFD24C;
+  --btn-gofullpage-border: 1.5px solid #FFB81C;
+  --btn-ai-scan-bg: #160D00;
+  --btn-ai-scan-color: #33FF66;
+  --btn-ai-scan-border: 1.5px solid #33FF66;
+  --btn-upload-bg: #160D00;
+  --btn-upload-color: #FFD24C;
+  --btn-upload-border: 1.5px solid #FFB81C;
+  --btn-excel-bg: #FFB81C;
+  --btn-excel-color: #110A00;
+  --btn-excel-border: 1.5px solid #FFD24C;
+  --excel-banner-bg: #221400;
+  --excel-banner-color: #FFD24C;
+  --excel-banner-border: 1.5px solid #FFB81C;
+
+  --v-code-box-bg: #0D0700;
+  --v-code-box-border: 1.5px solid #FFB81C;
+  --v-code-color: #33FF66;
+  --v-pill-meta-bg: #221400;
+  --v-pill-meta-color: #FFD24C;
+
+  --switcher-bg: #160D00;
+  --switcher-border: 1.5px solid #FFB81C;
+  --scrollbar-thumb: #FFB81C;
+  --scrollbar-thumb-hover: #FFD24C;
+  --scrollbar-track: #110A00;
+  --scrollbar-width: 5px;
+  --scrollbar-radius: 0px;
+  --scrollbar-border: none;
+
+  --flare-display: none;
+  --active-card-topline-display: none;
+  --font-family: 'Vazirmatn', "Courier New", ui-monospace, monospace;
+  --font-mono: "Courier New", ui-monospace, monospace;
+}
+
+@keyframes crt-blink { 50% { opacity: 0; } }
+
+[data-theme="crt-terminal"] body {
+  background-color: #110A00 !important;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(255, 184, 28, 0.06) 0px, rgba(255, 184, 28, 0.06) 1px, transparent 1px, transparent 3px),
+    repeating-linear-gradient(90deg, rgba(255, 184, 28, 0.03) 0px, rgba(255, 184, 28, 0.03) 1px, transparent 1px, transparent 3px) !important;
+  color: #FFC738;
+  text-shadow: 0 0 6px rgba(255, 184, 28, 0.38);
+}
+
+/* Header with "1-Jan-87 1:44 am" GRiD BIOS Bar + Blinking CRT Block Cursor ▮ */
+[data-theme="crt-terminal"] .app-header {
+  position: relative;
+  padding-top: 24px !important;
+  background: #160D00 !important;
+  border: 1.5px solid #FFB81C !important;
+}
+
+[data-theme="crt-terminal"] .app-header::before {
+  content: "1-Jan-87  //  GRiD-OS                     1:44 am";
+  position: absolute;
+  top: 0;
+  inset-inline: 0;
+  height: 18px;
+  padding-inline: 8px;
+  background: #1D1100 !important;
+  border-bottom: 1.5px solid #FFB81C;
+  color: #FFD24C;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  direction: ltr;
+  white-space: pre;
+}
+
+[data-theme="crt-terminal"] .brand-title::after {
+  content: "▮";
+  color: #33FF66;
+  margin-inline-start: 4px;
+  animation: crt-blink 1s steps(2) infinite;
+}
+
+[data-theme="crt-terminal"] .brand-subtitle::before {
+  content: "> ";
+  color: #33FF66;
+}
+
+/* Active Account Card: Device: Bubble Memory // root@papayar:~$ */
+[data-theme="crt-terminal"] .active-account-card {
+  position: relative;
+  padding-top: 24px !important;
+  background: #160D00 !important;
+  border: 1.5px solid #FFB81C !important;
+}
+
+[data-theme="crt-terminal"] .active-account-card::before {
+  content: "Device: Bubble Memory     root@papayar:~$ --active" !important;
+  position: absolute !important;
+  top: 0 !important;
+  inset-inline: 0 !important;
+  height: 18px !important;
+  padding-inline: 8px !important;
+  background: #1D1100 !important;
+  border-bottom: 1px solid #FFB81C !important;
+  color: #33FF66 !important;
+  font-family: var(--font-mono) !important;
+  font-size: 9px !important;
+  font-weight: 700 !important;
+  display: flex !important;
+  align-items: center !important;
+  direction: ltr !important;
+  white-space: pre !important;
+}
+
+/* Inverted Solid Amber Selection Highlight Bar on Phone Display (GRiD 80 Font) */
+[data-theme="crt-terminal"] .phone-display {
+  background: #FFB81C !important;
+  color: #110A00 !important;
+  text-shadow: none !important;
+  font-family: var(--font-mono) !important;
+  font-size: 21px !important;
+  font-weight: 900 !important;
+  padding: 4px 10px !important;
+  margin-block: 6px !important;
+  box-shadow: 0 0 12px rgba(255, 184, 28, 0.55) !important;
+}
+
+[data-theme="crt-terminal"] .active-pill {
+  background: rgba(51, 255, 102, 0.14) !important;
+  color: #33FF66 !important;
+  border: 1.5px solid #33FF66 !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="crt-terminal"] .nav-tabs-bar {
+  background: #160D00 !important;
+  border: 1.5px solid #FFB81C !important;
+  padding: 2px !important;
+}
+
+[data-theme="crt-terminal"] .nav-tab-item {
+  color: #FFC738 !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="crt-terminal"] .nav-tab-item.active {
+  background: #FFB81C !important;
+  color: #110A00 !important;
+  text-shadow: none !important;
+  font-weight: 900 !important;
+  box-shadow: 0 0 10px rgba(255, 184, 28, 0.5) !important;
+}
+
+[data-theme="crt-terminal"] .nav-tab-item.active::after {
+  display: none !important;
+}
+
+[data-theme="crt-terminal"] .saved-account-card:hover {
+  background: #FFB81C !important;
+  color: #110A00 !important;
+}
+
+[data-theme="crt-terminal"] .saved-account-card:hover .acc-primary-phone,
+[data-theme="crt-terminal"] .saved-account-card:hover .acc-sub-meta {
+  color: #110A00 !important;
+  text-shadow: none !important;
+}
+
+[data-theme="crt-terminal"] .btn-cyan,
+[data-theme="crt-terminal"] .btn-inject-neon,
+[data-theme="crt-terminal"] .btn-activate,
+[data-theme="crt-terminal"] .btn-v-copy {
+  background: #FFB81C !important;
+  color: #110A00 !important;
+  border: 1.5px solid #FFD24C !important;
+  text-shadow: none !important;
+  font-weight: 900 !important;
+}
+
+[data-theme="crt-terminal"] .btn-crimson,
+[data-theme="crt-terminal"] .btn-delete-acc,
+[data-theme="crt-terminal"] .btn-neon-green,
+[data-theme="crt-terminal"] .btn-launch-power {
+  background: #160D00 !important;
+  color: #FFD24C !important;
+  border: 1.5px solid #FFB81C !important;
+}
+
+[data-theme="crt-terminal"] .btn-launch-power {
+  color: #33FF66 !important;
+  border-color: #33FF66 !important;
+}
+
+[data-theme="crt-terminal"] .avatar-glow {
+  background: #110A00 !important;
+  color: #FFB81C !important;
+  border: 1.5px solid #FFB81C !important;
+}
+
+/* Solid Amber Bottom Command Prompt Bar ("Select a file and confirm / CODE-?") */
+[data-theme="crt-terminal"] .app-footer {
+  background: #FFB81C !important;
+  color: #110A00 !important;
+  border: 1.5px solid #FFD24C !important;
+  padding: 6px 10px !important;
+  box-shadow: 0 0 14px rgba(255, 184, 28, 0.45) !important;
+}
+
+[data-theme="crt-terminal"] .footer-status-text,
+[data-theme="crt-terminal"] .footer-status-text span {
+  color: #110A00 !important;
+  font-weight: 900 !important;
+  text-shadow: none !important;
+}
+
+[data-theme="crt-terminal"] .eq-bar,
+[data-theme="crt-terminal"] .footer-dot {
+  background: #110A00 !important;
+}

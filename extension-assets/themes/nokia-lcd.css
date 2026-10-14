@@ -1,0 +1,344 @@
+/* ==========================================================================
+   Theme 19: nokia-lcd — ال‌سی‌دی پیکسلی نوکیا ۳۳۱۰ (High-Contrast Readable Edition)
+   - Outer background: Coarse 4px × 4px Nokia 3310 dot-matrix pixel grid (#7E9E10)
+   - Card surfaces: Clean, bright backlit Nokia olive-lime (#A4C41C / #9BBC0F)
+     with > 10:1 WCAG AAA contrast against #091404 dark pixel ink!
+   - Persian Typography: Crisp Vazirmatn 800 weight (NO grid overlay cutting
+     through text, NO blurring text-shadow), while keeping LCD7Segment on the
+     big inverted .phone-display screen!
+   - Chunky 3px solid #091404 borders, 4px 4px 0 #091404 hard pixel shadows,
+     and 4-bar stepped antenna/battery towers (▂▄▆█) on the sides!
+   ========================================================================== */
+
+@font-face {
+  font-family: 'LCD7Segment';
+  src: url('../fonts/LCD7Segment.woff2') format('woff2');
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+html[data-theme="nokia-lcd"],
+[data-theme="nokia-lcd"] {
+  --bg-deep: #7E9E10;
+  --bg-card: #A2C21A;
+  --bg-card-hover: #ABD020;
+  --bg-input: #AECE24;
+  --bg-modal: #A2C21A;
+  --bg-overlay: rgba(9, 20, 4, 0.82);
+  --bg-page-gradient:
+    repeating-linear-gradient(0deg, rgba(9, 20, 4, 0.22) 0px, rgba(9, 20, 4, 0.22) 1px, transparent 1px, transparent 4px),
+    repeating-linear-gradient(90deg, rgba(9, 20, 4, 0.22) 0px, rgba(9, 20, 4, 0.22) 1px, transparent 1px, transparent 4px),
+    #7E9E10;
+  --backdrop-blur: none;
+  --tabs-bar-bg: #98B816;
+  --subchip-bg: #8EAE12;
+
+  --text-primary: #091404;
+  --text-secondary: #0F1F08;
+  --text-muted: #182E0E;
+  --text-input: #091404;
+  --text-on-accent: #A8CC1E;
+  --text-brand: #091404;
+  --text-brand-accent: #091404;
+  --text-phone: #091404;
+
+  --primary-neon: #091404;
+  --primary-light: #182E0E;
+  --accent-cyan: #091404;
+  --accent-purple: #091404;
+  --accent-emerald: #091404;
+  --accent-crimson: #091404;
+  --accent-yellow: #091404;
+  --semantic-danger: #091404;
+  --semantic-success: #091404;
+  --semantic-warning: #091404;
+
+  --border-subtle: #091404;
+  --border-glow: #091404;
+  --border-card-top: #091404;
+  --border-width: 3px;
+  --border-color: #091404;
+  --border-input: 3px solid #091404;
+  --border-modal: 4px solid #091404;
+  --border-chip: 2.5px solid #091404;
+  --border-subchip: 2px dashed #091404;
+
+  --radius-xs: 0px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-pill: 0px;
+
+  --card-shadow: 4px 4px 0 #091404;
+  --card-shadow-hover: 5px 5px 0 #091404;
+  --active-card-shadow: 4px 4px 0 #091404;
+  --btn-shadow: 3px 3px 0 #091404;
+  --btn-shadow-hover: 4px 4px 0 #091404;
+  --modal-shadow: 6px 6px 0 #091404;
+  --glow-pill: none;
+  --glow-dot: none;
+
+  --btn-transform-hover: translate(-1px, -1px);
+  --btn-transform-active: translate(2px, 2px);
+
+  --btn-inject-bg: #091404;
+  --btn-inject-color: #A8CC1E;
+  --btn-inject-border: 3px solid #091404;
+  --btn-scan-mass-bg: #091404;
+  --btn-scan-mass-color: #A8CC1E;
+  --btn-scan-mass-border: 3px solid #091404;
+  --btn-gofullpage-bg: #091404;
+  --btn-gofullpage-color: #A8CC1E;
+  --btn-gofullpage-border: 3px solid #091404;
+  --btn-ai-scan-bg: #AECE24;
+  --btn-ai-scan-color: #091404;
+  --btn-ai-scan-border: 3px solid #091404;
+  --btn-upload-bg: #AECE24;
+  --btn-upload-color: #091404;
+  --btn-upload-border: 3px solid #091404;
+  --btn-excel-bg: #091404;
+  --btn-excel-color: #A8CC1E;
+  --btn-excel-border: 3px solid #091404;
+  --excel-banner-bg: #AECE24;
+  --excel-banner-color: #091404;
+  --excel-banner-border: 3px solid #091404;
+
+  --v-code-box-bg: #091404;
+  --v-code-box-border: 3px solid #091404;
+  --v-code-color: #A8CC1E;
+  --v-pill-meta-bg: #8EAE12;
+  --v-pill-meta-color: #091404;
+
+  --switcher-bg: #AECE24;
+  --switcher-border: 2.5px solid #091404;
+  --scrollbar-thumb: #091404;
+  --scrollbar-thumb-hover: #182E0E;
+  --scrollbar-track: #8BAC0F;
+  --scrollbar-width: 6px;
+  --scrollbar-radius: 0px;
+  --scrollbar-border: none;
+
+  --flare-display: none;
+  --active-card-topline-display: none;
+  --font-family: 'Vazirmatn', Tahoma, sans-serif;
+  --font-mono: 'Vazirmatn', "Courier New", monospace;
+
+  /* Chunky 8-Bit Nokia 3310 Side Signal & Battery Bars SVG */
+  --nokia-bars-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='120' viewBox='0 0 320 120' shape-rendering='crispEdges'%3E%3Cg fill='%23091404'%3E%3Crect x='5' y='14' width='9' height='16'/%3E%3Crect x='5' y='34' width='7' height='16'/%3E%3Crect x='5' y='54' width='5' height='16'/%3E%3Crect x='5' y='74' width='3' height='16'/%3E%3Crect x='306' y='14' width='9' height='16'/%3E%3Crect x='308' y='34' width='7' height='16'/%3E%3Crect x='310' y='54' width='5' height='16'/%3E%3Crect x='312' y='74' width='3' height='16'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Outer Screen Background: Coarse 4px × 4px Nokia Dot-Matrix Grid */
+[data-theme="nokia-lcd"] body {
+  background-color: #7E9E10 !important;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(9, 20, 4, 0.22) 0px, rgba(9, 20, 4, 0.22) 1px, transparent 1px, transparent 4px),
+    repeating-linear-gradient(90deg, rgba(9, 20, 4, 0.22) 0px, rgba(9, 20, 4, 0.22) 1px, transparent 1px, transparent 4px) !important;
+  color: #091404;
+}
+
+/* All Text Elements: Crisp, High-Contrast #091404 with Bold Weight & Zero Obstructing Grid! */
+[data-theme="nokia-lcd"] * {
+  border-radius: 0px !important;
+  text-shadow: none !important;
+}
+
+[data-theme="nokia-lcd"] .brand-title {
+  font-size: 18px !important;
+  font-weight: 900 !important;
+  color: #091404 !important;
+}
+
+[data-theme="nokia-lcd"] .brand-subtitle,
+[data-theme="nokia-lcd"] .status-text,
+[data-theme="nokia-lcd"] .service-tag,
+[data-theme="nokia-lcd"] .section-title,
+[data-theme="nokia-lcd"] .profile-label,
+[data-theme="nokia-lcd"] .acc-primary-phone,
+[data-theme="nokia-lcd"] .acc-sub-meta,
+[data-theme="nokia-lcd"] .tab-label,
+[data-theme="nokia-lcd"] .btn-pill,
+[data-theme="nokia-lcd"] .btn-activate,
+[data-theme="nokia-lcd"] .btn-launch-power,
+[data-theme="nokia-lcd"] .file-import-link,
+[data-theme="nokia-lcd"] .ai-title,
+[data-theme="nokia-lcd"] .v-title,
+[data-theme="nokia-lcd"] .control-label {
+  color: #091404 !important;
+  font-family: 'Vazirmatn', Tahoma, sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 12px !important;
+}
+
+[data-theme="nokia-lcd"] .acc-primary-phone,
+[data-theme="nokia-lcd"] .profile-label {
+  font-size: 13px !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.5px !important;
+}
+
+[data-theme="nokia-lcd"] .lucide-icon {
+  stroke-width: 2.4 !important;
+  stroke-linecap: square !important;
+  stroke-linejoin: miter !important;
+  shape-rendering: crispEdges !important;
+}
+
+/* Clean, Bright Backlit Nokia Olive-Lime Cards (Subtle 4% pixel grid so text is 100% legible) */
+[data-theme="nokia-lcd"] .app-header,
+[data-theme="nokia-lcd"] .active-account-card,
+[data-theme="nokia-lcd"] .nav-tabs-bar,
+[data-theme="nokia-lcd"] .section-container,
+[data-theme="nokia-lcd"] .quick-profile-card,
+[data-theme="nokia-lcd"] .saved-account-card,
+[data-theme="nokia-lcd"] .gemini-config-card,
+[data-theme="nokia-lcd"] .voucher-control-card,
+[data-theme="nokia-lcd"] .voucher-card {
+  background-color: #A2C21A !important;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(9, 20, 4, 0.04) 0px, rgba(9, 20, 4, 0.04) 1px, transparent 1px, transparent 4px),
+    repeating-linear-gradient(90deg, rgba(9, 20, 4, 0.04) 0px, rgba(9, 20, 4, 0.04) 1px, transparent 1px, transparent 4px) !important;
+  border: 3px solid #091404 !important;
+  box-shadow: 4px 4px 0 #091404 !important;
+}
+
+[data-theme="nokia-lcd"] .quick-profile-card,
+[data-theme="nokia-lcd"] .saved-account-card {
+  background-color: #ADD022 !important;
+}
+
+/* Header with Classic Nokia 3310 Cellular Status Strip */
+[data-theme="nokia-lcd"] .app-header {
+  position: relative;
+  padding-top: 26px !important;
+}
+
+[data-theme="nokia-lcd"] .app-header::before {
+  content: "▂▄▆█  IR-TCI  [NOKIA 3310]       04:20  █▆▄▂";
+  position: absolute;
+  top: 0;
+  inset-inline: 0;
+  height: 20px;
+  padding-inline: 8px;
+  background: #091404 !important;
+  color: #A8CC1E !important;
+  font-family: "Courier New", monospace;
+  font-size: 10px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  direction: ltr;
+  white-space: pre;
+}
+
+/* Active Account Card with Side Signal/Battery Pixel Towers & Inverted LCD Number Screen */
+[data-theme="nokia-lcd"] .active-account-card {
+  position: relative;
+  padding-inline: 20px !important;
+  background-image:
+    var(--nokia-bars-svg),
+    repeating-linear-gradient(0deg, rgba(9, 20, 4, 0.04) 0px, rgba(9, 20, 4, 0.04) 1px, transparent 1px, transparent 4px),
+    repeating-linear-gradient(90deg, rgba(9, 20, 4, 0.04) 0px, rgba(9, 20, 4, 0.04) 1px, transparent 1px, transparent 4px) !important;
+  background-repeat: no-repeat, repeat, repeat !important;
+  background-position: center center, 0 0, 0 0 !important;
+  background-size: 100% 100%, 4px 4px, 4px 4px !important;
+}
+
+/* Big Chunky 7-Segment + Dot-Matrix Inverted Nokia Screen ONLY on .phone-display */
+[data-theme="nokia-lcd"] .phone-display {
+  background-color: #091404 !important;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(168, 204, 30, 0.12) 0px, rgba(168, 204, 30, 0.12) 1px, transparent 1px, transparent 4px),
+    repeating-linear-gradient(90deg, rgba(168, 204, 30, 0.12) 0px, rgba(168, 204, 30, 0.12) 1px, transparent 1px, transparent 4px) !important;
+  color: #B4DA24 !important;
+  font-family: 'LCD7Segment', "Courier New", monospace !important;
+  font-size: 24px !important;
+  font-weight: 900 !important;
+  letter-spacing: 2.5px !important;
+  padding: 8px 10px !important;
+  margin-block: 6px !important;
+  border: 3px solid #091404 !important;
+  box-shadow: inset 0 0 0 2px #A8CC1E !important;
+}
+
+/* Inverted Dark-Olive Buttons & Active Tab with Crisp Bright Lime Text (#B4DA24) */
+[data-theme="nokia-lcd"] .active-pill,
+[data-theme="nokia-lcd"] .nav-tab-item.active,
+[data-theme="nokia-lcd"] .btn-cyan,
+[data-theme="nokia-lcd"] .btn-inject-neon,
+[data-theme="nokia-lcd"] .btn-activate,
+[data-theme="nokia-lcd"] .btn-v-copy,
+[data-theme="nokia-lcd"] .fx-mode-btn.active {
+  background: #091404 !important;
+  color: #B4DA24 !important;
+  border: 2.5px solid #091404 !important;
+  box-shadow: inset 0 0 0 1.5px #A8CC1E, 3px 3px 0 #091404 !important;
+  font-weight: 900 !important;
+}
+
+[data-theme="nokia-lcd"] .nav-tab-item.active .lucide-icon,
+[data-theme="nokia-lcd"] .btn-cyan .lucide-icon,
+[data-theme="nokia-lcd"] .btn-inject-neon .lucide-icon {
+  stroke: #B4DA24 !important;
+}
+
+[data-theme="nokia-lcd"] .nav-tab-item.active::after {
+  display: none !important;
+}
+
+[data-theme="nokia-lcd"] .btn-crimson,
+[data-theme="nokia-lcd"] .btn-delete-acc,
+[data-theme="nokia-lcd"] .btn-neon-green,
+[data-theme="nokia-lcd"] .btn-launch-power,
+[data-theme="nokia-lcd"] .status-indicator-box,
+[data-theme="nokia-lcd"] .service-tag {
+  background: #B4DA24 !important;
+  color: #091404 !important;
+  border: 2.5px solid #091404 !important;
+  box-shadow: 3px 3px 0 #091404 !important;
+  font-weight: 900 !important;
+}
+
+[data-theme="nokia-lcd"] .avatar-glow {
+  background: #091404 !important;
+  color: #B4DA24 !important;
+  border: 3px solid #091404 !important;
+  box-shadow: inset 0 0 0 2px #A8CC1E !important;
+}
+
+[data-theme="nokia-lcd"] .inject-textarea,
+[data-theme="nokia-lcd"] .voucher-search,
+[data-theme="nokia-lcd"] .voucher-select {
+  background: #B4DA24 !important;
+  color: #091404 !important;
+  border: 3px solid #091404 !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="nokia-lcd"] .inject-textarea::placeholder,
+[data-theme="nokia-lcd"] .voucher-search::placeholder {
+  color: #1B330E !important;
+}
+
+[data-theme="nokia-lcd"] .app-footer {
+  background: #091404 !important;
+  color: #B4DA24 !important;
+  border: 3px solid #091404 !important;
+  padding: 6px 10px !important;
+  box-shadow: 4px 4px 0 #091404 !important;
+}
+
+[data-theme="nokia-lcd"] .footer-status-text,
+[data-theme="nokia-lcd"] .footer-status-text span {
+  color: #B4DA24 !important;
+  font-weight: 900 !important;
+}
+
+[data-theme="nokia-lcd"] .eq-bar,
+[data-theme="nokia-lcd"] .footer-dot {
+  background: #B4DA24 !important;
+}
+
+[data-theme="nokia-lcd"] .nav-tab-item.active .tab-label { color: #B4DA24 !important; }
+[data-theme="nokia-lcd"] .status-indicator-box, [data-theme="nokia-lcd"] .service-tag { padding: 3px 10px !important; }

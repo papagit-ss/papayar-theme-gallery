@@ -1,0 +1,554 @@
+/* =============================================================
+   themes/pixel-os-blue.css - Retro-OS UI Kit (Pixel OS Windows on Blue)
+   Reference: Image 1 (RETRO-OS UI KIT Styleguide & Component Library)
+   ============================================================= */
+
+[data-theme="pixel-os-blue"] {
+  /* Surfaces - Retro OS Windows & Panels */
+  --bg-deep: #D0D6E0;
+  --bg-card: #F0F0F0;
+  --bg-card-hover: #FFFFFF;
+  --bg-input: #FFFFFF;
+  --bg-modal: #F0F0F0;
+  --bg-overlay: rgba(0, 0, 0, 0.65);
+  
+  /* Background: CRT Scanline Textured OS Desktop */
+  --bg-page-gradient: 
+    repeating-linear-gradient(
+      180deg,
+      #D0D6E0 0px,
+      #D0D6E0 2px,
+      #C8CFDC 2px,
+      #C8CFDC 4px
+    );
+
+  --backdrop-blur: none;
+  --tabs-bar-bg: #A0A0A0;
+  --subchip-bg: #E0E4EA;
+
+  /* Strict 1px Borders from Retro-OS Styleguide */
+  --border-subtle: #A0A0A0;
+  --border-glow: #0078D7;
+  --border-card-top: #0078D7;
+  --border-width: 1px;
+  --border-color: #000000;
+  --border-modal: 1px solid #000000;
+  --border-input: 1px solid #000000;
+  --border-chip: 1px solid #000000;
+  --border-subchip: 1px solid #A0A0A0;
+
+  /* Color Tokens from Styleguide */
+  --primary-neon: #0078D7;
+  --primary-light: #1A8CFF;
+  --accent-cyan: #0078D7;
+  --accent-crimson: #E81123;
+  --accent-yellow: #FFB900;
+  --accent-purple: #881798;
+  --accent-emerald: #107C41;
+  --semantic-danger: #E81123;
+  --semantic-success: #107C41;
+  --semantic-warning: #D83B01;
+
+  /* Voucher Category Colors */
+  --cat-food: #E81123;
+  --cat-ride: #0078D7;
+  --cat-super: #107C41;
+  --cat-box: #881798;
+  --cat-doctor: #D83B01;
+  --cat-general: #000000;
+
+  /* Typography */
+  --text-primary: #000000;
+  --text-secondary: #333333;
+  --text-muted: #555555;
+  --text-on-accent: #FFFFFF;
+  --text-brand: #000000;
+  --text-brand-accent: #0078D7;
+  --text-phone: #000000;
+  --text-input: #000000;
+
+  /* 4px Rounded & Pixel Corners */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 4px;
+  --radius-lg: 4px;
+  --radius-pill: 4px;
+
+  /* Shadows: Tactile 2px Bevel Shadows (No Heavy Blur per Rule 2) */
+  --card-shadow: 2px 2px 0 #000000;
+  --card-shadow-hover: 3px 3px 0 #000000;
+  --active-card-shadow: 3px 3px 0 #000000;
+  --btn-shadow: 1px 1px 0 #000000, inset 1px 1px 0 #4DA3FF;
+  --btn-shadow-hover: 2px 2px 0 #000000, inset 1px 1px 0 #6CB5FF;
+  --btn-transform-hover: translate(-1px, -1px);
+  --btn-transform-active: translate(1px, 1px);
+  --modal-shadow: 4px 4px 0 #000000;
+  --glow-pill: none;
+  --glow-dot: none;
+
+  /* Retro Scrollbar */
+  --scrollbar-width: 8px;
+  --scrollbar-track: #A0A0A0;
+  --scrollbar-thumb: #0078D7;
+  --scrollbar-thumb-hover: #1A8CFF;
+  --scrollbar-radius: 0px;
+  --scrollbar-border: 1px solid #000000;
+
+  /* Component Presets */
+  --btn-inject-bg: #0078D7;
+  --btn-inject-color: #FFFFFF;
+  --btn-inject-border: 1px solid #000000;
+
+  --btn-scan-mass-bg: #F0F0F0;
+  --btn-scan-mass-color: #000000;
+  --btn-scan-mass-border: 1px solid #000000;
+
+  --btn-gofullpage-bg: #F0F0F0;
+  --btn-gofullpage-color: #000000;
+  --btn-gofullpage-border: 1px solid #000000;
+
+  --btn-ai-scan-bg: #0078D7;
+  --btn-ai-scan-color: #FFFFFF;
+  --btn-ai-scan-border: 1px solid #000000;
+
+  --btn-upload-bg: #F0F0F0;
+  --btn-upload-color: #000000;
+  --btn-upload-border: 1px solid #000000;
+
+  --btn-excel-bg: #107C41;
+  --btn-excel-color: #FFFFFF;
+  --btn-excel-border: 1px solid #000000;
+
+  --excel-banner-bg: #F0F0F0;
+  --excel-banner-border: 1px solid #000000;
+  --excel-banner-color: #000000;
+
+  --v-code-box-bg: #FFFFFF;
+  --v-code-box-border: 1px dashed #0078D7;
+  --v-code-color: #000000;
+  --v-pill-meta-bg: #E0E4EA;
+  --v-pill-meta-color: #000000;
+
+  --flare-display: none;
+  --active-card-topline-display: none;
+
+  --switcher-bg: #F0F0F0;
+  --switcher-border: 1px solid #000000;
+
+  --font-family: 'Silkscreen', 'Pixelify Sans', 'Vazirmatn', -apple-system, sans-serif;
+}
+
+/* =============================================================
+   Strict 350px Viewport Containment
+   ============================================================= */
+[data-theme="pixel-os-blue"] body {
+  width: 350px !important;
+  max-width: 350px !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  box-sizing: border-box !important;
+  background-color: var(--bg-deep) !important;
+  background-image: var(--bg-page-gradient) !important;
+}
+
+[data-theme="pixel-os-blue"] .popup-wrapper {
+  width: 350px !important;
+  max-width: 350px !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  padding: 14px 14px 10px 14px !important;
+  margin: 0 !important;
+  background: transparent !important;
+}
+
+/* =============================================================
+   Cards & Retro OS Windows
+   ============================================================= */
+[data-theme="pixel-os-blue"] .card {
+  background: var(--bg-card);
+  border: 1px solid #000000;
+  border-radius: 4px;
+  box-shadow: var(--card-shadow);
+  position: relative;
+}
+
+/* Active Account Card: Window with Blue Title Bar & Pixel Controls */
+[data-theme="pixel-os-blue"] .active-account-card {
+  background: #F0F0F0;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  box-shadow: 3px 3px 0 #000000;
+  padding-top: 26px; /* Space for the titlebar */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Authentic Blue OS Window Titlebar */
+[data-theme="pixel-os-blue"] .active-account-card::before {
+  content: "ACTIVE_SESSION.EXE";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: #0078D7;
+  color: #FFFFFF;
+  font-size: 9px;
+  font-weight: 700;
+  font-family: 'Silkscreen', monospace;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  border-bottom: 1px solid #000000;
+  letter-spacing: 0.5px;
+}
+
+/* Window Control Glyphs: _ [] X */
+[data-theme="pixel-os-blue"] .active-account-card::after {
+  content: "— ▢ ✕";
+  position: absolute;
+  top: 0;
+  left: 6px;
+  height: 20px;
+  color: #FFFFFF;
+  font-size: 9px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  letter-spacing: 3px;
+  pointer-events: none;
+}
+
+/* Active Status Pill */
+[data-theme="pixel-os-blue"] .active-pill {
+  background: #0078D7;
+  color: #FFFFFF;
+  border: 1px solid #000000;
+  border-radius: 2px;
+  box-shadow: 1px 1px 0 #000000;
+  font-weight: 800;
+  font-size: 10px;
+  padding: 2px 8px;
+}
+
+[data-theme="pixel-os-blue"] .active-account-card.standby .active-pill {
+  background: #A0A0A0;
+  color: #000000;
+}
+
+/* Status Dot: 1px Bordered Pixel Indicator */
+[data-theme="pixel-os-blue"] .status-dot {
+  border-radius: 0px;
+  border: 1px solid #000000;
+}
+
+[data-theme="pixel-os-blue"] .status-dot.online {
+  background: #107C41;
+  box-shadow: none;
+}
+
+/* =============================================================
+   Buttons: Blue, Hover, Pressed from Styleguide
+   ============================================================= */
+[data-theme="pixel-os-blue"] .btn-pill {
+  border: 1px solid #000000;
+  border-radius: 2px;
+  font-weight: 700;
+  transition: all 0.1s ease;
+}
+
+/* Cyan Button (کپی سشن) -> Normal Blue Button */
+[data-theme="pixel-os-blue"] .btn-cyan {
+  background: #0078D7;
+  color: #FFFFFF;
+  box-shadow: 1px 1px 0 #000000, inset 1px 1px 0 #4DA3FF;
+}
+
+[data-theme="pixel-os-blue"] .btn-cyan:hover {
+  background: #1A8CFF;
+  box-shadow: 2px 2px 0 #000000, inset 1px 1px 0 #6CB5FF;
+  transform: translate(-1px, -1px);
+}
+
+[data-theme="pixel-os-blue"] .btn-cyan:active {
+  background: #005A9E;
+  box-shadow: inset 1px 1px 0 #000000;
+  transform: translate(1px, 1px);
+}
+
+/* Crimson Button (خروج امن) -> Red Danger Button from Styleguide */
+[data-theme="pixel-os-blue"] .btn-crimson {
+  background: #E81123;
+  color: #FFFFFF;
+  box-shadow: 1px 1px 0 #000000, inset 1px 1px 0 #F1707A;
+}
+
+[data-theme="pixel-os-blue"] .btn-crimson:hover {
+  background: #FF2E3E;
+  box-shadow: 2px 2px 0 #000000;
+  transform: translate(-1px, -1px);
+}
+
+[data-theme="pixel-os-blue"] .btn-crimson:active {
+  background: #B80A18;
+  box-shadow: inset 1px 1px 0 #000000;
+  transform: translate(1px, 1px);
+}
+
+/* Green Action Button (بارگذاری ۶۱ اکانت) */
+[data-theme="pixel-os-blue"] .btn-neon-green {
+  background: #0078D7;
+  color: #FFFFFF;
+  box-shadow: 1px 1px 0 #000000, inset 1px 1px 0 #4DA3FF;
+}
+
+[data-theme="pixel-os-blue"] .btn-neon-green:hover {
+  background: #1A8CFF;
+}
+
+/* =============================================================
+   Navigation Tabs: Active (White) vs Inactive (Gray #A0A0A0)
+   ============================================================= */
+[data-theme="pixel-os-blue"] .nav-tabs-bar {
+  background: #A0A0A0;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  box-shadow: 2px 2px 0 #000000;
+  padding: 3px;
+  gap: 3px;
+}
+
+[data-theme="pixel-os-blue"] .nav-tab-item {
+  border-radius: 2px;
+  border: 1px solid transparent;
+  color: #222222;
+  font-weight: 700;
+  background: #A0A0A0;
+  transition: all 0.1s ease;
+}
+
+[data-theme="pixel-os-blue"] .nav-tab-item:hover {
+  background: #B0B6C0;
+  color: #000000;
+}
+
+[data-theme="pixel-os-blue"] .nav-tab-item.active {
+  background: #F0F0F0;
+  color: #000000;
+  border: 1px solid #000000;
+  box-shadow: 1px 1px 0 #000000;
+  font-weight: 800;
+}
+
+/* =============================================================
+   Chips & Inputs
+   ============================================================= */
+[data-theme="pixel-os-blue"] .category-chip {
+  background: #F0F0F0;
+  border: 1px solid #000000;
+  border-radius: 2px;
+  color: #000000;
+  box-shadow: 1px 1px 0 #000000;
+  font-weight: 700;
+}
+
+[data-theme="pixel-os-blue"] .category-chip:hover {
+  background: #FFFFFF;
+}
+
+[data-theme="pixel-os-blue"] .category-chip.active {
+  background: #0078D7;
+  color: #FFFFFF;
+  box-shadow: 1px 1px 0 #000000;
+}
+
+[data-theme="pixel-os-blue"] .sub-chip {
+  background: #F0F0F0;
+  border: 1px solid #A0A0A0;
+  border-radius: 2px;
+  color: #333333;
+}
+
+[data-theme="pixel-os-blue"] .sub-chip.active {
+  background: #0078D7;
+  color: #FFFFFF;
+  border-color: #000000;
+}
+
+[data-theme="pixel-os-blue"] input,
+[data-theme="pixel-os-blue"] textarea,
+[data-theme="pixel-os-blue"] .search-input,
+[data-theme="pixel-os-blue"] .voucher-select,
+[data-theme="pixel-os-blue"] .session-input-box {
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  border-radius: 2px;
+  color: #000000;
+  box-shadow: inset 1px 1px 0 #A0A0A0;
+}
+
+[data-theme="pixel-os-blue"] input:focus,
+[data-theme="pixel-os-blue"] textarea:focus,
+[data-theme="pixel-os-blue"] .search-input:focus,
+[data-theme="pixel-os-blue"] .voucher-select:focus {
+  outline: none;
+  border-color: #0078D7;
+  box-shadow: 0 0 0 2px #0078D7, inset 1px 1px 0 #A0A0A0;
+}
+
+/* =============================================================
+   Quick Profile Cards
+   ============================================================= */
+[data-theme="pixel-os-blue"] .quick-profile-card {
+  background: #F0F0F0;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  box-shadow: 2px 2px 0 #000000;
+}
+
+[data-theme="pixel-os-blue"] .quick-profile-card.active-profile {
+  border: 1.5px solid #0078D7;
+  box-shadow: 2px 2px 0 #0078D7;
+  background: #FFFFFF;
+}
+
+[data-theme="pixel-os-blue"] .btn-activate {
+  background: #F0F0F0;
+  border: 1px solid #000000;
+  border-radius: 2px;
+  color: #000000;
+  font-weight: 700;
+}
+
+[data-theme="pixel-os-blue"] .btn-activate.active {
+  background: #0078D7;
+  color: #FFFFFF;
+  box-shadow: 1px 1px 0 #000000;
+}
+
+/* =============================================================
+   PERFORMANCE CRITICAL: 61+ Rows (Zero Blur, 60fps)
+   ============================================================= */
+[data-theme="pixel-os-blue"] .saved-account-card {
+  background: #F0F0F0;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  box-shadow: 1px 1px 0 #000000;
+  backdrop-filter: none !important;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+[data-theme="pixel-os-blue"] .saved-account-card:hover {
+  background: #FFFFFF;
+  transform: translate(-1px, -1px);
+  box-shadow: 2px 2px 0 #000000;
+}
+
+[data-theme="pixel-os-blue"] .acc-btn-run {
+  background: #0078D7;
+  color: #FFFFFF;
+  border: 1px solid #000000;
+  border-radius: 2px;
+  box-shadow: 1px 1px 0 #000000, inset 1px 1px 0 #4DA3FF;
+  font-weight: 700;
+}
+
+[data-theme="pixel-os-blue"] .acc-btn-run:hover {
+  background: #1A8CFF;
+}
+
+[data-theme="pixel-os-blue"] .acc-btn-delete {
+  color: #555555;
+}
+
+[data-theme="pixel-os-blue"] .acc-btn-delete:hover {
+  color: #E81123;
+}
+
+/* Voucher Cards */
+[data-theme="pixel-os-blue"] .voucher-card {
+  background: #F0F0F0;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  box-shadow: 1px 1px 0 #000000;
+  backdrop-filter: none !important;
+}
+
+/* =============================================================
+   Theme Picker Dropdown
+   ============================================================= */
+[data-theme="pixel-os-blue"] .theme-picker-dropdown {
+  background: #F0F0F0;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  box-shadow: 4px 4px 0 #000000;
+}
+
+[data-theme="pixel-os-blue"] .theme-option-btn {
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  border-radius: 2px;
+  color: #000000;
+}
+
+[data-theme="pixel-os-blue"] .theme-option-btn:hover {
+  background: #E0E4EA;
+}
+
+[data-theme="pixel-os-blue"] .theme-option-btn.active {
+  background: #0078D7;
+  color: #FFFFFF;
+  box-shadow: 1px 1px 0 #000000;
+}
+
+/* =============================================================
+   Modal & Toast from Styleguide
+   ============================================================= */
+[data-theme="pixel-os-blue"] .modal-overlay {
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: none;
+}
+
+[data-theme="pixel-os-blue"] .modal-box {
+  background: #F0F0F0;
+  border: 2px solid #000000;
+  border-radius: 4px;
+  box-shadow: 6px 6px 0 #000000;
+  color: #000000;
+  padding-top: 28px;
+  position: relative;
+}
+
+/* Modal Titlebar */
+[data-theme="pixel-os-blue"] .modal-box::before {
+  content: "CONFIRM_ACTION";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 22px;
+  background: #0078D7;
+  color: #FFFFFF;
+  font-size: 10px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  border-bottom: 1px solid #000000;
+}
+
+/* Toast: Blue Retro Speech Bubble */
+[data-theme="pixel-os-blue"] .toast-notification {
+  background: #0078D7;
+  color: #FFFFFF;
+  border: 1px solid #000000;
+  border-radius: 2px;
+  box-shadow: 2px 2px 0 #000000;
+  font-family: 'Silkscreen', monospace;
+}
+
+/* Equalizer Bars */
+[data-theme="pixel-os-blue"] .eq-bar {
+  background: #0078D7;
+  border-radius: 0px;
+}

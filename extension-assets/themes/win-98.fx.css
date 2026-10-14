@@ -1,0 +1,47 @@
+/* ==========================================================================
+   themes/win-98.fx.css — Exclusive Effects for Theme 11 (Windows 98)
+   Effects:
+   1. [transition] باز شدن پنجره با قاب سیمی پله‌ای بدون نرمی (win98-wireframe-open)
+   2. [hover] مستطیل نقطه‌چین کلاسیک روی فوکوس و هاور (win98-focus-rect)
+   3. [ambient] پیشرفت پله‌ای بلوکی سرمه‌ای (win98-stepped-progress)
+   ========================================================================== */
+
+@keyframes win98-wireframe {
+  0% { opacity: 0.2; transform: scale(0.94); outline: 1px dotted #000000; }
+  50% { opacity: 0.7; transform: scale(0.98); outline: 1px dotted #000000; }
+  100% { opacity: 1; transform: scale(1); outline: none; }
+}
+
+@keyframes win98-progress-steps {
+  0% { clip-path: inset(0 100% 0 0); }
+  100% { clip-path: inset(0 0% 0 0); }
+}
+
+/* Transition: Stepped Wireframe Window Open (Zero Smooth Easing) */
+html[data-theme="win-98"]:not([data-fx="off"]):not([data-motion="reduced"]) .tab-page.active {
+  animation: win98-wireframe 0.15s steps(3) both;
+}
+
+/* Hover / Click: Classic 1px Dotted Inner Focus Rectangle on Buttons */
+html[data-theme="win-98"]:not([data-fx="off"]):not([data-motion="reduced"]) button:hover,
+html[data-theme="win-98"]:not([data-fx="off"]):not([data-motion="reduced"]) button:focus-visible {
+  outline: 1px dotted #000000 !important;
+  outline-offset: -4px !important;
+}
+
+/* Ambient: Stepped Navy Block Progress Bar in Footer */
+html[data-theme="win-98"][data-fx="full"]:not([data-motion="reduced"]) .app-footer {
+  position: relative;
+}
+
+html[data-theme="win-98"][data-fx="full"]:not([data-motion="reduced"]) .app-footer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10px;
+  right: 10px;
+  height: 4px;
+  background: repeating-linear-gradient(90deg, #000080 0 8px, #c0c0c0 8px 10px);
+  pointer-events: none;
+  animation: win98-progress-steps 4s steps(10) infinite;
+}

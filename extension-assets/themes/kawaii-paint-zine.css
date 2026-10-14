@@ -1,0 +1,391 @@
+/* ==========================================================================
+   Theme 25: kawaii-paint-zine — Kawaii MS-Paint & Sticky Zine (پینت کاغذی و استیکر)
+   Reference: `image_4e4897.jpg`
+   - Background: Periwinkle-lavender handmade recycled paper (#B3BCE2) with
+     organic speckles and fibers.
+   - Main Monitor & Cards: Pastel rose-pink CRT shell (#F694C1) with hot-pink
+     inner frame (#FB258A) and bold 3D Ultramarine/Cobalt Blue bottom base (#1B36D8).
+   - Classic Windows Paint Window: Ultramarine blue titlebar (#1434DC) with
+     hand-drawn [-][□][×] buttons, 2-column 12-color Paint palette on the left,
+     and Cream Canvas (#F7F3EB) with royal-blue brush script ("anti-AI"), 8-ball (🎱),
+     and tilted Yellow Sticky Notes (#F5E89B) with cat & tic-tac-toe doodles!
+   ========================================================================== */
+
+[data-theme="kawaii-paint-zine"] {
+  --bg-deep: #B3BCE2;
+  --bg-card: #F694C1;
+  --bg-card-hover: #F8A3CA;
+  --bg-input: #F7F3EB;
+  --bg-modal: #F7F3EB;
+  --bg-overlay: rgba(20, 52, 220, 0.55);
+  --bg-page-gradient: linear-gradient(180deg, #B7C0E6 0%, #A9B3DC 100%);
+  --backdrop-blur: none;
+  --tabs-bar-bg: #F694C1;
+  --subchip-bg: #F5E89B;
+
+  --text-primary: #181824;
+  --text-secondary: #1434DC;
+  --text-muted: #4A2545;
+  --text-input: #1434DC;
+  --text-on-accent: #FFFFFF;
+  --text-brand: #1434DC;
+  --text-brand-accent: #FB258A;
+  --text-phone: #1434DC;
+
+  --primary-neon: #1434DC;
+  --primary-light: #FB258A;
+  --accent-cyan: #1434DC;
+  --accent-purple: #9B5DE5;
+  --accent-emerald: #189E52;
+  --accent-crimson: #FB258A;
+  --accent-yellow: #F5E89B;
+  --semantic-danger: #FB258A;
+  --semantic-success: #189E52;
+  --semantic-warning: #E07A16;
+
+  --border-subtle: #FB258A;
+  --border-glow: #1434DC;
+  --border-card-top: #FB258A;
+  --border-width: 2.5px;
+  --border-color: #FB258A;
+  --border-input: 2px solid #181824;
+  --border-modal: 2.5px solid #1434DC;
+  --border-chip: 2px solid #181824;
+  --border-subchip: 1.5px solid #181824;
+
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-pill: 6px;
+
+  --card-shadow: -5px 6px 0 #1B36D8, 0 8px 16px rgba(20, 35, 110, 0.22);
+  --card-shadow-hover: -6px 7px 0 #1B36D8, 0 10px 20px rgba(20, 35, 110, 0.28);
+  --active-card-shadow: -6px 8px 0 #1B36D8, 0 12px 22px rgba(20, 35, 110, 0.28);
+  --btn-shadow: 0 4px 0 #1B36D8;
+  --btn-shadow-hover: 0 5px 0 #1B36D8;
+  --glow-pill: none;
+  --glow-dot: none;
+  --modal-shadow: -6px 8px 0 #1B36D8;
+
+  --btn-transform-hover: translateY(-1px) rotate(-0.5deg);
+  --btn-transform-active: translateY(3px);
+
+  --btn-inject-bg: #1434DC;
+  --btn-inject-color: #FFFFFF;
+  --btn-inject-border: 2px solid #181824;
+  --btn-scan-mass-bg: #1434DC;
+  --btn-scan-mass-color: #FFFFFF;
+  --btn-scan-mass-border: 2px solid #181824;
+  --btn-gofullpage-bg: #F5E89B;
+  --btn-gofullpage-color: #181824;
+  --btn-gofullpage-border: 2px solid #181824;
+  --btn-ai-scan-bg: #F5E89B;
+  --btn-ai-scan-color: #181824;
+  --btn-ai-scan-border: 2px solid #181824;
+  --btn-upload-bg: #F5E89B;
+  --btn-upload-color: #181824;
+  --btn-upload-border: 2px solid #181824;
+  --btn-excel-bg: #189E52;
+  --btn-excel-color: #FFFFFF;
+  --btn-excel-border: 2px solid #181824;
+  --excel-banner-bg: #F5E89B;
+  --excel-banner-color: #181824;
+  --excel-banner-border: 2px solid #181824;
+
+  --v-code-box-bg: #F7F3EB;
+  --v-code-box-border: 2px solid #181824;
+  --v-code-color: #1434DC;
+  --v-pill-meta-bg: #F5E89B;
+  --v-pill-meta-color: #181824;
+
+  --switcher-bg: #F7F3EB;
+  --switcher-border: 2px solid #181824;
+  --scrollbar-thumb: #FB258A;
+  --scrollbar-thumb-hover: #1434DC;
+  --scrollbar-track: #D5DCF4;
+  --scrollbar-width: 6px;
+  --scrollbar-radius: 0px;
+  --scrollbar-border: none;
+
+  --flare-display: none;
+  --active-card-topline-display: none;
+  --font-family: 'Vazirmatn', 'Comic Sans MS', cursive, sans-serif;
+  --font-mono: 'Courier New', ui-monospace, monospace;
+}
+
+/* ==========================================================================
+   PERIWINKLE-LAVENDER HANDMADE RECYCLED PAPER BACKGROUND (From `image_4e4897.jpg`)
+   ========================================================================== */
+[data-theme="kawaii-paint-zine"] body {
+  background-color: #B3BCE2 !important;
+  background-image:
+    /* Organic handmade paper fiber speckles */
+    radial-gradient(rgba(28, 42, 112, 0.22) 1px, transparent 1.5px),
+    radial-gradient(rgba(120, 75, 90, 0.18) 1px, transparent 1.5px),
+    radial-gradient(rgba(255, 255, 255, 0.35) 1px, transparent 2px),
+    linear-gradient(165deg, #BAC2E8 0%, #AEB7DF 52%, #A3ADD8 100%) !important;
+  background-size: 19px 19px, 27px 27px, 33px 33px, 100% 100% !important;
+  background-position: 0 0, 7px 11px, 13px 5px, 0 0 !important;
+  color: #181824;
+}
+
+/* Top Yellow Sticky Note Header Strip: 🐱  [ X | X | O ]  anti-AI // 23+02+98=123 */
+[data-theme="kawaii-paint-zine"] .popup-wrapper {
+  position: relative;
+  padding-top: 28px !important;
+}
+
+[data-theme="kawaii-paint-zine"] .popup-wrapper::before {
+  content: "🐱  [ X | O | X ]    anti-AI // PAINT.EXE    23+02+98=123 💘";
+  position: absolute;
+  top: 4px;
+  left: 10px;
+  right: 10px;
+  height: 20px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  direction: ltr;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 900;
+  color: #181824;
+  background: #F5E89B;
+  border: 1.5px solid #181824;
+  box-shadow: 2px 2px 0 rgba(20, 52, 220, 0.45);
+  transform: rotate(-0.6deg);
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   3D PINK & COBALT-BLUE MONITOR CONTAINERS
+   ========================================================================== */
+[data-theme="kawaii-paint-zine"] .app-header,
+[data-theme="kawaii-paint-zine"] .section-container,
+[data-theme="kawaii-paint-zine"] .voucher-card,
+[data-theme="kawaii-paint-zine"] .gemini-config-card,
+[data-theme="kawaii-paint-zine"] .voucher-control-card,
+[data-theme="kawaii-paint-zine"] .voucher-filter-toolbar,
+[data-theme="kawaii-paint-zine"] .export-box-preview,
+[data-theme="kawaii-paint-zine"] .app-footer {
+  position: relative;
+  background: #F694C1 !important;
+  border: 2.5px solid #FB258A !important;
+  border-radius: 6px !important;
+  box-shadow: -5px 6px 0 #1B36D8 !important;
+}
+
+[data-theme="kawaii-paint-zine"] .section-container {
+  padding: 14px 12px !important;
+  margin-bottom: 14px !important;
+}
+
+[data-theme="kawaii-paint-zine"] .brand-title {
+  color: #1434DC !important;
+  font-weight: 900 !important;
+  text-shadow: 1px 1px 0 #F7F3EB !important;
+}
+
+[data-theme="kawaii-paint-zine"] .brand-title .accent-text {
+  color: #FB258A !important;
+}
+
+/* ==========================================================================
+   ACTIVE ACCOUNT CARD: MS-PAINT WINDOW (BLUE TITLEBAR + 12-COLOR PALETTE + CANVAS)
+   ========================================================================== */
+[data-theme="kawaii-paint-zine"] .active-account-card {
+  position: relative;
+  padding: 34px 12px 16px 38px !important;
+  background:
+    /* Left 2-column Paint color palette dock (pink, blue, green, purple, orange, brown) */
+    linear-gradient(
+      180deg,
+      #FB258A 0 16%,
+      #1434DC 16% 32%,
+      #189E52 32% 48%,
+      #9B5DE5 48% 64%,
+      #F59E0B 64% 80%,
+      #181824 80% 100%
+    ) no-repeat 8px 34px / 11px calc(100% - 44px),
+    linear-gradient(
+      180deg,
+      #F694C1 0 16%,
+      #7AA2F7 16% 32%,
+      #7AE582 32% 48%,
+      #D8B4F8 48% 64%,
+      #FDE08D 64% 80%,
+      #FFFFFF 80% 100%
+    ) no-repeat 21px 34px / 11px calc(100% - 44px),
+    /* Cream Paint Canvas interior */
+    #F7F3EB !important;
+  border: 4px solid #F694C1 !important;
+  outline: 2.5px solid #FB258A !important;
+  border-radius: 4px !important;
+  box-shadow: -6px 8px 0 #1B36D8 !important;
+}
+
+/* Ultramarine Blue MS-Paint Titlebar with [-][□][×] Controls */
+[data-theme="kawaii-paint-zine"] .active-account-card::before {
+  content: "🎨 anti-AI // PAPA_YAR.BMP                  [-] [□] [×]" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 24px !important;
+  padding: 0 10px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  direction: ltr !important;
+  font-family: var(--font-mono) !important;
+  font-size: 9px !important;
+  font-weight: 900 !important;
+  background: #1434DC !important;
+  color: #FFFFFF !important;
+  border-bottom: 2px solid #181824 !important;
+  z-index: 2 !important;
+}
+
+/* Phone Number Styled Like the Royal-Blue Hand-Painted "anti-AI" Brush Text + 8-Ball */
+[data-theme="kawaii-paint-zine"] .phone-display {
+  font-family: var(--font-mono) !important;
+  font-size: 22px !important;
+  font-weight: 900 !important;
+  font-style: italic;
+  letter-spacing: 1.5px !important;
+  color: #1434DC !important;
+  text-shadow: 2px 2px 0 #F694C1 !important;
+  background: #FFFFFF !important;
+  border: 2px solid #181824 !important;
+  padding: 6px 12px !important;
+  margin: 6px 0 !important;
+  box-shadow: 3px 3px 0 #FB258A !important;
+  direction: ltr;
+}
+
+/* Yellow Sticky Notes for Pills & Sub-cards (Like the Cat / Tic-Tac-Toe Notes) */
+[data-theme="kawaii-paint-zine"] .active-pill,
+[data-theme="kawaii-paint-zine"] .status-indicator-box,
+[data-theme="kawaii-paint-zine"] .service-tag,
+[data-theme="kawaii-paint-zine"] .v-pill-meta,
+[data-theme="kawaii-paint-zine"] .v-badge,
+[data-theme="kawaii-paint-zine"] .v-stat-badge {
+  background: #F5E89B !important;
+  color: #181824 !important;
+  border: 1.5px solid #181824 !important;
+  border-radius: 2px !important;
+  padding: 3px 10px !important;
+  font-weight: 900 !important;
+  box-shadow: 2px 2px 0 rgba(24, 24, 36, 0.28) !important;
+}
+
+[data-theme="kawaii-paint-zine"] .quick-profile-card,
+[data-theme="kawaii-paint-zine"] .saved-account-card {
+  background: #F7F3EB !important;
+  border: 2px solid #181824 !important;
+  border-top: 6px solid #1434DC !important;
+  border-radius: 4px !important;
+  box-shadow: -3px 4px 0 #FB258A !important;
+}
+
+[data-theme="kawaii-paint-zine"] #quickProfile2 {
+  background: #F5E89B !important;
+  transform: rotate(0.7deg);
+}
+
+[data-theme="kawaii-paint-zine"] .avatar-glow {
+  background: #F5E89B !important;
+  border: 2px solid #181824 !important;
+  border-radius: 4px !important;
+}
+
+/* ==========================================================================
+   3D PINK & COBALT-BLUE KEYBOARD BUTTONS (From Bottom of `image_4e4897.jpg`)
+   ========================================================================== */
+[data-theme="kawaii-paint-zine"] .btn-pill,
+[data-theme="kawaii-paint-zine"] .btn-activate,
+[data-theme="kawaii-paint-zine"] .btn-launch-power,
+[data-theme="kawaii-paint-zine"] .btn-v-copy,
+[data-theme="kawaii-paint-zine"] .v-chip,
+[data-theme="kawaii-paint-zine"] .theme-picker-toggle-btn,
+[data-theme="kawaii-paint-zine"] .file-import-link {
+  background: #F7B2D2 !important;
+  color: #181824 !important;
+  border: 2px solid #E82782 !important;
+  border-radius: 4px !important;
+  font-weight: 900 !important;
+  box-shadow: -3px 4px 0 #1B36D8 !important;
+}
+
+[data-theme="kawaii-paint-zine"] .btn-inject-neon,
+[data-theme="kawaii-paint-zine"] .v-chip.active {
+  background: #1434DC !important;
+  color: #FFFFFF !important;
+  border: 2px solid #181824 !important;
+  border-radius: 4px !important;
+  font-weight: 900 !important;
+  box-shadow: -3px 4px 0 #FB258A !important;
+}
+
+[data-theme="kawaii-paint-zine"] .btn-crimson,
+[data-theme="kawaii-paint-zine"] .btn-delete-acc {
+  background: #FB258A !important;
+  color: #FFFFFF !important;
+  border: 2px solid #181824 !important;
+  box-shadow: -3px 4px 0 #1B36D8 !important;
+}
+
+/* Navigation Tabs Bar */
+[data-theme="kawaii-paint-zine"] .nav-tabs-bar {
+  background: #F694C1 !important;
+  border: 2.5px solid #FB258A !important;
+  border-radius: 6px !important;
+  padding: 5px !important;
+  box-shadow: -4px 5px 0 #1B36D8 !important;
+}
+
+[data-theme="kawaii-paint-zine"] .nav-tab-item {
+  color: #181824 !important;
+  font-weight: 900 !important;
+  border-radius: 4px !important;
+}
+
+[data-theme="kawaii-paint-zine"] .nav-tab-item.active {
+  background: #F5E89B !important;
+  color: #1434DC !important;
+  border: 2px solid #181824 !important;
+  box-shadow: -2px 3px 0 #1434DC !important;
+  transform: rotate(-1deg);
+}
+
+/* Inputs & Textareas (Cream MS-Paint Canvas with Scrollbar Look) */
+[data-theme="kawaii-paint-zine"] .inject-textarea,
+[data-theme="kawaii-paint-zine"] .voucher-search,
+[data-theme="kawaii-paint-zine"] .voucher-select,
+[data-theme="kawaii-paint-zine"] .v-code-box {
+  background: #F7F3EB !important;
+  border: 2px solid #181824 !important;
+  border-radius: 4px !important;
+  color: #1434DC !important;
+  font-weight: 800 !important;
+  box-shadow: inset 2px 2px 0 rgba(24, 24, 36, 0.12) !important;
+}
+
+[data-theme="kawaii-paint-zine"] .app-header {
+  padding: 10px 14px !important;
+}
+[data-theme="kawaii-paint-zine"] .active-account-card::after {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 33px;
+  width: 26px;
+  height: calc(100% - 42px);
+  border: 2px solid #181824;
+  background-image:
+    linear-gradient(90deg, transparent 11px, #181824 11px, #181824 13px, transparent 13px),
+    repeating-linear-gradient(180deg, transparent 0px, transparent 18px, #181824 18px, #181824 20px);
+  pointer-events: none;
+}

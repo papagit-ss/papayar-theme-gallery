@@ -1,0 +1,519 @@
+/* =============================================================
+   themes/pixel-spec.css - Technical Spec Sheet & Pixel Styleguide
+   References:
+   - Image 2: Brutalist Technical Spec Sheets, Barcodes, Bracket Tags & Grids
+   - Image 1: Retro Pixel Styleguide, 1px/2px Rules & Halftone Dither
+   ============================================================= */
+
+[data-theme="pixel-spec"] {
+  /* Surfaces - Technical Graph Paper & Lab Surfaces */
+  --bg-deep: #F4F0E6;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #F8F6F0;
+  --bg-input: #FFFFFF;
+  --bg-modal: #F4F0E6;
+  --bg-overlay: rgba(17, 17, 17, 0.7);
+  
+  /* Background: Technical Engineering Dot Matrix Paper (Zero Overflow) */
+  --bg-page-gradient: 
+    radial-gradient(#C8C4B8 1px, transparent 1px),
+    linear-gradient(180deg, #F5F1E8 0%, #EDE9DE 100%);
+
+  --backdrop-blur: none;
+  --tabs-bar-bg: #EAE6DB;
+  --subchip-bg: #EAE6DB;
+
+  /* Hard Technical Borders (No Blur, 1px/2px Precision) */
+  --border-subtle: #CCCCCC;
+  --border-glow: #00FF00;
+  --border-card-top: #111111;
+  --border-width: 2px;
+  --border-color: #111111;
+  --border-modal: 2px solid #111111;
+  --border-input: 2px solid #111111;
+  --border-chip: 1.5px solid #111111;
+  --border-subchip: 1px dashed #111111;
+
+  /* Technical Spec Accents */
+  --primary-neon: #00FF00;
+  --primary-light: #A3E635;
+  --accent-cyan: #111111;
+  --accent-crimson: #E81123;
+  --accent-yellow: #FFD000;
+  --accent-purple: #9333EA;
+  --accent-emerald: #00FF00;
+  --semantic-danger: #E81123;
+  --semantic-success: #16A34A;
+  --semantic-warning: #D97706;
+
+  /* Voucher Category Colors */
+  --cat-food: #E81123;
+  --cat-ride: #0052CC;
+  --cat-super: #16A34A;
+  --cat-box: #9333EA;
+  --cat-doctor: #D97706;
+  --cat-general: #111111;
+
+  /* Typography - Crisp High-Contrast Technical Black */
+  --text-primary: #111111;
+  --text-secondary: #444444;
+  --text-muted: #666666;
+  --text-on-accent: #000000;
+  --text-brand: #111111;
+  --text-brand-accent: #0052CC;
+  --text-phone: #111111;
+  --text-input: #111111;
+
+  /* Stepped & Sharp Geometry (0-4px) */
+  --radius-xs: 0px;
+  --radius-sm: 2px;
+  --radius-md: 2px;
+  --radius-lg: 4px;
+  --radius-pill: 2px;
+
+  /* Hard Dithered & Offset Shadows (Zero Blur) */
+  --card-shadow: 3px 3px 0 #111111;
+  --card-shadow-hover: 4px 4px 0 #111111;
+  --active-card-shadow: 4px 4px 0 #111111;
+  --btn-shadow: 2px 2px 0 #111111;
+  --btn-shadow-hover: 3px 3px 0 #111111;
+  --btn-transform-hover: translate(-1px, -1px);
+  --btn-transform-active: translate(2px, 2px);
+  --modal-shadow: 6px 6px 0 #111111;
+  --glow-pill: none;
+  --glow-dot: none;
+
+  /* Technical Dither Scrollbar */
+  --scrollbar-width: 8px;
+  --scrollbar-track: #E4E0D5;
+  --scrollbar-thumb: #111111;
+  --scrollbar-thumb-hover: #00FF00;
+  --scrollbar-radius: 0px;
+  --scrollbar-border: 1px solid #111111;
+
+  /* Component Presets */
+  --btn-inject-bg: #00FF00;
+  --btn-inject-color: #000000;
+  --btn-inject-border: 2px solid #111111;
+
+  --btn-scan-mass-bg: #FFFFFF;
+  --btn-scan-mass-color: #111111;
+  --btn-scan-mass-border: 2px solid #111111;
+
+  --btn-gofullpage-bg: #FFFFFF;
+  --btn-gofullpage-color: #111111;
+  --btn-gofullpage-border: 2px solid #111111;
+
+  --btn-ai-scan-bg: #FFD000;
+  --btn-ai-scan-color: #000000;
+  --btn-ai-scan-border: 2px solid #111111;
+
+  --btn-upload-bg: #FFFFFF;
+  --btn-upload-color: #111111;
+  --btn-upload-border: 2px solid #111111;
+
+  --btn-excel-bg: #00FF00;
+  --btn-excel-color: #000000;
+  --btn-excel-border: 2px solid #111111;
+
+  --excel-banner-bg: #FFFFFF;
+  --excel-banner-border: 2px solid #111111;
+  --excel-banner-color: #111111;
+
+  --v-code-box-bg: #F4F0E6;
+  --v-code-box-border: 1.5px dashed #111111;
+  --v-code-color: #111111;
+  --v-pill-meta-bg: #EAE6DB;
+  --v-pill-meta-color: #111111;
+
+  --flare-display: none;
+  --active-card-topline-display: none;
+
+  --switcher-bg: #FFFFFF;
+  --switcher-border: 2px solid #111111;
+
+  --font-family: 'JetBrains Mono', 'Silkscreen', 'Courier New', 'Vazirmatn', monospace, sans-serif;
+}
+
+/* =============================================================
+   Strict 350px Viewport Containment
+   ============================================================= */
+[data-theme="pixel-spec"] body {
+  width: 350px !important;
+  max-width: 350px !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  box-sizing: border-box !important;
+  background-color: var(--bg-deep) !important;
+  background-image: radial-gradient(#C8C4B8 1px, transparent 1px) !important;
+  background-size: 14px 14px !important;
+}
+
+[data-theme="pixel-spec"] .popup-wrapper {
+  width: 350px !important;
+  max-width: 350px !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  padding: 14px 14px 10px 14px !important;
+  margin: 0 !important;
+  background: transparent !important;
+}
+
+/* =============================================================
+   Cards & Spec Containers
+   ============================================================= */
+[data-theme="pixel-spec"] .card {
+  background: var(--bg-card);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--card-shadow);
+  position: relative;
+}
+
+/* Active Account Card: Technical Spec Box with Barcode Top Bar */
+[data-theme="pixel-spec"] .active-account-card {
+  border: 2px solid #111111;
+  border-radius: var(--radius-md);
+  box-shadow: 4px 4px 0 #111111;
+  background: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative Spec Barcode Top Strip */
+[data-theme="pixel-spec"] .active-account-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: repeating-linear-gradient(
+    90deg,
+    #111111 0px,
+    #111111 3px,
+    transparent 3px,
+    transparent 5px,
+    #111111 5px,
+    #111111 6px,
+    transparent 6px,
+    transparent 8px
+  );
+  pointer-events: none;
+}
+
+/* Active Pill (Technical Label) */
+[data-theme="pixel-spec"] .active-pill {
+  background: #00FF00;
+  color: #000000;
+  border: 1.5px solid #111111;
+  border-radius: 0px;
+  box-shadow: 2px 2px 0 #111111;
+  font-weight: 800;
+  font-size: 10px;
+  padding: 2px 8px;
+  letter-spacing: 0.5px;
+}
+
+[data-theme="pixel-spec"] .active-account-card.standby .active-pill {
+  background: #EAE6DB;
+  color: #555555;
+  border-color: #888888;
+  box-shadow: none;
+}
+
+/* Status Dot: Stepped Square Indicator */
+[data-theme="pixel-spec"] .status-dot {
+  border-radius: 0px;
+  border: 1px solid #111111;
+}
+
+[data-theme="pixel-spec"] .status-dot.online {
+  background: #00FF00;
+  box-shadow: none;
+}
+
+/* =============================================================
+   Technical Bracket Buttons: [ BUTTON ]
+   ============================================================= */
+[data-theme="pixel-spec"] .btn-pill {
+  border: 2px solid #111111;
+  border-radius: 2px;
+  box-shadow: var(--btn-shadow);
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: all 0.1s ease;
+  position: relative;
+}
+
+[data-theme="pixel-spec"] .btn-pill:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: var(--btn-shadow-hover);
+}
+
+[data-theme="pixel-spec"] .btn-pill:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+/* Cyan Button (کپی سشن) -> Spec Yellow Ticket */
+[data-theme="pixel-spec"] .btn-cyan {
+  background: #FFD000;
+  color: #000000;
+  border-color: #111111;
+}
+
+[data-theme="pixel-spec"] .btn-cyan:hover {
+  background: #FFE033;
+}
+
+/* Crimson Button (خروج امن) -> Spec Warning White/Red */
+[data-theme="pixel-spec"] .btn-crimson {
+  background: #FFFFFF;
+  color: #E81123;
+  border-color: #E81123;
+}
+
+[data-theme="pixel-spec"] .btn-crimson:hover {
+  background: #E81123;
+  color: #FFFFFF;
+}
+
+/* Green Action Button (بارگذاری ۶۱ اکانت) */
+[data-theme="pixel-spec"] .btn-neon-green {
+  background: #00FF00;
+  color: #000000;
+  border-color: #111111;
+}
+
+[data-theme="pixel-spec"] .btn-neon-green:hover {
+  background: #33FF33;
+}
+
+/* =============================================================
+   Navigation Tabs Bar (Document Tab Folders)
+   ============================================================= */
+[data-theme="pixel-spec"] .nav-tabs-bar {
+  background: #EAE6DB;
+  border: 2px solid #111111;
+  border-radius: 0px;
+  box-shadow: 3px 3px 0 #111111;
+  padding: 3px;
+  gap: 3px;
+}
+
+[data-theme="pixel-spec"] .nav-tab-item {
+  border-radius: 0px;
+  border: 1px solid transparent;
+  color: #444444;
+  font-weight: 700;
+  transition: all 0.1s ease;
+}
+
+[data-theme="pixel-spec"] .nav-tab-item:hover {
+  background: #FFFFFF;
+  color: #000000;
+  border-color: #111111;
+}
+
+[data-theme="pixel-spec"] .nav-tab-item.active {
+  background: #00FF00;
+  color: #000000;
+  border: 1.5px solid #111111;
+  box-shadow: 1px 1px 0 #111111;
+  font-weight: 800;
+}
+
+/* =============================================================
+   Chips & Inputs
+   ============================================================= */
+[data-theme="pixel-spec"] .category-chip {
+  background: #FFFFFF;
+  border: 1.5px solid #111111;
+  border-radius: 0px;
+  color: #111111;
+  box-shadow: 1px 1px 0 #111111;
+  font-weight: 700;
+}
+
+[data-theme="pixel-spec"] .category-chip:hover {
+  background: #F4F0E6;
+}
+
+[data-theme="pixel-spec"] .category-chip.active {
+  background: #00FF00;
+  color: #000000;
+  box-shadow: 2px 2px 0 #111111;
+}
+
+[data-theme="pixel-spec"] .sub-chip {
+  background: #FFFFFF;
+  border: 1px dashed #111111;
+  border-radius: 0px;
+  color: #333333;
+}
+
+[data-theme="pixel-spec"] .sub-chip.active {
+  background: #111111;
+  color: #00FF00;
+  border-style: solid;
+  border-color: #111111;
+}
+
+[data-theme="pixel-spec"] input,
+[data-theme="pixel-spec"] textarea,
+[data-theme="pixel-spec"] .search-input,
+[data-theme="pixel-spec"] .voucher-select,
+[data-theme="pixel-spec"] .session-input-box {
+  background: #FFFFFF;
+  border: 2px solid #111111;
+  border-radius: 0px;
+  color: #111111;
+  box-shadow: inset 2px 2px 0 #E8E4D9;
+}
+
+[data-theme="pixel-spec"] input:focus,
+[data-theme="pixel-spec"] textarea:focus,
+[data-theme="pixel-spec"] .search-input:focus,
+[data-theme="pixel-spec"] .voucher-select:focus {
+  outline: none;
+  background: #FFFFFF;
+  border-color: #111111;
+  box-shadow: 0 0 0 2px #00FF00, inset 2px 2px 0 #E8E4D9;
+}
+
+/* =============================================================
+   Quick Profile Cards
+   ============================================================= */
+[data-theme="pixel-spec"] .quick-profile-card {
+  background: #FFFFFF;
+  border: 2px solid #111111;
+  border-radius: 0px;
+  box-shadow: 2px 2px 0 #111111;
+}
+
+[data-theme="pixel-spec"] .quick-profile-card.active-profile {
+  border-color: #111111;
+  box-shadow: 3px 3px 0 #00FF00;
+  background: #FDFBF5;
+}
+
+[data-theme="pixel-spec"] .btn-activate {
+  background: #FFFFFF;
+  border: 1.5px solid #111111;
+  border-radius: 0px;
+  color: #111111;
+  font-weight: 700;
+}
+
+[data-theme="pixel-spec"] .btn-activate.active {
+  background: #00FF00;
+  color: #000000;
+  box-shadow: 1px 1px 0 #111111;
+}
+
+/* =============================================================
+   PERFORMANCE CRITICAL: 61+ Rows (Zero Blur, Crisp 60fps)
+   ============================================================= */
+[data-theme="pixel-spec"] .saved-account-card {
+  background: #FFFFFF;
+  border: 1.5px solid #111111;
+  border-radius: 0px;
+  box-shadow: 2px 2px 0 #111111;
+  backdrop-filter: none !important;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+[data-theme="pixel-spec"] .saved-account-card:hover {
+  background: #FAF8F2;
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 #111111;
+}
+
+[data-theme="pixel-spec"] .acc-btn-run {
+  background: #00FF00;
+  color: #000000;
+  border: 1.5px solid #111111;
+  border-radius: 0px;
+  box-shadow: 1px 1px 0 #111111;
+  font-weight: 800;
+}
+
+[data-theme="pixel-spec"] .acc-btn-run:hover {
+  background: #33FF33;
+}
+
+[data-theme="pixel-spec"] .acc-btn-delete {
+  color: #666666;
+}
+
+[data-theme="pixel-spec"] .acc-btn-delete:hover {
+  color: #E81123;
+}
+
+/* Voucher Cards */
+[data-theme="pixel-spec"] .voucher-card {
+  background: #FFFFFF;
+  border: 1.5px solid #111111;
+  border-radius: 0px;
+  box-shadow: 2px 2px 0 #111111;
+  backdrop-filter: none !important;
+}
+
+/* =============================================================
+   Theme Picker Dropdown
+   ============================================================= */
+[data-theme="pixel-spec"] .theme-picker-dropdown {
+  background: #F4F0E6;
+  border: 2px solid #111111;
+  border-radius: 0px;
+  box-shadow: 5px 5px 0 #111111;
+}
+
+[data-theme="pixel-spec"] .theme-option-btn {
+  background: #FFFFFF;
+  border: 1.5px solid #111111;
+  border-radius: 0px;
+  color: #111111;
+}
+
+[data-theme="pixel-spec"] .theme-option-btn:hover {
+  background: #EAE6DB;
+}
+
+[data-theme="pixel-spec"] .theme-option-btn.active {
+  background: #00FF00;
+  color: #000000;
+  box-shadow: 2px 2px 0 #111111;
+}
+
+/* =============================================================
+   Modal & Toast
+   ============================================================= */
+[data-theme="pixel-spec"] .modal-overlay {
+  background: rgba(17, 17, 17, 0.7);
+  backdrop-filter: none;
+}
+
+[data-theme="pixel-spec"] .modal-box {
+  background: #F4F0E6;
+  border: 3px solid #111111;
+  border-radius: 0px;
+  box-shadow: 8px 8px 0 #111111;
+  color: #111111;
+}
+
+[data-theme="pixel-spec"] .toast-notification {
+  background: #111111;
+  color: #00FF00;
+  border: 2px solid #00FF00;
+  border-radius: 0px;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.5);
+  font-family: 'Silkscreen', monospace;
+}
+
+/* Equalizer Bars: Solid Stepped Blocks */
+[data-theme="pixel-spec"] .eq-bar {
+  background: #111111;
+  border-radius: 0px;
+}

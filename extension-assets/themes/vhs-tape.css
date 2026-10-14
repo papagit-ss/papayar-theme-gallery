@@ -1,0 +1,299 @@
+/* ==========================================================================
+   Theme 15: vhs-tape — 1992 VHS Camcorder Viewfinder OSD & Magnetic Tape Glitch
+   - Deep Magnetic-Tape Charcoal-Indigo (#0E0B14) + Analog Scanlines & Noise
+   - 1980s/90s VHS-C Cassette Spine 4-Color Stripes (#FF2A85 Magenta,
+     #FF6B00 Orange, #FFE600 Yellow, #00F0FF Cyan)
+   - Camcorder Viewfinder OSD Header ("PLAY ▶   [● REC]   BATT [■■■□]")
+   - Viewfinder Corner L-Brackets (┌ ┐ └ ┘), Crosshair [ + ], and SP 0:04:12:18
+     Timecode with RGB Chromatic Aberration Split (-2px #FF2A85, +2px #00F0FF)
+   ========================================================================== */
+
+html[data-theme="vhs-tape"],
+[data-theme="vhs-tape"] {
+  --bg-deep: #0E0B14;
+  --bg-card: rgba(22, 17, 32, 0.94);
+  --bg-card-hover: rgba(32, 25, 46, 0.96);
+  --bg-input: #09070D;
+  --bg-modal: #181324;
+  --bg-overlay: rgba(8, 6, 12, 0.88);
+  --bg-page-gradient:
+    repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0px, rgba(255, 255, 255, 0.04) 1px, transparent 1px, transparent 3px),
+    radial-gradient(ellipse at 50% 25%, #241938 0%, #0E0B14 75%);
+  --backdrop-blur: none;
+  --tabs-bar-bg: #140F1E;
+  --subchip-bg: #221A33;
+
+  --text-primary: #F8F5EE;
+  --text-secondary: #D4CCE3;
+  --text-muted: #A69BB8;
+  --text-input: #FFE600;
+  --text-on-accent: #0E0B14;
+  --text-brand: #F8F5EE;
+  --text-brand-accent: #00F0FF;
+  --text-phone: #FFE600;
+
+  --primary-neon: #00F0FF;
+  --primary-light: #70F8FF;
+  --accent-cyan: #00F0FF;
+  --accent-purple: #FF2A85;
+  --accent-emerald: #00E676;
+  --accent-crimson: #FF2A85;
+  --accent-yellow: #FFE600;
+  --semantic-danger: #FF2A85;
+  --semantic-success: #00E676;
+  --semantic-warning: #FFE600;
+
+  --border-subtle: rgba(0, 240, 255, 0.55);
+  --border-glow: #FF2A85;
+  --border-card-top: #00F0FF;
+  --border-width: 1.5px;
+  --border-color: rgba(248, 245, 238, 0.65);
+  --border-input: 1.5px solid #00F0FF;
+  --border-modal: 2px solid #FF2A85;
+  --border-chip: 1.5px solid #00F0FF;
+  --border-subchip: 1px dashed #FF2A85;
+
+  --radius-xs: 0px;
+  --radius-sm: 2px;
+  --radius-md: 2px;
+  --radius-lg: 2px;
+  --radius-pill: 2px;
+
+  --card-shadow: -2px 0 0 rgba(255, 42, 133, 0.65), 2px 0 0 rgba(0, 240, 255, 0.65), 0 8px 20px rgba(0, 0, 0, 0.65);
+  --card-shadow-hover: -3px 0 0 #FF2A85, 3px 0 0 #00F0FF, 0 10px 24px rgba(0, 0, 0, 0.8);
+  --active-card-shadow: -2px 0 0 #FF2A85, 2px 0 0 #00F0FF, 0 10px 26px rgba(0, 0, 0, 0.75);
+  --btn-shadow: -1.5px 0 0 #FF2A85, 1.5px 0 0 #00F0FF, 2px 2px 0 #000000;
+  --btn-shadow-hover: -2.5px 0 0 #FF2A85, 2.5px 0 0 #00F0FF, 3px 3px 0 #000000;
+  --modal-shadow: 0 16px 40px rgba(0, 0, 0, 0.9);
+  --glow-pill: 0 0 10px rgba(255, 42, 133, 0.55);
+  --glow-dot: 0 0 10px #FF2A85;
+
+  --btn-transform-hover: translate(-1px, -1px);
+  --btn-transform-active: translate(1px, 1px);
+
+  --btn-inject-bg: #00F0FF;
+  --btn-inject-color: #0E0B14;
+  --btn-inject-border: 1.5px solid #F8F5EE;
+  --btn-scan-mass-bg: #FF2A85;
+  --btn-scan-mass-color: #FFFFFF;
+  --btn-scan-mass-border: 1.5px solid #F8F5EE;
+  --btn-gofullpage-bg: #FFE600;
+  --btn-gofullpage-color: #0E0B14;
+  --btn-gofullpage-border: 1.5px solid #F8F5EE;
+  --btn-ai-scan-bg: #1B1528;
+  --btn-ai-scan-color: #00F0FF;
+  --btn-ai-scan-border: 1.5px solid #00F0FF;
+  --btn-upload-bg: #1B1528;
+  --btn-upload-color: #F8F5EE;
+  --btn-upload-border: 1.5px solid #F8F5EE;
+  --btn-excel-bg: #00E676;
+  --btn-excel-color: #0E0B14;
+  --btn-excel-border: 1.5px solid #F8F5EE;
+  --excel-banner-bg: #1B1528;
+  --excel-banner-color: #FFE600;
+  --excel-banner-border: 1.5px solid #FFE600;
+
+  --v-code-box-bg: #09070D;
+  --v-code-box-border: 1.5px dashed #FFE600;
+  --v-code-color: #FFE600;
+  --v-pill-meta-bg: #221A33;
+  --v-pill-meta-color: #00F0FF;
+
+  --switcher-bg: #181324;
+  --switcher-border: 1.5px solid #00F0FF;
+  --scrollbar-thumb: #FF2A85;
+  --scrollbar-thumb-hover: #00F0FF;
+  --scrollbar-track: #0E0B14;
+  --scrollbar-width: 5px;
+  --scrollbar-radius: 0px;
+  --scrollbar-border: none;
+
+  --flare-display: none;
+  --active-card-topline-display: none;
+  --font-family: 'Vazirmatn', "Courier New", ui-monospace, monospace;
+  --font-mono: "Courier New", ui-monospace, monospace;
+
+  /* VHS Camcorder Viewfinder Brackets + Crosshair + Tracking Noise SVG */
+  --vhs-osd-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='130' viewBox='0 0 320 130'%3E%3Cg stroke='%23F8F5EE' stroke-width='2' fill='none' stroke-opacity='0.65'%3E%3Cpath d='M10 38 V26 H24'/%3E%3Cpath d='M310 38 V26 H296'/%3E%3Cpath d='M10 96 V108 H24'/%3E%3Cpath d='M310 96 V108 H296'/%3E%3Cline x1='152' y1='67' x2='168' y2='67' stroke-opacity='0.35'/%3E%3Cline x1='160' y1='59' x2='160' y2='75' stroke-opacity='0.35'/%3E%3C/g%3E%3Crect x='0' y='82' width='320' height='3' fill='%2300F0FF' fill-opacity='0.18'/%3E%3Crect x='0' y='85' width='320' height='2' fill='%23FF2A85' fill-opacity='0.22'/%3E%3C/svg%3E");
+}
+
+[data-theme="vhs-tape"] body {
+  background-color: #0E0B14 !important;
+  background-image:
+    repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.045) 0px, rgba(255, 255, 255, 0.045) 1px, transparent 1px, transparent 3px),
+    radial-gradient(ellipse at 50% 25%, #261A3B 0%, #0E0B14 75%) !important;
+  color: #F8F5EE;
+}
+
+/* Header with Camcorder OSD ("PLAY ▶   [● REC]   BATT [■■■□]") & 4-Color VHS Spine Stripes */
+[data-theme="vhs-tape"] .app-header {
+  position: relative;
+  padding-top: 24px !important;
+  padding-bottom: 16px !important;
+  background: #161120 !important;
+  border: 1.5px solid #F8F5EE !important;
+  box-shadow: var(--card-shadow) !important;
+}
+
+[data-theme="vhs-tape"] .app-header::before {
+  content: "PLAY ▶              [● REC]             BATT [■■■□]";
+  position: absolute;
+  top: 0;
+  inset-inline: 0;
+  height: 18px;
+  padding-inline: 8px;
+  background: #09070D !important;
+  border-bottom: 1px solid rgba(0, 240, 255, 0.45);
+  color: #FFE600;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 900;
+  text-shadow: -1px 0 #FF2A85, 1px 0 #00F0FF;
+  display: flex;
+  align-items: center;
+  direction: ltr;
+  white-space: pre;
+}
+
+/* 4-Color Retro VHS Tape Spine Ribbon at Bottom of Header */
+[data-theme="vhs-tape"] .app-header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  inset-inline: 0;
+  height: 6px;
+  background: linear-gradient(
+    90deg,
+    #FF2A85 0%, #FF2A85 25%,
+    #FF6B00 25%, #FF6B00 50%,
+    #FFE600 50%, #FFE600 75%,
+    #00F0FF 75%, #00F0FF 100%
+  );
+}
+
+[data-theme="vhs-tape"] .brand-title {
+  text-shadow: -2px 0 #FF2A85, 2px 0 #00F0FF, 2px 2px 0 #000000 !important;
+}
+
+/* Active Account Card: Camcorder Viewfinder with SP 0:04:12:18 & Chromatic Timecode */
+[data-theme="vhs-tape"] .active-account-card {
+  position: relative;
+  padding-top: 26px !important;
+  padding-bottom: 22px !important;
+  background-color: #140F1E !important;
+  background-image: var(--vhs-osd-svg) !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: 100% 100% !important;
+  border: 1.5px solid #F8F5EE !important;
+  box-shadow: var(--active-card-shadow) !important;
+}
+
+[data-theme="vhs-tape"] .active-account-card::before {
+  content: "SP  0:04:12:18                   HI-FI STEREO [VHS]" !important;
+  position: absolute !important;
+  top: 0 !important;
+  inset-inline: 0 !important;
+  height: 18px !important;
+  padding-inline: 8px !important;
+  background: #09070D !important;
+  border-bottom: 1px solid rgba(255, 42, 133, 0.55) !important;
+  color: #00F0FF !important;
+  font-family: var(--font-mono) !important;
+  font-size: 9.5px !important;
+  font-weight: 900 !important;
+  display: flex !important;
+  align-items: center !important;
+  direction: ltr !important;
+  white-space: pre !important;
+}
+
+[data-theme="vhs-tape"] .active-account-card::after {
+  content: "AUTO TRACKING [||||||··]              OCT 14 1992" !important;
+  position: absolute !important;
+  bottom: 2px !important;
+  inset-inline: 10px !important;
+  height: 15px !important;
+  background: transparent !important;
+  color: #FFE600 !important;
+  font-family: var(--font-mono) !important;
+  font-size: 8.5px !important;
+  font-weight: 800 !important;
+  display: flex !important;
+  align-items: center !important;
+  direction: ltr !important;
+  white-space: pre !important;
+}
+
+[data-theme="vhs-tape"] .phone-display {
+  font-family: var(--font-mono) !important;
+  font-size: 23px !important;
+  font-weight: 900 !important;
+  letter-spacing: 2px !important;
+  color: #FFE600 !important;
+  text-shadow: -2px 0 #FF2A85, 2px 0 #00F0FF, 2px 2px 0 #000000 !important;
+}
+
+[data-theme="vhs-tape"] .active-pill {
+  background: #FF2A85 !important;
+  color: #FFFFFF !important;
+  border: 1.5px solid #F8F5EE !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 900 !important;
+}
+
+[data-theme="vhs-tape"] .nav-tabs-bar {
+  background: #120E1B !important;
+  border: 1.5px solid #F8F5EE !important;
+  box-shadow: var(--card-shadow) !important;
+}
+
+[data-theme="vhs-tape"] .nav-tab-item {
+  color: #D4CCE3 !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="vhs-tape"] .nav-tab-item.active {
+  background: #00F0FF !important;
+  color: #0E0B14 !important;
+  font-weight: 900 !important;
+  box-shadow: -2px 0 0 #FF2A85, 2px 0 0 #FFE600 !important;
+}
+
+[data-theme="vhs-tape"] .nav-tab-item.active::after {
+  display: none !important;
+}
+
+[data-theme="vhs-tape"] .btn-cyan,
+[data-theme="vhs-tape"] .btn-inject-neon,
+[data-theme="vhs-tape"] .btn-activate,
+[data-theme="vhs-tape"] .btn-v-copy {
+  background: #00F0FF !important;
+  color: #0E0B14 !important;
+  border: 1.5px solid #F8F5EE !important;
+  font-weight: 900 !important;
+  box-shadow: -2px 0 0 #FF2A85, 2px 2px 0 #000000 !important;
+}
+
+[data-theme="vhs-tape"] .btn-crimson,
+[data-theme="vhs-tape"] .btn-delete-acc {
+  background: #FF2A85 !important;
+  color: #FFFFFF !important;
+  border: 1.5px solid #F8F5EE !important;
+  box-shadow: 2px 0 0 #00F0FF, 2px 2px 0 #000000 !important;
+}
+
+[data-theme="vhs-tape"] .btn-neon-green,
+[data-theme="vhs-tape"] .btn-launch-power {
+  background: #FFE600 !important;
+  color: #0E0B14 !important;
+  border: 1.5px solid #F8F5EE !important;
+  font-weight: 900 !important;
+}
+
+[data-theme="vhs-tape"] .avatar-glow {
+  background: #09070D !important;
+  color: #00F0FF !important;
+  border: 1.5px solid #FF2A85 !important;
+  box-shadow: 2px 0 0 #00F0FF !important;
+}

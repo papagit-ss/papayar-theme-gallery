@@ -1,0 +1,78 @@
+/* ==========================================================================
+   Theme 29 FX: frosted-balaclava.fx.css — 35mm Viewfinder Crosshair & Shutter
+   ========================================================================== */
+
+[data-theme="frosted-balaclava"] .fx-layer {
+  position: fixed;
+  inset: 0;
+  max-width: 350px;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  contain: strict;
+}
+
+html[data-theme="frosted-balaclava"][data-fx="full"] .fx-ambient-a {
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  top: 10%;
+  left: 15%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, transparent 70%);
+  animation: frost-glint-move 11s ease-in-out infinite alternate;
+}
+
+@keyframes frost-glint-move {
+  0% { transform: translate3d(-20px, 0, 0); }
+  100% { transform: translate3d(25px, 30px, 0); }
+}
+
+html[data-theme="frosted-balaclava"]:not([data-fx="off"]) .fx-cursor-follower {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 150px;
+  height: 150px;
+  transform: translate3d(calc(var(--fx-mx, 175px) - 75px), calc(var(--fx-my, 220px) - 75px), 0);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.14) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+html[data-theme="frosted-balaclava"]:not([data-fx="off"]) .is-fx-clicked {
+  animation: frost-shutter-click 180ms ease-out !important;
+}
+
+@keyframes frost-shutter-click {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.97); filter: contrast(1.25); }
+  100% { transform: scale(1); }
+}
+
+html[data-theme="frosted-balaclava"]:not([data-fx="off"]) .fx-click-burst.is-bursting {
+  position: fixed;
+  left: var(--burst-x, 175px);
+  top: var(--burst-y, 220px);
+  width: 76px;
+  height: 76px;
+  border: 1.5px solid #FFFFFF;
+  pointer-events: none;
+  z-index: 999;
+  animation: frost-frame-expand 340ms ease-out forwards;
+}
+
+@keyframes frost-frame-expand {
+  0% { transform: translate3d(-50%, -50%, 0) scale(0.2); opacity: 0.95; }
+  100% { transform: translate3d(-50%, -50%, 0) scale(1); opacity: 0; }
+}
+
+html[data-theme="frosted-balaclava"]:not([data-fx="off"]) .tab-page.active {
+  animation: frost-tab-slide 180ms ease-out both !important;
+}
+
+@keyframes frost-tab-slide {
+  0% { opacity: 0; transform: translate3d(0, 4px, 0); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0); }
+}

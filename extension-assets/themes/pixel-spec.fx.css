@@ -1,0 +1,64 @@
+/* ==========================================================================
+   themes/pixel-spec.fx.css — Exclusive Effects for Theme 05 (Pixel Spec)
+   Effects:
+   1. [transition] محو شدن پیکسلی بین تب‌ها (pixel-tab-dissolve)
+   2. [ambient] نشانگر چشمک‌زن فنی (pixel-cursor-blink)
+   3. [click] انفجار پیکسلی «LEVEL UP» بعد از موفقیت (pixel-level-up)
+   ========================================================================== */
+
+@keyframes pixel-spec-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+@keyframes pixel-tab-steps {
+  0% { opacity: 0; transform: translateY(6px); }
+  50% { opacity: 0.5; transform: translateY(3px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pixel-level-up-float {
+  0% { opacity: 1; transform: translate(-50%, -20%) scale(0.8); }
+  50% { opacity: 1; transform: translate(-50%, -110%) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, -160%) scale(1); }
+}
+
+/* Ambient: Blinking Technical Spec Cursor next to Section Titles & Brand */
+html[data-theme="pixel-spec"][data-fx="full"]:not([data-motion="reduced"]) .brand-title::after {
+  content: ' _';
+  color: #00FF00;
+  background: #111111;
+  padding: 0 3px;
+  font-size: 13px;
+  margin-inline-start: 4px;
+  animation: pixel-spec-blink 1s steps(2) infinite;
+}
+
+/* Transition: Stepped Pixel Dissolve between Tabs */
+html[data-theme="pixel-spec"]:not([data-fx="off"]):not([data-motion="reduced"]) .tab-page.active {
+  animation: pixel-tab-steps 0.18s steps(3) both;
+}
+
+/* Click: Pixel "LEVEL UP!" Badge Burst on Click */
+html[data-theme="pixel-spec"]:not([data-fx="off"]):not([data-motion="reduced"]) .fx-click-burst.is-bursting {
+  position: fixed;
+  left: var(--burst-x, 175px);
+  top: var(--burst-y, 350px);
+  pointer-events: none;
+  z-index: 9999;
+  animation: pixel-level-up-float 0.6s steps(5) forwards;
+}
+
+html[data-theme="pixel-spec"]:not([data-fx="off"]):not([data-motion="reduced"]) .fx-click-burst.is-bursting::after {
+  content: '▲ LEVEL UP!';
+  display: inline-block;
+  background: #111111;
+  color: #00FF00;
+  border: 2px solid #00FF00;
+  padding: 2px 6px;
+  font-family: monospace;
+  font-size: 10px;
+  font-weight: 900;
+  white-space: nowrap;
+  box-shadow: 2px 2px 0 #111111;
+}

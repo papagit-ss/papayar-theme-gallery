@@ -1,0 +1,91 @@
+/* ==========================================================================
+   themes/notebook-sketch.fx.css — Exclusive Effects for Theme 14 (Notebook Sketch)
+   Effects:
+   1. [ambient] کشیده شدن خط دور کارت مثل قلم (sketch-pen-draw)
+   2. [hover] خط‌خطی ماژیکی زیر عنوان در هاور (sketch-title-scribble, RTL)
+   3. [click] تیک دست‌کشیده و پاک‌کن/لکه‌ی جوهر هنگام حذف (sketch-check-eraser)
+   4. [transition] ورق خوردن دفتر هنگام تغییر تب (sketch-page-turn, RTL)
+   ========================================================================== */
+
+@keyframes sketch-page-turn-rtl {
+  0% {
+    opacity: 0;
+    transform: perspective(650px) rotateY(14deg) translateX(8px);
+    transform-origin: right center;
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(650px) rotateY(0deg) translateX(0);
+    transform-origin: right center;
+  }
+}
+
+@keyframes sketch-doodle-rock {
+  0%, 100% { transform: rotate(-1.5deg) translateY(0); }
+  50% { transform: rotate(1.5deg) translateY(-1.5px); }
+}
+
+@keyframes sketch-eraser-rub {
+  0% { transform: translateX(0) rotate(0deg); opacity: 1; }
+  25% { transform: translateX(-5px) rotate(-1.5deg); opacity: 0.7; }
+  50% { transform: translateX(5px) rotate(1.5deg); opacity: 0.45; }
+  75% { transform: translateX(-3px) rotate(-0.8deg); opacity: 0.75; }
+  100% { transform: translateX(0) rotate(0deg); opacity: 1; }
+}
+
+@keyframes sketch-check-pop {
+  0% { opacity: 1; transform: translate(-50%, -50%) scale(0.3) rotate(-15deg); }
+  65% { opacity: 1; transform: translate(-50%, -65%) scale(1.15) rotate(4deg); }
+  100% { opacity: 0; transform: translate(-50%, -85%) scale(1) rotate(0deg); }
+}
+
+/* Ambient: Hand-drawn pen border highlight & gently rocking washi tape */
+html[data-theme="notebook-sketch"][data-fx="full"]:not([data-motion="reduced"]) .active-account-card::before {
+  will-change: transform;
+  animation: sketch-doodle-rock 3.6s ease-in-out infinite;
+}
+
+/* Hover: Hand-drawn Red/Blue Scribble Underline drawn Right-to-Left (RTL) */
+html[data-theme="notebook-sketch"]:not([data-fx="off"]):not([data-motion="reduced"]) .section-title::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  bottom: -3px;
+  height: 4px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='6' viewBox='0 0 120 6' preserveAspectRatio='none'%3E%3Cpath d='M118 3 Q90 0, 60 4 T2 2' fill='none' stroke='%231e4bd1' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+html[data-theme="notebook-sketch"]:not([data-fx="off"]):not([data-motion="reduced"]) .section-header:hover .section-title::after,
+html[data-theme="notebook-sketch"]:not([data-fx="off"]):not([data-motion="reduced"]) .section-title:hover::after {
+  transform: scaleX(1);
+}
+
+/* Click: Hand-Drawn Checkmark Ink Stamp on Click + Eraser Rub Smudge on Delete */
+html[data-theme="notebook-sketch"]:not([data-fx="off"]):not([data-motion="reduced"]) .fx-click-burst.is-bursting {
+  position: fixed;
+  left: var(--burst-x, 175px);
+  top: var(--burst-y, 350px);
+  width: 32px;
+  height: 32px;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M6 17 L13 24 L27 7' fill='none' stroke='%23187a41' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: sketch-check-pop 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+html[data-theme="notebook-sketch"]:not([data-fx="off"]):not([data-motion="reduced"]) .is-fx-alert {
+  animation: sketch-eraser-rub 0.42s ease-in-out;
+}
+
+/* Transition: RTL Notebook Page Turn from the Right Spiral Spine */
+html[data-theme="notebook-sketch"]:not([data-fx="off"]):not([data-motion="reduced"]) .tab-page.active {
+  animation: sketch-page-turn-rtl 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+}

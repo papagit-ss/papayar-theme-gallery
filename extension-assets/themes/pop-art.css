@@ -1,0 +1,205 @@
+/* ==========================================================================
+   Theme 19: pop-art — «کمیک پاپ‌آرت» (Pop-Art Comic Strip & Ben-Day Dots)
+   Halftone Ben-Day dots, heavy ink-black outlines, primary yellow/red/blue
+   ========================================================================== */
+html[data-theme="pop-art"],
+[data-theme="pop-art"] {
+  --bg-deep: #fff6d6;
+  --bg-card: #ffffff;
+  --bg-card-hover: #fffbe8;
+  --bg-input: #ffffff;
+  --bg-modal: #fff6d6;
+  --bg-overlay: rgba(13, 13, 13, 0.78);
+  --bg-page-gradient:
+    radial-gradient(rgba(255, 30, 39, 0.16) 1.5px, transparent 1.5px),
+    radial-gradient(rgba(0, 153, 255, 0.12) 1.5px, #fff6d6 1.5px);
+  --backdrop-blur: none;
+  --tabs-bar-bg: #ffe600;
+  --subchip-bg: #fff0a8;
+
+  --text-primary: #0d0d0d;
+  --text-secondary: #1f1f1f;
+  --text-muted: #404040;
+  --text-input: #0d0d0d;
+  --text-on-accent: #0d0d0d;
+  --text-brand: #0d0d0d;
+  --text-brand-accent: #ff1e27;
+  --text-phone: #0d0d0d;
+
+  --primary-neon: #ffe600;
+  --primary-light: #fff04d;
+  --accent-cyan: #0099ff;
+  --accent-purple: #9b5de5;
+  --accent-emerald: #00c46a;
+  --accent-crimson: #ff1e27;
+  --accent-yellow: #ffe600;
+
+  --semantic-danger: #ff1e27;
+  --semantic-success: #008a4b;
+  --semantic-warning: #d97706;
+
+  --border-subtle: #0d0d0d;
+  --border-glow: #0d0d0d;
+  --border-card-top: #0d0d0d;
+  --border-width: 3px;
+  --border-color: #0d0d0d;
+  --border-input: 2.5px solid #0d0d0d;
+  --border-modal: 3.5px solid #0d0d0d;
+  --border-chip: 2px solid #0d0d0d;
+  --border-subchip: 2px dashed #0d0d0d;
+
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-pill: 999px;
+
+  --card-shadow: 4px 4px 0 #0d0d0d;
+  --card-shadow-hover: 6px 6px 0 #ff1e27;
+  --active-card-shadow: 5px 5px 0 #0099ff, 8px 8px 0 #0d0d0d;
+  --btn-shadow: 3px 3px 0 #0d0d0d;
+  --btn-shadow-hover: 4px 4px 0 #0d0d0d;
+  --glow-pill: none;
+  --glow-dot: none;
+  --modal-shadow: 8px 8px 0 #0d0d0d;
+
+  --btn-transform-hover: translate(-1.5px, -1.5px);
+  --btn-transform-active: translate(2px, 2px);
+
+  --btn-inject-bg: #ffe600;
+  --btn-inject-color: #0d0d0d;
+  --btn-inject-border: 3px solid #0d0d0d;
+
+  --btn-scan-mass-bg: #ff1e27;
+  --btn-scan-mass-color: #ffffff;
+  --btn-scan-mass-border: 3px solid #0d0d0d;
+
+  --btn-gofullpage-bg: #ffffff;
+  --btn-gofullpage-color: #0d0d0d;
+  --btn-gofullpage-border: 2.5px solid #0d0d0d;
+
+  --btn-ai-scan-bg: #0099ff;
+  --btn-ai-scan-color: #ffffff;
+  --btn-ai-scan-border: 2.5px solid #0d0d0d;
+
+  --btn-upload-bg: #ffffff;
+  --btn-upload-color: #0d0d0d;
+  --btn-upload-border: 2.5px solid #0d0d0d;
+
+  --btn-excel-bg: #00e676;
+  --btn-excel-color: #0d0d0d;
+  --btn-excel-border: 2.5px solid #0d0d0d;
+
+  --excel-banner-bg: #ffe600;
+  --excel-banner-color: #0d0d0d;
+  --excel-banner-border: 2.5px solid #0d0d0d;
+
+  --v-code-box-bg: #fff6d6;
+  --v-code-box-border: 2.5px dashed #0d0d0d;
+  --v-code-color: #d60008;
+  --v-pill-meta-bg: #ffe600;
+  --v-pill-meta-color: #0d0d0d;
+
+  --switcher-bg: #ffe600;
+  --switcher-border: 2.5px solid #0d0d0d;
+  --scrollbar-thumb: #ff1e27;
+  --scrollbar-thumb-hover: #0099ff;
+  --scrollbar-track: #fff6d6;
+  --scrollbar-width: 7px;
+  --scrollbar-radius: 0px;
+  --scrollbar-border: 1.5px solid #0d0d0d;
+
+  --flare-display: none;
+  --active-card-topline-display: none;
+  --font-family: 'Vazirmatn', 'Impact', 'Arial Black', sans-serif;
+  --font-mono: ui-monospace, monospace;
+}
+
+[data-theme="pop-art"] body {
+  background-color: var(--bg-deep);
+  background-image: var(--bg-page-gradient);
+  background-size: 14px 14px;
+  background-position: 0 0, 7px 7px;
+}
+
+/* Comic Panel Active Account Card with Ben-Day Halftone Corner & Caption Box */
+[data-theme="pop-art"] .active-account-card {
+  background-color: #ffffff;
+  background-image:
+    radial-gradient(rgba(0, 153, 255, 0.22) 2px, transparent 2px),
+    linear-gradient(135deg, rgba(255, 230, 0, 0.25) 0%, transparent 55%);
+  background-size: 10px 10px, 100% 100%;
+  border: 3px solid #0d0d0d;
+  padding-top: 26px;
+}
+
+[data-theme="pop-art"] .active-account-card::before {
+  content: '★ ISSUE #19 — ACTIVE HERO SESSION!';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: #ffe600;
+  color: #0d0d0d;
+  border-bottom: 2.5px solid #0d0d0d;
+  font-size: 9.5px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  letter-spacing: 0.6px;
+  direction: ltr;
+}
+
+/* Speech Bubble Style for Active Pill & Status Pill */
+[data-theme="pop-art"] .active-pill,
+[data-theme="pop-art"] .gemini-status-pill {
+  background: #ff1e27;
+  color: #ffffff;
+  border: 2px solid #0d0d0d;
+  border-radius: 12px 12px 12px 2px;
+  box-shadow: 2px 2px 0 #0d0d0d;
+  font-weight: 900;
+}
+
+[data-theme="pop-art"] .btn-cyan {
+  background: #0099ff;
+  color: #ffffff;
+  border: 2.5px solid #0d0d0d;
+}
+
+[data-theme="pop-art"] .btn-crimson {
+  background: #ff1e27;
+  color: #ffffff;
+  border: 2.5px solid #0d0d0d;
+}
+
+[data-theme="pop-art"] .btn-neon-green,
+[data-theme="pop-art"] .btn-emerald,
+[data-theme="pop-art"] .btn-launch-power {
+  background: #ffe600;
+  color: #0d0d0d;
+  border: 2.5px solid #0d0d0d;
+}
+
+[data-theme="pop-art"] .nav-tab-item {
+  color: #0d0d0d;
+  font-weight: 800;
+}
+
+[data-theme="pop-art"] .nav-tab-item.active {
+  background: #ff1e27;
+  color: #ffffff;
+  border: 2px solid #0d0d0d;
+  box-shadow: 2px 2px 0 #0d0d0d;
+}
+
+[data-theme="pop-art"] .v-pill-amount {
+  color: #0d0d0d !important;
+  background: #ffe600;
+  border: 1.5px solid #0d0d0d;
+}
+[data-theme="pop-art"] .avatar-glow { background: #ffe600; border: 2.5px solid #0d0d0d; color: #0d0d0d; box-shadow: 2px 2px 0 #0d0d0d; }
+[data-theme="pop-art"] .btn-activate { background: #0099ff; border: 2.5px solid #0d0d0d; color: #ffffff; box-shadow: 2px 2px 0 #0d0d0d; }
+[data-theme="pop-art"] .btn-activate:hover { background: #ff1e27; color: #ffffff; }

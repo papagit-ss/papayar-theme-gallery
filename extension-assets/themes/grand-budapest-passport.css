@@ -1,0 +1,249 @@
+/* ==========================================================================
+   Theme: grand-budapest-passport — پاسپورت دیپلماتیک (Diplomatic Passport & Gold Foil)
+   - Imperial Burgundy/Plum Leather Cover (#4A1224) with Stamped Gold Foil
+     Borders (#D4AF37)
+   - Cream Security Paper Cards (#FCF7EE) with Fine Guilloché Spirograph Lines
+   - Tilted Crimson & Royal-Blue Airport Visa Entry Stamps ("APPROVED")
+   ========================================================================== */
+
+[data-theme="grand-budapest-passport"] {
+  --bg-deep: #4A1224;
+  --bg-card: #FCF7EE;
+  --bg-card-hover: #FFFFFF;
+  --bg-input: #FFFFFF;
+  --bg-modal: #FCF7EE;
+  --bg-overlay: rgba(36, 8, 18, 0.82);
+  --bg-page-gradient:
+    radial-gradient(circle at 50% 20%, #681B34 0%, #4A1224 70%, #330B18 100%);
+  --backdrop-blur: none;
+  --tabs-bar-bg: #3B0E1C;
+  --subchip-bg: #F3E9D6;
+
+  --text-primary: #2B111A;
+  --text-secondary: #4A1E2D;
+  --text-muted: #6E3246;
+  --text-input: #2B111A;
+  --text-on-accent: #FCF7EE;
+  --text-brand: #2B111A;
+  --text-brand-accent: #9E2A2B;
+  --text-phone: #2B111A;
+
+  --primary-neon: #681B34;
+  --primary-light: #D4AF37;
+  --accent-cyan: #1E3A8A;
+  --accent-purple: #681B34;
+  --accent-emerald: #14532D;
+  --accent-crimson: #9E2A2B;
+  --accent-yellow: #B8860B;
+  --semantic-danger: #9E2A2B;
+  --semantic-success: #14532D;
+  --semantic-warning: #92400E;
+
+  --border-subtle: #C59B27;
+  --border-glow: #D4AF37;
+  --border-card-top: #D4AF37;
+  --border-width: 2px;
+  --border-color: #B8860B;
+  --border-input: 2px solid #B8860B;
+  --border-modal: 2.5px solid #D4AF37;
+  --border-chip: 1.5px solid #B8860B;
+  --border-subchip: 1.5px dashed #9E2A2B;
+
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-pill: 999px;
+
+  --card-shadow: 0 6px 18px rgba(25, 5, 12, 0.55), inset 0 0 0 2px rgba(212, 175, 55, 0.35);
+  --card-shadow-hover: 0 8px 22px rgba(25, 5, 12, 0.68), inset 0 0 0 2px #D4AF37;
+  --active-card-shadow: var(--card-shadow);
+  --btn-shadow: 0 3px 0 #330B18;
+  --btn-shadow-hover: 0 4px 0 #330B18;
+  --modal-shadow: 0 20px 44px rgba(0, 0, 0, 0.85);
+  --glow-pill: none;
+  --glow-dot: none;
+
+  --btn-transform-hover: translateY(-1px);
+  --btn-transform-active: translateY(1px);
+
+  --btn-inject-bg: #5B162C;
+  --btn-inject-color: #FDE68A;
+  --btn-inject-border: 2px solid #D4AF37;
+  --btn-scan-mass-bg: #5B162C;
+  --btn-scan-mass-color: #FDE68A;
+  --btn-scan-mass-border: 2px solid #D4AF37;
+  --btn-gofullpage-bg: #1E3A8A;
+  --btn-gofullpage-color: #FFFFFF;
+  --btn-gofullpage-border: 2px solid #D4AF37;
+  --btn-ai-scan-bg: #FFFFFF;
+  --btn-ai-scan-color: #2B111A;
+  --btn-ai-scan-border: 1.5px solid #B8860B;
+  --btn-upload-bg: #FFFFFF;
+  --btn-upload-color: #2B111A;
+  --btn-upload-border: 1.5px solid #B8860B;
+  --btn-excel-bg: #14532D;
+  --btn-excel-color: #FFFFFF;
+  --btn-excel-border: 1.5px solid #D4AF37;
+  --excel-banner-bg: #FDF8EE;
+  --excel-banner-color: #2B111A;
+  --excel-banner-border: 2px solid #B8860B;
+
+  --v-code-box-bg: #F5EBD6;
+  --v-code-box-border: 2px dashed #9E2A2B;
+  --v-code-color: #2B111A;
+  --v-pill-meta-bg: #F5EBD6;
+  --v-pill-meta-color: #4A1E2D;
+
+  --switcher-bg: #F5EBD6;
+  --switcher-border: 1.5px solid #B8860B;
+  --scrollbar-thumb: #D4AF37;
+  --scrollbar-thumb-hover: #FDE68A;
+  --scrollbar-track: #330B18;
+  --scrollbar-width: 5px;
+  --scrollbar-radius: 999px;
+  --scrollbar-border: none;
+
+  --flare-display: none;
+  --active-card-topline-display: none;
+  --font-family: 'Vazirmatn', Georgia, "Times New Roman", serif;
+  --font-mono: "Courier New", ui-monospace, monospace;
+}
+
+[data-theme="grand-budapest-passport"] body {
+  background-color: #4A1224 !important;
+  color: #2B111A;
+}
+
+[data-theme="grand-budapest-passport"] .popup-wrapper {
+  position: relative;
+  padding-top: 28px !important;
+}
+
+[data-theme="grand-budapest-passport"] .popup-wrapper::before {
+  content: "⚜  REPUBLIC OF ZUBROWKA  //  DIPLOMATIC PASSPORT  ⚜";
+  position: absolute;
+  top: 5px;
+  inset-inline: 12px;
+  height: 19px;
+  background: #330B18;
+  color: #FDE68A;
+  border: 1.5px solid #D4AF37;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  font-weight: 800;
+  letter-spacing: 0.9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  direction: ltr;
+}
+
+/* Guilloché Security Paper Cards with Double Gold-Foil Border */
+[data-theme="grand-budapest-passport"] .app-header,
+[data-theme="grand-budapest-passport"] .active-account-card,
+[data-theme="grand-budapest-passport"] .section-container,
+[data-theme="grand-budapest-passport"] .app-footer {
+  background-color: #FCF7EE !important;
+  background-image:
+    repeating-radial-gradient(circle at 0 0, transparent 0, transparent 8px, rgba(184, 134, 11, 0.05) 8px, rgba(184, 134, 11, 0.05) 9px) !important;
+  border: 2px solid #B8860B !important;
+  border-radius: 12px !important;
+  box-shadow: var(--card-shadow) !important;
+}
+
+[data-theme="grand-budapest-passport"] .section-container {
+  padding: 12px !important;
+}
+
+[data-theme="grand-budapest-passport"] .active-account-card::before {
+  display: none !important;
+}
+
+/* Diplomatic Visa Serial Box for Phone Display */
+[data-theme="grand-budapest-passport"] .phone-display {
+  background: #F5EBD6 !important;
+  color: #9E2A2B !important;
+  border: 2px double #B8860B !important;
+  outline: 1.5px dashed #9E2A2B !important;
+  outline-offset: -5px !important;
+  border-radius: 8px !important;
+  padding: 10px 14px !important;
+  margin-block: 8px !important;
+  font-family: var(--font-mono) !important;
+  font-size: 22px !important;
+  font-weight: 900 !important;
+  letter-spacing: 2.5px !important;
+}
+
+[data-theme="grand-budapest-passport"] .quick-profile-card,
+[data-theme="grand-budapest-passport"] .saved-account-card {
+  background: #FFFFFF !important;
+  border: 1.5px solid #B8860B !important;
+  border-radius: 10px !important;
+  box-shadow: 0 3px 0 #D4AF37 !important;
+}
+
+[data-theme="grand-budapest-passport"] .avatar-glow {
+  background: #5B162C !important;
+  color: #FDE68A !important;
+  border: 2px solid #D4AF37 !important;
+}
+
+[data-theme="grand-budapest-passport"] .nav-tabs-bar {
+  background: #330B18 !important;
+  border: 2px solid #D4AF37 !important;
+  border-radius: 10px !important;
+  padding: 4px !important;
+}
+
+[data-theme="grand-budapest-passport"] .nav-tab-item {
+  color: #FDE68A !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="grand-budapest-passport"] .nav-tab-item.active {
+  background: #FCF7EE !important;
+  color: #4A1224 !important;
+  border: 1.5px solid #D4AF37 !important;
+  border-radius: 6px !important;
+  font-weight: 900 !important;
+}
+
+[data-theme="grand-budapest-passport"] .nav-tab-item.active::after {
+  display: none !important;
+}
+
+[data-theme="grand-budapest-passport"] .btn-cyan,
+[data-theme="grand-budapest-passport"] .btn-inject-neon,
+[data-theme="grand-budapest-passport"] .btn-activate,
+[data-theme="grand-budapest-passport"] .btn-v-copy {
+  background: #5B162C !important;
+  color: #FDE68A !important;
+  border: 1.5px solid #D4AF37 !important;
+  border-radius: 6px !important;
+  font-weight: 900 !important;
+  box-shadow: 0 3px 0 #260610 !important;
+}
+
+[data-theme="grand-budapest-passport"] .btn-crimson,
+[data-theme="grand-budapest-passport"] .btn-delete-acc {
+  background: #FFF1F2 !important;
+  color: #9E2A2B !important;
+  border: 1.5px dashed #9E2A2B !important;
+  border-radius: 6px !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="grand-budapest-passport"] .btn-neon-green,
+[data-theme="grand-budapest-passport"] .btn-launch-power,
+[data-theme="grand-budapest-passport"] .status-indicator-box,
+[data-theme="grand-budapest-passport"] .service-tag {
+  background: #F5EBD6 !important;
+  color: #2B111A !important;
+  border: 1.5px solid #B8860B !important;
+  border-radius: 6px !important;
+  padding: 3px 10px !important;
+  font-weight: 800 !important;
+}

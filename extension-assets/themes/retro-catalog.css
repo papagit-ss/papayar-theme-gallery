@@ -1,0 +1,622 @@
+/* ==========================================================================
+   Theme 17: retro-catalog — «کاتالوگ گیم‌بوی» (Retro Gaming Catalog / 4-Shade Olive LCD)
+   Inspired by 4-shade monochrome olive-khaki handheld console catalogs:
+   - Shade 0 (LCD Cream):   #D6D5BD (Highlight #E8E7D5)
+   - Shade 1 (Sage Olive):  #ACAC91
+   - Shade 2 (Deep Khaki):  #6B6B53 (Recessed #575742)
+   - Shade 3 (Pixel Ink):   #222116 (Secondary Ink #3B3A28)
+   ========================================================================== */
+
+html[data-theme="retro-catalog"],
+[data-theme="retro-catalog"] {
+  /* Complete 90-Token Semantic Contract */
+  --bg-deep: #6b6b53;
+  --bg-card: #d6d5bd;
+  --bg-card-hover: #e2e1ca;
+  --bg-input: #e2e1ca;
+  --bg-modal: #d6d5bd;
+  --bg-overlay: rgba(24, 24, 16, 0.78);
+  --bg-page-gradient:
+    /* Subtle 2px pixel LCD matrix over deep olive-khaki */
+    repeating-linear-gradient(0deg, rgba(34, 33, 22, 0.06) 0px, rgba(34, 33, 22, 0.06) 1px, transparent 1px, transparent 3px),
+    repeating-linear-gradient(90deg, rgba(34, 33, 22, 0.05) 0px, rgba(34, 33, 22, 0.05) 1px, transparent 1px, transparent 3px),
+    linear-gradient(180deg, #6e6e56 0%, #65654e 100%);
+  --backdrop-blur: none;
+  --tabs-bar-bg: #acac91;
+  --subchip-bg: #acac91;
+
+  --text-primary: #222116;
+  --text-secondary: #3b3a28;
+  --text-muted: #52513a;
+  --text-input: #222116;
+  --text-on-accent: #d6d5bd;
+  --text-brand: #222116;
+  --text-brand-accent: #222116;
+  --text-phone: #222116;
+
+  --primary-neon: #222116;
+  --primary-light: #3b3a28;
+  --accent-cyan: #222116;
+  --accent-purple: #8c8b70;
+  --accent-emerald: #d6d5bd;
+  --accent-crimson: #41402c;
+  --accent-yellow: #e8e7d5;
+
+  --semantic-danger: #3b231e;
+  --semantic-success: #222116;
+  --semantic-warning: #3b3a28;
+
+  --border-subtle: #41402c;
+  --border-glow: #222116;
+  --border-card-top: #222116;
+  --border-width: 2px;
+  --border-color: #222116;
+  --border-input: 2px solid #222116;
+  --border-modal: 2.5px solid #222116;
+  --border-chip: 2px solid #222116;
+  --border-subchip: 1.5px dashed #222116;
+
+  /* Pure 0px Pixel Geometry */
+  --radius-xs: 0px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-pill: 0px;
+
+  /* Hard Unblurred Offset Drop Shadows & 3D Pixel Bevels */
+  --card-shadow: 4px 4px 0 #222116;
+  --card-shadow-hover: 5px 5px 0 #222116;
+  --active-card-shadow: 5px 5px 0 #222116;
+  --btn-shadow: inset 2px 2px 0 #e8e7d5, inset -2px -2px 0 #575742, 2px 2px 0 #222116;
+  --btn-shadow-hover: inset 2px 2px 0 #f2f1e1, inset -2px -2px 0 #41402c, 3px 3px 0 #222116;
+  --glow-pill: none;
+  --glow-dot: none;
+  --modal-shadow: 6px 6px 0 #222116;
+
+  --btn-transform-hover: translate(-1px, -1px);
+  --btn-transform-active: translate(2px, 2px);
+
+  --btn-inject-bg: #acac91;
+  --btn-inject-color: #222116;
+  --btn-inject-border: 2px solid #222116;
+
+  --btn-scan-mass-bg: #222116;
+  --btn-scan-mass-color: #d6d5bd;
+  --btn-scan-mass-border: 2px solid #222116;
+
+  --btn-gofullpage-bg: #d6d5bd;
+  --btn-gofullpage-color: #222116;
+  --btn-gofullpage-border: 2px solid #222116;
+
+  --btn-ai-scan-bg: #acac91;
+  --btn-ai-scan-color: #222116;
+  --btn-ai-scan-border: 2px solid #222116;
+
+  --btn-upload-bg: #d6d5bd;
+  --btn-upload-color: #222116;
+  --btn-upload-border: 2px solid #222116;
+
+  --btn-excel-bg: #acac91;
+  --btn-excel-color: #222116;
+  --btn-excel-border: 2px solid #222116;
+
+  --excel-banner-bg: #acac91;
+  --excel-banner-color: #222116;
+  --excel-banner-border: 2px solid #222116;
+
+  --v-code-box-bg: #e8e7d5;
+  --v-code-box-border: 2px dashed #222116;
+  --v-code-color: #222116;
+  --v-pill-meta-bg: #acac91;
+  --v-pill-meta-color: #222116;
+
+  --switcher-bg: #d6d5bd;
+  --switcher-border: 2px solid #222116;
+  --scrollbar-thumb: #222116;
+  --scrollbar-thumb-hover: #41402c;
+  --scrollbar-track: #acac91;
+  --scrollbar-width: 6px;
+  --scrollbar-radius: 0px;
+  --scrollbar-border: 1px solid #222116;
+
+  --flare-display: none;
+  --active-card-topline-display: none;
+  --font-family: 'Vazirmatn', ui-monospace, 'Cascadia Mono', 'Courier New', monospace;
+  --font-mono: ui-monospace, 'Cascadia Mono', 'Courier New', monospace;
+}
+
+/* 1. Olive-Khaki Console Body & Wrapper */
+[data-theme="retro-catalog"] body {
+  width: 100%;
+  max-width: 350px;
+  background-color: var(--bg-deep);
+  background-image: var(--bg-page-gradient);
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+[data-theme="retro-catalog"] .popup-wrapper {
+  padding: 10px 12px;
+  gap: 10px;
+}
+
+/* 2. Window Header Bar («Library» Beveled Sage-Olive Bar + Checkerboard Dither Strip) */
+[data-theme="retro-catalog"] .app-header {
+  background-color: #acac91;
+  background-image:
+    /* 6px 2x2 pixel checkerboard dither strip along bottom edge */
+    repeating-conic-gradient(#acac91 0% 25%, #d6d5bd 0% 50%);
+  background-size: 6px 6px;
+  background-repeat: repeat-x;
+  background-position: bottom left;
+  border: 2px solid #222116;
+  box-shadow: inset 2px 2px 0 #e4e3cd, inset -2px -2px 0 #575742, 4px 4px 0 #222116;
+  padding: 8px 8px 13px 8px;
+  position: relative;
+}
+
+[data-theme="retro-catalog"] .brand-title {
+  color: #222116;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 0 #e8e7d5;
+}
+
+[data-theme="retro-catalog"] .brand-title .accent-text {
+  background: #222116;
+  color: #d6d5bd;
+  padding: 0 5px;
+  margin-right: 2px;
+  text-shadow: none;
+}
+
+[data-theme="retro-catalog"] .brand-subtitle {
+  color: #222116;
+  font-weight: 700;
+}
+
+[data-theme="retro-catalog"] .brand-icon-box {
+  background: #d6d5bd;
+  border: 2px solid #222116;
+  box-shadow: inset 2px 2px 0 #e8e7d5, inset -2px -2px 0 #575742, 2px 2px 0 #222116;
+}
+
+/* Theme Picker Button & FX Mode Switch in Header */
+[data-theme="retro-catalog"] .theme-picker-toggle-btn {
+  background: #d6d5bd;
+  color: #222116;
+  border: 2px solid #222116;
+  box-shadow: inset 1.5px 1.5px 0 #e8e7d5, inset -1.5px -1.5px 0 #575742, 2px 2px 0 #222116;
+  font-weight: 800;
+  font-size: 10px;
+  padding: 3px 6px;
+  max-width: 126px;
+}
+
+[data-theme="retro-catalog"] .fx-mode-switch {
+  background: #6b6b53;
+  border: 2px solid #222116;
+  box-shadow: 2px 2px 0 #222116;
+  padding: 1px;
+}
+
+[data-theme="retro-catalog"] .fx-mode-btn {
+  color: #e8e7d5;
+  font-weight: 800;
+}
+
+[data-theme="retro-catalog"] .fx-mode-btn.active {
+  background: #d6d5bd;
+  color: #222116;
+  border: 1px solid #222116;
+}
+
+/* 3. Active Account Card: «Library / Retro Gaming Catalog» Window with Titlebar & Dither Band */
+[data-theme="retro-catalog"] .card,
+[data-theme="retro-catalog"] .quick-profile-card,
+[data-theme="retro-catalog"] .voucher-card,
+[data-theme="retro-catalog"] .voucher-control-card,
+[data-theme="retro-catalog"] .export-box-preview {
+  background-color: #d6d5bd;
+  border: 2px solid #222116;
+  box-shadow: inset 2px 2px 0 #e8e7d5, inset -2px -2px 0 #8c8b70, 4px 4px 0 #222116;
+}
+
+[data-theme="retro-catalog"] .active-account-card {
+  padding-top: 34px;
+  background-color: #d6d5bd;
+  background-image:
+    /* 6px checkerboard dither band directly below the 22px window titlebar */
+    repeating-conic-gradient(#acac91 0% 25%, #d6d5bd 0% 50%),
+    linear-gradient(180deg, #d6d5bd 0%, #cdcba8 100%);
+  background-size: 6px 6px, 100% 100%;
+  background-position: 0 22px, 0 0;
+  background-repeat: repeat-x, no-repeat;
+  border: 2px solid #222116;
+  box-shadow: 5px 5px 0 #222116;
+  position: relative;
+  overflow: hidden;
+}
+
+/* «[◁]  LIBRARY // SESSION  [≡]» Window Titlebar on Active Card */
+[data-theme="retro-catalog"] .active-account-card::before {
+  content: "◁   RETRO CATALOG // ACTIVE   ≡";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 22px;
+  background: #acac91;
+  color: #222116;
+  border-bottom: 2px solid #222116;
+  box-shadow: inset 1.5px 1.5px 0 #e4e3cd, inset -1.5px -1.5px 0 #575742;
+  font: 900 9.5px var(--font-mono);
+  letter-spacing: 0.8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+  direction: ltr;
+}
+
+[data-theme="retro-catalog"] .active-pill {
+  background: #222116;
+  color: #d6d5bd;
+  border: 2px solid #222116;
+  box-shadow: 2px 2px 0 #6b6b53;
+  font-family: var(--font-mono);
+  font-weight: 900;
+  padding: 1px 8px;
+}
+
+[data-theme="retro-catalog"] .status-dot.online {
+  background: #222116;
+  border: 1.5px solid #acac91;
+  outline: 1.5px solid #222116;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+[data-theme="retro-catalog"] .status-text {
+  color: #222116;
+  font-weight: 800;
+}
+
+/* Phone Number Display: Crisp Pixel LCD Readout Box */
+[data-theme="retro-catalog"] .phone-display {
+  font-family: var(--font-mono);
+  font-weight: 900;
+  color: #222116;
+  background: #e4e3cd;
+  border: 2px solid #222116;
+  box-shadow: inset 2px 2px 0 #acac91;
+  padding: 3px 12px;
+  display: block;
+  width: fit-content;
+  margin: 4px auto 2px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+[data-theme="retro-catalog"] .service-tag {
+  color: #3b3a28;
+  font-weight: 800;
+}
+
+/* 4. Beveled 3D Pixel Buttons (Matching WISHLIST / CATALOG / TRADE buttons in reference) */
+[data-theme="retro-catalog"] .btn-pill,
+[data-theme="retro-catalog"] .btn-inject-neon,
+[data-theme="retro-catalog"] .btn-activate,
+[data-theme="retro-catalog"] .btn-launch-power,
+[data-theme="retro-catalog"] .btn-v-copy {
+  background: #acac91;
+  color: #222116;
+  border: 2px solid #222116;
+  box-shadow: var(--btn-shadow);
+  font-weight: 800;
+  border-radius: 0;
+}
+
+[data-theme="retro-catalog"] .btn-cyan,
+[data-theme="retro-catalog"] .btn-v-copy {
+  background: #acac91;
+  color: #222116;
+}
+
+[data-theme="retro-catalog"] .btn-crimson {
+  background: #575742;
+  color: #e8e7d5;
+  box-shadow: inset 2px 2px 0 #8c8b70, inset -2px -2px 0 #222116, 2px 2px 0 #222116;
+}
+
+[data-theme="retro-catalog"] .btn-crimson:hover {
+  background: #222116;
+  color: #d6d5bd;
+}
+
+[data-theme="retro-catalog"] .btn-neon-green,
+[data-theme="retro-catalog"] .btn-emerald,
+[data-theme="retro-catalog"] .btn-launch-power {
+  background: #d6d5bd;
+  color: #222116;
+}
+
+[data-theme="retro-catalog"] .btn-inject-neon {
+  background: #222116;
+  color: #d6d5bd;
+  border: 2px solid #222116;
+  box-shadow: inset 2px 2px 0 #575742, 3px 3px 0 #acac91;
+}
+
+[data-theme="retro-catalog"] .btn-inject-neon:hover {
+  background: #3b3a28;
+  color: #e8e7d5;
+}
+
+[data-theme="retro-catalog"] .btn-pill:hover,
+[data-theme="retro-catalog"] .btn-activate:hover,
+[data-theme="retro-catalog"] .btn-launch-power:hover,
+[data-theme="retro-catalog"] .btn-v-copy:hover {
+  background: #e8e7d5;
+  color: #222116;
+  transform: var(--btn-transform-hover);
+  box-shadow: var(--btn-shadow-hover);
+}
+
+/* 5. Navigation Tabs Bar (WISHLIST / CATALOG / TRADE Toolbar Strip) */
+[data-theme="retro-catalog"] .nav-tabs-bar {
+  background: #acac91;
+  border: 2px solid #222116;
+  box-shadow: inset 2px 2px 0 #d6d5bd, inset -2px -2px 0 #575742, 4px 4px 0 #222116;
+  padding: 4px;
+  gap: 4px;
+}
+
+[data-theme="retro-catalog"] .nav-tab-item {
+  background: #acac91;
+  color: #222116;
+  border: 1.5px solid #41402c;
+  box-shadow: inset 1.5px 1.5px 0 #d6d5bd, inset -1.5px -1.5px 0 #575742;
+  font-weight: 800;
+}
+
+[data-theme="retro-catalog"] .nav-tab-item:hover {
+  background: #d6d5bd;
+  border-color: #222116;
+}
+
+[data-theme="retro-catalog"] .nav-tab-item.active {
+  background: #222116;
+  color: #d6d5bd;
+  border: 1.5px solid #222116;
+  box-shadow: inset 1.5px 1.5px 0 #575742;
+}
+
+[data-theme="retro-catalog"] .nav-tab-item.active::after {
+  display: none;
+}
+
+/* 6. Section Headers & Labels on the #6B6B53 Olive Background */
+[data-theme="retro-catalog"] .section-title {
+  background: #d6d5bd;
+  color: #222116;
+  border: 2px solid #222116;
+  box-shadow: 2px 2px 0 #222116;
+  padding: 1px 8px;
+  font-weight: 800;
+  font-size: 12px;
+}
+
+[data-theme="retro-catalog"] .file-import-link {
+  background: #acac91;
+  color: #222116 !important;
+  border: 1.5px solid #222116;
+  box-shadow: 2px 2px 0 #222116;
+  padding: 1px 7px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+[data-theme="retro-catalog"] .btn-text-danger {
+  background: #575742;
+  color: #e8e7d5 !important;
+  border: 1.5px solid #222116;
+  box-shadow: 2px 2px 0 #222116;
+  padding: 2px 7px;
+  font-weight: 800;
+}
+
+/* 7. Saved Account List Rows (Styled like the Game List with Pixel Square Bullets) */
+[data-theme="retro-catalog"] .saved-account-card {
+  background: #acac91;
+  border: 2px solid #222116;
+  box-shadow: inset 1.5px 1.5px 0 #d6d5bd, inset -1.5px -1.5px 0 #575742, 3px 3px 0 #222116;
+  padding: 8px 10px;
+}
+
+[data-theme="retro-catalog"] .saved-account-card:hover {
+  background: #d6d5bd;
+}
+
+[data-theme="retro-catalog"] .acc-primary-phone {
+  color: #222116;
+  font-family: var(--font-mono);
+  font-weight: 900;
+}
+
+[data-theme="retro-catalog"] .acc-primary-phone::before {
+  content: "■ ";
+  color: #222116;
+  font-size: 10px;
+}
+
+[data-theme="retro-catalog"] .acc-sub-meta {
+  color: #3b3a28;
+  font-weight: 700;
+}
+
+[data-theme="retro-catalog"] .btn-delete-acc {
+  background: #575742;
+  color: #e8e7d5;
+  border: 2px solid #222116;
+  box-shadow: 1.5px 1.5px 0 #222116;
+  border-radius: 0;
+  font-weight: 900;
+}
+
+[data-theme="retro-catalog"] .btn-delete-acc:hover {
+  background: #222116;
+  color: #d6d5bd;
+}
+
+/* Quick Profile Cards */
+[data-theme="retro-catalog"] .avatar-glow {
+  background: #acac91;
+  border: 2px solid #222116;
+  box-shadow: inset 1.5px 1.5px 0 #e8e7d5, 2px 2px 0 #222116;
+  border-radius: 0;
+  color: #222116;
+}
+
+[data-theme="retro-catalog"] .profile-label {
+  color: #222116;
+  font-family: var(--font-mono);
+  font-weight: 800;
+}
+
+/* 8. Inputs, Textareas, Selects & Vouchers Tab */
+[data-theme="retro-catalog"] input,
+[data-theme="retro-catalog"] textarea,
+[data-theme="retro-catalog"] select {
+  background: #e4e3cd;
+  color: #222116;
+  border: 2px solid #222116;
+  box-shadow: inset 2px 2px 0 #8c8b70, 2px 2px 0 #222116;
+  font-weight: 700;
+}
+
+[data-theme="retro-catalog"] input::placeholder,
+[data-theme="retro-catalog"] textarea::placeholder {
+  color: #575742;
+}
+
+[data-theme="retro-catalog"] .gemini-config-card {
+  background: #acac91;
+  border: 2px solid #222116;
+  box-shadow: inset 1.5px 1.5px 0 #d6d5bd, 3px 3px 0 #222116;
+}
+
+[data-theme="retro-catalog"] .ai-title,
+[data-theme="retro-catalog"] .control-label {
+  color: #222116;
+  font-weight: 800;
+}
+
+[data-theme="retro-catalog"] .gemini-status-pill {
+  background: #d6d5bd;
+  color: #222116 !important;
+  border: 1.5px solid #222116;
+  font-weight: 800;
+}
+
+[data-theme="retro-catalog"] .v-chip {
+  background: #acac91;
+  color: #222116;
+  border: 2px solid #222116;
+  box-shadow: inset 1.5px 1.5px 0 #d6d5bd, 2px 2px 0 #222116;
+  font-weight: 800;
+}
+
+[data-theme="retro-catalog"] .v-chip.active {
+  background: #222116;
+  color: #d6d5bd;
+  box-shadow: 2px 2px 0 #acac91;
+}
+
+[data-theme="retro-catalog"] .v-results-bar {
+  background: #acac91;
+  border: 2px solid #222116;
+  box-shadow: 2px 2px 0 #222116;
+  padding: 3px 8px;
+  color: #222116;
+  font-weight: 800;
+}
+
+[data-theme="retro-catalog"] .v-results-bar span,
+[data-theme="retro-catalog"] .btn-text-copy-all {
+  color: #222116 !important;
+  font-weight: 800;
+}
+
+[data-theme="retro-catalog"] .v-badge {
+  background: #222116;
+  color: #d6d5bd;
+  border: 1.5px solid #222116;
+  font-weight: 800;
+}
+
+[data-theme="retro-catalog"] .v-badge.food {
+  background: #41402c;
+  color: #e8e7d5;
+}
+
+[data-theme="retro-catalog"] .v-pill-amount {
+  background: #222116 !important;
+  color: #d6d5bd !important;
+  border: 1.5px solid #222116;
+  font-weight: 800;
+}
+
+[data-theme="retro-catalog"] #tab-export .tab-desc {
+  background: #acac91;
+  color: #222116;
+  border: 2px solid #222116;
+  box-shadow: 3px 3px 0 #222116;
+  padding: 6px 10px;
+  font-weight: 700;
+}
+
+/* 9. Footer Console Status Strip */
+[data-theme="retro-catalog"] .app-footer {
+  background: #acac91;
+  border: 2px solid #222116;
+  box-shadow: 3px 3px 0 #222116;
+  padding: 5px 10px;
+  color: #222116;
+  font-weight: 800;
+}
+
+[data-theme="retro-catalog"] .footer-status-text {
+  color: #222116;
+}
+
+[data-theme="retro-catalog"] .footer-dot {
+  background: #222116;
+  border-radius: 0;
+}
+
+[data-theme="retro-catalog"] .eq-bar,
+[data-theme="retro-catalog"] .eq-mini-bar {
+  background: #222116;
+  border-radius: 0;
+}
+
+[data-theme="retro-catalog"] .control-buttons-row-sub .btn-pill {
+  padding: 5px 4px;
+  font-size: 10.5px;
+  white-space: nowrap;
+}
+
+[data-theme="retro-catalog"] .avatar-glow {
+  filter: grayscale(1) sepia(0.35) contrast(1.3);
+}
+
+[data-theme="retro-catalog"] .accent-val {
+  color: #222116 !important;
+  font-family: var(--font-mono);
+  font-weight: 900;
+  background: #acac91;
+  border: 1.5px solid #222116;
+  padding: 0 6px;
+}

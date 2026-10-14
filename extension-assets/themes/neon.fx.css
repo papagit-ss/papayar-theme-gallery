@@ -1,0 +1,91 @@
+/* ==========================================================================
+   themes/neon.fx.css — Exclusive Effects for Theme 01 (Neon)
+   Effects:
+   1. [ambient] درخشش نبض‌دار لبه‌ی کارت فعال (neon-pulse-border)
+   2. [ambient] سوسوی نئون روی عنوان Papa Yar (neon-title-flicker, <3Hz)
+   3. [hover] جاروی نور روی دکمه در هاور (neon-beam-sweep, RTL-aware)
+   4. [transition] ظهور نوری نئونی هنگام جابه‌جایی تب (neon-tab-glide)
+   ========================================================================== */
+
+@keyframes neon-pulse-opacity {
+  0%, 100% { opacity: 0.35; transform: scale(0.995); }
+  50% { opacity: 0.95; transform: scale(1); }
+}
+
+@keyframes neon-title-flicker {
+  0%, 100% { opacity: 1; }
+  42% { opacity: 0.96; }
+  44% { opacity: 0.72; }
+  46% { opacity: 1; }
+  82% { opacity: 0.92; }
+  85% { opacity: 1; }
+}
+
+@keyframes neon-tab-glide {
+  from { opacity: 0; transform: translateX(-8px) scale(0.99); }
+  to { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+/* Ambient: Pulsing emerald/cyan rim on Active Account Card + subtle ambient aura */
+html[data-theme="neon"][data-fx="full"]:not([data-motion="reduced"]) .active-account-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1.5px solid #34d399;
+  pointer-events: none;
+  will-change: opacity, transform;
+  animation: neon-pulse-opacity 2.8s ease-in-out infinite;
+}
+
+html[data-theme="neon"][data-fx="full"]:not([data-motion="reduced"]) .brand-title .accent-text {
+  display: inline-block;
+  will-change: opacity;
+  animation: neon-title-flicker 4.5s ease-in-out infinite;
+}
+
+html[data-theme="neon"][data-fx="full"]:not([data-motion="reduced"]) .fx-layer .fx-ambient-a {
+  position: fixed;
+  top: -30px;
+  right: 15%;
+  width: 220px;
+  height: 120px;
+  background: radial-gradient(ellipse, rgba(16, 185, 129, 0.14) 0%, rgba(56, 189, 248, 0.06) 50%, transparent 75%);
+  pointer-events: none;
+  will-change: transform, opacity;
+  animation: neon-pulse-opacity 4s ease-in-out infinite;
+}
+
+/* Hover: RTL-aware light sweep across buttons */
+html[data-theme="neon"]:not([data-fx="off"]):not([data-motion="reduced"]) .btn-pill,
+html[data-theme="neon"]:not([data-fx="off"]):not([data-motion="reduced"]) .btn-inject-neon,
+html[data-theme="neon"]:not([data-fx="off"]):not([data-motion="reduced"]) .btn-activate {
+  position: relative;
+  overflow: hidden;
+}
+
+html[data-theme="neon"]:not([data-fx="off"]):not([data-motion="reduced"]) .btn-pill::after,
+html[data-theme="neon"]:not([data-fx="off"]):not([data-motion="reduced"]) .btn-inject-neon::after,
+html[data-theme="neon"]:not([data-fx="off"]):not([data-motion="reduced"]) .btn-activate::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: -45%;
+  width: 40%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: skewX(-20deg) translateX(0);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+html[data-theme="neon"]:not([data-fx="off"]):not([data-motion="reduced"]) .btn-pill:hover::after,
+html[data-theme="neon"]:not([data-fx="off"]):not([data-motion="reduced"]) .btn-inject-neon:hover::after,
+html[data-theme="neon"]:not([data-fx="off"]):not([data-motion="reduced"]) .btn-activate:hover::after {
+  transform: skewX(-20deg) translateX(-340%);
+}
+
+/* Transition: Tab switch glide */
+html[data-theme="neon"]:not([data-fx="off"]):not([data-motion="reduced"]) .tab-page.active {
+  animation: neon-tab-glide 0.22s cubic-bezier(0.22, 1, 0.36, 1) both;
+}

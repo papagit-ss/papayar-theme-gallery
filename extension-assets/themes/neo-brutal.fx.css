@@ -1,0 +1,90 @@
+/* ==========================================================================
+   themes/neo-brutal.fx.css — Exclusive Effects for Theme 02 (Neo-Brutal)
+   Effects:
+   1. [hover] «لرزش استیکری» (wobble) کارت در هاور (brutal-sticker-wobble)
+   2. [ambient] نوار خبری متحرک باریک (marquee) در بالای کارت فعال (brutal-marquee)
+   3. [click] انفجار مربع‌های رنگی (confetti) بعد از عمل موفق (brutal-confetti)
+   ========================================================================== */
+
+@keyframes brutal-wobble {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(-1.5px, -1px) rotate(-1.1deg); }
+  75% { transform: translate(1.5px, -1px) rotate(1.1deg); }
+}
+
+@keyframes brutal-marquee-rtl {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(50%); }
+}
+
+@keyframes brutal-confetti-pop {
+  0% { opacity: 1; transform: translate(-50%, -50%) scale(0.2) rotate(0deg); }
+  70% { opacity: 1; transform: translate(-50%, -50%) scale(1.15) rotate(25deg); }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(1.45) rotate(45deg); }
+}
+
+@keyframes brutal-tab-snap {
+  0% { opacity: 0; transform: translate(4px, 4px); }
+  100% { opacity: 1; transform: translate(0, 0); }
+}
+
+/* Ambient: Narrow Neo-Brutal Marquee Ribbon inside Active Card top edge */
+html[data-theme="neo-brutal"][data-fx="full"]:not([data-motion="reduced"]) .active-account-card {
+  padding-top: 26px;
+}
+
+html[data-theme="neo-brutal"][data-fx="full"]:not([data-motion="reduced"]) .active-account-card::before {
+  content: '★ PAPA YAR SESSION READY ★ SNAPP FAST SWITCH ★ PAPA YAR SESSION READY ★ SNAPP FAST SWITCH ';
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 18px;
+  background: #FDE047;
+  color: #111111;
+  border-bottom: 2px solid #111111;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.8px;
+  white-space: nowrap;
+  direction: ltr;
+  pointer-events: none;
+  will-change: transform;
+  animation: brutal-marquee-rtl 9s linear infinite;
+}
+
+/* Hover: Sticker Wobble on cards */
+html[data-theme="neo-brutal"]:not([data-fx="off"]):not([data-motion="reduced"]) .quick-profile-card:hover,
+html[data-theme="neo-brutal"]:not([data-fx="off"]):not([data-motion="reduced"]) .saved-account-card:hover,
+html[data-theme="neo-brutal"]:not([data-fx="off"]):not([data-motion="reduced"]) .voucher-card:hover {
+  animation: brutal-wobble 0.32s ease-in-out;
+}
+
+/* Click: Colorful Square Confetti Burst */
+html[data-theme="neo-brutal"]:not([data-fx="off"]):not([data-motion="reduced"]) .fx-click-burst.is-bursting {
+  position: fixed;
+  left: var(--burst-x, 175px);
+  top: var(--burst-y, 350px);
+  width: 84px;
+  height: 84px;
+  pointer-events: none;
+  z-index: 9999;
+  background-image:
+    linear-gradient(#A3E635, #A3E635),
+    linear-gradient(#FF6B6B, #FF6B6B),
+    linear-gradient(#5EEAD4, #5EEAD4),
+    linear-gradient(#FDE047, #FDE047),
+    linear-gradient(#C4B5FD, #C4B5FD),
+    linear-gradient(#111111, #111111);
+  background-size: 8px 8px;
+  background-repeat: no-repeat;
+  background-position: 10% 20%, 85% 15%, 15% 80%, 80% 85%, 50% 5%, 50% 95%;
+  animation: brutal-confetti-pop 0.52s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Transition: Tab snap */
+html[data-theme="neo-brutal"]:not([data-fx="off"]):not([data-motion="reduced"]) .tab-page.active {
+  animation: brutal-tab-snap 0.16s steps(3) both;
+}

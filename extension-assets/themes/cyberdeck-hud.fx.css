@@ -1,0 +1,135 @@
+/* ==========================================================================
+   Theme 21 FX: cyberdeck-hud.fx.css — Samurai Cyberdeck Tactical HUD Effects
+   GPU-Compositor Optimized (100% transform/opacity — zero filter/layout thrash):
+   1. Ambient: Scanning telemetry laser line & pulsing radar ring
+   2. Hover: Tactical cyan crosshair reticle following pointer
+   3. Click: Smooth tactical press & octagonal HUD lock pulse
+   4. Transition: Ultra-smooth, instant 60fps tab transition without glitch stutter
+   ========================================================================== */
+
+[data-theme="cyberdeck-hud"] .fx-layer {
+  position: fixed;
+  inset: 0;
+  max-width: 350px;
+  pointer-events: none;
+  z-index: 25;
+  overflow: hidden;
+  contain: strict;
+}
+
+/* 1. AMBIENT: Vertical Tactical Laser Scanline & Radar Ring (GPU transform only) */
+html[data-theme="cyberdeck-hud"][data-fx="full"] .fx-ambient-a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, #E04F4F 25%, #5CE1E6 50%, #E04F4F 75%, transparent 100%);
+  opacity: 0.65;
+  will-change: transform, opacity;
+  animation: cyberdeck-laser-scan 6.5s linear infinite;
+}
+
+html[data-theme="cyberdeck-hud"][data-fx="full"] .fx-ambient-b {
+  position: absolute;
+  right: -45px;
+  bottom: -45px;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(92, 225, 230, 0.22);
+  will-change: transform;
+  animation: cyberdeck-radar-spin 18s linear infinite;
+}
+
+@keyframes cyberdeck-laser-scan {
+  0% { transform: translate3d(0, 0px, 0); opacity: 0.2; }
+  50% { opacity: 0.72; }
+  100% { transform: translate3d(0, 680px, 0); opacity: 0.2; }
+}
+
+@keyframes cyberdeck-radar-spin {
+  from { transform: rotate3d(0, 0, 1, 0deg); }
+  to { transform: rotate3d(0, 0, 1, 360deg); }
+}
+
+/* 2. HOVER: Tactical Cyan Target Reticle */
+html[data-theme="cyberdeck-hud"]:not([data-fx="off"]) .fx-cursor-follower {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 28px;
+  height: 28px;
+  transform: translate3d(calc(var(--fx-mx, 175px) - 14px), calc(var(--fx-my, 220px) - 14px), 0);
+  border: 1px solid rgba(92, 225, 230, 0.55);
+  clip-path: polygon(
+    0 0, 8px 0, 8px 2px, 2px 2px, 2px 8px, 0 8px,
+    0 100%, 8px 100%, 8px calc(100% - 2px), 2px calc(100% - 2px), 2px calc(100% - 8px), 0 calc(100% - 8px),
+    100% 100%, calc(100% - 8px) 100%, calc(100% - 8px) calc(100% - 2px), calc(100% - 2px) calc(100% - 2px), calc(100% - 2px) calc(100% - 8px), 100% calc(100% - 8px),
+    100% 0, calc(100% - 8px) 0, calc(100% - 8px) 2px, calc(100% - 2px) 2px, calc(100% - 2px) 8px, 100% calc(100% - 8px)
+  );
+  will-change: transform;
+  pointer-events: none;
+}
+
+/* 3. CLICK: Smooth Tactical Recoil & Octagonal Target Lock Pulse (60fps eased) */
+html[data-theme="cyberdeck-hud"]:not([data-fx="off"]) .is-fx-clicked {
+  animation: cyberdeck-breach-click 0.20s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+@keyframes cyberdeck-breach-click {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  40% {
+    transform: translate3d(0, 1px, 0) scale(0.98);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+html[data-theme="cyberdeck-hud"]:not([data-fx="off"]) .fx-click-burst.is-bursting {
+  position: fixed;
+  left: var(--burst-x, 175px);
+  top: var(--burst-y, 220px);
+  width: 76px;
+  height: 76px;
+  border: 1.5px solid #5CE1E6;
+  pointer-events: none;
+  z-index: 999;
+  will-change: transform, opacity;
+  animation: cyberdeck-target-burst 0.30s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes cyberdeck-target-burst {
+  0% {
+    transform: translate3d(-50%, -50%, 0) rotate(45deg) scale(0.18);
+    opacity: 0.9;
+    border-color: #5CE1E6;
+  }
+  60% {
+    border-color: #E04F4F;
+  }
+  100% {
+    transform: translate3d(-50%, -50%, 0) rotate(45deg) scale(1);
+    opacity: 0;
+    border-color: #E04F4F;
+  }
+}
+
+/* 4. TRANSITION: Silky-Smooth 60fps Tactical HUD Tab Glide */
+html[data-theme="cyberdeck-hud"]:not([data-fx="off"]) .tab-page.active {
+  animation: cyberdeck-tab-decode 0.15s cubic-bezier(0.22, 1, 0.36, 1) both !important;
+}
+
+@keyframes cyberdeck-tab-decode {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 4px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}

@@ -1,0 +1,38 @@
+/* ==========================================================================
+   themes/dieter-rams.fx.css — Exclusive Effects for Theme 09 (Dieter Rams)
+   Effects:
+   1. [ambient] چراغ LED نبض‌دار (rams-led-pulse)
+   2. [hover] پشت‌ورو شدن ارقام (flip) در نمایشگر (rams-digit-flip)
+   3. [click] فشرده شدن مکانیکی دکمه با سایه‌ی دقیق (rams-mech-press)
+   ========================================================================== */
+
+@keyframes rams-led-breathe {
+  0%, 100% { opacity: 0.45; transform: scale(0.92); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+
+@keyframes rams-split-flap {
+  0% { transform: perspective(300px) rotateX(0deg); }
+  50% { transform: perspective(300px) rotateX(-85deg); opacity: 0.6; }
+  100% { transform: perspective(300px) rotateX(0deg); opacity: 1; }
+}
+
+/* Ambient: Precision Braun Signal LED Pulse */
+html[data-theme="dieter-rams"][data-fx="full"]:not([data-motion="reduced"]) .status-dot.online,
+html[data-theme="dieter-rams"][data-fx="full"]:not([data-motion="reduced"]) .footer-dot {
+  will-change: opacity, transform;
+  animation: rams-led-breathe 2.2s ease-in-out infinite;
+}
+
+/* Hover / Transition: Split-Flap Mechanical Digit Flip on Phone Display & Code */
+html[data-theme="dieter-rams"]:not([data-fx="off"]):not([data-motion="reduced"]) .active-account-card:hover .phone-display,
+html[data-theme="dieter-rams"]:not([data-fx="off"]):not([data-motion="reduced"]) .voucher-card:hover .v-code-text {
+  display: inline-block;
+  animation: rams-split-flap 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Click: Tactile Mechanical Key Travel */
+html[data-theme="dieter-rams"]:not([data-fx="off"]):not([data-motion="reduced"]) button:active,
+html[data-theme="dieter-rams"]:not([data-fx="off"]):not([data-motion="reduced"]) button.is-fx-clicked {
+  transform: translateY(2px) !important;
+}

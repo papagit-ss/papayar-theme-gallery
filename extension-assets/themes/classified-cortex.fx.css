@@ -1,0 +1,80 @@
+/* ==========================================================================
+   Theme 28 FX: classified-cortex.fx.css — Magenta X-Ray Iris & Checker Glitch
+   ========================================================================== */
+
+[data-theme="classified-cortex"] .fx-layer {
+  position: fixed;
+  inset: 0;
+  max-width: 350px;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  contain: strict;
+}
+
+html[data-theme="classified-cortex"][data-fx="full"] .fx-ambient-a {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  top: 24%;
+  left: 28%;
+  border: 1.5px dashed rgba(255, 30, 144, 0.45);
+  border-radius: 50%;
+  animation: cortex-iris-spin 16s linear infinite;
+}
+
+@keyframes cortex-iris-spin {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.06); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+html[data-theme="classified-cortex"]:not([data-fx="off"]) .fx-cursor-follower {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 150px;
+  height: 150px;
+  transform: translate3d(calc(var(--fx-mx, 175px) - 75px), calc(var(--fx-my, 220px) - 75px), 0);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 30, 144, 0.10) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+html[data-theme="classified-cortex"]:not([data-fx="off"]) .is-fx-clicked {
+  animation: cortex-glitch-snap 200ms steps(2) !important;
+}
+
+@keyframes cortex-glitch-snap {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(-2px, 1px); box-shadow: 3px 0 0 #FF1E90, -3px 0 0 #1D4ED8; }
+  100% { transform: translate(0, 0); }
+}
+
+html[data-theme="classified-cortex"]:not([data-fx="off"]) .fx-click-burst.is-bursting {
+  position: fixed;
+  left: var(--burst-x, 175px);
+  top: var(--burst-y, 220px);
+  width: 68px;
+  height: 68px;
+  border: 2px solid #FF1E90;
+  box-shadow: 4px 4px 0 #1D4ED8;
+  pointer-events: none;
+  z-index: 999;
+  animation: cortex-burst 340ms ease-out forwards;
+}
+
+@keyframes cortex-burst {
+  0% { transform: translate3d(-50%, -50%, 0) scale(0.2); opacity: 1; }
+  100% { transform: translate3d(-50%, -50%, 0) scale(1); opacity: 0; }
+}
+
+html[data-theme="classified-cortex"]:not([data-fx="off"]) .tab-page.active {
+  animation: cortex-tab-in 180ms ease-out both !important;
+}
+
+@keyframes cortex-tab-in {
+  0% { opacity: 0; transform: translate3d(0, 4px, 0); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0); }
+}

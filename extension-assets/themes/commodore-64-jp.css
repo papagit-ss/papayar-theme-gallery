@@ -1,0 +1,294 @@
+/* ==========================================================================
+   Theme 31: commodore-64-jp — 1982 Japanese Commodore 64 Poster (コモドール64)
+   Inspired by Image 1 (image_674fa2.jpg):
+   - Pitch-Black Poster Base (#070808) + Vintage Breadbin Keycap Tan (#E8CFA0)
+     + Bold C64 Cyan-Blue (#0A74B8)
+   - Iconic 5-Stripe Diagonal Commodore Rainbow Ribbon (#0A74B8 Blue,
+     #84B826 Green, #F5B81C Yellow, #E86818 Orange, #D93870 Magenta)
+   - Sculpted C64 Breadbin Mechanical Keycap Buttons with 3D Key Stem Shadow
+   - 5 Color-Blocked Bottom/Tab Tiles (SAVE 保存する / LOAD 読み込み / CONNECT つなぐ / ENJOY 楽しむ)
+   ========================================================================== */
+
+[data-theme="commodore-64-jp"] {
+  --bg-deep: #070808;
+  --bg-card: rgba(12, 14, 15, 0.95);
+  --bg-card-hover: rgba(20, 23, 25, 0.98);
+  --bg-input: #0D0F10;
+  --bg-modal: #0E1012;
+  --bg-overlay: rgba(4, 5, 6, 0.88);
+  --bg-page-gradient:
+    linear-gradient(
+      -30deg,
+      transparent 0%, transparent 40%,
+      rgba(10, 116, 184, 0.25) 40%, rgba(10, 116, 184, 0.25) 43%,
+      rgba(132, 184, 38, 0.25) 43%, rgba(132, 184, 38, 0.25) 46%,
+      rgba(245, 184, 28, 0.25) 46%, rgba(245, 184, 28, 0.25) 49%,
+      rgba(232, 104, 24, 0.25) 49%, rgba(232, 104, 24, 0.25) 52%,
+      rgba(217, 56, 112, 0.25) 52%, rgba(217, 56, 112, 0.25) 55%,
+      transparent 55%, transparent 100%
+    ),
+    #070808;
+  --backdrop-blur: none;
+  --tabs-bar-bg: #070808;
+  --subchip-bg: #14171A;
+
+  --text-primary: #E8CFA0;
+  --text-secondary: #CBB082;
+  --text-muted: #9E865E;
+  --text-input: #E8CFA0;
+  --text-on-accent: #070808;
+  --text-brand: #E8CFA0;
+  --text-brand-accent: #0A74B8;
+  --text-phone: #0A74B8;
+
+  --primary-neon: #E8CFA0;
+  --primary-light: #F3DFB8;
+  --accent-cyan: #0A74B8;
+  --accent-purple: #D93870;
+  --accent-emerald: #84B826;
+  --accent-crimson: #E86818;
+  --accent-yellow: #F5B81C;
+  --semantic-danger: #D93870;
+  --semantic-success: #84B826;
+  --semantic-warning: #F5B81C;
+
+  --border-subtle: #E8CFA0;
+  --border-glow: #0A74B8;
+  --border-card-top: #E8CFA0;
+  --border-width: 1.5px;
+  --border-color: #E8CFA0;
+  --border-input: 1.5px solid #0A74B8;
+  --border-modal: 2px solid #E8CFA0;
+  --border-chip: 1.5px solid #E8CFA0;
+  --border-subchip: 1px solid #0A74B8;
+
+  --radius-xs: 3px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-pill: 4px;
+
+  --card-shadow: 0 6px 18px rgba(0, 0, 0, 0.75);
+  --card-shadow-hover: 0 8px 22px rgba(0, 0, 0, 0.85);
+  --active-card-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
+  --btn-shadow: 0 3px 0 #8F764A;
+  --btn-shadow-hover: 0 4px 0 #8F764A;
+  --modal-shadow: 0 20px 44px rgba(0, 0, 0, 0.9);
+  --glow-pill: none;
+  --glow-dot: none;
+
+  --btn-transform-hover: translateY(-1px);
+  --btn-transform-active: translateY(2px);
+
+  --btn-inject-bg: #E8CFA0;
+  --btn-inject-color: #070808;
+  --btn-inject-border: 1.5px solid #F5E4C3;
+  --btn-scan-mass-bg: #0A74B8;
+  --btn-scan-mass-color: #FFFFFF;
+  --btn-scan-mass-border: 1.5px solid #E8CFA0;
+  --btn-gofullpage-bg: #84B826;
+  --btn-gofullpage-color: #070808;
+  --btn-gofullpage-border: 1.5px solid #E8CFA0;
+  --btn-ai-scan-bg: #F5B81C;
+  --btn-ai-scan-color: #070808;
+  --btn-ai-scan-border: 1.5px solid #070808;
+  --btn-upload-bg: #E86818;
+  --btn-upload-color: #070808;
+  --btn-upload-border: 1.5px solid #070808;
+  --btn-excel-bg: #84B826;
+  --btn-excel-color: #070808;
+  --btn-excel-border: 1.5px solid #E8CFA0;
+  --excel-banner-bg: #111518;
+  --excel-banner-color: #F5B81C;
+  --excel-banner-border: 1.5px solid #F5B81C;
+
+  --v-code-box-bg: #0D0F10;
+  --v-code-box-border: 1.5px solid #0A74B8;
+  --v-code-color: #F5B81C;
+  --v-pill-meta-bg: #14181B;
+  --v-pill-meta-color: #E8CFA0;
+
+  --switcher-bg: #111416;
+  --switcher-border: 1.5px solid #E8CFA0;
+  --scrollbar-thumb: #0A74B8;
+  --scrollbar-thumb-hover: #F5B81C;
+  --scrollbar-track: #070808;
+  --scrollbar-width: 5px;
+  --scrollbar-radius: 0px;
+  --scrollbar-border: none;
+
+  --flare-display: none;
+  --active-card-topline-display: none;
+  --font-family: 'Vazirmatn', "Arial Narrow", Impact, sans-serif;
+  --font-mono: "Courier New", ui-monospace, monospace;
+
+  /* 5-Stripe Diagonal C64 Rainbow Ribbon SVG */
+  --c64-rainbow-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='130' viewBox='0 0 320 130'%3E%3Cg transform='rotate(-26 240 60)'%3E%3Crect x='140' y='10' width='240' height='10' fill='%230A74B8' fill-opacity='0.85'/%3E%3Crect x='140' y='22' width='240' height='10' fill='%2384B826' fill-opacity='0.85'/%3E%3Crect x='140' y='34' width='240' height='10' fill='%23F5B81C' fill-opacity='0.85'/%3E%3Crect x='140' y='46' width='240' height='10' fill='%23E86818' fill-opacity='0.85'/%3E%3Crect x='140' y='58' width='240' height='10' fill='%23D93870' fill-opacity='0.85'/%3E%3C/g%3E%3Ctext x='14' y='96' font-family='Impact,sans-serif' font-size='64' font-weight='900' fill='%230A74B8' fill-opacity='0.28'%3E64%3C/text%3E%3C/svg%3E");
+}
+
+[data-theme="commodore-64-jp"] body {
+  background-color: #070808 !important;
+  color: #E8CFA0;
+}
+
+/* Header with Japanese C64 Poster Banner & 5-Color Rainbow Bottom Bar */
+[data-theme="commodore-64-jp"] .app-header {
+  position: relative;
+  padding-top: 24px !important;
+  padding-bottom: 16px !important;
+  background: #0A0C0D !important;
+  border: 1.5px solid #E8CFA0 !important;
+}
+
+[data-theme="commodore-64-jp"] .app-header::before {
+  content: "C= COMMODORE 64  //  コモドール64         1982 日本製";
+  position: absolute;
+  top: 0;
+  inset-inline: 0;
+  height: 18px;
+  padding-inline: 8px;
+  background: #070808 !important;
+  border-bottom: 1px solid #0A74B8;
+  color: #E8CFA0;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  direction: ltr;
+  white-space: pre;
+}
+
+[data-theme="commodore-64-jp"] .app-header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  inset-inline: 0;
+  height: 6px;
+  background: linear-gradient(
+    90deg,
+    #0A74B8 0%, #0A74B8 20%,
+    #84B826 20%, #84B826 40%,
+    #F5B81C 40%, #F5B81C 60%,
+    #E86818 60%, #E86818 80%,
+    #D93870 80%, #D93870 100%
+  );
+}
+
+/* Active Account Card: C64 Breadbin Badge + Diagonal 5-Color Rainbow + Giant "64" */
+[data-theme="commodore-64-jp"] .active-account-card {
+  position: relative;
+  padding-top: 26px !important;
+  background-color: #0A0C0D !important;
+  background-image: var(--c64-rainbow-svg) !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: 100% 100% !important;
+  border: 1.5px solid #E8CFA0 !important;
+}
+
+[data-theme="commodore-64-jp"] .active-account-card::before {
+  content: "C= commodore [≡≡≡] 64        64 KB RAM // SID CHIP" !important;
+  position: absolute !important;
+  top: 0 !important;
+  inset-inline: 0 !important;
+  height: 19px !important;
+  padding-inline: 8px !important;
+  background: #121517 !important;
+  border-bottom: 1.5px solid #E8CFA0 !important;
+  color: #E8CFA0 !important;
+  font-family: var(--font-mono) !important;
+  font-size: 9px !important;
+  font-weight: 800 !important;
+  display: flex !important;
+  align-items: center !important;
+  direction: ltr !important;
+  white-space: pre !important;
+}
+
+[data-theme="commodore-64-jp"] .phone-display {
+  font-family: var(--font-mono) !important;
+  font-size: 23px !important;
+  font-weight: 900 !important;
+  color: #E8CFA0 !important;
+  text-shadow: 2px 2px 0 #0A74B8 !important;
+}
+
+/* Sculpted C64 Breadbin Tan Keycap Buttons (#E8CFA0 with 3D Keycap Bevel) */
+[data-theme="commodore-64-jp"] .btn-cyan,
+[data-theme="commodore-64-jp"] .btn-inject-neon,
+[data-theme="commodore-64-jp"] .btn-activate,
+[data-theme="commodore-64-jp"] .btn-v-copy {
+  background: #E8CFA0 !important;
+  color: #070808 !important;
+  border: 1.5px solid #F7E8C8 !important;
+  border-radius: 4px !important;
+  box-shadow: 0 3px 0 #8F764A, inset 0 1px 0 #FFF6E5 !important;
+  font-weight: 900 !important;
+}
+
+[data-theme="commodore-64-jp"] .btn-crimson,
+[data-theme="commodore-64-jp"] .btn-delete-acc {
+  background: #D93870 !important;
+  color: #FFFFFF !important;
+  border: 1.5px solid #E8CFA0 !important;
+  box-shadow: 0 3px 0 #7A183B !important;
+}
+
+/* Color-Blocked Navigation Tabs Matching the Bottom 5 Tiles (SAVE/LOAD/CONNECT/ENJOY) */
+[data-theme="commodore-64-jp"] .nav-tabs-bar {
+  background: #070808 !important;
+  border: 1.5px solid #E8CFA0 !important;
+  padding: 3px !important;
+  gap: 3px !important;
+}
+
+[data-theme="commodore-64-jp"] .nav-tab-item:nth-of-type(1) {
+  background: #0A74B8 !important;
+  color: #070808 !important;
+  font-weight: 900 !important;
+}
+[data-theme="commodore-64-jp"] .nav-tab-item:nth-of-type(2) {
+  background: #84B826 !important;
+  color: #070808 !important;
+  font-weight: 900 !important;
+}
+[data-theme="commodore-64-jp"] .nav-tab-item:nth-of-type(3) {
+  background: #F5B81C !important;
+  color: #070808 !important;
+  font-weight: 900 !important;
+}
+[data-theme="commodore-64-jp"] .nav-tab-item:nth-of-type(4) {
+  background: #E86818 !important;
+  color: #070808 !important;
+  font-weight: 900 !important;
+}
+
+[data-theme="commodore-64-jp"] .nav-tab-item {
+  opacity: 0.78;
+  border-radius: 2px !important;
+}
+
+[data-theme="commodore-64-jp"] .nav-tab-item.active {
+  opacity: 1 !important;
+  outline: 2px solid #E8CFA0 !important;
+  transform: translateY(-1px) !important;
+}
+
+[data-theme="commodore-64-jp"] .nav-tab-item.active::after {
+  display: none !important;
+}
+
+[data-theme="commodore-64-jp"] .avatar-glow {
+  background: #0A74B8 !important;
+  color: #E8CFA0 !important;
+  border: 1.5px solid #E8CFA0 !important;
+}
+
+[data-theme="commodore-64-jp"] .btn-neon-green,
+[data-theme="commodore-64-jp"] .btn-launch-power {
+  background: #84B826 !important;
+  color: #070808 !important;
+  border: 1.5px solid #E8CFA0 !important;
+  font-weight: 900 !important;
+}
