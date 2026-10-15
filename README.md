@@ -2,7 +2,7 @@
 
 # 🎨 Papa Yar Theme Gallery
 
-![Papa Yar Theme Gallery — 42 themes](assets/theme-wall.png)
+![Papa Yar Theme Gallery — live screenshot](assets/screenshots/gallery-home.png)
 
 **گالری تعاملی ۴۲ تم کامل برای اکستنشن پاپا یار — هر تم با استایل‌شیت، سیستم افکت اختصاصی و ست کامل آیکون**
 *An interactive gallery of 42 complete themes for the Papa Yar Chrome extension — each with its own stylesheet, dedicated effects file, and full icon set.*
@@ -14,6 +14,18 @@
 </div>
 
 ---
+
+## 📸 Screenshots | نمایی از گالری
+
+اسکرین‌شات‌های واقعی از خود گالری در حال اجرا — هر تم با پیش‌نمایش زنده پاپ‌آپ خودش:
+
+<p align="center">
+  <img src="assets/screenshots/theme-neon.png" width="49%" alt="Emerald Neon theme section" />
+  <img src="assets/screenshots/theme-bauhaus.png" width="49%" alt="Bauhaus theme section" />
+</p>
+<p align="center">
+  <img src="assets/screenshots/preview.png" width="80%" alt="Single theme preview page" />
+</p>
 
 ## 🖼️ What is this? | این چیه؟
 
