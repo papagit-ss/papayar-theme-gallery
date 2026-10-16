@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="assets/logo.jpg" width="140" alt="Papa Yar Theme Gallery logo" />
+
 # 🎨 Papa Yar Theme Gallery
 
 ![Papa Yar Theme Gallery — live screenshot](assets/screenshots/gallery-home.png)
